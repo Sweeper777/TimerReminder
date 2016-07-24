@@ -8,5 +8,6 @@ target 'TimerReminder' do
     pod 'XLForm'
     pod 'SwiftyJSON'
     pod 'LTMorphingLabel'
+    pod 'FittableFontLabel'
 end
 

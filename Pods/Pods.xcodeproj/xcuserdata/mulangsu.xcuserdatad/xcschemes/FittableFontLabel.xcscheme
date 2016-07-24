@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D0E95401CA7C65368FAAD0C6'
-               BlueprintName = 'EZSwiftExtensions'
+               BlueprintIdentifier = '159F8CE559698462A9EA4A82'
+               BlueprintName = 'FittableFontLabel'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'EZSwiftExtensions.framework'>
+               BuildableName = 'FittableFontLabel.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

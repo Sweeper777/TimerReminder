@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FittableFontLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>LTMorphingLabel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,7 +37,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>17E0A56A9B64A88A2A1C50E438409FDD</key>
+		<key>10B8576ACFE7064ED00E05732A405432</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>24B87810187983BB34FEA4FBB99F0126</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,17 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>737F2B03B5D44C5D86169F48E4EED043</key>
+		<key>57F21EB71B1A8BB72F63D501479661AC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8EFB44D2DE7C5EB00C3EC386780F54FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>BF529704E2D57A46A0B88D09BCBD9804</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F55AF3F263155B4C2F62C91FD55AAAE1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
