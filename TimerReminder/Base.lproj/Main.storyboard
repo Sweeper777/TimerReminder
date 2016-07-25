@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -60,7 +61,22 @@
                             <constraint firstItem="mEG-Po-lfJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="ybc-b4-9v9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2rJ-VZ-WE2"/>
+                    <navigationItem key="navigationItem" id="2rJ-VZ-WE2">
+                        <rightBarButtonItems>
+                            <barButtonItem image="more" id="QMk-t8-G7Y">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="more:" destination="BYZ-38-t0r" id="ARL-Hl-HuI"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="play" id="yDO-VZ-boI">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </barButtonItem>
+                            <barButtonItem image="restart" id="6QR-ca-i43">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="timerLabel" destination="mEG-Po-lfJ" id="Fgz-7t-ooI"/>
                     </connections>
@@ -70,4 +86,9 @@
             <point key="canvasLocation" x="392" y="306"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="more" width="25" height="25"/>
+        <image name="play" width="25" height="25"/>
+        <image name="restart" width="25" height="25"/>
+    </resources>
 </document>
