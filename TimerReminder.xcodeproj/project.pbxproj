@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A06728D1D45905D007F7AEB /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A06728C1D45905D007F7AEB /* Timer.swift */; };
 		5A067CB91D4490A500238AF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A067CB81D4490A500238AF5 /* AppDelegate.swift */; };
 		5A067CBB1D4490A500238AF5 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A067CBA1D4490A500238AF5 /* TimerViewController.swift */; };
 		5A067CBE1D4490A500238AF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A067CBC1D4490A500238AF5 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		1B3EECEB28D9EA440478DA76 /* Pods_TimerReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimerReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B0EE3C44146CCAA70D1F525 /* Pods-TimerReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimerReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimerReminder/Pods-TimerReminder.release.xcconfig"; sourceTree = "<group>"; };
+		5A06728C1D45905D007F7AEB /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		5A067CB51D4490A500238AF5 /* TimerReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A067CB81D4490A500238AF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A067CBA1D4490A500238AF5 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				5A067CB81D4490A500238AF5 /* AppDelegate.swift */,
 				5A067CBA1D4490A500238AF5 /* TimerViewController.swift */,
+				5A06728C1D45905D007F7AEB /* Timer.swift */,
 				5A067CBC1D4490A500238AF5 /* Main.storyboard */,
 				5A067CC21D4490A500238AF5 /* Assets.xcassets */,
 				5A067CC41D4490A500238AF5 /* LaunchScreen.storyboard */,
@@ -234,6 +237,7 @@
 				5A067CBB1D4490A500238AF5 /* TimerViewController.swift in Sources */,
 				5A067CB91D4490A500238AF5 /* AppDelegate.swift in Sources */,
 				5A067CC11D4490A500238AF5 /* TimerReminder.xcdatamodeld in Sources */,
+				5A06728D1D45905D007F7AEB /* Timer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
