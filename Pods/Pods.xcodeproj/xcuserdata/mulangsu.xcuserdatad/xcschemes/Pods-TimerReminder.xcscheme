@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E1B3DA033F20541728FB7D5E'
+               BlueprintIdentifier = '84C7AE27A34CA329DEE17FEA'
                BlueprintName = 'Pods-TimerReminder'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_TimerReminder.framework'>

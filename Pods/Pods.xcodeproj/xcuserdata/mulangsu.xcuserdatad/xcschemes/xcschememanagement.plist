@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RWDropdownMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,12 +42,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>10B8576ACFE7064ED00E05732A405432</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>24B87810187983BB34FEA4FBB99F0126</key>
+		<key>21C0574C2094F47C492C4C4D0A271EBD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +52,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>57F21EB71B1A8BB72F63D501479661AC</key>
+		<key>8654A33650E2C01E2FF0DA3FDD9E3E9E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -63,6 +63,16 @@
 			<true/>
 		</dict>
 		<key>BF529704E2D57A46A0B88D09BCBD9804</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C37B0D31B03772EE7AC385E4A22EA6C5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C475DA1979B4737CCBC45C05CDBEC754</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -9,5 +9,6 @@ target 'TimerReminder' do
     pod 'SwiftyJSON'
     pod 'LTMorphingLabel'
     pod 'FittableFontLabel'
+    pod 'RWDropdownMenu'
 end
 

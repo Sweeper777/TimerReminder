@@ -2,6 +2,7 @@ PODS:
   - EZSwiftExtensions (1.5)
   - FittableFontLabel (1.1.0)
   - LTMorphingLabel (0.2.1)
+  - RWDropdownMenu (1.0.3)
   - SwiftyJSON (2.3.2)
   - XLForm (3.2.0)
 
@@ -9,6 +10,7 @@ DEPENDENCIES:
   - EZSwiftExtensions
   - FittableFontLabel
   - LTMorphingLabel
+  - RWDropdownMenu
   - SwiftyJSON
   - XLForm
 
@@ -16,6 +18,7 @@ SPEC CHECKSUMS:
   EZSwiftExtensions: fe78d7d4ac34f5c8c36415d4acee49ba67c9732a
   FittableFontLabel: 73df622b21fe2418d93ad8513561bf9580f8fd12
   LTMorphingLabel: 1858358ea38ef4d548e1f58b648b0d08ec3a62ed
+  RWDropdownMenu: c7fda4b7adf4f3f63a46d96359c2f490a7713795
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   XLForm: 2250b4e96ab8ffa5f3355838c79edd90de451782
 

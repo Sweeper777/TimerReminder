@@ -87,6 +87,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-TimerReminder/EZSwiftExtensions.framework"
   install_framework "Pods-TimerReminder/FittableFontLabel.framework"
   install_framework "Pods-TimerReminder/LTMorphingLabel.framework"
+  install_framework "Pods-TimerReminder/RWDropdownMenu.framework"
   install_framework "Pods-TimerReminder/SwiftyJSON.framework"
   install_framework "Pods-TimerReminder/XLForm.framework"
 fi
@@ -94,6 +95,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-TimerReminder/EZSwiftExtensions.framework"
   install_framework "Pods-TimerReminder/FittableFontLabel.framework"
   install_framework "Pods-TimerReminder/LTMorphingLabel.framework"
+  install_framework "Pods-TimerReminder/RWDropdownMenu.framework"
   install_framework "Pods-TimerReminder/SwiftyJSON.framework"
   install_framework "Pods-TimerReminder/XLForm.framework"
 fi
