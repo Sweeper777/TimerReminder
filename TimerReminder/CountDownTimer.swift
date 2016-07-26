@@ -6,7 +6,7 @@ class CountDownTimer: Timer {
     var timer: NSTimer!
     
     func reset() {
-        timer.invalidate()
+        timer?.invalidate()
         timer = nil
         timeLeft = timeToMeasure
         paused = true

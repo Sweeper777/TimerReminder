@@ -7,6 +7,7 @@ import RWDropdownMenu
 class TimerViewController: UIViewController {
     @IBOutlet var timerLabel: LTMorphingLabel!
     var timer: Timer!
+    @IBOutlet var playButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         timerLabel.morphingEffect = .Evaporate
@@ -17,7 +18,21 @@ class TimerViewController: UIViewController {
             self.timerLabel.text = $0.description
             self.timerLabel.fontSizeToFit()
         }, onEnd: nil)
-        timer.start()
+    }
+    
+    @IBAction func play(sender: UIBarButtonItem) {
+        if timer.paused {
+            sender.image = UIImage(named: "pause")
+            timer.start()
+        } else {
+            sender.image = UIImage(named: "play")
+            timer.pause()
+        }
+    }
+    
+    @IBAction func restart(sender: UIBarButtonItem) {
+        timer.reset()
+        playButton.image = UIImage(named: "play")
     }
     
     @IBAction func more(sender: AnyObject) {

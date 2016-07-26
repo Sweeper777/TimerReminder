@@ -44,7 +44,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="00:00">
                                         <attributes>
-                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="17" name="SFUIDisplay-Regular"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -71,13 +71,20 @@
                             </barButtonItem>
                             <barButtonItem image="play" id="yDO-VZ-boI">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="play:" destination="BYZ-38-t0r" id="NSd-mC-ugo"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem image="restart" id="6QR-ca-i43">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="restart:" destination="BYZ-38-t0r" id="aNK-8g-e32"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="playButton" destination="yDO-VZ-boI" id="Ias-SL-sjp"/>
                         <outlet property="timerLabel" destination="mEG-Po-lfJ" id="Fgz-7t-ooI"/>
                     </connections>
                 </viewController>
