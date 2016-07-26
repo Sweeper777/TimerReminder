@@ -9,14 +9,13 @@ class TimerViewController: UIViewController {
     var timer: Timer!
 
     override func viewDidLoad() {
-        timerLabel.morphingEffect = .Fall
+        timerLabel.morphingEffect = .Evaporate
         timerLabel.fontSizeToFit()
         timerLabel.morphingEnabled = true
         
         timer = CountDownTimer(time: 90, onTimerChange: {
             self.timerLabel.text = $0.description
             self.timerLabel.fontSizeToFit()
-            print(self.timerLabel.font.fontName)
         }, onEnd: nil)
         timer.start()
     }
