@@ -12,7 +12,7 @@
         <attribute name="regularReminderInterval" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="timesUpMessage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timesUpSound" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="reminders" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Reminder" inverseName="timer" inverseEntity="Reminder" syncable="YES"/>
+        <relationship name="reminders" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Reminder" inverseName="timer" inverseEntity="Reminder" syncable="YES"/>
     </entity>
     <elements>
         <element name="Reminder" positionX="-63" positionY="-18" width="128" height="90"/>
