@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Automatic">
-    <entity name="Reminder" syncable="YES">
+    <entity name="Reminder" representedClassName=".Reminder" syncable="YES">
         <attribute name="customRemindMessage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="remindTimeFrame" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="timer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimerEntity" inverseName="reminders" inverseEntity="TimerEntity" syncable="YES"/>
     </entity>
-    <entity name="TimerEntity" syncable="YES">
+    <entity name="TimerEntity" representedClassName=".TimerEntity" syncable="YES">
         <attribute name="beepSounds" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="countDownTime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
