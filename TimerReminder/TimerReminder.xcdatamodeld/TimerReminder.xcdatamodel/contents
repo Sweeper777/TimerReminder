@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Automatic">
+    <entity name="Reminder" syncable="YES">
+        <attribute name="customRemindMessage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remindTimeFrame" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="timer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimerEntity" inverseName="reminders" inverseEntity="TimerEntity" syncable="YES"/>
+    </entity>
+    <entity name="TimerEntity" syncable="YES">
+        <attribute name="beepSounds" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="countDownTime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="regularReminderInterval" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="timesUpMessage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timesUpSound" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="reminders" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Reminder" inverseName="timer" inverseEntity="Reminder" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Reminder" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="TimerEntity" positionX="-54" positionY="-9" width="128" height="150"/>
+    </elements>
 </model>
