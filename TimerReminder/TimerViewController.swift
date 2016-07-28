@@ -4,19 +4,25 @@ import FittableFontLabel
 import EZSwiftExtensions
 import RWDropdownMenu
 
-class TimerViewController: UIViewController {
+class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     @IBOutlet var timerLabel: LTMorphingLabel!
     var timer: Timer!
     @IBOutlet var playButton: UIBarButtonItem!
+    
+    var labelSize: CGSize {
+        let original = timerLabel.bounds.size
+        return CGSize(width: original.width - 50, height: original.height)
+    }
 
     override func viewDidLoad() {
+        timerLabel.delegate = self
         timerLabel.morphingEffect = .Evaporate
-        timerLabel.fontSizeToFit()
+        timerLabel.fontSizeToFit(rectSize: labelSize)
         timerLabel.morphingEnabled = true
         
-        timer = CountDownTimer(time: 90, onTimerChange: {
+        timer = CountDownTimer(time: 5, onTimerChange: {
             self.timerLabel.text = $0.description
-            self.timerLabel.fontSizeToFit()
+//            self.timerLabel.fontSizeToFit()
         }, onEnd: nil)
     }
     
@@ -55,8 +61,13 @@ class TimerViewController: UIViewController {
         if let vc = segue.sourceViewController as? SetTimerController {
             timer = CountDownTimer(time: vc.selectedTimeInterval!, onTimerChange: {
                 self.timerLabel.text = $0.description
-                self.timerLabel.fontSizeToFit()
+//                self.timerLabel.fontSizeToFit()
                 }, onEnd: nil)
+            timerLabel.fontSizeToFit(rectSize: labelSize)
         }
+    }
+    
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        timerLabel.fontSizeToFit(rectSize: labelSize)
     }
 }

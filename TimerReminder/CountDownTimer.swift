@@ -14,6 +14,10 @@ class CountDownTimer: Timer {
     }
     
     func start() {
+        if timeLeft <= 0 {
+            return
+        }
+        
         timer = NSTimer.runThisEvery(seconds: 1) {
             _ in
             self.timeLeft -= 1
@@ -41,11 +45,22 @@ class CountDownTimer: Timer {
     var description: String {
         get {
             let intInterval = Int(timeLeft)
-            let minutes = intInterval / 60
-            let seconds = intInterval % 60
-            let paddedMinutes = minutes.description.padLeft(character: "0", length: 2)
-            let paddedSeconds = seconds.description.padLeft(character: "0", length: 2)
-            return "\(paddedMinutes):\(paddedSeconds)"
+            if timeToMeasure <= 3600 {
+                let minutes = intInterval / 60
+                let seconds = intInterval % 60
+                let paddedMinutes = minutes.description.padLeft(character: "0", length: 2)
+                let paddedSeconds = seconds.description.padLeft(character: "0", length: 2)
+                return "\(paddedMinutes):\(paddedSeconds)"
+            } else {
+                let hours = intInterval / 60 / 60
+                let minutes = intInterval % 3600 / 60
+                let seconds = intInterval % 60
+                
+                let paddedHours = hours.description.padLeft(character: "0", length: 2)
+                let paddedMinutes = minutes.description.padLeft(character: "0", length: 2)
+                let paddedSeconds = seconds.description.padLeft(character: "0", length: 2)
+                return "\(paddedHours):\(paddedMinutes):\(paddedSeconds)"
+            }
         }
     }
     
