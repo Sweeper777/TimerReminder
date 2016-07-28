@@ -5,6 +5,10 @@ class CountDownTimer: Timer {
     let timeToMeasure: NSTimeInterval
     var timer: NSTimer?
     
+    var ended: Bool {
+        return timeLeft <= 0
+    }
+    
     func reset() {
         timer?.invalidate()
         timer = nil
@@ -14,7 +18,7 @@ class CountDownTimer: Timer {
     }
     
     func start() {
-        if timeLeft <= 0 {
+        if ended {
             return
         }
         

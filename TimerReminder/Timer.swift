@@ -6,6 +6,7 @@ protocol Timer: CustomStringConvertible {
     func pause()
     
     var paused: Bool { get }
+    var ended: Bool { get }
     
     var onEnd: ((Timer) -> Void)? { get }
     var onTimerChange: ((Timer) -> Void)? { get }

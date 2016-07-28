@@ -27,6 +27,10 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     }
     
     @IBAction func play(sender: UIBarButtonItem) {
+        if timer.ended {
+            return
+        }
+        
         if timer.paused {
             sender.image = UIImage(named: "pause")
             timer.start()
