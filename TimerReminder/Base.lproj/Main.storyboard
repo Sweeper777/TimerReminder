@@ -86,11 +86,75 @@
                     <connections>
                         <outlet property="playButton" destination="yDO-VZ-boI" id="Ias-SL-sjp"/>
                         <outlet property="timerLabel" destination="mEG-Po-lfJ" id="Fgz-7t-ooI"/>
+                        <segue destination="LVp-DH-RsJ" kind="presentation" identifier="showSetTimer" id="TwS-Ha-VvY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="6gf-lf-dXb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="392" y="306"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8dQ-3c-pPS">
+            <objects>
+                <navigationController id="LVp-DH-RsJ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MCP-gR-umF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="J1G-ft-dxD" kind="relationship" relationship="rootViewController" id="sH2-F7-701"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ej-PP-Gxp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1096" y="-471"/>
+        </scene>
+        <!--Set Timer-->
+        <scene sceneID="QWh-a9-NaM">
+            <objects>
+                <viewController id="J1G-ft-dxD" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lgQ-EF-Btw"/>
+                        <viewControllerLayoutGuide type="bottom" id="L9M-36-ojp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oeB-I3-OCI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLY-J2-tkW">
+                                <rect key="frame" x="20" y="72" width="560" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="agJ-h6-ugY"/>
+                                </constraints>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aLY-J2-tkW" firstAttribute="leading" secondItem="oeB-I3-OCI" secondAttribute="leadingMargin" id="GlC-pe-oqN"/>
+                            <constraint firstItem="aLY-J2-tkW" firstAttribute="top" secondItem="lgQ-EF-Btw" secondAttribute="bottom" constant="8" symbolic="YES" id="LbS-r9-aZc"/>
+                            <constraint firstItem="aLY-J2-tkW" firstAttribute="trailing" secondItem="oeB-I3-OCI" secondAttribute="trailingMargin" id="Z7F-sj-9Lt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Set Timer" id="Kds-0f-3uV">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Eac-fa-v56">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="o91-Af-cq0">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="6gf-lf-dXb" kind="unwind" unwindAction="unwindFromSetTimer:" id="bJJ-rD-q44"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tX9-Ld-KOl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1807" y="-471"/>
         </scene>
     </scenes>
     <resources>

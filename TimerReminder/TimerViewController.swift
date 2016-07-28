@@ -44,10 +44,14 @@ class TimerViewController: UIViewController {
                 
             },
             RWDropdownMenuItem(text: NSLocalizedString("Set Timer", comment: ""), image: UIImage(named: "timer")) {
-                
+                self.performSegueWithIdentifier("showSetTimer", sender: self)
             }
         ]
         
         RWDropdownMenu.presentFromViewController(self, withItems: menuItems, align: .Right, style: .Translucent, navBarImage: nil, completion: nil)
+    }
+    
+    @IBAction func unwindFromSetTimer(segue: UIStoryboardSegue) {
+        
     }
 }
