@@ -3,7 +3,7 @@ import Foundation
 class CountDownTimer: Timer {
     var timeLeft: NSTimeInterval
     let timeToMeasure: NSTimeInterval
-    var timer: NSTimer!
+    var timer: NSTimer?
     
     func reset() {
         timer?.invalidate()
@@ -21,7 +21,7 @@ class CountDownTimer: Timer {
             if self.timeLeft <= 0 {
                 self.onEnd?(self)
                 self.paused = true
-                self.timer.invalidate()
+                self.timer?.invalidate()
             }
         }
         self.paused = false
@@ -58,7 +58,7 @@ class CountDownTimer: Timer {
     }
     
     deinit {
-        timer.invalidate()
+        timer?.invalidate()
     }
 }
 

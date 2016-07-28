@@ -52,6 +52,11 @@ class TimerViewController: UIViewController {
     }
     
     @IBAction func unwindFromSetTimer(segue: UIStoryboardSegue) {
-        
+        if let vc = segue.sourceViewController as? SetTimerController {
+            timer = CountDownTimer(time: vc.selectedTimeInterval!, onTimerChange: {
+                self.timerLabel.text = $0.description
+                self.timerLabel.fontSizeToFit()
+                }, onEnd: nil)
+        }
     }
 }

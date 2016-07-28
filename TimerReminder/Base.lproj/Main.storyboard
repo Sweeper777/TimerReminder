@@ -86,7 +86,7 @@
                     <connections>
                         <outlet property="playButton" destination="yDO-VZ-boI" id="Ias-SL-sjp"/>
                         <outlet property="timerLabel" destination="mEG-Po-lfJ" id="Fgz-7t-ooI"/>
-                        <segue destination="LVp-DH-RsJ" kind="presentation" identifier="showSetTimer" id="TwS-Ha-VvY"/>
+                        <segue destination="LVp-DH-RsJ" kind="presentation" identifier="showSetTimer" modalPresentationStyle="formSheet" id="TwS-Ha-VvY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -117,7 +117,7 @@
         <!--Set Timer-->
         <scene sceneID="QWh-a9-NaM">
             <objects>
-                <viewController id="J1G-ft-dxD" sceneMemberID="viewController">
+                <viewController id="J1G-ft-dxD" customClass="SetTimerController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lgQ-EF-Btw"/>
                         <viewControllerLayoutGuide type="bottom" id="L9M-36-ojp"/>
@@ -127,10 +127,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLY-J2-tkW">
-                                <rect key="frame" x="20" y="72" width="560" height="216"/>
+                                <rect key="frame" x="20" y="52" width="560" height="216"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="216" id="agJ-h6-ugY"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="J1G-ft-dxD" id="MlX-Ct-Tte"/>
+                                    <outlet property="delegate" destination="J1G-ft-dxD" id="jQC-vu-krj"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -143,6 +147,9 @@
                     <navigationItem key="navigationItem" title="Set Timer" id="Kds-0f-3uV">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Eac-fa-v56">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancel:" destination="J1G-ft-dxD" id="mIm-th-iKV"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="o91-Af-cq0">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -151,6 +158,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="timeIntervalPicker" destination="aLY-J2-tkW" id="ngW-E3-6MR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tX9-Ld-KOl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
