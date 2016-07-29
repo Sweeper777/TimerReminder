@@ -17,7 +17,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     override func viewDidLoad() {
         timerLabel.delegate = self
         timerLabel.morphingEffect = .Evaporate
-        timerLabel.fontSizeToFit(rectSize: labelSize)
+        timerLabel.fontSizeToFit(rectSize: labelSize, maxFontSize: 500)
         timerLabel.morphingEnabled = true
         
         timer = CountDownTimer(time: 5, onTimerChange: {
@@ -67,11 +67,11 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
                 self.timerLabel.text = $0.description
 //                self.timerLabel.fontSizeToFit()
                 }, onEnd: nil)
-            timerLabel.fontSizeToFit(rectSize: labelSize)
+            timerLabel.fontSizeToFit(rectSize: labelSize, maxFontSize: 500)
         }
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        timerLabel.fontSizeToFit(rectSize: labelSize)
+        timerLabel.fontSizeToFit(rectSize: labelSize, maxFontSize: 500)
     }
 }
