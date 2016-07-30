@@ -9,21 +9,21 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     var timer: Timer!
     @IBOutlet var playButton: UIBarButtonItem!
     
-    var labelSize: CGSize {
-        let original = timerLabel.bounds.size
-        return CGSize(width: original.width - 50, height: original.height)
-    }
+//    var labelSize: CGSize {
+//        let original = timerLabel.bounds.size
+//        return CGSize(width: original.width - 50, height: original.height)
+//    }
 
     override func viewDidLoad() {
         timerLabel.delegate = self
         timerLabel.morphingEffect = .Evaporate
-        timerLabel.fontSizeToFit(rectSize: labelSize, maxFontSize: 500)
         timerLabel.morphingEnabled = true
         
-        timer = CountDownTimer(time: 5, onTimerChange: {
+        timer = CountDownTimer(time: 60, onTimerChange: {
             self.timerLabel.text = $0.description
 //            self.timerLabel.fontSizeToFit()
         }, onEnd: nil)
+        timerLabel.fontSizeToFit(maxFontSize: 500)
     }
     
     @IBAction func play(sender: UIBarButtonItem) {
@@ -67,11 +67,11 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
                 self.timerLabel.text = $0.description
 //                self.timerLabel.fontSizeToFit()
                 }, onEnd: nil)
-            timerLabel.fontSizeToFit(rectSize: labelSize, maxFontSize: 500)
+            timerLabel.fontSizeToFit(maxFontSize: 500)
         }
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        timerLabel.fontSizeToFit(rectSize: labelSize, maxFontSize: 500)
+        timerLabel.fontSizeToFit(maxFontSize: 500)
     }
 }

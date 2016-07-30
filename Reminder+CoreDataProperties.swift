@@ -5,6 +5,6 @@ extension Reminder {
 
     @NSManaged var remindTimeFrame: NSNumber?
     @NSManaged var customRemindMessage: String?
-    @NSManaged var timer: TimerEntity?
+    @NSManaged var timer: TimerOptions?
 
 }

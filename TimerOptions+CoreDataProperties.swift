@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-extension TimerEntity {
+extension TimerOptions {
 
     @NSManaged var name: String?
     @NSManaged var beepSounds: NSNumber?
