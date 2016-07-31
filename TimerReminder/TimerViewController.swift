@@ -9,6 +9,11 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     var timer: Timer!
     @IBOutlet var playButton: UIBarButtonItem!
     
+    var shortFontSize: CGFloat!
+    var longFontSize: CGFloat!
+    
+    var initializedFontSizes = false
+    
 //    var labelSize: CGSize {
 //        let original = timerLabel.bounds.size
 //        return CGSize(width: original.width - 50, height: original.height)
@@ -20,14 +25,17 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
         timerLabel.morphingEnabled = true
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-//        timer = CountDownTimer(time: 60, onTimerChange: {
-//            self.timerLabel.text = $0.description
-////            self.timerLabel.fontSizeToFit()
-//        }, onEnd: nil)
-        let size = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
-        timerLabel.font = timerLabel.font.fontWithSize(size)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if !initializedFontSizes {
+            shortFontSize = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
+            longFontSize = timerLabel.fontSizeThatFits(text: "00:00:00", maxFontSize: 500)
+            timerLabel.font = timerLabel.font.fontWithSize(shortFontSize)
+            timer = CountDownTimer(time: 60, onTimerChange: {
+                self.timerLabel.text = $0.description
+                }, onEnd: nil)
+            initializedFontSizes = true
+        }
     }
     
     @IBAction func play(sender: UIBarButtonItem) {
@@ -67,15 +75,25 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     
     @IBAction func unwindFromSetTimer(segue: UIStoryboardSegue) {
         if let vc = segue.sourceViewController as? SetTimerController {
+            if vc.selectedTimeInterval! >= 3601 {
+                timerLabel.font = timerLabel.font.fontWithSize(longFontSize)
+            } else {
+                timerLabel.font = timerLabel.font.fontWithSize(shortFontSize)
+            }
+            
             timer = CountDownTimer(time: vc.selectedTimeInterval!, onTimerChange: {
                 self.timerLabel.text = $0.description
-//                self.timerLabel.fontSizeToFit()
                 }, onEnd: nil)
-            timerLabel.fontSizeToFit(maxFontSize: 500)
+            timerLabel.font = timerLabel.font.fontWithSize(timer.hasLongDescription ? longFontSize : shortFontSize)
         }
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        timerLabel.fontSizeToFit(maxFontSize: 500)
+        let textCache = timerLabel.text
+        timerLabel.text = "00:00"
+        shortFontSize = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
+        longFontSize = timerLabel.fontSizeThatFits(text: "00:00:00", maxFontSize: 500)
+        timerLabel.font = timerLabel.font.fontWithSize(timer.hasLongDescription ? longFontSize : shortFontSize)
+        timerLabel.text = textCache
     }
 }
