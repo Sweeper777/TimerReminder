@@ -18,12 +18,16 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
         timerLabel.delegate = self
         timerLabel.morphingEffect = .Evaporate
         timerLabel.morphingEnabled = true
-        
-        timer = CountDownTimer(time: 60, onTimerChange: {
-            self.timerLabel.text = $0.description
-//            self.timerLabel.fontSizeToFit()
-        }, onEnd: nil)
-        timerLabel.fontSizeToFit(maxFontSize: 500)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+//        timer = CountDownTimer(time: 60, onTimerChange: {
+//            self.timerLabel.text = $0.description
+////            self.timerLabel.fontSizeToFit()
+//        }, onEnd: nil)
+        let size = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
+        timerLabel.font = timerLabel.font.fontWithSize(size)
     }
     
     @IBAction func play(sender: UIBarButtonItem) {
