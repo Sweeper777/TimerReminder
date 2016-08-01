@@ -4,6 +4,12 @@ class CountDownTimer: Timer {
     var timeLeft: NSTimeInterval
     let timeToMeasure: NSTimeInterval
     var timer: NSTimer?
+    var paused = true
+    var onEnd: ((Timer) -> Void)?
+    var onTimerChange: ((Timer) -> Void)?
+    var options: TimerOptions?
+    let canCountDown = true
+    let canBeSet = true
     
     var ended: Bool {
         return timeLeft <= 0
@@ -40,11 +46,6 @@ class CountDownTimer: Timer {
         timer = nil
         paused = true
     }
-    
-    var paused = true
-    
-    var onEnd: ((Timer) -> Void)?
-    var onTimerChange: ((Timer) -> Void)?
     
     var description: String {
         get {
