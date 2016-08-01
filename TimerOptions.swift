@@ -3,7 +3,17 @@ import CoreData
 
 
 class TimerOptions: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
-
+    static let defaultOptions: TimerOptions = {
+        let options = TimerOptions()
+        options.name = "Default"
+        return options
+    }()
+    
+    func initializeWithDefvalues() {
+        self.name = "Unnamed"
+        self.beepSounds = false
+        self.countDownTime = 10
+        self.reminders = NSOrderedSet()
+        self.timesUpMessage = "Time is up"
+    }
 }
