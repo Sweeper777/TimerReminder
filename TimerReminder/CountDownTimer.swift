@@ -1,13 +1,27 @@
-import Foundation
+import AVFoundation
 
 class CountDownTimer: Timer {
+    var beepSoundPlayer: AVAudioPlayer?
     var timeLeft: NSTimeInterval
     let timeToMeasure: NSTimeInterval
     var timer: NSTimer?
     var paused = true
     var onEnd: ((Timer) -> Void)?
     var onTimerChange: ((Timer) -> Void)?
-    var options: TimerOptions?
+    
+    var options: TimerOptions? {
+        willSet {
+            guard let enableBeep = newValue?.beepSounds?.boolValue else {
+                return
+            }
+            
+            if enableBeep && beepSoundPlayer == nil {
+                beepSoundPlayer = try! AVAudioPlayer(contentsOfURL: NSBundle.mainBundle().URLForResource("beep", withExtension: ".mp3")!)
+                beepSoundPlayer?.prepareToPlay()
+            }
+        }
+    }
+    
     let canCountDown = true
     let canBeSet = true
     
@@ -31,6 +45,13 @@ class CountDownTimer: Timer {
         timer = NSTimer.runThisEvery(seconds: 1) {
             _ in
             self.timeLeft -= 1
+            
+            if let enableBeep = self.options?.beepSounds?.boolValue {
+                if enableBeep {
+                    self.beepSoundPlayer?.play()
+                }
+            }
+            
             self.onTimerChange?(self)
             if self.timeLeft <= 0 {
                 self.onEnd?(self)
@@ -69,11 +90,12 @@ class CountDownTimer: Timer {
         }
     }
     
-    init(time: NSTimeInterval, onTimerChange: ((Timer) -> Void)?, onEnd: ((Timer) -> Void)?) {
+    init(time: NSTimeInterval, options: TimerOptions? = nil, onTimerChange: ((Timer) -> Void)?, onEnd: ((Timer) -> Void)?) {
         self.timeLeft = time
         self.timeToMeasure = time
         self.onEnd = onEnd
         self.onTimerChange = onTimerChange
+        self.options = options ?? TimerOptions.defaultOptions
         onTimerChange?(self)
     }
     
