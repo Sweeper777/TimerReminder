@@ -10,8 +10,8 @@ class CountDownTimer: Timer {
     var onTimerChange: ((Timer) -> Void)?
     
     var options: TimerOptions? {
-        willSet {
-            guard let enableBeep = newValue?.beepSounds?.boolValue else {
+        didSet {
+            guard let enableBeep = options?.beepSounds?.boolValue else {
                 return
             }
             
@@ -90,12 +90,16 @@ class CountDownTimer: Timer {
         }
     }
     
+    private func setTimerOptions(options: TimerOptions) {
+        self.options = options
+    }
+    
     init(time: NSTimeInterval, options: TimerOptions? = nil, onTimerChange: ((Timer) -> Void)?, onEnd: ((Timer) -> Void)?) {
         self.timeLeft = time
         self.timeToMeasure = time
         self.onEnd = onEnd
         self.onTimerChange = onTimerChange
-        self.options = options ?? TimerOptions.defaultOptions
+        self.setTimerOptions(options ?? TimerOptions.defaultOptions)
         onTimerChange?(self)
     }
     
