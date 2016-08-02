@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2467A8747BF6557031FAEF87 /* Pods_TimerReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CA6FEE5CF6A6DF96E63943 /* Pods_TimerReminder.framework */; };
 		5A0135A21D470B90008A0F1D /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A01359E1D470B90008A0F1D /* Reminder.swift */; };
 		5A0135A31D470B90008A0F1D /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A01359F1D470B90008A0F1D /* Reminder+CoreDataProperties.swift */; };
 		5A0135A41D470B90008A0F1D /* TimerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0135A01D470B90008A0F1D /* TimerOptions.swift */; };
@@ -27,12 +28,10 @@
 		5A067CD31D44922800238AF5 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A067CCF1D44922800238AF5 /* SwiftyJSON.framework */; };
 		5A067CD41D44922800238AF5 /* XLForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A067CD01D44922800238AF5 /* XLForm.framework */; };
 		5A9608E71D498728001EE17F /* SetTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9608E61D498728001EE17F /* SetTimerController.swift */; };
-		CF4A5525EE3A50D0DF9D3A85 /* Pods_TimerReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3EECEB28D9EA440478DA76 /* Pods_TimerReminder.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1B3EECEB28D9EA440478DA76 /* Pods_TimerReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimerReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B0EE3C44146CCAA70D1F525 /* Pods-TimerReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimerReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimerReminder/Pods-TimerReminder.release.xcconfig"; sourceTree = "<group>"; };
+		3BF493DE68A022FAB9B68EB3 /* Pods-TimerReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimerReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimerReminder/Pods-TimerReminder.release.xcconfig"; sourceTree = "<group>"; };
 		5A01359E1D470B90008A0F1D /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = SOURCE_ROOT; };
 		5A01359F1D470B90008A0F1D /* Reminder+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		5A0135A01D470B90008A0F1D /* TimerOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerOptions.swift; sourceTree = SOURCE_ROOT; };
@@ -56,7 +55,8 @@
 		5A067CD01D44922800238AF5 /* XLForm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLForm.framework; path = "Pods/../build/Debug-iphoneos/XLForm.framework"; sourceTree = "<group>"; };
 		5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
 		5A9608E61D498728001EE17F /* SetTimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimerController.swift; sourceTree = "<group>"; };
-		63F52F407CEE76E121C03CCE /* Pods-TimerReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimerReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimerReminder/Pods-TimerReminder.debug.xcconfig"; sourceTree = "<group>"; };
+		79CA6FEE5CF6A6DF96E63943 /* Pods_TimerReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimerReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2B46CF811E1968BC84D25D0 /* Pods-TimerReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimerReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimerReminder/Pods-TimerReminder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +70,7 @@
 				5A067CD21D44922800238AF5 /* LTMorphingLabel.framework in Frameworks */,
 				5A067CD31D44922800238AF5 /* SwiftyJSON.framework in Frameworks */,
 				5A067CD41D44922800238AF5 /* XLForm.framework in Frameworks */,
-				CF4A5525EE3A50D0DF9D3A85 /* Pods_TimerReminder.framework in Frameworks */,
+				2467A8747BF6557031FAEF87 /* Pods_TimerReminder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,8 +83,8 @@
 				5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */,
 				5A067CB71D4490A500238AF5 /* TimerReminder */,
 				5A067CB61D4490A500238AF5 /* Products */,
-				BB259E396B384619ACCF8258 /* Pods */,
 				F7E084DFAF08D18824FDF3A0 /* Frameworks */,
+				A057F0958BFEBE17315DFE68 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,11 +118,11 @@
 			path = TimerReminder;
 			sourceTree = "<group>";
 		};
-		BB259E396B384619ACCF8258 /* Pods */ = {
+		A057F0958BFEBE17315DFE68 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				63F52F407CEE76E121C03CCE /* Pods-TimerReminder.debug.xcconfig */,
-				2B0EE3C44146CCAA70D1F525 /* Pods-TimerReminder.release.xcconfig */,
+				F2B46CF811E1968BC84D25D0 /* Pods-TimerReminder.debug.xcconfig */,
+				3BF493DE68A022FAB9B68EB3 /* Pods-TimerReminder.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -136,7 +136,7 @@
 				5A067CCE1D44922800238AF5 /* LTMorphingLabel.framework */,
 				5A067CCF1D44922800238AF5 /* SwiftyJSON.framework */,
 				5A067CD01D44922800238AF5 /* XLForm.framework */,
-				1B3EECEB28D9EA440478DA76 /* Pods_TimerReminder.framework */,
+				79CA6FEE5CF6A6DF96E63943 /* Pods_TimerReminder.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -148,12 +148,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A067CCA1D4490A500238AF5 /* Build configuration list for PBXNativeTarget "TimerReminder" */;
 			buildPhases = (
-				4C0743967B0D4B305A675BBF /* Check Pods Manifest.lock */,
+				F99B17FA1860E2C7543437B5 /* [CP] Check Pods Manifest.lock */,
 				5A067CB11D4490A500238AF5 /* Sources */,
 				5A067CB21D4490A500238AF5 /* Frameworks */,
 				5A067CB31D4490A500238AF5 /* Resources */,
-				F0A93090F8616322D2A0A9B4 /* Embed Pods Frameworks */,
-				FB86DF2D3ABED7DE854AE6FE /* Copy Pods Resources */,
+				DD60F2C170DA2087C3D3D2BC /* [CP] Embed Pods Frameworks */,
+				C68C72BECDEA3323ACFF7473 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -212,29 +212,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4C0743967B0D4B305A675BBF /* Check Pods Manifest.lock */ = {
+		C68C72BECDEA3323ACFF7473 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimerReminder/Pods-TimerReminder-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F0A93090F8616322D2A0A9B4 /* Embed Pods Frameworks */ = {
+		DD60F2C170DA2087C3D3D2BC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,19 +242,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimerReminder/Pods-TimerReminder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FB86DF2D3ABED7DE854AE6FE /* Copy Pods Resources */ = {
+		F99B17FA1860E2C7543437B5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimerReminder/Pods-TimerReminder-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -386,7 +386,7 @@
 		};
 		5A067CCB1D4490A500238AF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 63F52F407CEE76E121C03CCE /* Pods-TimerReminder.debug.xcconfig */;
+			baseConfigurationReference = F2B46CF811E1968BC84D25D0 /* Pods-TimerReminder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -402,7 +402,7 @@
 		};
 		5A067CCC1D4490A500238AF5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B0EE3C44146CCAA70D1F525 /* Pods-TimerReminder.release.xcconfig */;
+			baseConfigurationReference = 3BF493DE68A022FAB9B68EB3 /* Pods-TimerReminder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (

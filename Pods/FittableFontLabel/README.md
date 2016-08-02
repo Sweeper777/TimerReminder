@@ -94,15 +94,30 @@ Just drag the `Source/*.swift` files into your project.
 
 ```swift
 func fontSizeToFit(
-		maxFontSize maxFontSize: CGFloat = CGFloat.NaN, 
+		maxFontSize maxFontSize: CGFloat = 100, 
 		minFontScale: CGFloat = 0.1, 
 		rectSize: CGSize? = nil)
 ```
 
 Adjust the font size to make the current text fit the label frame.
 
-- `maxFontSize`: the biggest font size to use during drawing. The default value is the current font size
+- `maxFontSize`: the biggest font size to use during drawing. The default value is 100
 - `minFontScale`: the scale factor that determines the smallest font size to use during drawing. The default value is 0.1
+- `rectSize`: the size where the text must fit. The default value is the label bounds
+
+```swift
+func fontSizeThatFits(
+        text string: String, 
+        maxFontSize: CGFloat = CGFloat.NaN, 
+        minFontScale: CGFloat = 0.1,
+        rectSize: CGSize? = nil) -> CGFloat
+```
+
+Returns the font size that can make the `text` parameter fit the label frame.
+
+- `text`: the text that needs to fit in the label
+- `maxFontSize`: the biggest font size that can be returned. The default value is 100
+- `minFontScale`: the scale factor that determines the smallest font size that can be returned. The default value is 0.1
 - `rectSize`: the size where the text must fit. The default value is the label bounds
 
 ## FittableFontLabel
