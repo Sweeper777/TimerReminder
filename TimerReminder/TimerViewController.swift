@@ -32,7 +32,8 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
             longFontSize = timerLabel.fontSizeThatFits(text: "00:00:00", maxFontSize: 500)
             timerLabel.font = timerLabel.font.fontWithSize(shortFontSize)
             timer = CountDownTimer(time: 60, onTimerChange: {
-                self.timerLabel.text = $0.description
+                [weak self] timer in
+                self!.timerLabel.text = timer.description
                 }, onEnd: nil)
             initializedFontSizes = true
         }
@@ -75,10 +76,11 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
         
         if timer is CountDownTimer {
             menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Switch to Stopwatch Mode", comment: ""), image: UIImage(named: "countup")) {
+                self.timer.reset()
+                self.playButton.image = UIImage(named: "play")
                 self.timer = CountUpTimer {
-                    self.timer.reset()
-                    self.playButton.image = UIImage(named: "play")
-                    self.timerLabel.text = $0.description
+                    [weak self] timer in
+                    self!.timerLabel.text = timer.description
                 }
             })
         } else if timer is CountUpTimer {
@@ -86,7 +88,8 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
                 self.timer.reset()
                 self.playButton.image = UIImage(named: "play")
                 self.timer = CountDownTimer(time: 60, onTimerChange: {
-                    self.timerLabel.text = $0.description
+                    [weak self] timer in
+                    self!.timerLabel.text = timer.description
                     }, onEnd: nil)
                 })
         }
