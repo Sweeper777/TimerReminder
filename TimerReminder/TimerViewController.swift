@@ -31,9 +31,12 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
             shortFontSize = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
             longFontSize = timerLabel.fontSizeThatFits(text: "00:00:00", maxFontSize: 500)
             timerLabel.font = timerLabel.font.fontWithSize(shortFontSize)
-            timer = CountDownTimer(time: 60, onTimerChange: {
+//            timer = CountDownTimer(time: 60, onTimerChange: {
+//                self.timerLabel.text = $0.description
+//                }, onEnd: nil)
+            timer = CountUpTimer {
                 self.timerLabel.text = $0.description
-                }, onEnd: nil)
+            }
             initializedFontSizes = true
         }
     }
