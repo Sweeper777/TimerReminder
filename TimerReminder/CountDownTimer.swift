@@ -53,6 +53,14 @@ class CountDownTimer: Timer {
                 }
             }
             
+            if self.shouldInvokeReminder() {
+                let utteranceString = String(format: NSLocalizedString("%@ Left", comment: ""), self.timeLeft.normalized())
+                let utterance = AVSpeechUtterance(string: utteranceString)
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-us")
+                self.synthesizer.stopSpeakingAtBoundary(.Immediate)
+                self.synthesizer.speakUtterance(utterance)
+            }
+            
             self.onTimerChange?(self)
             if self.timeLeft <= 0 {
                 self.onEnd?(self)
@@ -95,7 +103,17 @@ class CountDownTimer: Timer {
         self.options = options
     }
     
-
+    private func shouldInvokeReminder() -> Bool {
+        if let specificReminders = options?.reminders {
+            return (specificReminders.map { Int(($0 as! Reminder).remindTimeFrame!) }).contains(Int(timeLeft))
+        }
+        
+        if let regularReminders = options?.regularReminderInterval {
+            return Int(timeToMeasure - timeLeft) % Int(regularReminders) == 0
+        }
+        
+        return false
+    }
     
     init(time: NSTimeInterval, options: TimerOptions? = nil, onTimerChange: ((Timer) -> Void)?, onEnd: ((Timer) -> Void)?) {
         self.timeLeft = time
