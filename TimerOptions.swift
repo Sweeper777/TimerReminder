@@ -8,6 +8,11 @@ class TimerOptions: NSManagedObject {
         let options = TimerOptions.init(entity: NSEntityDescription.entityForName("TimerOptions", inManagedObjectContext: context)!, insertIntoManagedObjectContext: nil)
         options.initializeWithDefValues()
         options.name = "Default"
+        
+        let reminder1 = Reminder(entity: NSEntityDescription.entityForName("Reminder", inManagedObjectContext: context)!, insertIntoManagedObjectContext: nil)
+        reminder1.remindTimeFrame = 50
+        options.reminders = NSOrderedSet(array: [reminder1])
+        
         return options
     }()
     
