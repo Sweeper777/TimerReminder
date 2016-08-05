@@ -47,18 +47,21 @@ class CountDownTimer: Timer {
             _ in
             self.timeLeft -= 1
             
-            if let enableBeep = self.options?.beepSounds?.boolValue {
-                if enableBeep {
-                    self.beepSoundPlayer?.play()
-                }
-            }
+            let enableBeep = self.options?.beepSounds?.boolValue
             
-            if self.shouldInvokeReminder() {
+            if Int(self.timeLeft) <= Int(self.options!.countDownTime!) {
+                let utterance = AVSpeechUtterance(string: String(Int(self.timeLeft)))
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-us")
+                self.synthesizer.stopSpeakingAtBoundary(.Immediate)
+                self.synthesizer.speakUtterance(utterance)
+            } else if self.shouldInvokeReminder() {
                 let utteranceString = String(format: NSLocalizedString("%@ Left", comment: ""), self.timeLeft.normalized())
                 let utterance = AVSpeechUtterance(string: utteranceString)
                 utterance.voice = AVSpeechSynthesisVoice(language: "en-us")
                 self.synthesizer.stopSpeakingAtBoundary(.Immediate)
                 self.synthesizer.speakUtterance(utterance)
+            } else if enableBeep == true {
+                self.beepSoundPlayer?.play()
             }
             
             self.onTimerChange?(self)
@@ -104,8 +107,10 @@ class CountDownTimer: Timer {
     }
     
     private func shouldInvokeReminder() -> Bool {
-        if let specificReminders = options?.reminders {
-            return (specificReminders.map { Int(($0 as! Reminder).remindTimeFrame!) }).contains(Int(timeLeft))
+        if options?.reminders?.count > 0 {
+            if let specificReminders = options?.reminders {
+                return (specificReminders.map { Int(($0 as! Reminder).remindTimeFrame!) }).contains(Int(timeLeft))
+            }
         }
         
         if let regularReminders = options?.regularReminderInterval {
