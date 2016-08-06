@@ -77,6 +77,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## MVSpeechSynthesizer
+
+Copyright (C) 2010 Apple Inc. All Rights Reserved.
+
 ## RWDropdownMenu
 
 The MIT License (MIT)

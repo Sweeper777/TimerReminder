@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MVSpeechSynthesizer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TimerReminder.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,7 +47,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>20C63B5E1CB27052708C72BC6588C856</key>
+		<key>01CA415370C6DC209F05C98C504F091A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>183CBD560C152CA9204F5EE2986211E3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,27 +62,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8147C004F37E8C846ED0C9F3D8E1899B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>8EFB44D2DE7C5EB00C3EC386780F54FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>90BC5EBB48DBB8B28E981AFFA2DB0125</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BC7635FC60D10A58AE26C47AED75E134</key>
+		<key>A9D45DA4849997918B3B577C2C3D4100</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>BF529704E2D57A46A0B88D09BCBD9804</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ED201DA5F4380AF8F2B96BF2EF669B4E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F051D42F18D273ED1E6E222E33588C9D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

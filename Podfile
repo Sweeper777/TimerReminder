@@ -10,5 +10,6 @@ target 'TimerReminder' do
     pod 'LTMorphingLabel'
     pod 'FittableFontLabel'
     pod 'RWDropdownMenu'
+    pod 'MVSpeechSynthesizer'
 end
 

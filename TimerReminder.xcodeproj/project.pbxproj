@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2467A8747BF6557031FAEF87 /* Pods_TimerReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CA6FEE5CF6A6DF96E63943 /* Pods_TimerReminder.framework */; };
+		5A0058A41D55622200DF4522 /* MVSpeechSynthesizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0058A31D55622200DF4522 /* MVSpeechSynthesizer.framework */; };
 		5A00B5431D519A390074B114 /* CountUpTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00B5421D519A390074B114 /* CountUpTimer.swift */; };
 		5A0135A21D470B90008A0F1D /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A01359E1D470B90008A0F1D /* Reminder.swift */; };
 		5A0135A31D470B90008A0F1D /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A01359F1D470B90008A0F1D /* Reminder+CoreDataProperties.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		3BF493DE68A022FAB9B68EB3 /* Pods-TimerReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimerReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimerReminder/Pods-TimerReminder.release.xcconfig"; sourceTree = "<group>"; };
+		5A0058A31D55622200DF4522 /* MVSpeechSynthesizer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MVSpeechSynthesizer.framework; path = "Pods/../build/Debug-iphoneos/MVSpeechSynthesizer/MVSpeechSynthesizer.framework"; sourceTree = "<group>"; };
 		5A00B5421D519A390074B114 /* CountUpTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountUpTimer.swift; sourceTree = "<group>"; };
 		5A01359E1D470B90008A0F1D /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = SOURCE_ROOT; };
 		5A01359F1D470B90008A0F1D /* Reminder+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A0058A41D55622200DF4522 /* MVSpeechSynthesizer.framework in Frameworks */,
 				5A0672901D459E76007F7AEB /* FittableFontLabel.framework in Frameworks */,
 				5A0672911D459E76007F7AEB /* RWDropdownMenu.framework in Frameworks */,
 				5A067CD11D44922800238AF5 /* EZSwiftExtensions.framework in Frameworks */,
@@ -133,6 +136,7 @@
 		F7E084DFAF08D18824FDF3A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A0058A31D55622200DF4522 /* MVSpeechSynthesizer.framework */,
 				5A06728E1D459E76007F7AEB /* FittableFontLabel.framework */,
 				5A06728F1D459E76007F7AEB /* RWDropdownMenu.framework */,
 				5A067CCD1D44922800238AF5 /* EZSwiftExtensions.framework */,
@@ -396,6 +400,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MVSpeechSynthesizer",
 				);
 				INFOPLIST_FILE = TimerReminder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -412,6 +417,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MVSpeechSynthesizer",
 				);
 				INFOPLIST_FILE = TimerReminder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

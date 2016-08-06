@@ -108,6 +108,16 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Copyright (C) 2010 Apple Inc. All Rights Reserved.</string>
+			<key>License</key>
+			<string>Custom</string>
+			<key>Title</key>
+			<string>MVSpeechSynthesizer</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>The MIT License (MIT)
 
 Copyright (c) 2014 Bin Zhang

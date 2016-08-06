@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "90BC5EBB48DBB8B28E981AFFA2DB0125"
+               BlueprintIdentifier = "183CBD560C152CA9204F5EE2986211E3"
                BuildableName = "Pods_TimerReminder.framework"
                BlueprintName = "Pods-TimerReminder"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "90BC5EBB48DBB8B28E981AFFA2DB0125"
+            BlueprintIdentifier = "183CBD560C152CA9204F5EE2986211E3"
             BuildableName = "Pods_TimerReminder.framework"
             BlueprintName = "Pods-TimerReminder"
             ReferencedContainer = "container:Pods.xcodeproj">
