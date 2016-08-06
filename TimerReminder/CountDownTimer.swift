@@ -1,10 +1,12 @@
 import AVFoundation
+import MVSpeechSynthesizer
 
 class CountDownTimer: Timer {
     var beepSoundPlayer: AVAudioPlayer?
     var timeLeft: NSTimeInterval
     let timeToMeasure: NSTimeInterval
     let synthesizer = AVSpeechSynthesizer()
+    var mvSynthesizer = MVSpeechSynthesizer()
     var timer: NSTimer?
     var paused = true
     var onEnd: ((Timer) -> Void)?
@@ -48,18 +50,25 @@ class CountDownTimer: Timer {
             self.timeLeft -= 1
             
             let enableBeep = self.options?.beepSounds?.boolValue
+            let shouldRemind = self.shouldInvokeReminder()
             
             if Int(self.timeLeft) <= Int(self.options!.countDownTime!) {
                 let utterance = AVSpeechUtterance(string: String(Int(self.timeLeft)))
                 utterance.voice = AVSpeechSynthesisVoice(language: "en-us")
                 self.synthesizer.stopSpeakingAtBoundary(.Immediate)
                 self.synthesizer.speakUtterance(utterance)
-            } else if self.shouldInvokeReminder() {
-                let utteranceString = String(format: NSLocalizedString("%@ Left", comment: ""), self.timeLeft.normalized())
-                let utterance = AVSpeechUtterance(string: utteranceString)
-                utterance.voice = AVSpeechSynthesisVoice(language: "en-us")
-                self.synthesizer.stopSpeakingAtBoundary(.Immediate)
-                self.synthesizer.speakUtterance(utterance)
+            } else if shouldRemind.should {
+                if shouldRemind.customMessage == nil {
+                    let utteranceString = String(format: NSLocalizedString("%@ Left", comment: ""), self.timeLeft.normalized())
+                    let utterance = AVSpeechUtterance(string: utteranceString)
+                    utterance.voice = AVSpeechSynthesisVoice(language: "en-us")
+                    self.synthesizer.stopSpeakingAtBoundary(.Immediate)
+                    self.synthesizer.speakUtterance(utterance)
+                } else {
+                    self.mvSynthesizer.stopReading()
+                    self.mvSynthesizer.speechString = shouldRemind.customMessage!
+                    self.mvSynthesizer.startRead()
+                }
             } else if enableBeep == true {
                 self.beepSoundPlayer?.play()
             }
@@ -106,18 +115,25 @@ class CountDownTimer: Timer {
         self.options = options
     }
     
-    private func shouldInvokeReminder() -> Bool {
+    private func shouldInvokeReminder() -> (should: Bool, customMessage: String?) {
         if options?.reminders?.count > 0 {
             if let specificReminders = options?.reminders {
-                return (specificReminders.map { Int(($0 as! Reminder).remindTimeFrame!) }).contains(Int(timeLeft))
+                let reminders = specificReminders.map { Int(($0 as! Reminder).remindTimeFrame!) }
+                let should = reminders.contains(Int(timeLeft))
+                if should {
+                    let index = reminders.indexOf(Int(timeLeft))
+                    let message = (specificReminders.array[index!] as! Reminder).customRemindMessage
+                    return (should, message)
+                }
+                return (should, nil)
             }
         }
         
         if let regularReminders = options?.regularReminderInterval {
-            return Int(timeToMeasure - timeLeft) % Int(regularReminders) == 0
+            return (Int(timeToMeasure - timeLeft) % Int(regularReminders) == 0, nil)
         }
         
-        return false
+        return (false, nil)
     }
     
     init(time: NSTimeInterval, options: TimerOptions? = nil, onTimerChange: ((Timer) -> Void)?, onEnd: ((Timer) -> Void)?) {
@@ -126,6 +142,7 @@ class CountDownTimer: Timer {
         self.onEnd = onEnd
         self.onTimerChange = onTimerChange
         self.setTimerOptions(options ?? TimerOptions.defaultOptions)
+        self.mvSynthesizer.uRate = CGFloat(AVSpeechUtteranceDefaultSpeechRate)
         onTimerChange?(self)
     }
     
