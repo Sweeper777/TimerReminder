@@ -52,7 +52,11 @@ class CountDownTimer: Timer {
             let enableBeep = self.options?.beepSounds?.boolValue
             let shouldRemind = self.shouldInvokeReminder()
             
-            if Int(self.timeLeft) <= Int(self.options!.countDownTime!) {
+            if self.timeLeft <= 0 {
+                self.mvSynthesizer.stopReading()
+                self.mvSynthesizer.speechString = self.options!.timesUpMessage!
+                self.mvSynthesizer.startRead()
+            } else if Int(self.timeLeft) <= Int(self.options!.countDownTime!) {
                 let utterance = AVSpeechUtterance(string: String(Int(self.timeLeft)))
                 utterance.voice = AVSpeechSynthesisVoice(language: "en-us")
                 self.synthesizer.stopSpeakingAtBoundary(.Immediate)
@@ -143,6 +147,7 @@ class CountDownTimer: Timer {
         self.onTimerChange = onTimerChange
         self.setTimerOptions(options ?? TimerOptions.defaultOptions)
         self.mvSynthesizer.uRate = CGFloat(AVSpeechUtteranceDefaultSpeechRate)
+        self.mvSynthesizer.pitchMultiplier = 1
         onTimerChange?(self)
     }
     
