@@ -23,6 +23,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
         timerLabel.delegate = self
         timerLabel.morphingEffect = .Evaporate
         timerLabel.morphingEnabled = true
+        UIApplication.sharedApplication().idleTimerDisabled = true
     }
     
     override func viewDidLayoutSubviews() {
