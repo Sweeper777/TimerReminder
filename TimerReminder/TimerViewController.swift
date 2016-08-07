@@ -71,26 +71,29 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
         
         if timer.canBeSet {
             menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Set Timer", comment: ""), image: UIImage(named: "timer")) {
-                self.performSegueWithIdentifier("showSetTimer", sender: self)
+                [weak self] in
+                self?.performSegueWithIdentifier("showSetTimer", sender: self)
                 })
         }
         
         if timer is CountDownTimer {
             menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Switch to Stopwatch Mode", comment: ""), image: UIImage(named: "countup")) {
-                self.timer.reset()
-                self.playButton.image = UIImage(named: "play")
-                self.timer = CountUpTimer {
+                [weak self] in
+                self?.timer.reset()
+                self?.playButton.image = UIImage(named: "play")
+                self?.timer = CountUpTimer {
                     [weak self] timer in
-                    self!.timerLabel.text = timer.description
+                    self?.timerLabel.text = timer.description
                 }
             })
         } else if timer is CountUpTimer {
             menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Switch to Timer Mode", comment: ""), image: UIImage(named: "countdown")) {
-                self.timer.reset()
-                self.playButton.image = UIImage(named: "play")
-                self.timer = CountDownTimer(time: 60, onTimerChange: {
+                [weak self] in
+                self?.timer.reset()
+                self?.playButton.image = UIImage(named: "play")
+                self?.timer = CountDownTimer(time: 60, onTimerChange: {
                     [weak self] timer in
-                    self!.timerLabel.text = timer.description
+                    self?.timerLabel.text = timer.description
                     }, onEnd: nil)
                 })
         }
@@ -100,6 +103,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     
     @IBAction func unwindFromSetTimer(segue: UIStoryboardSegue) {
         if let vc = segue.sourceViewController as? SetTimerController {
+            playButton.image = UIImage(named: "play")
             if vc.selectedTimeInterval! >= 3601 {
                 timerLabel.font = timerLabel.font.fontWithSize(longFontSize)
             } else {

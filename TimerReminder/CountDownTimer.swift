@@ -46,6 +46,7 @@ class CountDownTimer: Timer {
         }
         
         timer = NSTimer.runThisEvery(seconds: 1) {
+            [unowned self]
             _ in
             self.timeLeft -= 1
             
