@@ -1,4 +1,5 @@
 import AVFoundation
+import MVSpeechSynthesizer
 
 class CountUpTimer: Timer {
     var beepSoundPlayer: AVAudioPlayer?
@@ -7,6 +8,9 @@ class CountUpTimer: Timer {
     var paused = true
     var onEnd: ((Timer) -> Void)?
     var onTimerChange: ((Timer) -> Void)?
+    
+    let synthesizer = AVSpeechSynthesizer()
+    let mvSynthesizer = MVSpeechSynthesizer()
     
     var options: TimerOptions? {
         didSet {
@@ -41,10 +45,23 @@ class CountUpTimer: Timer {
             _ in
             self.timeMeasured += 1
             
-            if let enableBeep = self.options?.beepSounds?.boolValue {
-                if enableBeep {
-                    self.beepSoundPlayer?.play()
+            let enableBeep = self.options?.beepSounds?.boolValue
+            let shouldRemind = self.shouldInvokeReminder()
+            
+            if shouldRemind.should {
+                if shouldRemind.customMessage == nil {
+                    let utteranceString = String(format: NSLocalizedString("%@ passed", comment: ""), self.timeMeasured.normalized())
+                    let utterance = AVSpeechUtterance(string: utteranceString)
+                    utterance.voice = AVSpeechSynthesisVoice(language: "en-us")
+                    self.synthesizer.stopSpeakingAtBoundary(.Immediate)
+                    self.synthesizer.speakUtterance(utterance)
+                } else {
+                    self.mvSynthesizer.stopReading()
+                    self.mvSynthesizer.speechString = shouldRemind.customMessage!
+                    self.mvSynthesizer.startRead()
                 }
+            } else if enableBeep == true {
+                self.beepSoundPlayer?.play()
             }
             
             self.onTimerChange?(self)
@@ -84,11 +101,34 @@ class CountUpTimer: Timer {
         self.options = options
     }
     
+    private func shouldInvokeReminder() -> (should: Bool, customMessage: String?) {
+        if options?.reminders?.count > 0 {
+            if let specificReminders = options?.reminders {
+                let reminders = specificReminders.map { Int(($0 as! Reminder).remindTimeFrame!) }
+                let should = reminders.contains(Int(timeMeasured))
+                if should {
+                    let index = reminders.indexOf(Int(timeMeasured))
+                    let message = (specificReminders.array[index!] as! Reminder).customRemindMessage
+                    return (should, message)
+                }
+                return (should, nil)
+            }
+        }
+        
+        if let regularReminders = options?.regularReminderInterval {
+            return (Int(timeMeasured) % Int(regularReminders) == 0, nil)
+        }
+        
+        return (false, nil)
+    }
+    
     init(options: TimerOptions? = nil, onTimerChange: ((Timer) -> Void)?) {
         self.timeMeasured = 0
         self.onEnd = nil
         self.onTimerChange = onTimerChange
         self.setTimerOptions(options ?? TimerOptions.defaultOptions)
+        self.mvSynthesizer.uRate = CGFloat(AVSpeechUtteranceDefaultSpeechRate)
+        self.mvSynthesizer.pitchMultiplier = 1
         onTimerChange?(self)
     }
     
