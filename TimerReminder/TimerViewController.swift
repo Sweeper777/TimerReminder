@@ -63,10 +63,10 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     
     @IBAction func more(sender: AnyObject) {
         var menuItems = [
-            RWDropdownMenuItem(text: NSLocalizedString("Choose Timer", comment: ""), image: UIImage(named: "choose")) {
+            RWDropdownMenuItem(text: NSLocalizedString("Select Timer Settings", comment: ""), image: UIImage(named: "choose")) {
                 
             },
-            RWDropdownMenuItem(text: NSLocalizedString("Add New Timer", comment: ""), image: UIImage(named: "add")) {
+            RWDropdownMenuItem(text: NSLocalizedString("Add New Timer Settings", comment: ""), image: UIImage(named: "add")) {
                 [weak self] in
                 self?.performSegueWithIdentifier("showTimerForm", sender: self)
             }

@@ -87,7 +87,7 @@
                         <outlet property="playButton" destination="yDO-VZ-boI" id="Ias-SL-sjp"/>
                         <outlet property="timerLabel" destination="mEG-Po-lfJ" id="Fgz-7t-ooI"/>
                         <segue destination="LVp-DH-RsJ" kind="presentation" identifier="showSetTimer" modalPresentationStyle="formSheet" id="TwS-Ha-VvY"/>
-                        <segue destination="v5I-Uv-1Bn" kind="presentation" identifier="showChooseTimer" modalPresentationStyle="formSheet" id="nZp-SL-VcV"/>
+                        <segue destination="v5I-Uv-1Bn" kind="presentation" identifier="showChooseTimerSettings" modalPresentationStyle="formSheet" id="nZp-SL-VcV"/>
                         <segue destination="75i-S5-sZD" kind="presentation" identifier="showTimerForm" modalPresentationStyle="formSheet" id="5FA-iO-18H"/>
                     </connections>
                 </viewController>
@@ -96,7 +96,7 @@
             </objects>
             <point key="canvasLocation" x="392" y="306"/>
         </scene>
-        <!--Select a Timer-->
+        <!--Select a Timer Setting-->
         <scene sceneID="FjJ-b6-Arh">
             <objects>
                 <tableViewController id="SlM-XX-x92" sceneMemberID="viewController">
@@ -109,7 +109,7 @@
                             <outlet property="delegate" destination="SlM-XX-x92" id="cSd-O0-l1V"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select a Timer" id="3FL-TZ-lxw">
+                    <navigationItem key="navigationItem" title="Select a Timer Setting" id="3FL-TZ-lxw">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="M57-uz-Ytm">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
