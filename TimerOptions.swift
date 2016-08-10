@@ -22,5 +22,6 @@ class TimerOptions: NSManagedObject {
         self.countDownTime = 10
         self.reminders = NSOrderedSet()
         self.timesUpMessage = "Time is up"
+        self.language = "en"
     }
 }

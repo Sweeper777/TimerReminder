@@ -8,6 +8,7 @@
     <entity name="TimerOptions" representedClassName=".TimerOptions" syncable="YES">
         <attribute name="beepSounds" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="countDownTime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="regularReminderInterval" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="timesUpMessage" optional="YES" attributeType="String" syncable="YES"/>
@@ -16,6 +17,6 @@
     </entity>
     <elements>
         <element name="Reminder" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="TimerOptions" positionX="-54" positionY="-9" width="128" height="150"/>
+        <element name="TimerOptions" positionX="-54" positionY="-9" width="128" height="165"/>
     </elements>
 </model>

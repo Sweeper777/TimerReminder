@@ -9,6 +9,7 @@ extension TimerOptions {
     @NSManaged var timesUpMessage: String?
     @NSManaged var regularReminderInterval: NSNumber?
     @NSManaged var timesUpSound: String?
+    @NSManaged var language: String?
     @NSManaged var reminders: NSOrderedSet?
 
 }
