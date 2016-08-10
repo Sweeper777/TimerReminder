@@ -8,6 +8,31 @@ enum Languages: String {
     case Japanese = "ja"
 }
 
+class LanguageWrapper: NSObject, XLFormOptionObject {
+    var language: Languages
+    
+    init(language: Languages) {
+        self.language = language
+    }
+    
+    @objc func formValue() -> AnyObject {
+        return language.rawValue
+    }
+    
+    @objc func formDisplayText() -> String {
+        switch language {
+        case .Mandarin:
+            return NSLocalizedString("Mandarin", comment: "")
+        case .Cantonese:
+            return NSLocalizedString("Cantonese", comment: "")
+        case .Japanese:
+            return NSLocalizedString("Japanese", comment: "")
+        case .English:
+            return NSLocalizedString("English", comment: "")
+        }
+    }
+}
+
 extension TimerOptions {
     var localizedTimesUpMessage: String {
         if let customMsg = self.timesUpMessage {

@@ -88,7 +88,7 @@
                         <outlet property="timerLabel" destination="mEG-Po-lfJ" id="Fgz-7t-ooI"/>
                         <segue destination="LVp-DH-RsJ" kind="presentation" identifier="showSetTimer" modalPresentationStyle="formSheet" id="TwS-Ha-VvY"/>
                         <segue destination="v5I-Uv-1Bn" kind="presentation" identifier="showChooseTimer" modalPresentationStyle="formSheet" id="nZp-SL-VcV"/>
-                        <segue destination="75i-S5-sZD" kind="presentation" id="5FA-iO-18H"/>
+                        <segue destination="75i-S5-sZD" kind="presentation" identifier="showTimerForm" modalPresentationStyle="formSheet" id="5FA-iO-18H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
