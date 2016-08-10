@@ -1,5 +1,4 @@
 import AVFoundation
-import MVSpeechSynthesizer
 
 class CountUpTimer: Timer {
     var beepSoundPlayer: AVAudioPlayer?
@@ -10,7 +9,6 @@ class CountUpTimer: Timer {
     var onTimerChange: ((Timer) -> Void)?
     
     let synthesizer = AVSpeechSynthesizer()
-    let mvSynthesizer = MVSpeechSynthesizer()
     
     var options: TimerOptions? {
         didSet {
@@ -42,6 +40,7 @@ class CountUpTimer: Timer {
     
     func start() {
         timer = NSTimer.runThisEvery(seconds: 1) {
+            [unowned self]
             _ in
             self.timeMeasured += 1
             
@@ -50,15 +49,15 @@ class CountUpTimer: Timer {
             
             if shouldRemind.should {
                 if shouldRemind.customMessage == nil {
-                    let utteranceString = String(format: NSLocalizedString("%@ passed", comment: ""), self.timeMeasured.normalized())
-                    let utterance = AVSpeechUtterance(string: utteranceString)
-                    utterance.voice = AVSpeechSynthesisVoice(language: "en-us")
+                    let utterance = AVSpeechUtterance(string: normalize(timeInterval: self.timeMeasured, with: self.options!))
+                    utterance.voice = AVSpeechSynthesisVoice(language: self.options!.language!)
                     self.synthesizer.stopSpeakingAtBoundary(.Immediate)
                     self.synthesizer.speakUtterance(utterance)
                 } else {
-                    self.mvSynthesizer.stopReading()
-                    self.mvSynthesizer.speechString = shouldRemind.customMessage!
-                    self.mvSynthesizer.startRead()
+                    let utterance = AVSpeechUtterance(string: shouldRemind.customMessage!)
+                    utterance.voice = AVSpeechSynthesisVoice(language: self.options!.language!)
+                    self.synthesizer.stopSpeakingAtBoundary(.Immediate)
+                    self.synthesizer.speakUtterance(utterance)
                 }
             } else if enableBeep == true {
                 self.beepSoundPlayer?.play()
@@ -127,8 +126,6 @@ class CountUpTimer: Timer {
         self.onEnd = nil
         self.onTimerChange = onTimerChange
         self.setTimerOptions(options ?? TimerOptions.defaultOptions)
-        self.mvSynthesizer.uRate = CGFloat(AVSpeechUtteranceDefaultSpeechRate)
-        self.mvSynthesizer.pitchMultiplier = 1
         onTimerChange?(self)
     }
     

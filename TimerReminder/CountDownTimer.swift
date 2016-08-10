@@ -1,12 +1,10 @@
 import AVFoundation
-import MVSpeechSynthesizer
 
 class CountDownTimer: Timer {
     var beepSoundPlayer: AVAudioPlayer?
     var timeLeft: NSTimeInterval
     let timeToMeasure: NSTimeInterval
     let synthesizer = AVSpeechSynthesizer()
-    var mvSynthesizer = MVSpeechSynthesizer()
     var timer: NSTimer?
     var paused = true
     var onEnd: ((Timer) -> Void)?
@@ -54,25 +52,31 @@ class CountDownTimer: Timer {
             let shouldRemind = self.shouldInvokeReminder()
             
             if self.timeLeft <= 0 {
-                self.mvSynthesizer.stopReading()
-                self.mvSynthesizer.speechString = self.options!.timesUpMessage!
-                self.mvSynthesizer.startRead()
+                // time's up
+                let utterance = AVSpeechUtterance(string: self.options!.localizedTimesUpMessage)
+                utterance.voice = AVSpeechSynthesisVoice(language: self.options!.language!)
+                self.synthesizer.stopSpeakingAtBoundary(.Immediate)
+                self.synthesizer.speakUtterance(utterance)
             } else if Int(self.timeLeft) <= Int(self.options!.countDownTime!) {
+                // countdown
                 let utterance = AVSpeechUtterance(string: String(Int(self.timeLeft)))
-                utterance.voice = AVSpeechSynthesisVoice(language: "en-us")
+                utterance.voice = AVSpeechSynthesisVoice(language: self.options!.language!)
                 self.synthesizer.stopSpeakingAtBoundary(.Immediate)
                 self.synthesizer.speakUtterance(utterance)
             } else if shouldRemind.should {
+                // remind
                 if shouldRemind.customMessage == nil {
-                    let utteranceString = String(format: NSLocalizedString("%@ Left", comment: ""), self.timeLeft.normalized())
+                    let utteranceString = String(format: self.options!.localizedLeftFormat, normalize(timeInterval: self.timeLeft, with: self.options!))
                     let utterance = AVSpeechUtterance(string: utteranceString)
-                    utterance.voice = AVSpeechSynthesisVoice(language: "en-us")
+                    utterance.voice = AVSpeechSynthesisVoice(language: self.options!.language!)
                     self.synthesizer.stopSpeakingAtBoundary(.Immediate)
                     self.synthesizer.speakUtterance(utterance)
                 } else {
-                    self.mvSynthesizer.stopReading()
-                    self.mvSynthesizer.speechString = shouldRemind.customMessage!
-                    self.mvSynthesizer.startRead()
+                    // custom message
+                    let utterance = AVSpeechUtterance(string: shouldRemind.customMessage!)
+                    utterance.voice = AVSpeechSynthesisVoice(language: self.options!.language!)
+                    self.synthesizer.stopSpeakingAtBoundary(.Immediate)
+                    self.synthesizer.speakUtterance(utterance)
                 }
             } else if enableBeep == true {
                 self.beepSoundPlayer?.play()
@@ -147,8 +151,6 @@ class CountDownTimer: Timer {
         self.onEnd = onEnd
         self.onTimerChange = onTimerChange
         self.setTimerOptions(options ?? TimerOptions.defaultOptions)
-        self.mvSynthesizer.uRate = CGFloat(AVSpeechUtteranceDefaultSpeechRate)
-        self.mvSynthesizer.pitchMultiplier = 1
         onTimerChange?(self)
     }
     
@@ -168,32 +170,30 @@ extension String {
     }
 }
 
-extension NSTimeInterval {
-    func normalized() -> String {
-        let hours = Int(self) % 86400 / 60 / 60
-        let minutes = Int(self) % 3600 / 60
-        let seconds = Int(self) % 60
-        
-        var normalized = ""
-        
-        if hours == 1 {
-            normalized += "\(hours) \(NSLocalizedString("Hour", comment: "")) "
-        } else if hours != 0 {
-            normalized += "\(hours) \(NSLocalizedString("Hours", comment: "")) "
-        }
-        
-        if minutes == 1 {
-            normalized += "\(minutes) \(NSLocalizedString("Minute", comment: "")) "
-        } else if minutes != 0 {
-            normalized += "\(minutes) \(NSLocalizedString("Minutes", comment: "")) "
-        }
-        
-        if seconds == 1 {
-            normalized += "\(seconds) \(NSLocalizedString("Second", comment: "")) "
-        } else if seconds != 0 {
-            normalized += "\(seconds) \(NSLocalizedString("Seconds", comment: "")) "
-        }
-        
-        return normalized
+func normalize(timeInterval timeInterval: NSTimeInterval, with options: TimerOptions) -> String {
+    let hours = Int(timeInterval) % 86400 / 60 / 60
+    let minutes = Int(timeInterval) % 3600 / 60
+    let seconds = Int(timeInterval) % 60
+    
+    var normalized = ""
+    
+    if hours == 1 {
+        normalized += "\(hours) \(options.localizedHour) "
+    } else if hours != 0 {
+        normalized += "\(hours) \(options.localizedHours) "
     }
+    
+    if minutes == 1 {
+        normalized += "\(minutes) \(options.localizedMinute) "
+    } else if minutes != 0 {
+        normalized += "\(minutes) \(options.localizedMinutes) "
+    }
+    
+    if seconds == 1 {
+        normalized += "\(seconds) \(options.localizedSecond) "
+    } else if seconds != 0 {
+        normalized += "\(seconds) \(options.localizedSeconds) "
+    }
+    
+    return normalized
 }

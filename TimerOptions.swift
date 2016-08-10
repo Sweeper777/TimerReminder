@@ -21,7 +21,6 @@ class TimerOptions: NSManagedObject {
         self.beepSounds = false
         self.countDownTime = 10
         self.reminders = NSOrderedSet()
-        self.timesUpMessage = "Time is up"
-        self.language = "en"
+        self.language = Languages.Japanese.rawValue
     }
 }

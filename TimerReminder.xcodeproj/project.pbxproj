@@ -15,6 +15,7 @@
 		5A0135A41D470B90008A0F1D /* TimerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0135A01D470B90008A0F1D /* TimerOptions.swift */; };
 		5A0135A51D470B90008A0F1D /* TimerOptions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0135A11D470B90008A0F1D /* TimerOptions+CoreDataProperties.swift */; };
 		5A015F0C1D4DA8530032BB59 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A015F0B1D4DA8530032BB59 /* beep.mp3 */; };
+		5A03F27F1D5AD34600723262 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03F27E1D5AD34600723262 /* Languages.swift */; };
 		5A06728D1D45905D007F7AEB /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A06728C1D45905D007F7AEB /* Timer.swift */; };
 		5A0672901D459E76007F7AEB /* FittableFontLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A06728E1D459E76007F7AEB /* FittableFontLabel.framework */; };
 		5A0672911D459E76007F7AEB /* RWDropdownMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A06728F1D459E76007F7AEB /* RWDropdownMenu.framework */; };
@@ -41,6 +42,7 @@
 		5A0135A01D470B90008A0F1D /* TimerOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerOptions.swift; sourceTree = SOURCE_ROOT; };
 		5A0135A11D470B90008A0F1D /* TimerOptions+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimerOptions+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		5A015F0B1D4DA8530032BB59 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
+		5A03F27E1D5AD34600723262 /* Languages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		5A06728C1D45905D007F7AEB /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		5A06728E1D459E76007F7AEB /* FittableFontLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FittableFontLabel.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/FittableFontLabel.framework"; sourceTree = "<group>"; };
 		5A06728F1D459E76007F7AEB /* RWDropdownMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RWDropdownMenu.framework; path = "Pods/../build/Debug-iphoneos/RWDropdownMenu.framework"; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				5A06728C1D45905D007F7AEB /* Timer.swift */,
 				5A0672921D45ED0F007F7AEB /* CountDownTimer.swift */,
 				5A00B5421D519A390074B114 /* CountUpTimer.swift */,
+				5A03F27E1D5AD34600723262 /* Languages.swift */,
 				5A067CBC1D4490A500238AF5 /* Main.storyboard */,
 				5A067CC21D4490A500238AF5 /* Assets.xcassets */,
 				5A067CC41D4490A500238AF5 /* LaunchScreen.storyboard */,
@@ -277,6 +280,7 @@
 				5A067CB91D4490A500238AF5 /* AppDelegate.swift in Sources */,
 				5A0135A41D470B90008A0F1D /* TimerOptions.swift in Sources */,
 				5A9608E71D498728001EE17F /* SetTimerController.swift in Sources */,
+				5A03F27F1D5AD34600723262 /* Languages.swift in Sources */,
 				5A067CC11D4490A500238AF5 /* TimerReminder.xcdatamodeld in Sources */,
 				5A00B5431D519A390074B114 /* CountUpTimer.swift in Sources */,
 				5A0135A21D470B90008A0F1D /* Reminder.swift in Sources */,
