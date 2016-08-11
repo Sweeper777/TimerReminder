@@ -1,13 +1,24 @@
 import UIKit
 import EZSwiftExtensions
+import XLForm
 
-class SetTimerController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class SetTimerController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, XLFormRowDescriptorViewController {
     var selectedTimeInterval: NSTimeInterval?
+    var rowDescriptor: XLFormRowDescriptor!
     @IBOutlet var timeIntervalPicker: UIPickerView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.preferredContentSize = CGSize(width: 500, height: 230)
+        if let timeInterval = rowDescriptor.value as? Int {
+            let hours = timeInterval / 60 / 60
+            let minutes = timeInterval % 3600 / 60
+            let seconds = timeInterval % 60
+            
+            timeIntervalPicker.selectRow(hours, inComponent: 0, animated: false)
+            timeIntervalPicker.selectRow(minutes, inComponent: 1, animated: false)
+            timeIntervalPicker.selectRow(seconds, inComponent: 2, animated: false)
+        }
     }
     
     @IBAction func cancel(sender: AnyObject) {
@@ -51,5 +62,12 @@ class SetTimerController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         let minutes = timeIntervalPicker.selectedRowInComponent(1)
         let seconds = timeIntervalPicker.selectedRowInComponent(2)
         self.selectedTimeInterval = Double(hours * 60 * 60 + minutes * 60 + seconds)
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let hours = timeIntervalPicker.selectedRowInComponent(0)
+        let minutes = timeIntervalPicker.selectedRowInComponent(1)
+        let seconds = timeIntervalPicker.selectedRowInComponent(2)
+        rowDescriptor?.value = hours * 60 * 60 + minutes * 60 + seconds
     }
 }

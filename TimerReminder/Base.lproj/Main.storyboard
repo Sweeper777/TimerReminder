@@ -198,6 +198,42 @@
             </objects>
             <point key="canvasLocation" x="1318" y="-527"/>
         </scene>
+        <!--Set Timer Controller-->
+        <scene sceneID="QA7-YK-6nR">
+            <objects>
+                <viewController storyboardIdentifier="TimeIntervalSelector" id="v5k-S8-xxj" customClass="SetTimerController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VMQ-Rz-rPz"/>
+                        <viewControllerLayoutGuide type="bottom" id="c72-BQ-3si"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J4F-Jg-Nux">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="So4-zf-Dsm">
+                                <rect key="frame" x="20" y="20" width="560" height="565"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="v5k-S8-xxj" id="IGV-vR-7Ak"/>
+                                    <outlet property="delegate" destination="v5k-S8-xxj" id="aZ0-7Z-hfo"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c72-BQ-3si" firstAttribute="top" secondItem="So4-zf-Dsm" secondAttribute="bottom" constant="15" id="3EW-cx-s0z"/>
+                            <constraint firstItem="So4-zf-Dsm" firstAttribute="top" secondItem="VMQ-Rz-rPz" secondAttribute="bottom" id="SWK-8I-Pys"/>
+                            <constraint firstItem="So4-zf-Dsm" firstAttribute="leading" secondItem="J4F-Jg-Nux" secondAttribute="leadingMargin" id="nMa-MK-R2k"/>
+                            <constraint firstItem="So4-zf-Dsm" firstAttribute="trailing" secondItem="J4F-Jg-Nux" secondAttribute="trailingMargin" id="zcr-bn-6q6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="timeIntervalPicker" destination="So4-zf-Dsm" id="Cb3-92-Kf1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x6t-R5-Zdd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2030" y="-1221"/>
+        </scene>
         <!--Set Timer-->
         <scene sceneID="QWh-a9-NaM">
             <objects>
