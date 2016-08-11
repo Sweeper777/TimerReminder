@@ -1,0 +1,6 @@
+let tagName = "name"
+let tagLanguage = "language"
+let tagStartCountDown = "startCountDown"
+let tagTimesUpAction = "timesUpAction"
+let tagTimesUpMessage = "timesUpMessage"
+let tagTimesUpSound = "timesUpSound"

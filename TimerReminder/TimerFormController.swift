@@ -27,9 +27,9 @@ class TimerFormController: XLFormViewController {
         
         let section1 = XLFormSectionDescriptor()
         section1.footerTitle = NSLocalizedString("This is the language in which the reminder messages and the \"Time is up\" message will be spoken.", comment: "")
-        let row1 = XLFormRowDescriptor(tag: "name", rowType: XLFormRowDescriptorTypeText, title: NSLocalizedString("Name", comment: ""))
+        let row1 = XLFormRowDescriptor(tag: tagName, rowType: XLFormRowDescriptorTypeText, title: NSLocalizedString("Name", comment: ""))
         section1.addFormRow(row1)
-        let row2 = XLFormRowDescriptor(tag: "language", rowType: XLFormRowDescriptorTypeSelectorPickerViewInline, title: NSLocalizedString("Language", comment: ""))
+        let row2 = XLFormRowDescriptor(tag: tagLanguage, rowType: XLFormRowDescriptorTypeSelectorPickerViewInline, title: NSLocalizedString("Language", comment: ""))
         let langs: [Languages] = [.English, .Mandarin, .Cantonese, .Japanese]
         row2.selectorOptions = langs.map { LanguageWrapper(language: $0) }
         row2.value = LanguageWrapper(language: .English)
@@ -38,7 +38,7 @@ class TimerFormController: XLFormViewController {
         
         let section2 = XLFormSectionDescriptor()
         section2.footerTitle = NSLocalizedString("Only applicable in Timer Mode", comment: "")
-        let row3 = XLFormRowDescriptor(tag: "startCountdown", rowType: XLFormRowDescriptorTypeSelectorPickerViewInline, title: NSLocalizedString("Start Countdown At", comment: ""))
+        let row3 = XLFormRowDescriptor(tag: tagStartCountDown, rowType: XLFormRowDescriptorTypeSelectorPickerViewInline, title: NSLocalizedString("Start Countdown At", comment: ""))
         row3.value = CountDownTimeWrapper._10
         row3.selectorOptions = [
             CountDownTimeWrapper.noCountdown,
@@ -55,11 +55,11 @@ class TimerFormController: XLFormViewController {
         let section3 = XLFormSectionDescriptor()
         section3.title = NSLocalizedString("Time is up", comment: "")
         section3.footerTitle = NSLocalizedString("Only applicable in Timer Mode", comment: "")
-        let row4 = XLFormRowDescriptor(tag: "timesUpAction", rowType: XLFormRowDescriptorTypeSelectorSegmentedControl, title: "")
+        let row4 = XLFormRowDescriptor(tag: tagTimesUpAction, rowType: XLFormRowDescriptorTypeSelectorSegmentedControl, title: "")
         row4.selectorOptions = [TimeIsUpActionWrapper.sayMessage, TimeIsUpActionWrapper.playSound]
         row4.value = TimeIsUpActionWrapper.sayMessage
         section3.addFormRow(row4)
-        let row5 = XLFormRowDescriptor(tag: "timesUpMessage", rowType: XLFormRowDescriptorTypeText, title: NSLocalizedString("Message", comment: ""))
+        let row5 = XLFormRowDescriptor(tag: tagTimesUpMessage, rowType: XLFormRowDescriptorTypeText, title: NSLocalizedString("Message", comment: ""))
         section3.addFormRow(row5)
         form.addFormSection(section3)
         
@@ -71,7 +71,7 @@ class TimerFormController: XLFormViewController {
         
         sec.removeFormRowAtIndex(1)
         
-        let row = XLFormRowDescriptor(tag: "timesUpMessage", rowType: XLFormRowDescriptorTypeText, title: NSLocalizedString("Message", comment: ""))
+        let row = XLFormRowDescriptor(tag: tagTimesUpMessage, rowType: XLFormRowDescriptorTypeText, title: NSLocalizedString("Message", comment: ""))
         sec.addFormRow(row)
     }
     
@@ -80,7 +80,7 @@ class TimerFormController: XLFormViewController {
         
         sec.removeFormRowAtIndex(1)
         
-        let row = XLFormRowDescriptor(tag: "timesUpSound", rowType: XLFormRowDescriptorTypeSelectorPush, title: NSLocalizedString("Sound", comment: ""))
+        let row = XLFormRowDescriptor(tag: tagTimesUpSound, rowType: XLFormRowDescriptorTypeSelectorPush, title: NSLocalizedString("Sound", comment: ""))
         row.selectorOptions = ["xxx", "yyy", "zzz"]
         row.value = "xxx"
         
@@ -95,7 +95,7 @@ class TimerFormController: XLFormViewController {
         }
         
         switch formRow.tag! {
-        case "timesUpAction":
+        case tagTimesUpAction:
             if (newValue as! TimeIsUpActionWrapper) == TimeIsUpActionWrapper.playSound {
                 showTimesUpSoundRow()
             } else if (newValue as! TimeIsUpActionWrapper) == TimeIsUpActionWrapper.sayMessage {
