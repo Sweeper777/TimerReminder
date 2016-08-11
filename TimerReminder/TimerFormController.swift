@@ -18,10 +18,8 @@ class TimerFormController: XLFormViewController {
         
         let section1 = XLFormSectionDescriptor()
         section1.footerTitle = NSLocalizedString("This is the language in which the reminder messages and the \"Time is up\" message will be spoken.", comment: "")
-        
         let row1 = XLFormRowDescriptor(tag: "name", rowType: XLFormRowDescriptorTypeText, title: NSLocalizedString("Name", comment: ""))
         section1.addFormRow(row1)
-        
         let row2 = XLFormRowDescriptor(tag: "language", rowType: XLFormRowDescriptorTypeSelectorPickerViewInline, title: NSLocalizedString("Language", comment: ""))
         let langs: [Languages] = [.English, .Mandarin, .Cantonese, .Japanese]
         row2.selectorOptions = langs.map { LanguageWrapper(language: $0) }
@@ -45,6 +43,57 @@ class TimerFormController: XLFormViewController {
         section2.addFormRow(row3)
         form.addFormSection(section2)
         
+        let section3 = XLFormSectionDescriptor()
+        section3.title = NSLocalizedString("Time is up", comment: "")
+        section3.footerTitle = NSLocalizedString("Only applicable in Timer Mode", comment: "")
+        let row4 = XLFormRowDescriptor(tag: "timesUpAction", rowType: XLFormRowDescriptorTypeSelectorSegmentedControl, title: "")
+        row4.selectorOptions = [TimeIsUpActionWrapper.sayMessage, TimeIsUpActionWrapper.playSound]
+        row4.value = TimeIsUpActionWrapper.sayMessage
+        section3.addFormRow(row4)
+        let row5 = XLFormRowDescriptor(tag: "timesUpMessage", rowType: XLFormRowDescriptorTypeText, title: NSLocalizedString("Message", comment: ""))
+        section3.addFormRow(row5)
+        form.addFormSection(section3)
+        
         self.form = form
+    }
+    
+    func showTimesUpMessageRow() {
+        let sec = form.formSectionAtIndex(2)!
+        
+        sec.removeFormRowAtIndex(1)
+        
+        let row = XLFormRowDescriptor(tag: "timesUpMessage", rowType: XLFormRowDescriptorTypeText, title: NSLocalizedString("Message", comment: ""))
+        sec.addFormRow(row)
+    }
+    
+    func showTimesUpSoundRow() {
+        let sec = form.formSectionAtIndex(2)!
+        
+        sec.removeFormRowAtIndex(1)
+        
+        let row = XLFormRowDescriptor(tag: "timesUpSound", rowType: XLFormRowDescriptorTypeSelectorPickerViewInline, title: NSLocalizedString("Sound", comment: ""))
+        row.selectorOptions = ["xxx", "yyy", "zzz"]
+        row.value = "xxx"
+        
+        sec.addFormRow(row)
+    }
+    
+    override func formRowDescriptorValueHasChanged(formRow: XLFormRowDescriptor!, oldValue: AnyObject!, newValue: AnyObject!) {
+        super.formRowDescriptorValueHasChanged(formRow, oldValue: oldValue, newValue: newValue)
+        
+        if formRow.tag == nil {
+            return
+        }
+        
+        switch formRow.tag! {
+        case "timesUpAction":
+            if (newValue as! TimeIsUpActionWrapper) == TimeIsUpActionWrapper.playSound {
+                showTimesUpSoundRow()
+            } else if (newValue as! TimeIsUpActionWrapper) == TimeIsUpActionWrapper.sayMessage {
+                showTimesUpMessageRow()
+            }
+        default:
+            break
+        }
     }
 }

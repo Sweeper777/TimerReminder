@@ -27,3 +27,26 @@ class CountDownTimeWrapper: NSObject, XLFormOptionObject {
     static let _30 = CountDownTimeWrapper(value: 30)
     static let _60 = CountDownTimeWrapper(value: 60)
 }
+
+class TimeIsUpActionWrapper: NSObject, XLFormOptionObject {
+    private let innerValue: String
+    
+    func formValue() -> AnyObject {
+        return innerValue
+    }
+    
+    func formDisplayText() -> String {
+        return NSLocalizedString(innerValue, comment: "")
+    }
+    
+    init(value: String) {
+        innerValue = value
+    }
+    
+    static let playSound = TimeIsUpActionWrapper(value: "Play a Sound")
+    static let sayMessage = TimeIsUpActionWrapper(value: "Say a Message")
+}
+
+func ==(a: TimeIsUpActionWrapper, b: TimeIsUpActionWrapper) -> Bool {
+    return a.innerValue == b.innerValue
+}
