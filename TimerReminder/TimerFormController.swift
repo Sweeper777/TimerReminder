@@ -7,10 +7,19 @@ class TimerFormController: XLFormViewController {
         self.initializeForm()
     }
     
+    @IBAction func cancel(sender: AnyObject) {
+        dismissVC(completion: nil)
+    }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.initializeForm()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationItem.backBarButtonItem?.title = ""
     }
     
     func initializeForm() {
@@ -71,7 +80,7 @@ class TimerFormController: XLFormViewController {
         
         sec.removeFormRowAtIndex(1)
         
-        let row = XLFormRowDescriptor(tag: "timesUpSound", rowType: XLFormRowDescriptorTypeSelectorPickerViewInline, title: NSLocalizedString("Sound", comment: ""))
+        let row = XLFormRowDescriptor(tag: "timesUpSound", rowType: XLFormRowDescriptorTypeSelectorPush, title: NSLocalizedString("Sound", comment: ""))
         row.selectorOptions = ["xxx", "yyy", "zzz"]
         row.value = "xxx"
         

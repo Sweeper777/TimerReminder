@@ -9,7 +9,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        window?.tintColor = UIColor(hexString: "5abb5a")
+        window?.tintColor = UIColor(hexString: "3b7b3b")
+        UINavigationBar.appearance().barStyle = .Black
         return true
     }
 
