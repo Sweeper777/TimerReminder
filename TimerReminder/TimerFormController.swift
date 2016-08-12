@@ -71,6 +71,23 @@ class TimerFormController: FormViewController {
                 row.options = ["xxx", "yyy", "zzz"]
                 row.value = "xxx"
         }
+        
+        form +++ Section()
+            <<< SwitchRow(tagReminderOnOff) {
+                row in
+                row.title = NSLocalizedString("Reminders", comment: "")
+                row.value = false
+            }
+            <<< SegmentedRow<ReminderStyleWrapper>(tagReminderStyle) {
+                row in
+                row.options = [ReminderStyleWrapper.regular, ReminderStyleWrapper.atSpecificTimes]
+                row.value = ReminderStyleWrapper.atSpecificTimes
+//                row.cell.segmentedControl.apportionsSegmentWidthsByContent = true
+                row.hidden = Condition.Function([tagReminderOnOff]) {
+                    let onOff: SwitchRow = $0.rowByTag(tagReminderOnOff)!
+                    return !onOff.value!
+                }
+        }
     }
 }
 
