@@ -77,7 +77,6 @@ class TimerFormController: FormViewController {
                 row in
                 row.options = [.Regular, .AtSpecificTimes]
                 row.value = .AtSpecificTimes
-//                row.cell.segmentedControl.apportionsSegmentWidthsByContent = true
                 row.hidden = Condition.Function([tagReminderOnOff]) {
                     let onOff: SwitchRow = $0.rowByTag(tagReminderOnOff)!
                     return !onOff.value!

@@ -197,3 +197,31 @@ func normalize(timeInterval timeInterval: NSTimeInterval, with options: TimerOpt
     
     return normalized
 }
+
+func normalize(timeInterval timeInterval: NSTimeInterval) -> String {
+    let hours = Int(timeInterval) % 86400 / 60 / 60
+    let minutes = Int(timeInterval) % 3600 / 60
+    let seconds = Int(timeInterval) % 60
+    
+    var normalized = ""
+    
+    if hours == 1 {
+        normalized += "\(hours) \(NSLocalizedString("Hour", comment: "")) "
+    } else if hours != 0 {
+        normalized += "\(hours) \(NSLocalizedString("Hours", comment: "")) "
+    }
+    
+    if minutes == 1 {
+        normalized += "\(minutes) \(NSLocalizedString("Minute", comment: "")) "
+    } else if minutes != 0 {
+        normalized += "\(minutes) \(NSLocalizedString("Minutes", comment: "")) "
+    }
+    
+    if seconds == 1 {
+        normalized += "\(seconds) \(NSLocalizedString("Second", comment: "")) "
+    } else if seconds != 0 {
+        normalized += "\(seconds) \(NSLocalizedString("Seconds", comment: "")) "
+    }
+    
+    return normalized
+}

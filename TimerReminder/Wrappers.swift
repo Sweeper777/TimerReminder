@@ -26,7 +26,7 @@ enum TimeIsUpAction: String, CustomStringConvertible {
     }
     
     case PlaySound = "Play a Sound"
-    case SayMessage = "Say a Message"
+    case SayMessage = "Verbalize a Message"
 }
 
 enum ReminderStyle: String, CustomStringConvertible {
