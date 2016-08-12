@@ -1,30 +1,30 @@
 PODS:
+  - Eureka (1.7.0)
   - EZSwiftExtensions (1.5)
   - FittableFontLabel (1.2.0)
   - LTMorphingLabel (0.2.1)
   - MVSpeechSynthesizer (1.0.1)
   - RWDropdownMenu (1.0.3)
   - SwiftyJSON (2.3.2)
-  - XLForm (3.2.0)
 
 DEPENDENCIES:
+  - Eureka
   - EZSwiftExtensions
   - FittableFontLabel
   - LTMorphingLabel
   - MVSpeechSynthesizer
   - RWDropdownMenu
   - SwiftyJSON
-  - XLForm
 
 SPEC CHECKSUMS:
+  Eureka: 2020d9faeef7b7e9adeb9e3d8af779e5931c1897
   EZSwiftExtensions: fe78d7d4ac34f5c8c36415d4acee49ba67c9732a
   FittableFontLabel: 50e775bdb8d643a8cc3f7f5dca7d2e8827bb2aab
   LTMorphingLabel: 1858358ea38ef4d548e1f58b648b0d08ec3a62ed
   MVSpeechSynthesizer: d4deb5221bff17dfda644298497be3b4fa189040
   RWDropdownMenu: c7fda4b7adf4f3f63a46d96359c2f490a7713795
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
-  XLForm: 2250b4e96ab8ffa5f3355838c79edd90de451782
 
-PODFILE CHECKSUM: 8bfa47de2d537ef0158b88ff968b443b149f5d38
+PODFILE CHECKSUM: 77835ce875f3ad82ec93a9c8208c777f75c11e0d
 
 COCOAPODS: 1.1.0.beta.1

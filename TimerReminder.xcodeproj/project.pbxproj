@@ -15,6 +15,7 @@
 		5A0135A41D470B90008A0F1D /* TimerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0135A01D470B90008A0F1D /* TimerOptions.swift */; };
 		5A0135A51D470B90008A0F1D /* TimerOptions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0135A11D470B90008A0F1D /* TimerOptions+CoreDataProperties.swift */; };
 		5A015F0C1D4DA8530032BB59 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A015F0B1D4DA8530032BB59 /* beep.mp3 */; };
+		5A0316541D5D520B0034F45F /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0316531D5D520B0034F45F /* Eureka.framework */; };
 		5A03F27F1D5AD34600723262 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03F27E1D5AD34600723262 /* Languages.swift */; };
 		5A03F2811D5AEED600723262 /* TimerFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03F2801D5AEED600723262 /* TimerFormController.swift */; };
 		5A03F2831D5C0D9B00723262 /* Wrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03F2821D5C0D9B00723262 /* Wrappers.swift */; };
@@ -32,7 +33,6 @@
 		5A067CD11D44922800238AF5 /* EZSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A067CCD1D44922800238AF5 /* EZSwiftExtensions.framework */; };
 		5A067CD21D44922800238AF5 /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A067CCE1D44922800238AF5 /* LTMorphingLabel.framework */; };
 		5A067CD31D44922800238AF5 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A067CCF1D44922800238AF5 /* SwiftyJSON.framework */; };
-		5A067CD41D44922800238AF5 /* XLForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A067CD01D44922800238AF5 /* XLForm.framework */; };
 		5A9608E71D498728001EE17F /* SetTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9608E61D498728001EE17F /* SetTimerController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +45,7 @@
 		5A0135A01D470B90008A0F1D /* TimerOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerOptions.swift; sourceTree = SOURCE_ROOT; };
 		5A0135A11D470B90008A0F1D /* TimerOptions+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimerOptions+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		5A015F0B1D4DA8530032BB59 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
+		5A0316531D5D520B0034F45F /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = "Pods/../build/Debug-iphoneos/Eureka/Eureka.framework"; sourceTree = "<group>"; };
 		5A03F27E1D5AD34600723262 /* Languages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		5A03F2801D5AEED600723262 /* TimerFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerFormController.swift; sourceTree = "<group>"; };
 		5A03F2821D5C0D9B00723262 /* Wrappers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wrappers.swift; sourceTree = "<group>"; };
@@ -76,13 +77,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A0316541D5D520B0034F45F /* Eureka.framework in Frameworks */,
 				5A0058A41D55622200DF4522 /* MVSpeechSynthesizer.framework in Frameworks */,
 				5A0672901D459E76007F7AEB /* FittableFontLabel.framework in Frameworks */,
 				5A0672911D459E76007F7AEB /* RWDropdownMenu.framework in Frameworks */,
 				5A067CD11D44922800238AF5 /* EZSwiftExtensions.framework in Frameworks */,
 				5A067CD21D44922800238AF5 /* LTMorphingLabel.framework in Frameworks */,
 				5A067CD31D44922800238AF5 /* SwiftyJSON.framework in Frameworks */,
-				5A067CD41D44922800238AF5 /* XLForm.framework in Frameworks */,
 				2467A8747BF6557031FAEF87 /* Pods_TimerReminder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,6 +149,7 @@
 		F7E084DFAF08D18824FDF3A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A0316531D5D520B0034F45F /* Eureka.framework */,
 				5A0058A31D55622200DF4522 /* MVSpeechSynthesizer.framework */,
 				5A06728E1D459E76007F7AEB /* FittableFontLabel.framework */,
 				5A06728F1D459E76007F7AEB /* RWDropdownMenu.framework */,
@@ -420,6 +422,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/MVSpeechSynthesizer",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Eureka",
 				);
 				INFOPLIST_FILE = TimerReminder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -440,6 +443,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/MVSpeechSynthesizer",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Eureka",
 				);
 				INFOPLIST_FILE = TimerReminder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

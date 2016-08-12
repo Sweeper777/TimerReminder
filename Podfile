@@ -5,7 +5,7 @@ use_frameworks!
 
 target 'TimerReminder' do
     pod 'EZSwiftExtensions'
-    pod 'XLForm'
+    pod 'Eureka'
     pod 'SwiftyJSON'
     pod 'LTMorphingLabel'
     pod 'FittableFontLabel'
