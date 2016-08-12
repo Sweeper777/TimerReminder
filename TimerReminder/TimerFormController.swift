@@ -18,39 +18,6 @@ class TimerFormController: FormViewController {
     }
     
     func initializeForm() {
-        //
-        //        let section2 = XLFormSectionDescriptor()
-        //        section2.footerTitle = NSLocalizedString("Only applicable in Timer Mode", comment: "")
-        //        let row3 = XLFormRowDescriptor(tag: tagStartCountDown, rowType: XLFormRowDescriptorTypeSelectorPush, title: NSLocalizedString("Start Countdown At", comment: ""))
-        //        row3.value = CountDownTimeWrapper._10
-        //        row3.selectorOptions = [
-        //            CountDownTimeWrapper.noCountdown,
-        //            CountDownTimeWrapper._3,
-        //            CountDownTimeWrapper._5,
-        //            CountDownTimeWrapper._10,
-        //            CountDownTimeWrapper._20,
-        //            CountDownTimeWrapper._30,
-        //            CountDownTimeWrapper._60,
-        //        ]
-        //        row3.required = true
-        //        section2.addFormRow(row3)
-        //        form.addFormSection(section2)
-        //
-        //        let section3 = XLFormSectionDescriptor()
-        //        section3.title = NSLocalizedString("Time is up", comment: "")
-        //        section3.footerTitle = NSLocalizedString("Only applicable in Timer Mode", comment: "")
-        //        let row4 = XLFormRowDescriptor(tag: tagTimesUpAction, rowType: XLFormRowDescriptorTypeSelectorSegmentedControl, title: "")
-        //        row4.selectorOptions = [TimeIsUpActionWrapper.sayMessage, TimeIsUpActionWrapper.playSound]
-        //        row4.value = TimeIsUpActionWrapper.sayMessage
-        //        section3.addFormRow(row4)
-        //        let row5 = XLFormRowDescriptor(tag: tagTimesUpMessage, rowType: XLFormRowDescriptorTypeText, title: NSLocalizedString("Message", comment: ""))
-        //        section3.addFormRow(row5)
-        //        form.addFormSection(section3)
-        //
-        //        self.form = form
-        //    }
-        //
-        
         form +++ Section(footer: NSLocalizedString("This is the language in which the reminder messages and the \"Time is up\" message will be spoken.", comment: ""))
             <<< TextRow(tagName) {
                 row in
@@ -62,6 +29,47 @@ class TimerFormController: FormViewController {
                 let langs: [Languages] = [.English, .Mandarin, .Cantonese, .Japanese]
                 row.options = langs
                 row.value = .English
+        }
+        
+        form +++ Section(footer: NSLocalizedString("Only applicable in Timer Mode", comment: ""))
+            <<< PickerInlineRow<CountDownTimeWrapper>(tagStartCountDown) {
+                row in
+                row.title = NSLocalizedString("Start Countdown At", comment: "")
+                row.value = CountDownTimeWrapper._10
+                row.options = [
+                    CountDownTimeWrapper.noCountdown,
+                    CountDownTimeWrapper._3,
+                    CountDownTimeWrapper._5,
+                    CountDownTimeWrapper._10,
+                    CountDownTimeWrapper._20,
+                    CountDownTimeWrapper._30,
+                    CountDownTimeWrapper._60,
+                ]
+        }
+        
+        form +++ Section(header: NSLocalizedString("time is up", comment: ""), footer: NSLocalizedString("Only applicable in Timer Mode", comment: ""))
+            <<< SegmentedRow<TimeIsUpActionWrapper>(tagTimesUpAction) {
+                row in
+                row.options = [TimeIsUpActionWrapper.sayMessage, TimeIsUpActionWrapper.playSound]
+                row.value = TimeIsUpActionWrapper.sayMessage
+        }
+            <<< TextRow(tagTimesUpMessage) {
+                row in
+                row.title = NSLocalizedString("Message", comment: "")
+                row.hidden = Condition.Function([tagTimesUpAction]) {
+                    let action: SegmentedRow<TimeIsUpActionWrapper> = $0.rowByTag(tagTimesUpAction)!
+                    return action.value == TimeIsUpActionWrapper.playSound
+                }
+        }
+            <<< PickerInlineRow<String>(tagTimesUpSound) {
+                row in
+                row.title = NSLocalizedString("Sound", comment: "")
+                row.hidden = Condition.Function([tagTimesUpAction]) {
+                    let action: SegmentedRow<TimeIsUpActionWrapper> = $0.rowByTag(tagTimesUpAction)!
+                    return action.value == TimeIsUpActionWrapper.sayMessage
+                }
+                row.options = ["xxx", "yyy", "zzz"]
+                row.value = "xxx"
         }
     }
 }
