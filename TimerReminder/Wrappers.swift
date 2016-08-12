@@ -1,13 +1,9 @@
-import XLForm
+import Eureka
 
-class CountDownTimeWrapper: NSObject, XLFormOptionObject {
-    private let innerValue: Int
+class CountDownTimeWrapper: Equatable, CustomStringConvertible {
+    let innerValue: Int
     
-    func formValue() -> AnyObject {
-        return innerValue
-    }
-    
-    func formDisplayText() -> String {
+    var description: String {
         if innerValue == 0 {
             return NSLocalizedString("No Countdown", comment: "")
         } else {
@@ -28,14 +24,10 @@ class CountDownTimeWrapper: NSObject, XLFormOptionObject {
     static let _60 = CountDownTimeWrapper(value: 60)
 }
 
-class TimeIsUpActionWrapper: NSObject, XLFormOptionObject {
-    private let innerValue: String
+class TimeIsUpActionWrapper: Equatable, CustomStringConvertible {
+    let innerValue: String
     
-    func formValue() -> AnyObject {
-        return innerValue
-    }
-    
-    func formDisplayText() -> String {
+    var description: String {
         return NSLocalizedString(innerValue, comment: "")
     }
     
@@ -47,6 +39,10 @@ class TimeIsUpActionWrapper: NSObject, XLFormOptionObject {
     static let sayMessage = TimeIsUpActionWrapper(value: "Say a Message")
 }
 
-func ==(a: TimeIsUpActionWrapper, b: TimeIsUpActionWrapper) -> Bool {
-    return a.innerValue == b.innerValue
+func ==(lhs: TimeIsUpActionWrapper, rhs: TimeIsUpActionWrapper) -> Bool {
+    return lhs.innerValue == rhs.innerValue
+}
+
+func ==(lhs: CountDownTimeWrapper, rhs: CountDownTimeWrapper) -> Bool {
+    return lhs.innerValue == rhs.innerValue
 }

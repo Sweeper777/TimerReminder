@@ -1,26 +1,14 @@
 import Foundation
-import XLForm
+import Eureka
 
-enum Languages: String {
+enum Languages: String, CustomStringConvertible {
     case English = "en-us"
     case Mandarin = "zh-cn"
     case Cantonese = "zh-hk"
     case Japanese = "ja"
-}
-
-class LanguageWrapper: NSObject, XLFormOptionObject {
-    var language: Languages
     
-    init(language: Languages) {
-        self.language = language
-    }
-    
-    @objc func formValue() -> AnyObject {
-        return language.rawValue
-    }
-    
-    @objc func formDisplayText() -> String {
-        switch language {
+    var description: String {
+        switch self {
         case .Mandarin:
             return NSLocalizedString("Mandarin", comment: "")
         case .Cantonese:

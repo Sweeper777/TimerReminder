@@ -1,16 +1,17 @@
 import UIKit
 import EZSwiftExtensions
-import XLForm
+import Eureka
 
-class SetTimerController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, XLFormRowDescriptorViewController {
+class SetTimerController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, TypedRowControllerType {
     var selectedTimeInterval: NSTimeInterval?
-    var rowDescriptor: XLFormRowDescriptor!
     @IBOutlet var timeIntervalPicker: UIPickerView!
+    var row: RowOf<Int>!
+    var completionCallback: ((UIViewController) -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.preferredContentSize = CGSize(width: 500, height: 230)
-        if let timeInterval = rowDescriptor.value as? Int {
+        if let timeInterval = row.value {
             let hours = timeInterval / 60 / 60
             let minutes = timeInterval % 3600 / 60
             let seconds = timeInterval % 60
@@ -68,6 +69,6 @@ class SetTimerController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         let hours = timeIntervalPicker.selectedRowInComponent(0)
         let minutes = timeIntervalPicker.selectedRowInComponent(1)
         let seconds = timeIntervalPicker.selectedRowInComponent(2)
-        rowDescriptor?.value = hours * 60 * 60 + minutes * 60 + seconds
+        self.row.value = hours * 60 * 60 + minutes * 60 + seconds
     }
 }
