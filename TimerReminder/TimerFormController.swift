@@ -32,41 +32,36 @@ class TimerFormController: FormViewController {
         }
         
         form +++ Section(footer: NSLocalizedString("Only applicable in Timer Mode", comment: ""))
-            <<< PickerInlineRow<CountDownTimeWrapper>(tagStartCountDown) {
+            <<< PickerInlineRow<CountDownTime>(tagStartCountDown) {
                 row in
                 row.title = NSLocalizedString("Start Countdown At", comment: "")
-                row.value = CountDownTimeWrapper._10
+                row.value = ._10
                 row.options = [
-                    CountDownTimeWrapper.noCountdown,
-                    CountDownTimeWrapper._3,
-                    CountDownTimeWrapper._5,
-                    CountDownTimeWrapper._10,
-                    CountDownTimeWrapper._20,
-                    CountDownTimeWrapper._30,
-                    CountDownTimeWrapper._60,
+                    .NoCountdown,
+                    ._3, ._5, ._10, ._20, ._30, ._60
                 ]
         }
         
         form +++ Section(header: NSLocalizedString("time is up", comment: ""), footer: NSLocalizedString("Only applicable in Timer Mode", comment: ""))
-            <<< SegmentedRow<TimeIsUpActionWrapper>(tagTimesUpAction) {
+            <<< SegmentedRow<TimeIsUpAction>(tagTimesUpAction) {
                 row in
-                row.options = [TimeIsUpActionWrapper.sayMessage, TimeIsUpActionWrapper.playSound]
-                row.value = TimeIsUpActionWrapper.sayMessage
+                row.options = [.SayMessage, .PlaySound]
+                row.value = .SayMessage
         }
             <<< TextRow(tagTimesUpMessage) {
                 row in
                 row.title = NSLocalizedString("Message", comment: "")
                 row.hidden = Condition.Function([tagTimesUpAction]) {
-                    let action: SegmentedRow<TimeIsUpActionWrapper> = $0.rowByTag(tagTimesUpAction)!
-                    return action.value == TimeIsUpActionWrapper.playSound
+                    let action: SegmentedRow<TimeIsUpAction> = $0.rowByTag(tagTimesUpAction)!
+                    return action.value == .PlaySound
                 }
         }
             <<< PickerInlineRow<String>(tagTimesUpSound) {
                 row in
                 row.title = NSLocalizedString("Sound", comment: "")
                 row.hidden = Condition.Function([tagTimesUpAction]) {
-                    let action: SegmentedRow<TimeIsUpActionWrapper> = $0.rowByTag(tagTimesUpAction)!
-                    return action.value == TimeIsUpActionWrapper.sayMessage
+                    let action: SegmentedRow<TimeIsUpAction> = $0.rowByTag(tagTimesUpAction)!
+                    return action.value == .SayMessage
                 }
                 row.options = ["xxx", "yyy", "zzz"]
                 row.value = "xxx"
@@ -78,10 +73,10 @@ class TimerFormController: FormViewController {
                 row.title = NSLocalizedString("Reminders", comment: "")
                 row.value = false
             }
-            <<< SegmentedRow<ReminderStyleWrapper>(tagReminderStyle) {
+            <<< SegmentedRow<ReminderStyle>(tagReminderStyle) {
                 row in
-                row.options = [ReminderStyleWrapper.regular, ReminderStyleWrapper.atSpecificTimes]
-                row.value = ReminderStyleWrapper.atSpecificTimes
+                row.options = [.Regular, .AtSpecificTimes]
+                row.value = .AtSpecificTimes
 //                row.cell.segmentedControl.apportionsSegmentWidthsByContent = true
                 row.hidden = Condition.Function([tagReminderOnOff]) {
                     let onOff: SwitchRow = $0.rowByTag(tagReminderOnOff)!

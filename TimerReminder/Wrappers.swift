@@ -1,67 +1,40 @@
 import Eureka
 
-class CountDownTimeWrapper: Equatable, CustomStringConvertible {
-    let innerValue: Int
+enum CountDownTime: Int, CustomStringConvertible {
     
     var description: String {
-        if innerValue == 0 {
+        if rawValue == 0 {
             return NSLocalizedString("No Countdown", comment: "")
         } else {
-            return "\(innerValue) \(NSLocalizedString("Seconds", comment: ""))"
+            return "\(rawValue) \(NSLocalizedString("Seconds", comment: ""))"
         }
     }
     
-    init(value: Int) {
-        innerValue = value
-    }
-    
-    static let noCountdown = CountDownTimeWrapper(value: 0)
-    static let _3 = CountDownTimeWrapper(value: 3)
-    static let _5 = CountDownTimeWrapper(value: 5)
-    static let _10 = CountDownTimeWrapper(value: 10)
-    static let _20 = CountDownTimeWrapper(value: 20)
-    static let _30 = CountDownTimeWrapper(value: 30)
-    static let _60 = CountDownTimeWrapper(value: 60)
+    case NoCountdown = 0
+    case _3 = 3
+    case _5 = 5
+    case _10 = 10
+    case _20 = 20
+    case _30 = 30
+    case _60 = 60
 }
 
-class TimeIsUpActionWrapper: Equatable, CustomStringConvertible {
-    let innerValue: String
+enum TimeIsUpAction: String, CustomStringConvertible {
     
     var description: String {
-        return NSLocalizedString(innerValue, comment: "")
+        return NSLocalizedString(rawValue, comment: "")
     }
     
-    init(value: String) {
-        innerValue = value
-    }
-    
-    static let playSound = TimeIsUpActionWrapper(value: "Play a Sound")
-    static let sayMessage = TimeIsUpActionWrapper(value: "Say a Message")
+    case PlaySound = "Play a Sound"
+    case SayMessage = "Say a Message"
 }
 
-class ReminderStyleWrapper: Equatable, CustomStringConvertible {
-    let innerValue: String
+enum ReminderStyle: String, CustomStringConvertible {
     
     var description: String {
-        return NSLocalizedString(innerValue, comment: "")
+        return NSLocalizedString(rawValue, comment: "")
     }
     
-    init(value: String) {
-        innerValue = value
-    }
-    
-    static let regular = ReminderStyleWrapper(value: "Regular")
-    static let atSpecificTimes = ReminderStyleWrapper(value: "At Specific Times")
-}
-
-func ==(lhs: TimeIsUpActionWrapper, rhs: TimeIsUpActionWrapper) -> Bool {
-    return lhs.innerValue == rhs.innerValue
-}
-
-func ==(lhs: CountDownTimeWrapper, rhs: CountDownTimeWrapper) -> Bool {
-    return lhs.innerValue == rhs.innerValue
-}
-
-func ==(lhs: ReminderStyleWrapper, rhs: ReminderStyleWrapper) -> Bool {
-    return lhs.innerValue == rhs.innerValue
+    case Regular = "Regular"
+    case AtSpecificTimes = "At Specific Times"
 }
