@@ -11,7 +11,7 @@ class SetTimerController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.preferredContentSize = CGSize(width: 500, height: 230)
-        if let timeInterval = row.value {
+        if let timeInterval = row?.value {
             let hours = timeInterval / 60 / 60
             let minutes = timeInterval % 3600 / 60
             let seconds = timeInterval % 60
@@ -69,6 +69,6 @@ class SetTimerController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         let hours = timeIntervalPicker.selectedRowInComponent(0)
         let minutes = timeIntervalPicker.selectedRowInComponent(1)
         let seconds = timeIntervalPicker.selectedRowInComponent(2)
-        self.row.value = hours * 60 * 60 + minutes * 60 + seconds
+        self.row?.value = hours * 60 * 60 + minutes * 60 + seconds
     }
 }
