@@ -12,22 +12,12 @@ class TimerFormController: FormViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationItem.backBarButtonItem?.title = ""
         
+        title = NSLocalizedString("Add Settings", comment: "")
+        
         initializeForm()
     }
     
     func initializeForm() {
-        //        let form = XLFormDescriptor(title: NSLocalizedString("Add Settings", comment: ""))
-        //
-        //        let section1 = XLFormSectionDescriptor()
-        //        section1.footerTitle = NSLocalizedString("This is the language in which the reminder messages and the \"Time is up\" message will be spoken.", comment: "")
-        //        let row1 = XLFormRowDescriptor(tag: tagName, rowType: XLFormRowDescriptorTypeText, title: NSLocalizedString("Name", comment: ""))
-        //        section1.addFormRow(row1)
-        //        let row2 = XLFormRowDescriptor(tag: tagLanguage, rowType: XLFormRowDescriptorTypeSelectorPickerViewInline, title: NSLocalizedString("Language", comment: ""))
-        //        let langs: [Languages] = [.English, .Mandarin, .Cantonese, .Japanese]
-        //        row2.selectorOptions = langs.map { LanguageWrapper(language: $0) }
-        //        row2.value = LanguageWrapper(language: .English)
-        //        section1.addFormRow(row2)
-        //        form.addFormSection(section1)
         //
         //        let section2 = XLFormSectionDescriptor()
         //        section2.footerTitle = NSLocalizedString("Only applicable in Timer Mode", comment: "")
@@ -60,5 +50,19 @@ class TimerFormController: FormViewController {
         //        self.form = form
         //    }
         //
+        
+        form +++ Section(footer: NSLocalizedString("This is the language in which the reminder messages and the \"Time is up\" message will be spoken.", comment: ""))
+            <<< TextRow(tagName) {
+                row in
+                row.title = NSLocalizedString("Name", comment: "")
+        }
+            <<< PickerInlineRow<Languages>(tagLanguage) {
+                row in
+                row.title = NSLocalizedString("Language", comment: "")
+                let langs: [Languages] = [.English, .Mandarin, .Cantonese, .Japanese]
+                row.options = langs
+                row.value = .English
+        }
     }
 }
+
