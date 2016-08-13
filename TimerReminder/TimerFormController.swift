@@ -1,7 +1,9 @@
 import Eureka
 import UIKit
+import CoreData
 
 class TimerFormController: FormViewController {
+    var options: TimerOptions!
     
     @IBAction func cancel(sender: AnyObject) {
         dismissVC(completion: nil)
@@ -172,6 +174,70 @@ class TimerFormController: FormViewController {
                         cell.textField.textAlignment = .Left
             }
         }
+    }
+    
+    @IBAction func save(sender: AnyObject) {
+        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let options = TimerOptions.init(entity: NSEntityDescription.entityForName("TimerOptions", inManagedObjectContext: context)!, insertIntoManagedObjectContext: nil)
+        options.initializeWithDefValues()
+        var values = form.values(includeHidden: false)
+        values = values.filter {
+            if let value = $0.1 as? String {
+                return value.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) != ""
+            }
+            return true
+        }
+        
+        if let name = values[tagName] as? String {
+            options.name = name
+        }
+        
+        if let language = values[tagLanguage] as? Languages {
+            options.language = language.rawValue
+        }
+        
+        if let countDown = values[tagStartCountDown] as? CountDownTime {
+            options.countDownTime = countDown.rawValue
+        }
+        
+        if let beepSounds = values[tagBeepSounds] as? Bool {
+            options.beepSounds = beepSounds
+        }
+        
+        if let timesUpMessage = values[tagTimesUpMessage] as? String {
+            options.timesUpMessage = timesUpMessage
+        }
+        
+        if let timesUpSound = values[tagTimesUpSound] as? String {
+            options.timesUpSound = timesUpSound
+        }
+        
+        if let regularReminderInterval = values[tagRegularReminderInterval] as? Int {
+            options.regularReminderInterval = regularReminderInterval
+        }
+        
+        if let reminderCount = values[tagReminderCount] as? Double {
+            var reminders = [Reminder]()
+            for i in 1...Int(reminderCount) {
+                let reminder = Reminder(entity: NSEntityDescription.entityForName("Reminder", inManagedObjectContext: context)!, insertIntoManagedObjectContext: nil)
+                reminder.initializeWithDefValues()
+                
+                if let remindAt = values[tagRemindAt + String(i)] as? Int {
+                    reminder.remindTimeFrame = remindAt
+                }
+                
+                if let message = values[tagRemindMessage + String(i)] as? String {
+                    reminder.customRemindMessage = message
+                }
+                
+                reminder.timer = options
+                reminders.append(reminder)
+            }
+            
+            options.reminders = NSOrderedSet(array: reminders)
+        }
+        self.options = options
+        performSegueWithIdentifier("unwindToTimer", sender: self)
     }
 }
 

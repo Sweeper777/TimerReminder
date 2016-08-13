@@ -112,6 +112,12 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
         }
     }
     
+    @IBAction func unwindFromTimerForm(segue: UIStoryboardSegue) {
+        if let vc = segue.sourceViewController as? TimerFormController {
+            self.timer.options = vc.options
+        }
+    }
+    
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         let textCache = timerLabel.text
         shortFontSize = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)

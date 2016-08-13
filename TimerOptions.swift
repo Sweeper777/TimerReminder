@@ -9,18 +9,14 @@ class TimerOptions: NSManagedObject {
         options.initializeWithDefValues()
         options.name = "Default"
         
-        let reminder1 = Reminder(entity: NSEntityDescription.entityForName("Reminder", inManagedObjectContext: context)!, insertIntoManagedObjectContext: nil)
-        reminder1.remindTimeFrame = 50
-        options.reminders = NSOrderedSet(array: [reminder1])
-        
         return options
     }()
     
     func initializeWithDefValues() {
         self.name = "Unnamed"
         self.beepSounds = false
-        self.countDownTime = 10
+        self.countDownTime = 0
         self.reminders = NSOrderedSet()
-        self.language = Languages.Japanese.rawValue
+        self.language = Languages.English.rawValue
     }
 }

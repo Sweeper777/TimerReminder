@@ -139,7 +139,16 @@
                                 <action selector="cancel:" destination="OIo-kP-rcw" id="z3a-30-DbO"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="qar-hd-M2f">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="save:" destination="OIo-kP-rcw" id="uLj-rV-ByI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="6gf-lf-dXb" kind="unwind" identifier="unwindToTimer" unwindAction="unwindFromTimerForm:" id="KcG-Q3-jeg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTj-Kg-NmU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

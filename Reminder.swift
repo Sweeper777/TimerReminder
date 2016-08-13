@@ -4,6 +4,7 @@ import CoreData
 
 class Reminder: NSManagedObject {
 
-// Insert code here to add functionality to your managed object subclass
-
+    func initializeWithDefValues() {
+        self.remindTimeFrame = 0
+    }
 }

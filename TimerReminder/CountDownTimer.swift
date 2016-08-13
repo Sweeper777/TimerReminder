@@ -139,6 +139,10 @@ class CountDownTimer: Timer {
         }
         
         if let regularReminders = options?.regularReminderInterval {
+            if Int(regularReminders) <= 0 {
+                return (false, nil)
+            }
+            
             return (Int(timeToMeasure - timeLeft) % Int(regularReminders) == 0, nil)
         }
         

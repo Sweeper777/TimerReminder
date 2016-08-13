@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimerReminder/CountDownTimer.swift"
-            timestampString = "492495045.397075"
+            timestampString = "492769149.188984"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "shouldInvokeReminder()"
             landmarkType = "5">
          </BreakpointContent>
