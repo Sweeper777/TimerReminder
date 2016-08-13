@@ -3,14 +3,9 @@ import Eureka
 enum CountDownTime: Int, CustomStringConvertible {
     
     var description: String {
-        if rawValue == 0 {
-            return NSLocalizedString("No Countdown", comment: "")
-        } else {
-            return "\(rawValue) \(NSLocalizedString("Seconds", comment: ""))"
-        }
+        return "\(rawValue) \(NSLocalizedString("Seconds", comment: ""))"
     }
     
-    case NoCountdown = 0
     case _3 = 3
     case _5 = 5
     case _10 = 10

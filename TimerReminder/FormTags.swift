@@ -1,5 +1,6 @@
 let tagName = "name"
 let tagLanguage = "language"
+let tagCountDownEnabled = "countDownEnabled"
 let tagStartCountDown = "startCountDown"
 let tagTimesUpAction = "timesUpAction"
 let tagTimesUpMessage = "timesUpMessage"

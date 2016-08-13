@@ -18,10 +18,14 @@ class TimerFormController: FormViewController {
     }
     
     func initializeForm() {
+        
         form +++ Section(footer: NSLocalizedString("This is the language in which the reminder messages and the \"Time is up\" message will be spoken.", comment: ""))
             <<< TextRow(tagName) {
                 row in
-                row.title = NSLocalizedString("Name", comment: "")
+                row.title = NSLocalizedString("Name:", comment: "")
+                row.cell.textField.textAlignment = .Left
+        }.cellUpdate { cell, row in
+                    cell.textField.textAlignment = .Left
         }
             <<< PickerInlineRow<Languages>(tagLanguage) {
                 row in
@@ -32,14 +36,22 @@ class TimerFormController: FormViewController {
         }
         
         form +++ Section(footer: NSLocalizedString("Only applicable in Timer Mode", comment: ""))
+            <<< SwitchRow(tagCountDownEnabled) {
+                row in
+                row.title = NSLocalizedString("Countdown", comment: "")
+                row.value = true
+        }
             <<< PickerInlineRow<CountDownTime>(tagStartCountDown) {
                 row in
                 row.title = NSLocalizedString("Start Countdown At", comment: "")
                 row.value = ._10
                 row.options = [
-                    .NoCountdown,
                     ._3, ._5, ._10, ._20, ._30, ._60
                 ]
+                row.hidden = Condition.Function([tagCountDownEnabled]) {
+                    let enabled: SwitchRow = $0.rowByTag(tagCountDownEnabled)!
+                    return !enabled.value!
+                }
         }
         
         form +++ Section(header: NSLocalizedString("time is up", comment: ""), footer: NSLocalizedString("Only applicable in Timer Mode", comment: ""))
@@ -50,11 +62,15 @@ class TimerFormController: FormViewController {
         }
             <<< TextRow(tagTimesUpMessage) {
                 row in
-                row.title = NSLocalizedString("Message", comment: "")
+                row.title = NSLocalizedString("Message:", comment: "")
                 row.hidden = Condition.Function([tagTimesUpAction]) {
                     let action: SegmentedRow<TimeIsUpAction> = $0.rowByTag(tagTimesUpAction)!
                     return action.value == .PlaySound
                 }
+                row.placeholder = NSLocalizedString("Leave blank for default", comment: "")
+                
+        }.cellUpdate { cell, row in
+                    cell.textField.textAlignment = .Left
         }
             <<< PickerInlineRow<String>(tagTimesUpSound) {
                 row in
