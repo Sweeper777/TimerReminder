@@ -54,6 +54,12 @@ class TimerFormController: FormViewController {
                 }
         }
         
+        form +++ SwitchRow(tagBeepSounds) {
+            row in
+            row.title = NSLocalizedString("Beep Sounds", comment: "")
+            row.value = false
+        }
+        
         form +++ Section(header: NSLocalizedString("time is up", comment: ""), footer: NSLocalizedString("Only applicable in Timer Mode", comment: ""))
             <<< SegmentedRow<TimeIsUpAction>(tagTimesUpAction) {
                 row in
