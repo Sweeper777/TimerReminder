@@ -88,7 +88,7 @@ class TimerFormController: FormViewController {
                 row in
                 row.title = NSLocalizedString("Reminders", comment: "")
                 row.value = false
-            }
+        }
             <<< SegmentedRow<ReminderStyle>(tagReminderStyle) {
                 row in
                 row.options = [.Regular, .AtSpecificTimes]
@@ -96,6 +96,33 @@ class TimerFormController: FormViewController {
                 row.hidden = Condition.Function([tagReminderOnOff]) {
                     let onOff: SwitchRow = $0.rowByTag(tagReminderOnOff)!
                     return !onOff.value!
+                }
+        }
+            <<< StepperRow(tagReminderCount) {
+                row in
+                row.value = 1
+                row.title = NSLocalizedString("No. of Reminders", comment: "")
+                row.cell.stepper.maximumValue = 10
+                row.cell.stepper.minimumValue = 1
+                row.cell.valueLabel.textColor = UIApplication.sharedApplication().keyWindow!.tintColor
+                
+                row.hidden = Condition.Function([tagReminderOnOff, tagReminderStyle]) {
+                    let enabled: SwitchRow = $0.rowByTag(tagReminderOnOff)!
+                    let style: SegmentedRow<ReminderStyle> = $0.rowByTag(tagReminderStyle)!
+                    
+                    return !enabled.value! || style.value! == .Regular
+                }
+        }
+        
+            <<< TimeIntervalRow(tag: tagRegularReminderInterval) {
+                row in
+                row.title = NSLocalizedString("Remind Every", comment: "")
+                row.value = 300
+                row.hidden = Condition.Function([tagReminderOnOff, tagReminderStyle]) {
+                    let enabled: SwitchRow = $0.rowByTag(tagReminderOnOff)!
+                    let style: SegmentedRow<ReminderStyle> = $0.rowByTag(tagReminderStyle)!
+                    
+                    return !enabled.value! || style.value! == .AtSpecificTimes
                 }
         }
     }

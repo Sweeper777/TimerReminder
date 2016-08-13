@@ -47,7 +47,7 @@ public class StepperCell : Cell<Double>, CellType {
         stepper.value = row.value ?? 0
         
         valueLabel.textColor = stepper.tintColor
-        valueLabel.text = "\(row.value ?? 0)"
+        valueLabel.text = "\(Int(row.value ?? 0))"
     }
     
     deinit {
@@ -62,7 +62,7 @@ public class StepperCell : Cell<Double>, CellType {
     }
     
     func valueChanged() {
-        valueLabel.text = "\(stepper.value)"
+        valueLabel.text = "\(Int(stepper.value))"
         row.value = stepper.value
     }
 }
