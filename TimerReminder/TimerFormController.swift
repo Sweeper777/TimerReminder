@@ -125,6 +125,47 @@ class TimerFormController: FormViewController {
                     return !enabled.value! || style.value! == .AtSpecificTimes
                 }
         }
+        
+        for i in 1...10 {
+            form +++ Section("\(NSLocalizedString("Reminder", comment: "")) \(i)") {
+                section in
+                section.hidden = Condition.Function([tagReminderCount, tagReminderOnOff, tagReminderStyle]) {
+                    let count: StepperRow = $0.rowByTag(tagReminderCount)!
+                    let onOff: SwitchRow = $0.rowByTag(tagReminderOnOff)!
+                    let style: SegmentedRow<ReminderStyle> = $0.rowByTag(tagReminderStyle)!
+                    
+                    if !onOff.value! {
+                        return true
+                    }
+                    
+                    if style.value! == .Regular {
+                        return true
+                    }
+                    
+                    if count.isHidden {
+                        return true
+                    }
+                    
+                    if Int(count.value!) < i {
+                        return true
+                    }
+                    return false
+                }
+            }
+                <<< TimeIntervalRow(tag: tagRemindAt + String(i)) {
+                    row in
+                    row.title = NSLocalizedString("Remind At", comment: "")
+                    row.value = i * 60
+            }
+                <<< TextRow(tagRemindMessage + String(i)) {
+                    row in
+                    row.title = NSLocalizedString("Message:", comment: "")
+                    row.placeholder = NSLocalizedString("Leave blank for default", comment: "")
+                    
+                    }.cellUpdate { cell, row in
+                        cell.textField.textAlignment = .Left
+            }
+        }
     }
 }
 
