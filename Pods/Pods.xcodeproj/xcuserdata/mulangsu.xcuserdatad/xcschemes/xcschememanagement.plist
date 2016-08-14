@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MGSwipeTableCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MVSpeechSynthesizer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,6 +57,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>25DF511095B87D6ED6CAE7F9FB5A5371</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>322B4A63A57B3095B0D735E75287BDA1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3C900E8E2449EBBCC12128A9BDA69E7F</key>
 		<dict>
 			<key>primary</key>
@@ -62,17 +77,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5096E059A2D76E13A28E834EEB505E54</key>
+		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>60A64B22EF59BBD6B5F2D862154C2C51</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>6819754D454CCFB5578F7BB3E4DD1A9D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8099B66E73C5B4C7CA578C926C23B7E4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -83,11 +98,6 @@
 			<true/>
 		</dict>
 		<key>BF529704E2D57A46A0B88D09BCBD9804</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CDFCCE37F0EE75E9A437553716AB70CA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

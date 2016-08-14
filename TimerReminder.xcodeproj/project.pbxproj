@@ -19,6 +19,7 @@
 		5A0316561D5DF6B70034F45F /* TimeIntervalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0316551D5DF6B70034F45F /* TimeIntervalRow.swift */; };
 		5A036C171D5FEF68007AADB5 /* ASToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A036C161D5FEF68007AADB5 /* ASToast.framework */; };
 		5A036C191D5FF6B1007AADB5 /* SettingSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A036C181D5FF6B1007AADB5 /* SettingSelectorController.swift */; };
+		5A036C1B1D6015A7007AADB5 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A036C1A1D6015A7007AADB5 /* MGSwipeTableCell.framework */; };
 		5A03F27F1D5AD34600723262 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03F27E1D5AD34600723262 /* Languages.swift */; };
 		5A03F2811D5AEED600723262 /* TimerFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03F2801D5AEED600723262 /* TimerFormController.swift */; };
 		5A03F2831D5C0D9B00723262 /* Wrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03F2821D5C0D9B00723262 /* Wrappers.swift */; };
@@ -52,6 +53,7 @@
 		5A0316551D5DF6B70034F45F /* TimeIntervalRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalRow.swift; sourceTree = "<group>"; };
 		5A036C161D5FEF68007AADB5 /* ASToast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ASToast.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/ASToast/ASToast.framework"; sourceTree = "<group>"; };
 		5A036C181D5FF6B1007AADB5 /* SettingSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingSelectorController.swift; sourceTree = "<group>"; };
+		5A036C1A1D6015A7007AADB5 /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MGSwipeTableCell.framework; path = "Pods/../build/Debug-iphoneos/MGSwipeTableCell/MGSwipeTableCell.framework"; sourceTree = "<group>"; };
 		5A03F27E1D5AD34600723262 /* Languages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		5A03F2801D5AEED600723262 /* TimerFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerFormController.swift; sourceTree = "<group>"; };
 		5A03F2821D5C0D9B00723262 /* Wrappers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wrappers.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A036C1B1D6015A7007AADB5 /* MGSwipeTableCell.framework in Frameworks */,
 				5A036C171D5FEF68007AADB5 /* ASToast.framework in Frameworks */,
 				5A0316541D5D520B0034F45F /* Eureka.framework in Frameworks */,
 				5A0058A41D55622200DF4522 /* MVSpeechSynthesizer.framework in Frameworks */,
@@ -158,6 +161,7 @@
 		F7E084DFAF08D18824FDF3A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A036C1A1D6015A7007AADB5 /* MGSwipeTableCell.framework */,
 				5A036C161D5FEF68007AADB5 /* ASToast.framework */,
 				5A0316531D5D520B0034F45F /* Eureka.framework */,
 				5A0058A31D55622200DF4522 /* MVSpeechSynthesizer.framework */,
@@ -435,6 +439,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/MVSpeechSynthesizer",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Eureka",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MGSwipeTableCell",
 				);
 				INFOPLIST_FILE = TimerReminder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -456,6 +461,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/MVSpeechSynthesizer",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Eureka",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MGSwipeTableCell",
 				);
 				INFOPLIST_FILE = TimerReminder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

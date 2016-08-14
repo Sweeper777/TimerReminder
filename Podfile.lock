@@ -4,6 +4,7 @@ PODS:
   - EZSwiftExtensions (1.5)
   - FittableFontLabel (1.2.0)
   - LTMorphingLabel (0.2.1)
+  - MGSwipeTableCell (1.5.5)
   - MVSpeechSynthesizer (1.0.1)
   - RWDropdownMenu (1.0.3)
   - SwiftyJSON (2.3.2)
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - EZSwiftExtensions
   - FittableFontLabel
   - LTMorphingLabel
+  - MGSwipeTableCell
   - MVSpeechSynthesizer
   - RWDropdownMenu
   - SwiftyJSON
@@ -24,10 +26,11 @@ SPEC CHECKSUMS:
   EZSwiftExtensions: fe78d7d4ac34f5c8c36415d4acee49ba67c9732a
   FittableFontLabel: 50e775bdb8d643a8cc3f7f5dca7d2e8827bb2aab
   LTMorphingLabel: 1858358ea38ef4d548e1f58b648b0d08ec3a62ed
+  MGSwipeTableCell: bafeb5f351124544c9364ecbdf24c7b06a37d340
   MVSpeechSynthesizer: d4deb5221bff17dfda644298497be3b4fa189040
   RWDropdownMenu: c7fda4b7adf4f3f63a46d96359c2f490a7713795
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 9d4ab20d01edebf98d23ade79230f96931c7205a
+PODFILE CHECKSUM: 3665f061672fb516f3e18c6105b1fa76524a6e1e
 
 COCOAPODS: 1.1.0.beta.1

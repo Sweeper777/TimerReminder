@@ -12,5 +12,6 @@ target 'TimerReminder' do
     pod 'RWDropdownMenu'
     pod 'MVSpeechSynthesizer'
     pod 'ASToast'
+    pod 'MGSwipeTableCell'
 end
 
