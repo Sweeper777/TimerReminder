@@ -11,5 +11,6 @@ target 'TimerReminder' do
     pod 'FittableFontLabel'
     pod 'RWDropdownMenu'
     pod 'MVSpeechSynthesizer'
+    pod 'ASToast'
 end
 

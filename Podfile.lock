@@ -1,4 +1,5 @@
 PODS:
+  - ASToast (1.0.3)
   - Eureka (1.7.0)
   - EZSwiftExtensions (1.5)
   - FittableFontLabel (1.2.0)
@@ -8,6 +9,7 @@ PODS:
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
+  - ASToast
   - Eureka
   - EZSwiftExtensions
   - FittableFontLabel
@@ -17,6 +19,7 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC CHECKSUMS:
+  ASToast: 3ca73a088e2c0b4c2cf0af3ef7b83a19cfd98733
   Eureka: 2020d9faeef7b7e9adeb9e3d8af779e5931c1897
   EZSwiftExtensions: fe78d7d4ac34f5c8c36415d4acee49ba67c9732a
   FittableFontLabel: 50e775bdb8d643a8cc3f7f5dca7d2e8827bb2aab
@@ -25,6 +28,6 @@ SPEC CHECKSUMS:
   RWDropdownMenu: c7fda4b7adf4f3f63a46d96359c2f490a7713795
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 77835ce875f3ad82ec93a9c8208c777f75c11e0d
+PODFILE CHECKSUM: 9d4ab20d01edebf98d23ade79230f96931c7205a
 
 COCOAPODS: 1.1.0.beta.1
