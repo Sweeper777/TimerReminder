@@ -116,8 +116,10 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     
     @IBAction func unwindFromTimerForm(segue: UIStoryboardSegue) {
         if let vc = segue.sourceViewController as? TimerFormController {
-            self.timer.options = vc.options
-            self.appliedOptions = vc.options
+            if vc.shouldApplyOptions {
+                self.timer.options = vc.options
+                self.appliedOptions = vc.options
+            }
         }
     }
     

@@ -139,7 +139,7 @@
                                 <action selector="cancel:" destination="OIo-kP-rcw" id="z3a-30-DbO"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="qar-hd-M2f">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="qar-hd-M2f">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="save:" destination="OIo-kP-rcw" id="uLj-rV-ByI"/>
