@@ -96,10 +96,10 @@
             </objects>
             <point key="canvasLocation" x="392" y="306"/>
         </scene>
-        <!--Select a Timer Setting-->
+        <!--Select a Setting-->
         <scene sceneID="FjJ-b6-Arh">
             <objects>
-                <tableViewController id="SlM-XX-x92" sceneMemberID="viewController">
+                <tableViewController id="SlM-XX-x92" customClass="SettingSelectorController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="yN6-8H-9g5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -109,8 +109,14 @@
                             <outlet property="delegate" destination="SlM-XX-x92" id="cSd-O0-l1V"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select a Timer Setting" id="3FL-TZ-lxw">
+                    <navigationItem key="navigationItem" title="Select a Setting" id="3FL-TZ-lxw">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="M57-uz-Ytm">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancel:" destination="SlM-XX-x92" id="z5v-Rw-wBy"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jMw-1a-hhd">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
