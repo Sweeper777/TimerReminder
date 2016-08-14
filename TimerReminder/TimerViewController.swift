@@ -126,6 +126,13 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
         }
     }
     
+    @IBAction func unwindFromSettingsSelector(segue: UIStoryboardSegue) {
+        if let vc = segue.sourceViewController as? SettingSelectorController {
+            self.appliedOptions = vc.selectedOption
+            self.timer.options = vc.selectedOption ?? TimerOptions.defaultOptions
+        }
+    }
+    
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         let textCache = timerLabel.text
         shortFontSize = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
@@ -134,5 +141,11 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
         
         timerLabel.font = timerLabel.font.fontWithSize(timer.hasLongDescription ? longFontSize : shortFontSize)
         timerLabel.text = textCache
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let vc = segue.destinationViewController as? DataPasserController {
+            vc.selectedOption = self.appliedOptions
+        }
     }
 }

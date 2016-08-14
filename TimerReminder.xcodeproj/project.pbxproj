@@ -20,6 +20,7 @@
 		5A036C171D5FEF68007AADB5 /* ASToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A036C161D5FEF68007AADB5 /* ASToast.framework */; };
 		5A036C191D5FF6B1007AADB5 /* SettingSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A036C181D5FF6B1007AADB5 /* SettingSelectorController.swift */; };
 		5A036C1B1D6015A7007AADB5 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A036C1A1D6015A7007AADB5 /* MGSwipeTableCell.framework */; };
+		5A036C1D1D6019FE007AADB5 /* DataPasserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A036C1C1D6019FE007AADB5 /* DataPasserController.swift */; };
 		5A03F27F1D5AD34600723262 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03F27E1D5AD34600723262 /* Languages.swift */; };
 		5A03F2811D5AEED600723262 /* TimerFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03F2801D5AEED600723262 /* TimerFormController.swift */; };
 		5A03F2831D5C0D9B00723262 /* Wrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03F2821D5C0D9B00723262 /* Wrappers.swift */; };
@@ -54,6 +55,7 @@
 		5A036C161D5FEF68007AADB5 /* ASToast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ASToast.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/ASToast/ASToast.framework"; sourceTree = "<group>"; };
 		5A036C181D5FF6B1007AADB5 /* SettingSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingSelectorController.swift; sourceTree = "<group>"; };
 		5A036C1A1D6015A7007AADB5 /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MGSwipeTableCell.framework; path = "Pods/../build/Debug-iphoneos/MGSwipeTableCell/MGSwipeTableCell.framework"; sourceTree = "<group>"; };
+		5A036C1C1D6019FE007AADB5 /* DataPasserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPasserController.swift; sourceTree = "<group>"; };
 		5A03F27E1D5AD34600723262 /* Languages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		5A03F2801D5AEED600723262 /* TimerFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerFormController.swift; sourceTree = "<group>"; };
 		5A03F2821D5C0D9B00723262 /* Wrappers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wrappers.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				5A9608E61D498728001EE17F /* SetTimerController.swift */,
 				5A03F2801D5AEED600723262 /* TimerFormController.swift */,
 				5A036C181D5FF6B1007AADB5 /* SettingSelectorController.swift */,
+				5A036C1C1D6019FE007AADB5 /* DataPasserController.swift */,
 				5A06728C1D45905D007F7AEB /* Timer.swift */,
 				5A0672921D45ED0F007F7AEB /* CountDownTimer.swift */,
 				5A00B5421D519A390074B114 /* CountUpTimer.swift */,
@@ -315,6 +318,7 @@
 				5A0135A21D470B90008A0F1D /* Reminder.swift in Sources */,
 				5A0316561D5DF6B70034F45F /* TimeIntervalRow.swift in Sources */,
 				5A0135A31D470B90008A0F1D /* Reminder+CoreDataProperties.swift in Sources */,
+				5A036C1D1D6019FE007AADB5 /* DataPasserController.swift in Sources */,
 				5A0672931D45ED0F007F7AEB /* CountDownTimer.swift in Sources */,
 				5A06728D1D45905D007F7AEB /* Timer.swift in Sources */,
 			);

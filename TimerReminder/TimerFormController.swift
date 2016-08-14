@@ -264,6 +264,7 @@ class TimerFormController: FormViewController {
             options.reminders = NSOrderedSet(array: reminders)
         }
         self.options = options
+        _ = try? context.save()
         performSegueWithIdentifier("unwindToTimer", sender: self)
     }
 }

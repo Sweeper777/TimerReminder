@@ -118,6 +118,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="jMw-1a-hhd">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="6gf-lf-dXb" kind="unwind" unwindAction="unwindFromSettingsSelector:" id="Rac-6G-Jjv"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -160,10 +163,10 @@
             </objects>
             <point key="canvasLocation" x="2030" y="1134"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Data Passer Controller-->
         <scene sceneID="TFk-vH-9XI">
             <objects>
-                <navigationController id="v5I-Uv-1Bn" sceneMemberID="viewController">
+                <navigationController id="v5I-Uv-1Bn" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="c3n-V5-Fqj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
