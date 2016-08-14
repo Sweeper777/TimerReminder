@@ -14,6 +14,8 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     
     var initializedFontSizes = false
     
+    var appliedOptions: TimerOptions?
+    
     private lazy var timerChangedClosure: (Timer) -> Void = {
         [weak self] timer in
         self!.timerLabel.text = timer.description
@@ -37,7 +39,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
             shortFontSize = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
             longFontSize = timerLabel.fontSizeThatFits(text: "00:00:00", maxFontSize: 500)
             timerLabel.font = timerLabel.font.fontWithSize(shortFontSize)
-            timer = CountDownTimer(time: 60, onTimerChange: timerChangedClosure, onEnd: nil)
+            timer = CountDownTimer(time: 60, options: appliedOptions, onTimerChange: timerChangedClosure, onEnd: nil)
             initializedFontSizes = true
         }
     }
@@ -84,14 +86,14 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
                 [weak self] in
                 self?.timer.reset()
                 self?.playButton.image = UIImage(named: "play")
-                self?.timer = CountUpTimer(onTimerChange: self?.timerChangedClosure)
+                self?.timer = CountUpTimer(options: self?.appliedOptions, onTimerChange: self?.timerChangedClosure)
             })
         } else if timer is CountUpTimer {
             menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Switch to Timer Mode", comment: ""), image: UIImage(named: "countdown")) {
                 [weak self] in
                 self?.timer.reset()
                 self?.playButton.image = UIImage(named: "play")
-                self?.timer = CountDownTimer(time: 60, onTimerChange: self?.timerChangedClosure, onEnd: nil)
+                self?.timer = CountDownTimer(time: 60, options: self?.appliedOptions, onTimerChange: self?.timerChangedClosure, onEnd: nil)
             })
         }
         
@@ -107,7 +109,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
                 timerLabel.font = timerLabel.font.fontWithSize(shortFontSize)
             }
             
-            timer = CountDownTimer(time: vc.selectedTimeInterval!, onTimerChange: self.timerChangedClosure, onEnd: nil)
+            timer = CountDownTimer(time: vc.selectedTimeInterval!, options: self.appliedOptions, onTimerChange: self.timerChangedClosure, onEnd: nil)
             timerLabel.font = timerLabel.font.fontWithSize(timer.hasLongDescription ? longFontSize : shortFontSize)
         }
     }
@@ -115,6 +117,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     @IBAction func unwindFromTimerForm(segue: UIStoryboardSegue) {
         if let vc = segue.sourceViewController as? TimerFormController {
             self.timer.options = vc.options
+            self.appliedOptions = vc.options
         }
     }
     
