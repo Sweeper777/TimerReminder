@@ -3,6 +3,7 @@ import LTMorphingLabel
 import FittableFontLabel
 import EZSwiftExtensions
 import RWDropdownMenu
+import ASToast
 
 class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     @IBOutlet var timerLabel: LTMorphingLabel!
@@ -119,6 +120,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
             if vc.shouldApplyOptions {
                 self.timer.options = vc.options
                 self.appliedOptions = vc.options
+                self.view.makeToast(NSLocalizedString("Settings applied", comment: ""), backgroundColor: nil)
             }
         }
     }

@@ -180,19 +180,22 @@ class TimerFormController: FormViewController {
     @IBAction func save(sender: AnyObject) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Save and apply", comment: ""), style: .Default) {
+            [unowned self]
             _ in
-            self.processOptions(true)
             self.shouldApplyOptions = true
+            self.processOptions(true)
         })
         alert.addAction(UIAlertAction(title: NSLocalizedString("Apply but don't save", comment: ""), style: .Default) {
+            [unowned self]
             _ in
-            self.processOptions(false)
             self.shouldApplyOptions = true
+            self.processOptions(false)
             })
         alert.addAction(UIAlertAction(title: NSLocalizedString("Save but don't apply", comment: ""), style: .Default) {
+            [unowned self]
             _ in
-            self.processOptions(true)
             self.shouldApplyOptions = false
+            self.processOptions(true)
             })
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel) {
             _ in
