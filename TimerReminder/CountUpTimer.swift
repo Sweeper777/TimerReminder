@@ -35,6 +35,7 @@ class CountUpTimer: Timer {
         timer = nil
         timeMeasured = 0
         paused = true
+        synthesizer.stopSpeakingAtBoundary(.Immediate)
         onTimerChange?(self)
     }
     
@@ -71,6 +72,7 @@ class CountUpTimer: Timer {
     func pause() {
         timer?.invalidate()
         timer = nil
+        synthesizer.stopSpeakingAtBoundary(.Immediate)
         paused = true
     }
     
