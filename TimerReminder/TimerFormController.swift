@@ -1,10 +1,12 @@
 import Eureka
 import UIKit
 import CoreData
+import AVFoundation
 
 class TimerFormController: FormViewController {
     var options: TimerOptions!
     var shouldApplyOptions = false
+    var player: AVAudioPlayer?
     
     @IBAction func cancel(sender: AnyObject) {
         dismissVC(completion: nil)
@@ -88,8 +90,16 @@ class TimerFormController: FormViewController {
                     let action: SegmentedRow<TimeIsUpAction> = $0.rowByTag(tagTimesUpAction)!
                     return action.value == .SayMessage
                 }
-                row.options = ["xxx", "yyy", "zzz"]
-                row.value = "xxx"
+                row.options = ["Radar", "yyy", "zzz"]
+                row.value = "Radar"
+        }.onChange {
+            row in
+            if let url = NSBundle.mainBundle().URLForResource(row.value, withExtension: ".mp3") {
+                self.player?.stop()
+                self.player = try? AVAudioPlayer(contentsOfURL: url)
+                self.player?.prepareToPlay()
+                self.player?.play()
+            }
         }
         
         form +++ Section()

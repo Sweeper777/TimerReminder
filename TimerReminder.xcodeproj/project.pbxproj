@@ -14,7 +14,8 @@
 		5A0135A31D470B90008A0F1D /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A01359F1D470B90008A0F1D /* Reminder+CoreDataProperties.swift */; };
 		5A0135A41D470B90008A0F1D /* TimerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0135A01D470B90008A0F1D /* TimerOptions.swift */; };
 		5A0135A51D470B90008A0F1D /* TimerOptions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0135A11D470B90008A0F1D /* TimerOptions+CoreDataProperties.swift */; };
-		5A015F0C1D4DA8530032BB59 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A015F0B1D4DA8530032BB59 /* beep.mp3 */; settings = {ASSET_TAGS = (beepSound, ); }; };
+		5A015F0C1D4DA8530032BB59 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A015F0B1D4DA8530032BB59 /* beep.mp3 */; };
+		5A0167621D6143110035021F /* Radar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A0167611D6143110035021F /* Radar.mp3 */; };
 		5A0316541D5D520B0034F45F /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0316531D5D520B0034F45F /* Eureka.framework */; };
 		5A0316561D5DF6B70034F45F /* TimeIntervalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0316551D5DF6B70034F45F /* TimeIntervalRow.swift */; };
 		5A036C171D5FEF68007AADB5 /* ASToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A036C161D5FEF68007AADB5 /* ASToast.framework */; };
@@ -50,6 +51,7 @@
 		5A0135A01D470B90008A0F1D /* TimerOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerOptions.swift; sourceTree = SOURCE_ROOT; };
 		5A0135A11D470B90008A0F1D /* TimerOptions+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimerOptions+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		5A015F0B1D4DA8530032BB59 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
+		5A0167611D6143110035021F /* Radar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Radar.mp3; sourceTree = "<group>"; };
 		5A0316531D5D520B0034F45F /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = "Pods/../build/Debug-iphoneos/Eureka/Eureka.framework"; sourceTree = "<group>"; };
 		5A0316551D5DF6B70034F45F /* TimeIntervalRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalRow.swift; sourceTree = "<group>"; };
 		5A036C161D5FEF68007AADB5 /* ASToast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ASToast.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/ASToast/ASToast.framework"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				5A015F0B1D4DA8530032BB59 /* beep.mp3 */,
+				5A0167611D6143110035021F /* Radar.mp3 */,
 				5A01359E1D470B90008A0F1D /* Reminder.swift */,
 				5A01359F1D470B90008A0F1D /* Reminder+CoreDataProperties.swift */,
 				5A0135A01D470B90008A0F1D /* TimerOptions.swift */,
@@ -208,9 +211,6 @@
 		5A067CAD1D4490A500238AF5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				KnownAssetTags = (
-					beepSound,
-				);
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Mulang Su";
@@ -246,6 +246,7 @@
 			files = (
 				5A067CC61D4490A500238AF5 /* LaunchScreen.storyboard in Resources */,
 				5A067CC31D4490A500238AF5 /* Assets.xcassets in Resources */,
+				5A0167621D6143110035021F /* Radar.mp3 in Resources */,
 				5A015F0C1D4DA8530032BB59 /* beep.mp3 in Resources */,
 				5A067CBE1D4490A500238AF5 /* Main.storyboard in Resources */,
 			);
