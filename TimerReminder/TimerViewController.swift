@@ -4,6 +4,7 @@ import FittableFontLabel
 import EZSwiftExtensions
 import RWDropdownMenu
 import ASToast
+import CoreData
 
 class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     @IBOutlet var timerLabel: LTMorphingLabel!
@@ -32,6 +33,13 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
         timerLabel.morphingEffect = .Evaporate
         timerLabel.morphingEnabled = true
         UIApplication.sharedApplication().idleTimerDisabled = true
+        
+        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        if let url = NSUserDefaults.standardUserDefaults().URLForKey("selectedSetting"),
+            let oid = context.persistentStoreCoordinator!.managedObjectIDForURIRepresentation(url) {
+            let object = try? context.existingObjectWithID(oid)
+            appliedOptions = object as! TimerOptions?
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -122,6 +130,9 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
                 self.timer.options = vc.options
                 self.appliedOptions = vc.options
                 self.view.makeToast(NSLocalizedString("Settings applied", comment: ""), backgroundColor: nil)
+                if vc.options.inserted {
+                    NSUserDefaults.standardUserDefaults().setURL(self.timer.options!.objectID.URIRepresentation(), forKey: "selectedSetting")
+                }
             }
         }
     }
@@ -130,6 +141,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
         if let vc = segue.sourceViewController as? SettingSelectorController {
             self.appliedOptions = vc.selectedOption
             self.timer.options = vc.selectedOption ?? TimerOptions.defaultOptions
+            NSUserDefaults.standardUserDefaults().setURL(self.timer.options!.objectID.URIRepresentation(), forKey: "selectedSetting")
         }
     }
     
@@ -145,7 +157,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let vc = segue.destinationViewController as? DataPasserController {
-            vc.selectedOption = self.appliedOptions
+            vc.selectedOption = self.appliedOptions?.inserted == false ? nil : self.appliedOptions
         }
     }
 }
