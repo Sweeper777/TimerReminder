@@ -113,7 +113,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="jMw-1a-hhd">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="6gf-lf-dXb" kind="unwind" unwindAction="unwindFromSettingsSelector:" id="Rac-6G-Jjv"/>
+                                <segue destination="6gf-lf-dXb" kind="unwind" identifier="" unwindAction="unwindFromSettingsSelector:" id="Rac-6G-Jjv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -155,7 +155,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="6gf-lf-dXb" kind="unwind" identifier="unwindToTimer" unwindAction="unwindFromTimerForm:" id="KcG-Q3-jeg"/>
-                        <segue destination="Vuw-Ne-zlG" kind="unwind" identifier="unwindFromSettingsEditor" unwindAction="unwindFromSettingsEditor:" id="bba-Lu-smE"/>
+                        <segue destination="Vuw-Ne-zlG" kind="unwind" identifier="unwindToSettingsSelector" unwindAction="unwindFromSettingsEditor:" id="bba-Lu-smE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTj-Kg-NmU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -317,6 +317,6 @@
         <image name="restart" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="G0T-33-zpY"/>
+        <segue reference="5FA-iO-18H"/>
     </inferredMetricsTieBreakers>
 </document>

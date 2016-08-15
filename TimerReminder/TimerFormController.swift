@@ -233,34 +233,49 @@ class TimerFormController: FormViewController {
     }
     
     @IBAction func save(sender: AnyObject) {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Save and apply", comment: ""), style: .Default) {
-            [unowned self]
-            _ in
-            self.shouldApplyOptions = true
-            self.processOptions(true)
-        })
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Apply but don't save", comment: ""), style: .Default) {
-            [unowned self]
-            _ in
-            self.shouldApplyOptions = true
-            self.processOptions(false)
-            })
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Save but don't apply", comment: ""), style: .Default) {
-            [unowned self]
-            _ in
-            self.shouldApplyOptions = false
-            self.processOptions(true)
-            })
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel) {
-            _ in
-            })
-        self.presentVC(alert)
+        if self.options == nil {
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Save and apply", comment: ""), style: .Default) {
+                [unowned self]
+                _ in
+                self.shouldApplyOptions = true
+                self.processOptions(true)
+                })
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Apply but don't save", comment: ""), style: .Default) {
+                [unowned self]
+                _ in
+                self.shouldApplyOptions = true
+                self.processOptions(false)
+                })
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Save but don't apply", comment: ""), style: .Default) {
+                [unowned self]
+                _ in
+                self.shouldApplyOptions = false
+                self.processOptions(true)
+                })
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel) {
+                _ in
+                })
+            self.presentVC(alert)
+        } else {
+            processOptions(true)
+        }
     }
     
     func processOptions(shouldSave: Bool) {
         let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        let options = TimerOptions.init(entity: NSEntityDescription.entityForName("TimerOptions", inManagedObjectContext: context)!, insertIntoManagedObjectContext: shouldSave ? context : nil)
+        let options: TimerOptions
+        let segueToPerform: String
+        if self.options == nil {
+            options = TimerOptions.init(entity: NSEntityDescription.entityForName("TimerOptions", inManagedObjectContext: context)!, insertIntoManagedObjectContext: shouldSave ? context : nil)
+            segueToPerform = "unwindToTimer"
+        } else {
+            options = self.options
+            for reminder in options.reminders! {
+                context.deleteObject(reminder as! NSManagedObject)
+            }
+            segueToPerform = "unwindToSettingsSelector"
+        }
         options.initializeWithDefValues()
         var values = form.values(includeHidden: false)
         values = values.filter {
@@ -299,7 +314,6 @@ class TimerFormController: FormViewController {
         }
         
         if let reminderCount = values[tagReminderCount] as? Int {
-            print(reminderCount)
             var reminders = [Reminder]()
             for i in 1...Int(reminderCount) {
                 let reminder = Reminder(entity: NSEntityDescription.entityForName("Reminder", inManagedObjectContext: context)!, insertIntoManagedObjectContext: shouldSave ? context : nil)
@@ -321,7 +335,7 @@ class TimerFormController: FormViewController {
         }
         self.options = options
         _ = try? context.save()
-        performSegueWithIdentifier("unwindToTimer", sender: self)
+        performSegueWithIdentifier(segueToPerform, sender: self)
     }
 }
 

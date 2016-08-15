@@ -8,7 +8,7 @@ class SettingSelectorController: UITableViewController {
     var selectedOption: TimerOptions?
     var optionsToEdit: TimerOptions?
     
-    override func viewDidLoad() {
+    func reloadData() {
         if dataContext != nil {
             self.options.removeAll()
             let entity = NSEntityDescription.entityForName("TimerOptions", inManagedObjectContext: dataContext)
@@ -21,6 +21,10 @@ class SettingSelectorController: UITableViewController {
                 }
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        reloadData()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -100,6 +104,7 @@ class SettingSelectorController: UITableViewController {
     }
     
     @IBAction func unwindFromSettingsEditor(segue: UIStoryboardSegue) {
-        
+        reloadData()
+        tableView.reloadData()
     }
 }
