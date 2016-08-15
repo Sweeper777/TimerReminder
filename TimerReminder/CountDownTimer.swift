@@ -62,7 +62,7 @@ class CountDownTimer: Timer {
             
             if self.timeLeft <= 0 {
                 // time's up
-                if let timesUpSound = self.options?.timesUpSound {
+                if (self.options?.timesUpSound) != nil {
                     self.timesUpSoundPlayer?.play()
                 } else {
                     let utterance = AVSpeechUtterance(string: self.options!.localizedTimesUpMessage)
