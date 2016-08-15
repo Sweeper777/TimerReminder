@@ -107,4 +107,8 @@ class SettingSelectorController: UITableViewController {
         reloadData()
         tableView.reloadData()
     }
+    
+    @IBAction func cancel(sender: AnyObject) {
+        dismissVC(completion: nil)
+    }
 }
