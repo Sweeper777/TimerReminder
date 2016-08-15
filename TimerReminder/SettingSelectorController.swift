@@ -85,8 +85,4 @@ class SettingSelectorController: UITableViewController {
         }
         tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = .Checkmark
     }
-    
-    @IBAction func cancel(sender: AnyObject) {
-        dismissVC(completion: nil)
-    }
 }
