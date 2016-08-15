@@ -2,6 +2,7 @@ import AVFoundation
 
 class CountDownTimer: Timer {
     var beepSoundPlayer: AVAudioPlayer?
+    var timesUpSoundPlayer: AVAudioPlayer?
     var timeLeft: NSTimeInterval
     let timeToMeasure: NSTimeInterval
     let synthesizer = AVSpeechSynthesizer()
@@ -14,6 +15,12 @@ class CountDownTimer: Timer {
         didSet {
             guard let enableBeep = options?.beepSounds?.boolValue else {
                 return
+            }
+            
+            if let timesUpSound = options?.timesUpSound {
+                timesUpSoundPlayer = try! AVAudioPlayer(contentsOfURL: NSBundle.mainBundle().URLForResource(timesUpSound, withExtension: ".mp3")!)
+                timesUpSoundPlayer?.prepareToPlay()
+                timesUpSoundPlayer?.numberOfLoops = -1
             }
             
             if enableBeep && beepSoundPlayer == nil {
@@ -35,6 +42,8 @@ class CountDownTimer: Timer {
         timer = nil
         timeLeft = timeToMeasure
         paused = true
+        timesUpSoundPlayer?.stop()
+        synthesizer.stopSpeakingAtBoundary(.Immediate)
         onTimerChange?(self)
     }
     
@@ -53,10 +62,14 @@ class CountDownTimer: Timer {
             
             if self.timeLeft <= 0 {
                 // time's up
-                let utterance = AVSpeechUtterance(string: self.options!.localizedTimesUpMessage)
-                utterance.voice = AVSpeechSynthesisVoice(language: self.options!.language!)
-                self.synthesizer.stopSpeakingAtBoundary(.Immediate)
-                self.synthesizer.speakUtterance(utterance)
+                if let timesUpSound = self.options?.timesUpSound {
+                    self.timesUpSoundPlayer?.play()
+                } else {
+                    let utterance = AVSpeechUtterance(string: self.options!.localizedTimesUpMessage)
+                    utterance.voice = AVSpeechSynthesisVoice(language: self.options!.language!)
+                    self.synthesizer.stopSpeakingAtBoundary(.Immediate)
+                    self.synthesizer.speakUtterance(utterance)
+                }
             } else if Int(self.timeLeft) <= Int(self.options!.countDownTime!) {
                 // countdown
                 let utterance = AVSpeechUtterance(string: String(Int(self.timeLeft)))
@@ -95,6 +108,8 @@ class CountDownTimer: Timer {
     func pause() {
         timer?.invalidate()
         timer = nil
+        timesUpSoundPlayer?.stop()
+        synthesizer.stopSpeakingAtBoundary(.Immediate)
         paused = true
     }
     
