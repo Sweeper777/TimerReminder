@@ -10,9 +10,9 @@ import UIKit
 
 // MARK: StepperCell
 
-public class StepperCell : Cell<Double>, CellType {
+public class StepperCell : Cell<Int>, CellType {
     
-    public typealias Value = Double
+    public typealias Value = Int
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -44,10 +44,10 @@ public class StepperCell : Cell<Double>, CellType {
         addConstraint(NSLayoutConstraint(item: valueLabel, attribute: .CenterY, relatedBy: .Equal, toItem: stepper, attribute: .CenterY, multiplier: 1.0, constant: 0))
         
         stepper.addTarget(self, action: #selector(StepperCell.valueChanged), forControlEvents: .ValueChanged)
-        stepper.value = row.value ?? 0
+        stepper.value = Double(row.value ?? 0)
         
         valueLabel.textColor = stepper.tintColor
-        valueLabel.text = "\(Int(row.value ?? 0))"
+        valueLabel.text = "\(row.value ?? 0)"
     }
     
     deinit {
@@ -63,13 +63,13 @@ public class StepperCell : Cell<Double>, CellType {
     
     func valueChanged() {
         valueLabel.text = "\(Int(stepper.value))"
-        row.value = stepper.value
+        row.value = Int(stepper.value)
     }
 }
 
 // MARK: StepperRow
 
-public class _StepperRow: Row<Double, StepperCell> {
+public class _StepperRow: Row<Int, StepperCell> {
     required public init(tag: String?) {
         super.init(tag: tag)
         displayValueFor = nil

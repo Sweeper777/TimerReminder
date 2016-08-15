@@ -18,5 +18,8 @@ class TimerOptions: NSManagedObject {
         self.countDownTime = 0
         self.reminders = NSOrderedSet()
         self.language = Languages.English.rawValue
+        self.timesUpMessage = nil
+        self.regularReminderInterval = nil
+        self.timesUpSound = nil
     }
 }

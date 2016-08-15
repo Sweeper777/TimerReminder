@@ -17,9 +17,19 @@ class TimerFormController: FormViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationItem.backBarButtonItem?.title = ""
         
-        title = NSLocalizedString("Add Settings", comment: "")
+        title = options == nil ? NSLocalizedString("Add Settings", comment: "") : NSLocalizedString("Edit Settings", comment: "")
         
         initializeForm()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let row: StepperRow = form.rowByTag(tagReminderCount)!
+        if self.options != nil && self.options.reminders!.count != 0 {
+            row.value = self.options.reminders!.count
+        } else {
+            row.value = 1
+        }
     }
     
     func initializeForm() {
@@ -29,6 +39,7 @@ class TimerFormController: FormViewController {
                 row in
                 row.title = NSLocalizedString("Name:", comment: "")
                 row.cell.textField.textAlignment = .Left
+                row.value = self.options == nil ? "" : self.options.name
         }.cellUpdate { cell, row in
                     cell.textField.textAlignment = .Left
         }
@@ -37,7 +48,7 @@ class TimerFormController: FormViewController {
                 row.title = NSLocalizedString("Language", comment: "")
                 let langs: [Languages] = [.English, .Mandarin, .Cantonese, .Japanese]
                 row.options = langs
-                row.value = .English
+                row.value = self.options == nil ? .English : Languages(rawValue: self.options.language!)
         }
         
         form +++ Section(footer: NSLocalizedString("Only applicable in Timer Mode", comment: ""))
@@ -45,11 +56,15 @@ class TimerFormController: FormViewController {
                 row in
                 row.title = NSLocalizedString("Countdown", comment: "")
                 row.value = true
+                
+                if self.options != nil {
+                    row.value = self.options.countDownTime != 0
+                }
         }
             <<< PickerInlineRow<CountDownTime>(tagStartCountDown) {
                 row in
                 row.title = NSLocalizedString("Start Countdown At", comment: "")
-                row.value = ._10
+                row.value = self.options == nil ? ._10 : (CountDownTime(rawValue: Int(self.options.countDownTime!)) ?? ._10)
                 row.options = [
                     ._3, ._5, ._10, ._20, ._30, ._60
                 ]
@@ -63,13 +78,17 @@ class TimerFormController: FormViewController {
             row in
             row.title = NSLocalizedString("Beep Sounds", comment: "")
             row.value = false
+            
+            if self.options != nil {
+                row.value = self.options.beepSounds!.boolValue
+            }
         }
         
         form +++ Section(header: NSLocalizedString("time is up", comment: ""), footer: NSLocalizedString("Only applicable in Timer Mode", comment: ""))
             <<< SegmentedRow<TimeIsUpAction>(tagTimesUpAction) {
                 row in
                 row.options = [.SayMessage, .PlaySound]
-                row.value = .SayMessage
+                row.value = self.options == nil ? .SayMessage : (self.options.timesUpSound == nil ? .SayMessage : .PlaySound)
         }
             <<< TextRow(tagTimesUpMessage) {
                 row in
@@ -78,6 +97,7 @@ class TimerFormController: FormViewController {
                     let action: SegmentedRow<TimeIsUpAction> = $0.rowByTag(tagTimesUpAction)!
                     return action.value == .PlaySound
                 }
+                row.value = self.options == nil ? "" : self.options.timesUpMessage ?? ""
                 row.placeholder = NSLocalizedString("Leave blank for default", comment: "")
                 
         }.cellUpdate { cell, row in
@@ -91,7 +111,7 @@ class TimerFormController: FormViewController {
                     return action.value == .SayMessage
                 }
                 row.options = ["Radar", "yyy", "zzz"]
-                row.value = "Radar"
+                row.value = self.options?.timesUpSound == nil ? "Radar" : self.options.timesUpSound
         }.onChange {
             row in
             if let url = NSBundle.mainBundle().URLForResource(row.value, withExtension: ".mp3") {
@@ -107,11 +127,20 @@ class TimerFormController: FormViewController {
                 row in
                 row.title = NSLocalizedString("Reminders", comment: "")
                 row.value = false
+                
+                if self.options != nil {
+                    row.value = self.options.reminders!.count != 0 || self.options.regularReminderInterval != nil
+                }
         }
             <<< SegmentedRow<ReminderStyle>(tagReminderStyle) {
                 row in
                 row.options = [.Regular, .AtSpecificTimes]
                 row.value = .AtSpecificTimes
+                
+                if self.options != nil {
+                    row.value = self.options.regularReminderInterval == nil ? .AtSpecificTimes : .Regular
+                }
+                
                 row.hidden = Condition.Function([tagReminderOnOff]) {
                     let onOff: SwitchRow = $0.rowByTag(tagReminderOnOff)!
                     return !onOff.value!
@@ -131,7 +160,13 @@ class TimerFormController: FormViewController {
                     
                     return !enabled.value! || style.value! == .Regular
                 }
-        }
+                
+                if self.options != nil && self.options.reminders!.count != 0 {
+                    row.value = self.options.reminders!.count
+                } else {
+                    row.value = 1
+                }
+            }
         
             <<< TimeIntervalRow(tag: tagRegularReminderInterval) {
                 row in
@@ -142,6 +177,10 @@ class TimerFormController: FormViewController {
                     let style: SegmentedRow<ReminderStyle> = $0.rowByTag(tagReminderStyle)!
                     
                     return !enabled.value! || style.value! == .AtSpecificTimes
+                }
+                
+                if self.options?.regularReminderInterval != nil {
+                    row.value = Int(options.regularReminderInterval!)
                 }
         }
         
@@ -175,12 +214,18 @@ class TimerFormController: FormViewController {
                     row in
                     row.title = NSLocalizedString("Remind At", comment: "")
                     row.value = i * 60
+                    
+                    if self.options?.reminders != nil && self.options.reminders!.count >= i {
+                        row.value = Int((self.options.reminders!.array[i - 1] as! Reminder).remindTimeFrame!)
+                    }
             }
                 <<< TextRow(tagRemindMessage + String(i)) {
                     row in
                     row.title = NSLocalizedString("Message:", comment: "")
                     row.placeholder = NSLocalizedString("Leave blank for default", comment: "")
-                    
+                    if self.options?.reminders != nil && self.options.reminders!.count >= i {
+                        row.value = (self.options.reminders!.array[i - 1] as! Reminder).customRemindMessage ?? ""
+                    }
                     }.cellUpdate { cell, row in
                         cell.textField.textAlignment = .Left
             }
@@ -253,7 +298,8 @@ class TimerFormController: FormViewController {
             options.regularReminderInterval = regularReminderInterval
         }
         
-        if let reminderCount = values[tagReminderCount] as? Double {
+        if let reminderCount = values[tagReminderCount] as? Int {
+            print(reminderCount)
             var reminders = [Reminder]()
             for i in 1...Int(reminderCount) {
                 let reminder = Reminder(entity: NSEntityDescription.entityForName("Reminder", inManagedObjectContext: context)!, insertIntoManagedObjectContext: shouldSave ? context : nil)

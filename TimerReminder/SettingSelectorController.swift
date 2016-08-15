@@ -6,6 +6,7 @@ class SettingSelectorController: UITableViewController {
     var options = [TimerOptions]()
     let dataContext: NSManagedObjectContext! = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
     var selectedOption: TimerOptions?
+    var optionsToEdit: TimerOptions?
     
     override func viewDidLoad() {
         if dataContext != nil {
@@ -72,7 +73,13 @@ class SettingSelectorController: UITableViewController {
                 tableView.reloadData()
                 return true
             })
-            cell.rightButtons = [deleteBtn]
+            
+            let editBtn = MGSwipeButton(title: NSLocalizedString("Edit", comment: ""), backgroundColor: UIColor.grayColor(), callback: { _ in
+                self.optionsToEdit = self.options[indexPath.row - 1]
+                self.performSegueWithIdentifier("showSettingsEditor", sender: self)
+                return true
+            })
+            cell.rightButtons = [deleteBtn, editBtn]
             return cell
         }
     }
@@ -84,5 +91,15 @@ class SettingSelectorController: UITableViewController {
             tableView.cellForRowAtIndexPath(NSIndexPath(forRow: i, inSection: 0))?.accessoryType = .None
         }
         tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = .Checkmark
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let vc = segue.destinationViewController as? DataPasserController {
+            vc.optionsToEdit = self.optionsToEdit
+        }
+    }
+    
+    @IBAction func unwindFromSettingsEditor(segue: UIStoryboardSegue) {
+        
     }
 }

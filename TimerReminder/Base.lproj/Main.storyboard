@@ -117,8 +117,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="75i-S5-sZD" kind="presentation" identifier="showSettingsEditor" modalPresentationStyle="formSheet" id="G0T-33-zpY"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOQ-pz-9cT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Vuw-Ne-zlG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2030" y="306"/>
         </scene>
@@ -151,6 +155,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="6gf-lf-dXb" kind="unwind" identifier="unwindToTimer" unwindAction="unwindFromTimerForm:" id="KcG-Q3-jeg"/>
+                        <segue destination="Vuw-Ne-zlG" kind="unwind" identifier="unwindFromSettingsEditor" unwindAction="unwindFromSettingsEditor:" id="bba-Lu-smE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTj-Kg-NmU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -177,10 +182,10 @@
             </objects>
             <point key="canvasLocation" x="1318" y="306"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Data Passer Controller-->
         <scene sceneID="20l-xr-YIf">
             <objects>
-                <navigationController id="75i-S5-sZD" sceneMemberID="viewController">
+                <navigationController id="75i-S5-sZD" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gk8-d0-rdD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -311,4 +316,7 @@
         <image name="play" width="25" height="25"/>
         <image name="restart" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="G0T-33-zpY"/>
+    </inferredMetricsTieBreakers>
 </document>
