@@ -110,7 +110,7 @@ class TimerFormController: FormViewController {
                     let action: SegmentedRow<TimeIsUpAction> = $0.rowByTag(tagTimesUpAction)!
                     return action.value == .SayMessage
                 }
-                row.options = ["Radar", "yyy", "zzz"]
+                row.options = ["Radar", "Waves", "Radiate", "Night Owl", "Circuit", "Sencha", "Cosmic", "Presto", "Beacon", "Hillside"]
                 row.value = self.options?.timesUpSound == nil ? "Radar" : self.options.timesUpSound
         }.onChange {
             row in
