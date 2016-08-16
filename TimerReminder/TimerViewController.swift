@@ -42,6 +42,16 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        let textCache = timerLabel.text
+        shortFontSize = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
+        longFontSize = timerLabel.fontSizeThatFits(text: "00:00:00", maxFontSize: 500)
+        timerLabel.text = ""
+        
+        timerLabel.font = timerLabel.font.fontWithSize(timer.hasLongDescription ? longFontSize : shortFontSize)
+        timerLabel.text = textCache
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if !initializedFontSizes {
