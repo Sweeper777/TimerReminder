@@ -1,0 +1,48 @@
+"My Timer Settings" = "我的計時器設定";
+"Add New Timer Settings" = "增加計時器設置定";
+"Set Timer" = "設置計時器";
+"Switch to Stopwatch Mode" = "切換至秒錶模式";
+"Switch to Timer Mode" = "切換至計時器模式";
+"Settings applied" = "已套用設定";
+
+"Add Settings" = "增加設定";
+"Edit Settings" = "編輯設定";
+"This is the language in which the reminder messages and the \"Time is up\" message will be spoken." = "";
+"Name:" = "名字：";
+"Language" = "語言";
+"Only applicable in Timer Mode" = "只適用於計時器模式";
+"Countdown" = "倒數";
+"Start Countdown At" = "開始倒數時間";
+"Beep Sounds" = "嗶嗶聲";
+"time is up" = "時間到";
+"Message:" = "提示語：";
+"Leave blank for default" = "留空以使用默認值";
+"Sound" = "聲音";
+"Reminders" = "提醒";
+"No. of Reminders" = "提醒數";
+"Remind Every" = "提醒間隔";
+"Reminder" = "提醒";
+"Remind At" = "提醒時間";
+"Save and apply" = "儲存並套用";
+"Apply but don't save" = "套用但不儲存";
+"Save but don't apply" = "儲存但不套用";
+"Cancel" = "取消";
+
+"Default" = "預設";
+
+"Hours" = "小時";
+"Hour" = "小時";
+"Minutes" = "分鐘";
+"Minute" = "分鐘";
+"Seconds" = "秒";
+"Second" = "秒";
+
+"Mandarin" = "普通話";
+"Cantonese" = "粵語";
+"English" = "英文";
+"Japanese" = "日文";
+
+"Play a Sound" = "播放聲音";
+"Verbalize a Message" = "語音提示";
+"Regular" = "在固定的時間間隔之間";
+"At Specific Times" = "在特定時間點";
