@@ -89,6 +89,9 @@ class TimerFormController: FormViewController {
                 row in
                 row.options = [.SayMessage, .PlaySound]
                 row.value = self.options == nil ? .SayMessage : (self.options.timesUpSound == nil ? .SayMessage : .PlaySound)
+        }.onChange {
+            row in
+            self.player?.stop()
         }
             <<< TextRow(tagTimesUpMessage) {
                 row in
@@ -120,6 +123,9 @@ class TimerFormController: FormViewController {
                 self.player?.prepareToPlay()
                 self.player?.play()
             }
+        }.onCellSelection {
+            cell, row in
+            self.player?.stop()
         }
         
         form +++ Section()
