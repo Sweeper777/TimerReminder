@@ -46,3 +46,6 @@
 "Verbalize a Message" = "语音提示";
 "Regular" = "在固定的时间间隔之间";
 "At Specific Times" = "在特定时间点";
+
+"Edit" = "编辑";
+"Delete" = "删除";

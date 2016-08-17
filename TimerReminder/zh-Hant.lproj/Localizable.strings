@@ -16,7 +16,7 @@
 "Beep Sounds" = "嗶嗶聲";
 "time is up" = "時間到";
 "Message:" = "提示語：";
-"Leave blank for default" = "留空以使用默認值";
+"Leave blank for default" = "留空以使用預設值";
 "Sound" = "聲音";
 "Reminders" = "提醒";
 "No. of Reminders" = "提醒數";
@@ -46,3 +46,6 @@
 "Verbalize a Message" = "語音提示";
 "Regular" = "在固定的時間間隔之間";
 "At Specific Times" = "在特定時間點";
+
+"Edit" = "編輯";
+"Delete" = "刪除";
