@@ -1,0 +1,51 @@
+"My Timer Settings" = "My Timer Settings";
+"Add New Timer Settings" = "Add New Timer Settings";
+"Set Timer" = "Set Timer";
+"Switch to Stopwatch Mode" = "Switch to Stopwatch Mode";
+"Switch to Timer Mode" = "Switch to Timer Mode";
+"Settings applied" = "Settings applied";
+
+"Add Settings" = "Add Settings";
+"Edit Settings" = "Edit Settings";
+"This is the language in which the reminder messages and the \"Time is up\" message will be spoken." = "This is the language in which the reminder messages and the \"Time is up\" message will be spoken.";
+"Name:" = "Name:";
+"Language" = "Language";
+"Only applicable in Timer Mode" = "Only applicable in Timer Mode";
+"Countdown" = "Countdown";
+"Start Countdown At" = "Start Countdown At";
+"Beep Sounds" = "Beep Sounds";
+"time is up" = "time is up";
+"Message:" = "Message:";
+"Leave blank for default" = "Leave blank for default";
+"Sound" = "Sound";
+"Reminders" = "Reminders";
+"No. of Reminders" = "No. of Reminders";
+"Remind Every" = "Remind Every";
+"Reminder" = "Reminder";
+"Remind At" = "Remind At";
+"Save and apply" = "Save and apply";
+"Apply but don't save" = "Apply but don't save";
+"Save but don't apply" = "Save but don't apply";
+"Cancel" = "Cancel";
+
+"Default" = "Default";
+
+"Hours" = "Hours";
+"Hour" = "Hour";
+"Minutes" = "Minutes";
+"Minute" = "Minute";
+"Seconds" = "Seconds";
+"Second" = "Second";
+
+"Mandarin" = "Mandarin";
+"Cantonese" = "Cantonese";
+"English" = "English";
+"Japanese" = "Japanese";
+
+"Play a Sound" = "Play a Sound";
+"Verbalize a Message" = "Verbalize a Message";
+"Regular" = "Regular";
+"At Specific Times" = "At Specific Times";
+
+"Edit" = "Edit";
+"Delete" = "Delete";

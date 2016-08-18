@@ -106,6 +106,9 @@
 		5A067CD01D44922800238AF5 /* XLForm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLForm.framework; path = "Pods/../build/Debug-iphoneos/XLForm.framework"; sourceTree = "<group>"; };
 		5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
 		5A9608E61D498728001EE17F /* SetTimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimerController.swift; sourceTree = "<group>"; };
+		5AFF72A81D65BBA80031429E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		5AFF72A91D65BBA80031429E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		5AFF72AA1D65BBA80031429E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		79CA6FEE5CF6A6DF96E63943 /* Pods_TimerReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimerReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B46CF811E1968BC84D25D0 /* Pods-TimerReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimerReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimerReminder/Pods-TimerReminder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -266,6 +269,7 @@
 				Base,
 				"zh-Hans",
 				"zh-Hant",
+				ja,
 			);
 			mainGroup = 5A067CAC1D4490A500238AF5;
 			productRefGroup = 5A067CB61D4490A500238AF5 /* Products */;
@@ -385,6 +389,7 @@
 				5A020B7C1D63472C00CB6DD5 /* en */,
 				5A020B7E1D63472D00CB6DD5 /* zh-Hans */,
 				5A020B7F1D63472F00CB6DD5 /* zh-Hant */,
+				5AFF72AA1D65BBA80031429E /* ja */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -395,6 +400,7 @@
 				5A067CBD1D4490A500238AF5 /* Base */,
 				5A020B751D63463900CB6DD5 /* zh-Hans */,
 				5A020B771D63464100CB6DD5 /* zh-Hant */,
+				5AFF72A81D65BBA80031429E /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -405,6 +411,7 @@
 				5A067CC51D4490A500238AF5 /* Base */,
 				5A020B761D63463900CB6DD5 /* zh-Hans */,
 				5A020B781D63464100CB6DD5 /* zh-Hant */,
+				5AFF72A91D65BBA80031429E /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
