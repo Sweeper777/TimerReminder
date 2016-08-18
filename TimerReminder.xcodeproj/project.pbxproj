@@ -50,6 +50,7 @@
 		5A067CD21D44922800238AF5 /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A067CCE1D44922800238AF5 /* LTMorphingLabel.framework */; };
 		5A067CD31D44922800238AF5 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A067CCF1D44922800238AF5 /* SwiftyJSON.framework */; };
 		5A9608E71D498728001EE17F /* SetTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9608E61D498728001EE17F /* SetTimerController.swift */; };
+		5AFF72AD1D6610B00031429E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AFF72AF1D6610B00031429E /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,10 @@
 		5AFF72A81D65BBA80031429E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		5AFF72A91D65BBA80031429E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5AFF72AA1D65BBA80031429E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5AFF72AE1D6610B00031429E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5AFF72B01D6611260031429E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		5AFF72B11D6611290031429E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		5AFF72B21D66112A0031429E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		79CA6FEE5CF6A6DF96E63943 /* Pods_TimerReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimerReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B46CF811E1968BC84D25D0 /* Pods-TimerReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimerReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimerReminder/Pods-TimerReminder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +194,7 @@
 				5A067CC41D4490A500238AF5 /* LaunchScreen.storyboard */,
 				5A020B7D1D63472C00CB6DD5 /* Localizable.strings */,
 				5A067CC71D4490A500238AF5 /* Info.plist */,
+				5AFF72AF1D6610B00031429E /* InfoPlist.strings */,
 				5A067CBF1D4490A500238AF5 /* TimerReminder.xcdatamodeld */,
 			);
 			path = TimerReminder;
@@ -287,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A020B711D62980300CB6DD5 /* Cosmic.mp3 in Resources */,
+				5AFF72AD1D6610B00031429E /* InfoPlist.strings in Resources */,
 				5A067CC61D4490A500238AF5 /* LaunchScreen.storyboard in Resources */,
 				5A067CC31D4490A500238AF5 /* Assets.xcassets in Resources */,
 				5A020B701D62980300CB6DD5 /* Sencha.mp3 in Resources */,
@@ -414,6 +421,17 @@
 				5AFF72A91D65BBA80031429E /* ja */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5AFF72AF1D6610B00031429E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AFF72AE1D6610B00031429E /* en */,
+				5AFF72B01D6611260031429E /* zh-Hans */,
+				5AFF72B11D6611290031429E /* zh-Hant */,
+				5AFF72B21D66112A0031429E /* ja */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
