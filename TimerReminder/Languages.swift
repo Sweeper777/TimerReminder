@@ -104,7 +104,7 @@ extension TimerOptions {
         case .Mandarin, .Cantonese:
             return "剩餘 %@"
         case .Japanese:
-            return "残り時間 %@"
+            return "残り時間 %@ です"
         default:
             return "%@ Left"
         }
