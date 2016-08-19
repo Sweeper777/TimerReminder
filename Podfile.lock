@@ -2,7 +2,7 @@ PODS:
   - ASToast (1.0.3)
   - Eureka (1.7.0)
   - EZSwiftExtensions (1.5)
-  - FittableFontLabel (1.2.0)
+  - FittableFontLabel (1.3.0)
   - LTMorphingLabel (0.2.1)
   - MGSwipeTableCell (1.5.5)
   - MVSpeechSynthesizer (1.0.1)
@@ -24,7 +24,7 @@ SPEC CHECKSUMS:
   ASToast: 3ca73a088e2c0b4c2cf0af3ef7b83a19cfd98733
   Eureka: 2020d9faeef7b7e9adeb9e3d8af779e5931c1897
   EZSwiftExtensions: fe78d7d4ac34f5c8c36415d4acee49ba67c9732a
-  FittableFontLabel: 50e775bdb8d643a8cc3f7f5dca7d2e8827bb2aab
+  FittableFontLabel: e25aa22a79c9ae79655c65cd199d526e4768c1ee
   LTMorphingLabel: 1858358ea38ef4d548e1f58b648b0d08ec3a62ed
   MGSwipeTableCell: bafeb5f351124544c9364ecbdf24c7b06a37d340
   MVSpeechSynthesizer: d4deb5221bff17dfda644298497be3b4fa189040
