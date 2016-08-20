@@ -128,6 +128,16 @@ class TimerFormController: FormViewController {
             self.player?.stop()
         }
         
+            <<< SwitchRow(tagVibrate) {
+                row in
+                row.title = NSLocalizedString("Vibrate", comment: "")
+                row.value = false
+                
+                if let newValue = options?.vibrate?.boolValue {
+                    row.value = newValue
+                }
+        }
+        
         form +++ Section()
             <<< SwitchRow(tagReminderOnOff) {
                 row in
@@ -188,6 +198,24 @@ class TimerFormController: FormViewController {
                 if self.options?.regularReminderInterval != nil {
                     row.value = Int(options.regularReminderInterval!)
                 }
+                
+        }
+            <<< TextRow(tagRegularReminderMessage) {
+                row in
+                row.title = NSLocalizedString("Message:", comment: "")
+                row.placeholder = NSLocalizedString("Leave blank for default", comment: "")
+                if let newValue = self.options?.regularReminderMessage {
+                    row.value = newValue
+                }
+                
+                row.hidden = Condition.Function([tagReminderOnOff, tagReminderStyle]) {
+                    let enabled: SwitchRow = $0.rowByTag(tagReminderOnOff)!
+                    let style: SegmentedRow<ReminderStyle> = $0.rowByTag(tagReminderStyle)!
+                    
+                    return !enabled.value! || style.value! == .AtSpecificTimes
+                }
+                }.cellUpdate { cell, row in
+                    cell.textField.textAlignment = .Left
         }
         
         for i in 1...10 {
@@ -313,6 +341,10 @@ class TimerFormController: FormViewController {
         
         if let timesUpSound = values[tagTimesUpSound] as? String {
             options.timesUpSound = timesUpSound
+        }
+        
+        if let vibrate = values[tagVibrate] as? Bool {
+            options.vibrate = vibrate
         }
         
         if let regularReminderInterval = values[tagRegularReminderInterval] as? Int {
