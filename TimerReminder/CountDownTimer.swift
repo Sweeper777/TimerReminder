@@ -70,6 +70,10 @@ class CountDownTimer: Timer {
                     self.synthesizer.stopSpeakingAtBoundary(.Immediate)
                     self.synthesizer.speakUtterance(utterance)
                 }
+                
+                if self.options!.vibrate?.boolValue ?? false {
+                    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+                }
             } else if Int(self.timeLeft) <= Int(self.options!.countDownTime!) {
                 // countdown
                 let utterance = AVSpeechUtterance(string: String(Int(self.timeLeft)))
@@ -158,7 +162,7 @@ class CountDownTimer: Timer {
                 return (false, nil)
             }
             
-            return (Int(timeToMeasure - timeLeft) % Int(regularReminders) == 0, nil)
+            return (Int(timeToMeasure - timeLeft) % Int(regularReminders) == 0, options?.regularReminderMessage)
         }
         
         return (false, nil)

@@ -117,7 +117,7 @@ class CountUpTimer: Timer {
         }
         
         if let regularReminders = options?.regularReminderInterval {
-            return (Int(timeMeasured) % Int(regularReminders) == 0, nil)
+            return (Int(timeMeasured) % Int(regularReminders) == 0, options?.regularReminderMessage)
         }
         
         return (false, nil)
