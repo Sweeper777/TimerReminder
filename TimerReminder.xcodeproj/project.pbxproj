@@ -107,6 +107,7 @@
 		5A067CD01D44922800238AF5 /* XLForm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLForm.framework; path = "Pods/../build/Debug-iphoneos/XLForm.framework"; sourceTree = "<group>"; };
 		5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
 		5A9608E61D498728001EE17F /* SetTimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimerController.swift; sourceTree = "<group>"; };
+		5AFEF2FB1D6833DC00176303 /* TimerReminder 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TimerReminder 2.xcdatamodel"; sourceTree = "<group>"; };
 		5AFF72A81D65BBA80031429E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		5AFF72A91D65BBA80031429E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5AFF72AA1D65BBA80031429E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -595,9 +596,10 @@
 		5A067CBF1D4490A500238AF5 /* TimerReminder.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				5AFEF2FB1D6833DC00176303 /* TimerReminder 2.xcdatamodel */,
 				5A067CC01D4490A500238AF5 /* TimerReminder.xcdatamodel */,
 			);
-			currentVersion = 5A067CC01D4490A500238AF5 /* TimerReminder.xcdatamodel */;
+			currentVersion = 5AFEF2FB1D6833DC00176303 /* TimerReminder 2.xcdatamodel */;
 			path = TimerReminder.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

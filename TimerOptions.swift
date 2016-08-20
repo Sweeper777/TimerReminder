@@ -21,5 +21,7 @@ class TimerOptions: NSManagedObject {
         self.timesUpMessage = nil
         self.regularReminderInterval = nil
         self.timesUpSound = nil
+        self.vibrate = false
+        self.regularReminderMessage = nil
     }
 }
