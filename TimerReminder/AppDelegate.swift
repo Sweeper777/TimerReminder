@@ -11,6 +11,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         window?.tintColor = UIColor(hexString: "3b7b3b")
         UINavigationBar.appearance().barStyle = .Black
+        
+        lastUsedBuild = Int(ez.appBuild ?? "0") ?? 0
         return true
     }
 
@@ -103,3 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+var lastUsedBuild: Int {
+    get { return NSUserDefaults.standardUserDefaults().integerForKey("lastUsedBuild") }
+    set { NSUserDefaults.standardUserDefaults().setInteger(newValue, forKey: "lastUsedBuild") }
+}
