@@ -12,6 +12,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.tintColor = UIColor(hexString: "3b7b3b")
         UINavigationBar.appearance().barStyle = .Black
         
+        if lastUsedBuild < 2 {
+            let entity = NSEntityDescription.entityForName("TimerOptions", inManagedObjectContext: managedObjectContext)
+            let request = NSFetchRequest()
+            request.entity = entity
+            let options = (try? managedObjectContext.executeFetchRequest(request))?.map { $0 as! TimerOptions }
+            if options != nil {
+                options?.forEach {
+                    if $0.vibrate == nil {
+                        $0.vibrate = false
+                    }
+                }
+                _  = try? managedObjectContext.save()
+            }
+        }
+        
         lastUsedBuild = Int(ez.appBuild ?? "0") ?? 0
         return true
     }
