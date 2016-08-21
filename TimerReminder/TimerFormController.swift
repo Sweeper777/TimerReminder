@@ -351,6 +351,10 @@ class TimerFormController: FormViewController {
             options.regularReminderInterval = regularReminderInterval
         }
         
+        if let regularReminderMessage = values[tagRegularReminderMessage] as? String {
+            options.regularReminderMessage = regularReminderMessage
+        }
+        
         if let reminderCount = values[tagReminderCount] as? Int {
             var reminders = [Reminder]()
             for i in 1...Int(reminderCount) {
