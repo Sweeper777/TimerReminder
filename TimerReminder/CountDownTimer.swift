@@ -90,7 +90,8 @@ class CountDownTimer: Timer {
                     self.synthesizer.speakUtterance(utterance)
                 } else {
                     // custom message
-                    let utterance = AVSpeechUtterance(string: shouldRemind.customMessage!)
+                    let remindMessage = shouldRemind.customMessage!.stringByReplacingOccurrencesOfString("$TIMELEFT$", withString: normalize(timeInterval: self.timeLeft, with: self.options!))
+                    let utterance = AVSpeechUtterance(string: remindMessage)
                     utterance.voice = AVSpeechSynthesisVoice(language: self.options!.language!)
                     self.synthesizer.stopSpeakingAtBoundary(.Immediate)
                     self.synthesizer.speakUtterance(utterance)
