@@ -277,10 +277,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLY-J2-tkW">
-                                <rect key="frame" x="20" y="52" width="560" height="216"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="agJ-h6-ugY"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="52" width="560" height="540"/>
                                 <connections>
                                     <outlet property="dataSource" destination="J1G-ft-dxD" id="MlX-Ct-Tte"/>
                                     <outlet property="delegate" destination="J1G-ft-dxD" id="jQC-vu-krj"/>
@@ -289,9 +286,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aLY-J2-tkW" firstAttribute="leading" secondItem="oeB-I3-OCI" secondAttribute="leadingMargin" id="GlC-pe-oqN"/>
-                            <constraint firstItem="aLY-J2-tkW" firstAttribute="top" secondItem="lgQ-EF-Btw" secondAttribute="bottom" constant="8" symbolic="YES" id="LbS-r9-aZc"/>
-                            <constraint firstItem="aLY-J2-tkW" firstAttribute="trailing" secondItem="oeB-I3-OCI" secondAttribute="trailingMargin" id="Z7F-sj-9Lt"/>
+                            <constraint firstItem="L9M-36-ojp" firstAttribute="top" secondItem="aLY-J2-tkW" secondAttribute="bottom" constant="8" symbolic="YES" id="gst-oC-e5e"/>
+                            <constraint firstItem="aLY-J2-tkW" firstAttribute="top" secondItem="lgQ-EF-Btw" secondAttribute="bottom" constant="8" symbolic="YES" id="lxi-cx-tOy"/>
+                            <constraint firstItem="aLY-J2-tkW" firstAttribute="trailing" secondItem="oeB-I3-OCI" secondAttribute="trailingMargin" id="tDA-JJ-1vL"/>
+                            <constraint firstItem="aLY-J2-tkW" firstAttribute="leading" secondItem="oeB-I3-OCI" secondAttribute="leadingMargin" id="xDd-L5-nf9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Set Timer" id="Kds-0f-3uV">
