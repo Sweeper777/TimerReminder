@@ -84,7 +84,10 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addSettingRecog" destination="lXE-Uy-mIO" id="LV4-qJ-enJ"/>
+                        <outlet property="mySettingsRecog" destination="nLz-ad-0ql" id="KKv-Ox-GNi"/>
                         <outlet property="playButton" destination="yDO-VZ-boI" id="Ias-SL-sjp"/>
+                        <outlet property="setTimerRecog" destination="hr1-4a-SNr" id="j4w-xY-mo5"/>
                         <outlet property="timerLabel" destination="mEG-Po-lfJ" id="Fgz-7t-ooI"/>
                         <segue destination="LVp-DH-RsJ" kind="presentation" identifier="showSetTimer" modalPresentationStyle="formSheet" id="TwS-Ha-VvY"/>
                         <segue destination="v5I-Uv-1Bn" kind="presentation" identifier="showChooseTimerSettings" modalPresentationStyle="formSheet" id="nZp-SL-VcV"/>
@@ -92,6 +95,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" numberOfTouchesRequired="2" id="lXE-Uy-mIO"/>
+                <swipeGestureRecognizer direction="up" id="hr1-4a-SNr"/>
+                <swipeGestureRecognizer direction="up" numberOfTouchesRequired="2" id="nLz-ad-0ql"/>
                 <exit id="6gf-lf-dXb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="392" y="306"/>
@@ -321,6 +327,6 @@
         <image name="restart" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="G0T-33-zpY"/>
+        <segue reference="5FA-iO-18H"/>
     </inferredMetricsTieBreakers>
 </document>

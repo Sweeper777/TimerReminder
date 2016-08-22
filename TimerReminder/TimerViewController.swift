@@ -11,6 +11,10 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     var timer: Timer!
     @IBOutlet var playButton: UIBarButtonItem!
     
+    @IBOutlet var addSettingRecog: UITapGestureRecognizer!
+    @IBOutlet var mySettingsRecog: UISwipeGestureRecognizer!
+    @IBOutlet var setTimerRecog: UISwipeGestureRecognizer!
+    
     var shortFontSize: CGFloat!
     var longFontSize: CGFloat!
     
