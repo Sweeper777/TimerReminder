@@ -44,6 +44,10 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
             let object = try? context.existingObjectWithID(oid)
             appliedOptions = object as! TimerOptions?
         }
+        
+        view.addGestureRecognizer(addSettingRecog)
+        view.addGestureRecognizer(mySettingsRecog)
+        view.addGestureRecognizer(setTimerRecog)
     }
     
     override func viewDidAppear(animated: Bool) {

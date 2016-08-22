@@ -95,9 +95,21 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer numberOfTapsRequired="2" numberOfTouchesRequired="2" id="lXE-Uy-mIO"/>
-                <swipeGestureRecognizer direction="up" id="hr1-4a-SNr"/>
-                <swipeGestureRecognizer direction="up" numberOfTouchesRequired="2" id="nLz-ad-0ql"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" numberOfTouchesRequired="2" id="lXE-Uy-mIO">
+                    <connections>
+                        <segue destination="75i-S5-sZD" kind="presentation" modalPresentationStyle="formSheet" id="uZe-eJ-7TD"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="hr1-4a-SNr">
+                    <connections>
+                        <segue destination="LVp-DH-RsJ" kind="presentation" modalPresentationStyle="formSheet" id="5q0-KL-pWc"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" numberOfTouchesRequired="2" id="nLz-ad-0ql">
+                    <connections>
+                        <segue destination="v5I-Uv-1Bn" kind="presentation" modalPresentationStyle="formSheet" id="EBd-y1-JLu"/>
+                    </connections>
+                </swipeGestureRecognizer>
                 <exit id="6gf-lf-dXb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="392" y="306"/>
@@ -282,7 +294,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLY-J2-tkW">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aLY-J2-tkW">
                                 <rect key="frame" x="20" y="52" width="560" height="540"/>
                                 <connections>
                                     <outlet property="dataSource" destination="J1G-ft-dxD" id="MlX-Ct-Tte"/>
@@ -327,6 +339,8 @@
         <image name="restart" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5FA-iO-18H"/>
+        <segue reference="uZe-eJ-7TD"/>
+        <segue reference="EBd-y1-JLu"/>
+        <segue reference="5q0-KL-pWc"/>
     </inferredMetricsTieBreakers>
 </document>
