@@ -48,6 +48,11 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
         view.addGestureRecognizer(addSettingRecog)
         view.addGestureRecognizer(mySettingsRecog)
         view.addGestureRecognizer(setTimerRecog)
+        
+        let gestureEnabled = NSUserDefaults.standardUserDefaults().boolForKey("gestureControl")
+        addSettingRecog.enabled = gestureEnabled
+        setTimerRecog.enabled = gestureEnabled
+        mySettingsRecog.enabled = gestureEnabled
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -129,6 +134,25 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
                 self?.playButton.image = UIImage(named: "play")
                 self?.timer = CountDownTimer(time: 60, options: self?.appliedOptions, onTimerChange: self?.timerChangedClosure, onEnd: nil)
             })
+        }
+        
+        let gestureEnabled = NSUserDefaults.standardUserDefaults().boolForKey("gestureControl")
+        if gestureEnabled {
+            menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Disable Gesture Control", comment: ""), image: UIImage(named: "gesture_off")) {
+                [unowned self] in
+                self.setTimerRecog.enabled = false
+                self.mySettingsRecog.enabled = false
+                self.addSettingRecog.enabled = false
+                NSUserDefaults.standardUserDefaults().setBool(false, forKey: "gestureControl")
+                })
+        } else {
+            menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Enable Gesture Control", comment: ""), image: UIImage(named: "gesture")) {
+                [unowned self] in
+                self.setTimerRecog.enabled = true
+                self.mySettingsRecog.enabled = true
+                self.addSettingRecog.enabled = true
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "gestureControl")
+                })
         }
         
         RWDropdownMenu.presentFromViewController(self, withItems: menuItems, align: .Right, style: .Translucent, navBarImage: nil, completion: nil)
