@@ -51,3 +51,6 @@
 "Delete" = "削除";
 
 "Vibrate" = "振動";
+
+"Enable Gesture Control" = "ジェスチャーコントロールを有効に";
+"Disable Gesture Control" = "ジェスチャーコントロールを無効に";
