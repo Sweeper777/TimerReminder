@@ -54,3 +54,4 @@
 
 "Enable Gesture Control" = "启用手势控制";
 "Disable Gesture Control" = "关闭手势控制";
+"gesture instructions" = "设定计时器：用一只手指向上滑动\n我的设定：用两只手指向上滑动\n增加设定：用两只手指双击";
