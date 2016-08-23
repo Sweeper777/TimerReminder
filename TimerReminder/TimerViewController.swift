@@ -152,6 +152,9 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
                 self.mySettingsRecog.enabled = true
                 self.addSettingRecog.enabled = true
                 NSUserDefaults.standardUserDefaults().setBool(true, forKey: "gestureControl")
+                let alert = UIAlertController(title: NSLocalizedString("Instructions", comment: ""), message: NSLocalizedString("gesture instructions", comment: ""), preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Default, handler: nil))
+                self.presentVC(alert)
                 })
         }
         
