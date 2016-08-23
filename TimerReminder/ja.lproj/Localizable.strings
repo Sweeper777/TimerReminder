@@ -55,3 +55,5 @@
 "Enable Gesture Control" = "ジェスチャーコントロールを有効に";
 "Disable Gesture Control" = "ジェスチャーコントロールを無効に";
 "gesture instructions" = "セットタイマー：1本の指で上にスワイプします\nタイマー設定：2本の指で上にスワイプします\n增加设定：2本の指でダブルタップ";
+"OK" = "OK";
+"Instructions" = "說明書";
