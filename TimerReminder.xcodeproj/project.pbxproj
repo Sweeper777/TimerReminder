@@ -32,6 +32,8 @@
 		5A036C191D5FF6B1007AADB5 /* SettingSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A036C181D5FF6B1007AADB5 /* SettingSelectorController.swift */; };
 		5A036C1B1D6015A7007AADB5 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A036C1A1D6015A7007AADB5 /* MGSwipeTableCell.framework */; };
 		5A036C1D1D6019FE007AADB5 /* DataPasserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A036C1C1D6019FE007AADB5 /* DataPasserController.swift */; };
+		5A03B9FF1D6D8494009F08B9 /* SF-UI-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */; };
+		5A03BA001D6D8494009F08B9 /* SF-UI-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A03B9F31D6D7AC0009F08B9 /* SF-UI-Display-Thin.otf */; };
 		5A03F27F1D5AD34600723262 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03F27E1D5AD34600723262 /* Languages.swift */; };
 		5A03F2811D5AEED600723262 /* TimerFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03F2801D5AEED600723262 /* TimerFormController.swift */; };
 		5A03F2831D5C0D9B00723262 /* Wrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03F2821D5C0D9B00723262 /* Wrappers.swift */; };
@@ -85,7 +87,7 @@
 		5A036C181D5FF6B1007AADB5 /* SettingSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingSelectorController.swift; sourceTree = "<group>"; };
 		5A036C1A1D6015A7007AADB5 /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MGSwipeTableCell.framework; path = "Pods/../build/Debug-iphoneos/MGSwipeTableCell/MGSwipeTableCell.framework"; sourceTree = "<group>"; };
 		5A036C1C1D6019FE007AADB5 /* DataPasserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPasserController.swift; sourceTree = "<group>"; };
-		5A03B9F31D6D7AC0009F08B9 /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
+		5A03B9F31D6D7AC0009F08B9 /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Thin.otf"; path = "../SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
 		5A03F27E1D5AD34600723262 /* Languages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		5A03F2801D5AEED600723262 /* TimerFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerFormController.swift; sourceTree = "<group>"; };
 		5A03F2821D5C0D9B00723262 /* Wrappers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wrappers.swift; sourceTree = "<group>"; };
@@ -106,7 +108,7 @@
 		5A067CCE1D44922800238AF5 /* LTMorphingLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTMorphingLabel.framework; path = "Pods/../build/Debug-iphoneos/LTMorphingLabel.framework"; sourceTree = "<group>"; };
 		5A067CCF1D44922800238AF5 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		5A067CD01D44922800238AF5 /* XLForm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLForm.framework; path = "Pods/../build/Debug-iphoneos/XLForm.framework"; sourceTree = "<group>"; };
-		5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
+		5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Regular.otf"; path = "../SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
 		5A9608E61D498728001EE17F /* SetTimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimerController.swift; sourceTree = "<group>"; };
 		5AFEF2FB1D6833DC00176303 /* TimerReminder 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TimerReminder 2.xcdatamodel"; sourceTree = "<group>"; };
 		5AFF72A81D65BBA80031429E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
@@ -144,8 +146,6 @@
 		5A067CAC1D4490A500238AF5 = {
 			isa = PBXGroup;
 			children = (
-				5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */,
-				5A03B9F31D6D7AC0009F08B9 /* SF-UI-Display-Thin.otf */,
 				5A067CB71D4490A500238AF5 /* TimerReminder */,
 				5A067CB61D4490A500238AF5 /* Products */,
 				F7E084DFAF08D18824FDF3A0 /* Frameworks */,
@@ -164,6 +164,8 @@
 		5A067CB71D4490A500238AF5 /* TimerReminder */ = {
 			isa = PBXGroup;
 			children = (
+				5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */,
+				5A03B9F31D6D7AC0009F08B9 /* SF-UI-Display-Thin.otf */,
 				5A015F0B1D4DA8530032BB59 /* beep.mp3 */,
 				5A0167611D6143110035021F /* Radar.mp3 */,
 				5A020B631D62980300CB6DD5 /* Waves.mp3 */,
@@ -295,6 +297,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A03B9FF1D6D8494009F08B9 /* SF-UI-Display-Regular.otf in Resources */,
+				5A03BA001D6D8494009F08B9 /* SF-UI-Display-Thin.otf in Resources */,
 				5A020B711D62980300CB6DD5 /* Cosmic.mp3 in Resources */,
 				5AFF72AD1D6610B00031429E /* InfoPlist.strings in Resources */,
 				5A067CC61D4490A500238AF5 /* LaunchScreen.storyboard in Resources */,
