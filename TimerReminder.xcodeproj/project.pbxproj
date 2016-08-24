@@ -85,6 +85,7 @@
 		5A036C181D5FF6B1007AADB5 /* SettingSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingSelectorController.swift; sourceTree = "<group>"; };
 		5A036C1A1D6015A7007AADB5 /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MGSwipeTableCell.framework; path = "Pods/../build/Debug-iphoneos/MGSwipeTableCell/MGSwipeTableCell.framework"; sourceTree = "<group>"; };
 		5A036C1C1D6019FE007AADB5 /* DataPasserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPasserController.swift; sourceTree = "<group>"; };
+		5A03B9F31D6D7AC0009F08B9 /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
 		5A03F27E1D5AD34600723262 /* Languages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		5A03F2801D5AEED600723262 /* TimerFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerFormController.swift; sourceTree = "<group>"; };
 		5A03F2821D5C0D9B00723262 /* Wrappers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wrappers.swift; sourceTree = "<group>"; };
@@ -144,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */,
+				5A03B9F31D6D7AC0009F08B9 /* SF-UI-Display-Thin.otf */,
 				5A067CB71D4490A500238AF5 /* TimerReminder */,
 				5A067CB61D4490A500238AF5 /* Products */,
 				F7E084DFAF08D18824FDF3A0 /* Frameworks */,
