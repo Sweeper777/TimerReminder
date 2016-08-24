@@ -50,12 +50,26 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-gI-hVl" customClass="ISHHoverBar">
+                                <rect key="frame" x="492" y="548" width="88" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="CYg-o3-xtD"/>
+                                    <constraint firstAttribute="height" constant="44" id="cfW-sU-lpA"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.23137254900000001" green="0.4823529412" blue="0.23137254900000001" alpha="1" colorSpace="deviceRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5wo-gI-hVl" secondAttribute="bottom" constant="8" symbolic="YES" id="7E2-Vm-yA3"/>
                             <constraint firstItem="mEG-Po-lfJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8zZ-66-S4S"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mEG-Po-lfJ" secondAttribute="bottom" constant="8" symbolic="YES" id="dEY-tf-UjS"/>
                             <constraint firstItem="mEG-Po-lfJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="f7T-aw-VfS"/>
+                            <constraint firstItem="5wo-gI-hVl" firstAttribute="trailing" secondItem="mEG-Po-lfJ" secondAttribute="trailing" id="kty-0e-AX7"/>
                             <constraint firstItem="mEG-Po-lfJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="ybc-b4-9v9"/>
                         </constraints>
                     </view>
