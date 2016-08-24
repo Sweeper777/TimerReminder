@@ -55,7 +55,7 @@ class SettingSelectorController: UITableViewController {
         } else {
             let cell = MGSwipeTableCell()
             if self.selectedOption != nil {
-                let index = selectedOption == nil ? 0 : options.indexOf { $0.objectID == self.selectedOption!.objectID }! + 1
+                let index = selectedOption == nil ? 0 : options.indexOf { $0 == self.selectedOption! }! + 1
                 if indexPath.row == index {
                     cell.accessoryType = .Checkmark
                 }

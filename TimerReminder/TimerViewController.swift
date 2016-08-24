@@ -208,7 +208,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let vc = segue.destinationViewController as? DataPasserController {
-            vc.selectedOption = self.appliedOptions?.inserted == false ? nil : self.appliedOptions
+            vc.selectedOption = self.appliedOptions?.objectID.temporaryID == false ? self.appliedOptions : nil
         }
     }
 }
