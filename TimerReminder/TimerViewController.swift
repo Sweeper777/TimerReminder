@@ -4,6 +4,7 @@ import FittableFontLabel
 import EZSwiftExtensions
 import RWDropdownMenu
 import ASToast
+import ISHHoverBar
 import CoreData
 
 class TimerViewController: UIViewController, LTMorphingLabelDelegate {
@@ -14,6 +15,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     @IBOutlet var addSettingRecog: UITapGestureRecognizer!
     @IBOutlet var mySettingsRecog: UISwipeGestureRecognizer!
     @IBOutlet var setTimerRecog: UISwipeGestureRecognizer!
+    @IBOutlet var hoverBar: ISHHoverBar!
     
     var shortFontSize: CGFloat!
     var longFontSize: CGFloat!
@@ -209,6 +211,24 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let vc = segue.destinationViewController as? DataPasserController {
             vc.selectedOption = self.appliedOptions?.objectID.temporaryID == false ? self.appliedOptions : nil
+        }
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if hoverBar.alpha == 0 {
+            UIView.animateWithDuration(0.2) {
+                self.hoverBar.alpha = 1
+            }
+            return
+        }
+        if !touches.contains({
+            touch -> Bool in
+            let point = touch.locationInView(self.hoverBar)
+            return self.hoverBar.bounds.contains(point)
+        }) {
+            UIView.animateWithDuration(0.2) {
+                self.hoverBar.alpha = 0
+            }
         }
     }
 }

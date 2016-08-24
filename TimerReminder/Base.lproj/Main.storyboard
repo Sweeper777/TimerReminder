@@ -97,6 +97,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addSettingRecog" destination="lXE-Uy-mIO" id="LV4-qJ-enJ"/>
+                        <outlet property="hoverBar" destination="5wo-gI-hVl" id="xoy-Gy-f14"/>
                         <outlet property="mySettingsRecog" destination="nLz-ad-0ql" id="KKv-Ox-GNi"/>
                         <outlet property="playButton" destination="yDO-VZ-boI" id="Ias-SL-sjp"/>
                         <outlet property="setTimerRecog" destination="hr1-4a-SNr" id="j4w-xY-mo5"/>
