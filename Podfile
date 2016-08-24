@@ -13,5 +13,6 @@ target 'TimerReminder' do
     pod 'MVSpeechSynthesizer'
     pod 'ASToast'
     pod 'MGSwipeTableCell'
+    pod 'ISHHoverBar'
 end
 

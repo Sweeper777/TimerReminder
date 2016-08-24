@@ -3,6 +3,7 @@ PODS:
   - Eureka (1.7.0)
   - EZSwiftExtensions (1.5)
   - FittableFontLabel (1.3.0)
+  - ISHHoverBar (1.0.1)
   - LTMorphingLabel (0.2.1)
   - MGSwipeTableCell (1.5.5)
   - MVSpeechSynthesizer (1.0.1)
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - Eureka
   - EZSwiftExtensions
   - FittableFontLabel
+  - ISHHoverBar
   - LTMorphingLabel
   - MGSwipeTableCell
   - MVSpeechSynthesizer
@@ -25,12 +27,13 @@ SPEC CHECKSUMS:
   Eureka: 2020d9faeef7b7e9adeb9e3d8af779e5931c1897
   EZSwiftExtensions: fe78d7d4ac34f5c8c36415d4acee49ba67c9732a
   FittableFontLabel: e25aa22a79c9ae79655c65cd199d526e4768c1ee
+  ISHHoverBar: 44d5161b7c815a60468d181e3ce70fbbfa5bef2a
   LTMorphingLabel: 1858358ea38ef4d548e1f58b648b0d08ec3a62ed
   MGSwipeTableCell: bafeb5f351124544c9364ecbdf24c7b06a37d340
   MVSpeechSynthesizer: d4deb5221bff17dfda644298497be3b4fa189040
   RWDropdownMenu: c7fda4b7adf4f3f63a46d96359c2f490a7713795
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 3665f061672fb516f3e18c6105b1fa76524a6e1e
+PODFILE CHECKSUM: 4c266cd9b0067d192d6329a03dae2ef90c83396c
 
 COCOAPODS: 1.1.0.beta.1

@@ -1,0 +1,6 @@
+framework module ISHHoverBar {
+  umbrella header "ISHHoverBar-umbrella.h"
+
+  export *
+  module * { export * }
+}

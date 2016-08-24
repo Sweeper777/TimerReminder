@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ISHHoverBar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>LTMorphingLabel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,12 +62,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>25DF511095B87D6ED6CAE7F9FB5A5371</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>322B4A63A57B3095B0D735E75287BDA1</key>
+		<key>06008BDA8C88338D6B6E5BDC162E6148</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +77,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4BB7D20A68445E720E3792100F7348DB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>60A64B22EF59BBD6B5F2D862154C2C51</key>
+		<key>6064FEBBCD8202A6C20E87B3FD729CB0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -93,6 +98,11 @@
 			<true/>
 		</dict>
 		<key>8EFB44D2DE7C5EB00C3EC386780F54FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EFBA7A8E41B5058E9C9E8616243BC99</key>
 		<dict>
 			<key>primary</key>
 			<true/>
