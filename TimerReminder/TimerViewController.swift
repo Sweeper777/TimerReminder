@@ -194,6 +194,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
         if let vc = segue.sourceViewController as? SettingSelectorController {
             self.appliedOptions = vc.selectedOption
             self.timer.options = vc.selectedOption ?? TimerOptions.defaultOptions
+            self.view.makeToast(NSLocalizedString("Settings applied", comment: ""), backgroundColor: nil)
             NSUserDefaults.standardUserDefaults().setURL(self.timer.options!.objectID.URIRepresentation(), forKey: "selectedSetting")
         }
     }
