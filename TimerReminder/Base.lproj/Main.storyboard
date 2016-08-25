@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="SF-UI-Display-Thin.otf">
@@ -44,16 +43,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEG-Po-lfJ" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                <rect key="frame" x="20" y="72" width="560" height="520"/>
-                                <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-gI-hVl" customClass="ISHHoverBar">
-                                <rect key="frame" x="492" y="548" width="88" height="44"/>
+                                <rect key="frame" x="448" y="548" width="132" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="88" id="CYg-o3-xtD"/>
+                                    <constraint firstAttribute="width" constant="132" id="CYg-o3-xtD"/>
                                     <constraint firstAttribute="height" constant="44" id="cfW-sU-lpA"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -62,6 +55,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEG-Po-lfJ" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
+                                <rect key="frame" x="20" y="72" width="560" height="520"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -73,33 +72,14 @@
                             <constraint firstItem="mEG-Po-lfJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="ybc-b4-9v9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2rJ-VZ-WE2">
-                        <rightBarButtonItems>
-                            <barButtonItem image="more" id="QMk-t8-G7Y">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="more:" destination="BYZ-38-t0r" id="ARL-Hl-HuI"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem image="play" id="yDO-VZ-boI">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="play:" destination="BYZ-38-t0r" id="NSd-mC-ugo"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem image="restart" id="6QR-ca-i43">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="restart:" destination="BYZ-38-t0r" id="aNK-8g-e32"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="2rJ-VZ-WE2"/>
                     <connections>
                         <outlet property="addSettingRecog" destination="lXE-Uy-mIO" id="LV4-qJ-enJ"/>
                         <outlet property="hoverBar" destination="5wo-gI-hVl" id="xoy-Gy-f14"/>
+                        <outlet property="moreButton" destination="QMk-t8-G7Y" id="YfO-6O-pie"/>
                         <outlet property="mySettingsRecog" destination="nLz-ad-0ql" id="KKv-Ox-GNi"/>
                         <outlet property="playButton" destination="yDO-VZ-boI" id="Ias-SL-sjp"/>
+                        <outlet property="restartButton" destination="6QR-ca-i43" id="65l-K7-Tak"/>
                         <outlet property="setTimerRecog" destination="hr1-4a-SNr" id="j4w-xY-mo5"/>
                         <outlet property="timerLabel" destination="mEG-Po-lfJ" id="Fgz-7t-ooI"/>
                         <segue destination="LVp-DH-RsJ" kind="presentation" identifier="showSetTimer" modalPresentationStyle="formSheet" id="TwS-Ha-VvY"/>
@@ -108,6 +88,21 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <barButtonItem image="restart" id="6QR-ca-i43">
+                    <connections>
+                        <action selector="restart:" destination="BYZ-38-t0r" id="aNK-8g-e32"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem image="play" id="yDO-VZ-boI">
+                    <connections>
+                        <action selector="play:" destination="BYZ-38-t0r" id="NSd-mC-ugo"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem image="more" id="QMk-t8-G7Y">
+                    <connections>
+                        <action selector="more:" destination="BYZ-38-t0r" id="ARL-Hl-HuI"/>
+                    </connections>
+                </barButtonItem>
                 <tapGestureRecognizer numberOfTapsRequired="2" numberOfTouchesRequired="2" id="lXE-Uy-mIO">
                     <connections>
                         <segue destination="75i-S5-sZD" kind="presentation" modalPresentationStyle="formSheet" id="uZe-eJ-7TD"/>

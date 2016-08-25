@@ -10,7 +10,10 @@ import CoreData
 class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     @IBOutlet var timerLabel: LTMorphingLabel!
     var timer: Timer!
+    
     @IBOutlet var playButton: UIBarButtonItem!
+    @IBOutlet var restartButton: UIBarButtonItem!
+    @IBOutlet var moreButton: UIBarButtonItem!
     
     @IBOutlet var addSettingRecog: UITapGestureRecognizer!
     @IBOutlet var mySettingsRecog: UISwipeGestureRecognizer!
@@ -55,6 +58,8 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
         addSettingRecog.enabled = gestureEnabled
         setTimerRecog.enabled = gestureEnabled
         mySettingsRecog.enabled = gestureEnabled
+        
+        hoverBar.items = [restartButton, playButton, moreButton]
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -99,6 +104,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     }
     
     @IBAction func restart(sender: UIBarButtonItem) {
+        print("Restart")
         timer.reset()
         playButton.image = UIImage(named: "play")
     }
