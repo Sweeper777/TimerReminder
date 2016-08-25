@@ -59,6 +59,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
         setTimerRecog.enabled = gestureEnabled
         mySettingsRecog.enabled = gestureEnabled
         
+        hoverBar.orientation = .Horizontal
         hoverBar.items = [restartButton, playButton, moreButton]
     }
     
@@ -95,16 +96,15 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
         }
         
         if timer.paused {
-            sender.image = UIImage(named: "pause")
+            playButton.image = UIImage(named: "pause")
             timer.start()
         } else {
-            sender.image = UIImage(named: "play")
+            playButton.image = UIImage(named: "play")
             timer.pause()
         }
     }
     
     @IBAction func restart(sender: UIBarButtonItem) {
-        print("Restart")
         timer.reset()
         playButton.image = UIImage(named: "play")
     }
