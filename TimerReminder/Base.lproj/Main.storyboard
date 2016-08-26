@@ -55,6 +55,7 @@
                     <navigationItem key="navigationItem" id="2rJ-VZ-WE2"/>
                     <connections>
                         <outlet property="addSettingRecog" destination="lXE-Uy-mIO" id="LV4-qJ-enJ"/>
+                        <outlet property="edgePanRecog" destination="F1A-j3-HPf" id="KAL-L4-E0p"/>
                         <outlet property="hoverBar" destination="5wo-gI-hVl" id="xoy-Gy-f14"/>
                         <outlet property="moreButton" destination="QMk-t8-G7Y" id="YfO-6O-pie"/>
                         <outlet property="mySettingsRecog" destination="nLz-ad-0ql" id="KKv-Ox-GNi"/>
@@ -70,16 +71,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer numberOfTapsRequired="2" numberOfTouchesRequired="2" id="lXE-Uy-mIO">
                     <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="Cas-oH-rWX"/>
                         <segue destination="75i-S5-sZD" kind="presentation" modalPresentationStyle="formSheet" id="uZe-eJ-7TD"/>
                     </connections>
                 </tapGestureRecognizer>
                 <swipeGestureRecognizer direction="up" id="hr1-4a-SNr">
                     <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="kV3-lX-mtW"/>
                         <segue destination="LVp-DH-RsJ" kind="presentation" modalPresentationStyle="formSheet" id="5q0-KL-pWc"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="2" id="F1A-j3-HPf">
+                    <rectEdge key="edges" bottom="YES"/>
+                    <connections>
+                        <action selector="pan:" destination="BYZ-38-t0r" id="mrK-vK-ZBj"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
                 <swipeGestureRecognizer direction="up" numberOfTouchesRequired="2" id="nLz-ad-0ql">
                     <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="Ecj-vg-cAh"/>
                         <segue destination="v5I-Uv-1Bn" kind="presentation" modalPresentationStyle="formSheet" id="EBd-y1-JLu"/>
                     </connections>
                 </swipeGestureRecognizer>

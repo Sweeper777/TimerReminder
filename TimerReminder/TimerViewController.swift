@@ -7,7 +7,7 @@ import ASToast
 import ISHHoverBar
 import CoreData
 
-class TimerViewController: UIViewController, LTMorphingLabelDelegate {
+class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureRecognizerDelegate {
     @IBOutlet var timerLabel: LTMorphingLabel!
     var timer: Timer!
     
@@ -18,6 +18,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
     @IBOutlet var addSettingRecog: UITapGestureRecognizer!
     @IBOutlet var mySettingsRecog: UISwipeGestureRecognizer!
     @IBOutlet var setTimerRecog: UISwipeGestureRecognizer!
+    @IBOutlet var edgePanRecog: UIScreenEdgePanGestureRecognizer!
     @IBOutlet var hoverBar: ISHHoverBar!
     
     var shortFontSize: CGFloat!
@@ -88,6 +89,10 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
             timer = CountDownTimer(time: 60, options: appliedOptions, onTimerChange: timerChangedClosure, onEnd: nil)
             initializedFontSizes = true
         }
+    }
+    
+    @IBAction func pan(sender: AnyObject) {
+        
     }
     
     @IBAction func play(sender: UIBarButtonItem) {
@@ -239,5 +244,12 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate {
                 self.hoverBar.alpha = 0
             }
         }
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if otherGestureRecognizer == edgePanRecog {
+            return false
+        }
+        return true
     }
 }
