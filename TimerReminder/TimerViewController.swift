@@ -151,27 +151,10 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             })
         }
         
-        let gestureEnabled = NSUserDefaults.standardUserDefaults().boolForKey("gestureControl")
-        if gestureEnabled {
-            menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Disable Gesture Control", comment: ""), image: UIImage(named: "gesture_off")) {
-                [unowned self] in
-                self.setTimerRecog.enabled = false
-                self.mySettingsRecog.enabled = false
-                self.addSettingRecog.enabled = false
-                NSUserDefaults.standardUserDefaults().setBool(false, forKey: "gestureControl")
-                })
-        } else {
-            menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Enable Gesture Control", comment: ""), image: UIImage(named: "gesture")) {
-                [unowned self] in
-                self.setTimerRecog.enabled = true
-                self.mySettingsRecog.enabled = true
-                self.addSettingRecog.enabled = true
-                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "gestureControl")
-                let alert = UIAlertController(title: NSLocalizedString("Instructions", comment: ""), message: NSLocalizedString("gesture instructions", comment: ""), preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Default, handler: nil))
-                self.presentVC(alert)
-                })
-        }
+        menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Global Settings", comment: ""), image: UIImage(named: "settings")) {
+            [unowned self] in
+            self.performSegueWithIdentifier("showSettings", sender: self)
+            })
         
         RWDropdownMenu.presentFromViewController(self, withItems: menuItems, align: .Right, style: .Translucent, navBarImage: nil, completion: nil)
     }

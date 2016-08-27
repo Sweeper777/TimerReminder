@@ -66,6 +66,7 @@
                         <segue destination="LVp-DH-RsJ" kind="presentation" identifier="showSetTimer" modalPresentationStyle="formSheet" id="TwS-Ha-VvY"/>
                         <segue destination="v5I-Uv-1Bn" kind="presentation" identifier="showChooseTimerSettings" modalPresentationStyle="formSheet" id="nZp-SL-VcV"/>
                         <segue destination="75i-S5-sZD" kind="presentation" identifier="showTimerForm" modalPresentationStyle="formSheet" id="5FA-iO-18H"/>
+                        <segue destination="JG9-Nw-9Cb" kind="presentation" identifier="showSettings" modalPresentationStyle="formSheet" id="XkQ-6L-6sq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -114,6 +115,45 @@
                 <exit id="6gf-lf-dXb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="366" y="306"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zcU-He-nWY">
+            <objects>
+                <navigationController id="JG9-Nw-9Cb" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7rE-nZ-g2c">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="29E-VQ-1ud" kind="relationship" relationship="rootViewController" id="Ip0-UA-9wv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r9Q-bm-AHl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="366" y="1186"/>
+        </scene>
+        <!--Global Settings Controller-->
+        <scene sceneID="myB-kr-fHa">
+            <objects>
+                <viewController id="29E-VQ-1ud" customClass="GlobalSettingsController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ViG-p3-GV6"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Iu-9M-VM9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HY5-lj-VEZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TLm-BN-bTR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lba-iG-Y55" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="366" y="1892"/>
         </scene>
         <!--Timer Settings-->
         <scene sceneID="FjJ-b6-Arh">
