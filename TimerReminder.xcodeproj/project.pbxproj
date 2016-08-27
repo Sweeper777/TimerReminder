@@ -11,6 +11,7 @@
 		5A0058A41D55622200DF4522 /* MVSpeechSynthesizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0058A31D55622200DF4522 /* MVSpeechSynthesizer.framework */; };
 		5A00B5431D519A390074B114 /* CountUpTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00B5421D519A390074B114 /* CountUpTimer.swift */; };
 		5A00C4C01D7208BA00AB34C3 /* GlobalSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00C4BF1D7208BA00AB34C3 /* GlobalSettingsController.swift */; };
+		5A00C4C21D72113200AB34C3 /* GlobalSettingsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00C4C11D72113200AB34C3 /* GlobalSettingsControllerDelegate.swift */; };
 		5A0135A21D470B90008A0F1D /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A01359E1D470B90008A0F1D /* Reminder.swift */; };
 		5A0135A31D470B90008A0F1D /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A01359F1D470B90008A0F1D /* Reminder+CoreDataProperties.swift */; };
 		5A0135A41D470B90008A0F1D /* TimerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0135A01D470B90008A0F1D /* TimerOptions.swift */; };
@@ -62,6 +63,7 @@
 		5A0058A31D55622200DF4522 /* MVSpeechSynthesizer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MVSpeechSynthesizer.framework; path = "Pods/../build/Debug-iphoneos/MVSpeechSynthesizer/MVSpeechSynthesizer.framework"; sourceTree = "<group>"; };
 		5A00B5421D519A390074B114 /* CountUpTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountUpTimer.swift; sourceTree = "<group>"; };
 		5A00C4BF1D7208BA00AB34C3 /* GlobalSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSettingsController.swift; sourceTree = "<group>"; };
+		5A00C4C11D72113200AB34C3 /* GlobalSettingsControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSettingsControllerDelegate.swift; sourceTree = "<group>"; };
 		5A01359E1D470B90008A0F1D /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = SOURCE_ROOT; };
 		5A01359F1D470B90008A0F1D /* Reminder+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		5A0135A01D470B90008A0F1D /* TimerOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerOptions.swift; sourceTree = SOURCE_ROOT; };
@@ -200,6 +202,7 @@
 				5A03F2821D5C0D9B00723262 /* Wrappers.swift */,
 				5A03F2841D5C45F100723262 /* FormTags.swift */,
 				5A0316551D5DF6B70034F45F /* TimeIntervalRow.swift */,
+				5A00C4C11D72113200AB34C3 /* GlobalSettingsControllerDelegate.swift */,
 				5A067CBC1D4490A500238AF5 /* Main.storyboard */,
 				5A067CC21D4490A500238AF5 /* Assets.xcassets */,
 				5A067CC41D4490A500238AF5 /* LaunchScreen.storyboard */,
@@ -394,6 +397,7 @@
 				5A067CC11D4490A500238AF5 /* TimerReminder.xcdatamodeld in Sources */,
 				5A00B5431D519A390074B114 /* CountUpTimer.swift in Sources */,
 				5A0135A21D470B90008A0F1D /* Reminder.swift in Sources */,
+				5A00C4C21D72113200AB34C3 /* GlobalSettingsControllerDelegate.swift in Sources */,
 				5A0316561D5DF6B70034F45F /* TimeIntervalRow.swift in Sources */,
 				5A0135A31D470B90008A0F1D /* Reminder+CoreDataProperties.swift in Sources */,
 				5A036C1D1D6019FE007AADB5 /* DataPasserController.swift in Sources */,
