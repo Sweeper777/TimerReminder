@@ -23,12 +23,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEG-Po-lfJ" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                <rect key="frame" x="20" y="14" width="560" height="572"/>
-                                <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-gI-hVl" customClass="ISHHoverBar">
                                 <rect key="frame" x="448" y="28" width="132" height="44"/>
                                 <constraints>
@@ -41,6 +35,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEG-Po-lfJ" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
+                                <rect key="frame" x="20" y="14" width="560" height="572"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -66,7 +66,7 @@
                         <segue destination="LVp-DH-RsJ" kind="presentation" identifier="showSetTimer" modalPresentationStyle="formSheet" id="TwS-Ha-VvY"/>
                         <segue destination="v5I-Uv-1Bn" kind="presentation" identifier="showChooseTimerSettings" modalPresentationStyle="formSheet" id="nZp-SL-VcV"/>
                         <segue destination="75i-S5-sZD" kind="presentation" identifier="showTimerForm" modalPresentationStyle="formSheet" id="5FA-iO-18H"/>
-                        <segue destination="JG9-Nw-9Cb" kind="presentation" identifier="showSettings" modalPresentationStyle="formSheet" id="XkQ-6L-6sq"/>
+                        <segue destination="Uef-Ri-5mY" kind="presentation" identifier="showSettings" modalPresentationStyle="formSheet" id="fTG-wx-tTi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -117,43 +117,39 @@
             <point key="canvasLocation" x="366" y="306"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="zcU-He-nWY">
+        <scene sceneID="4Bo-Ob-XkE">
             <objects>
-                <navigationController id="JG9-Nw-9Cb" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7rE-nZ-g2c">
+                <navigationController id="Uef-Ri-5mY" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="44L-tT-Rbw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="29E-VQ-1ud" kind="relationship" relationship="rootViewController" id="Ip0-UA-9wv"/>
+                        <segue destination="cfe-cL-vfO" kind="relationship" relationship="rootViewController" id="xMX-R5-fnk"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r9Q-bm-AHl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Et-O0-RhW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366" y="1186"/>
+            <point key="canvasLocation" x="366" y="1140"/>
         </scene>
         <!--Global Settings Controller-->
-        <scene sceneID="myB-kr-fHa">
+        <scene sceneID="EMa-KE-uP7">
             <objects>
-                <viewController id="29E-VQ-1ud" customClass="GlobalSettingsController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cfe-cL-vfO" customClass="GlobalSettingsController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ViG-p3-GV6"/>
-                        <viewControllerLayoutGuide type="bottom" id="0Iu-9M-VM9"/>
+                        <viewControllerLayoutGuide type="top" id="ONp-at-GXn"/>
+                        <viewControllerLayoutGuide type="bottom" id="2KH-fZ-nkG"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HY5-lj-VEZ">
+                    <view key="view" contentMode="scaleToFill" id="N52-jk-Tcm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="TLm-BN-bTR"/>
+                    <navigationItem key="navigationItem" id="qld-IG-ldI"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lba-iG-Y55" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Oh-HO-2cW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366" y="1892"/>
+            <point key="canvasLocation" x="366" y="1852"/>
         </scene>
         <!--Timer Settings-->
         <scene sceneID="FjJ-b6-Arh">
