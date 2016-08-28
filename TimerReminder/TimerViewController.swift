@@ -60,6 +60,16 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         setTimerRecog.enabled = gestureEnabled
         mySettingsRecog.enabled = gestureEnabled
         
+        let fontStyle = NSUserDefaults.standardUserDefaults().integerForKey("fontStyle") == 1 ? "" : "-Thin"
+        timerLabel.font = UIFont(name: "SFUIDisplay\(fontStyle)", size: 16)
+        let textCache = timerLabel.text
+        shortFontSize = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
+        longFontSize = timerLabel.fontSizeThatFits(text: "00:00:00", maxFontSize: 500)
+        timerLabel.text = ""
+        
+        timerLabel.font = timerLabel.font.fontWithSize(shortFontSize)
+        timerLabel.text = textCache
+        
         hoverBar.orientation = .Horizontal
         hoverBar.items = [restartButton, playButton, moreButton]
     }
@@ -245,7 +255,17 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             self.setTimerRecog.enabled = value
             self.mySettingsRecog.enabled = value
         } else if key == "fontStyle" {
+            let value = (newValue as! String) == "Regular" ? 1 : 0
+            NSUserDefaults.standardUserDefaults().setInteger(value, forKey: key)
+            let fontStyle = value == 1 ? "" : "-Thin"
+            timerLabel.font = UIFont(name: "SFUIDisplay\(fontStyle)", size: 16)
+            let textCache = timerLabel.text
+            shortFontSize = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
+            longFontSize = timerLabel.fontSizeThatFits(text: "00:00:00", maxFontSize: 500)
+            timerLabel.text = ""
             
+            timerLabel.font = timerLabel.font.fontWithSize(timer.hasLongDescription ? longFontSize : shortFontSize)
+            timerLabel.text = textCache
         }
     }
 }
