@@ -123,9 +123,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="44L-tT-Rbw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="cfe-cL-vfO" kind="relationship" relationship="rootViewController" id="xMX-R5-fnk"/>
+                        <segue destination="Zdw-kJ-vtK" kind="relationship" relationship="rootViewController" id="GBr-3P-Kti"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Et-O0-RhW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -133,23 +137,21 @@
             <point key="canvasLocation" x="366" y="1140"/>
         </scene>
         <!--Global Settings Controller-->
-        <scene sceneID="EMa-KE-uP7">
+        <scene sceneID="eoj-wv-lTT">
             <objects>
-                <viewController id="cfe-cL-vfO" customClass="GlobalSettingsController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ONp-at-GXn"/>
-                        <viewControllerLayoutGuide type="bottom" id="2KH-fZ-nkG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="N52-jk-Tcm">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="qld-IG-ldI"/>
+                <viewController id="Zdw-kJ-vtK" customClass="GlobalSettingsController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="B8O-k3-Y6Y">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jZI-ir-4Cw">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="done:" destination="Zdw-kJ-vtK" id="KbX-IM-yYh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Oh-HO-2cW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Usw-WU-TIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366" y="1852"/>
+            <point key="canvasLocation" x="366" y="1850"/>
         </scene>
         <!--Timer Settings-->
         <scene sceneID="FjJ-b6-Arh">
@@ -376,8 +378,8 @@
         <image name="restart" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uZe-eJ-7TD"/>
-        <segue reference="EBd-y1-JLu"/>
         <segue reference="5q0-KL-pWc"/>
+        <segue reference="EBd-y1-JLu"/>
+        <segue reference="G0T-33-zpY"/>
     </inferredMetricsTieBreakers>
 </document>

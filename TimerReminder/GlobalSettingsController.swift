@@ -4,7 +4,13 @@ import Eureka
 class GlobalSettingsController: FormViewController {
     weak var delegate: GlobalSettingsControllerDelegate?
     
+    @IBAction func done(sender: AnyObject) {
+        dismissVC(completion: nil)
+    }
+    
     override func viewDidLoad() {
+        super.viewDidLoad()
+        title = NSLocalizedString("Global Settings", comment: "")
         initializeForm()
     }
     

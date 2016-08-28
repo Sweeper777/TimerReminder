@@ -151,7 +151,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             })
         }
         
-        menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Settings", comment: ""), image: UIImage(named: "settings")) {
+        menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Global Settings", comment: ""), image: UIImage(named: "settings")) {
             [unowned self] in
             self.performSegueWithIdentifier("showSettings", sender: self)
             })
