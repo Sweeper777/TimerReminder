@@ -52,8 +52,4 @@
 
 "Vibrate" = "震動";
 
-"Enable Gesture Control" = "啓用手勢控制";
-"Disable Gesture Control" = "關閉手勢控制";
 "gesture instructions" = "設定計時器：用一隻手指向上滑動\n我的設定：用兩只手指向上滑動\n增加設定：用兩只手指雙擊";
-"OK" = "確定";
-"Instructions" = "說明";
