@@ -28,6 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         lastUsedBuild = Int(ez.appBuild ?? "0") ?? 0
+        
+        for family in UIFont.familyNames() {
+            print(family)
+            print(UIFont.fontNamesForFamilyName(family))
+            print()
+        }
+        
         return true
     }
 
