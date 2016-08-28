@@ -7,7 +7,7 @@ import ASToast
 import ISHHoverBar
 import CoreData
 
-class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureRecognizerDelegate {
+class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureRecognizerDelegate, GlobalSettingsControllerDelegate {
     @IBOutlet var timerLabel: LTMorphingLabel!
     var timer: Timer!
     
@@ -208,6 +208,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let vc = segue.destinationViewController as? DataPasserController {
             vc.selectedOption = self.appliedOptions?.objectID.temporaryID == false ? self.appliedOptions : nil
+            vc.settingsDelegate = self
         }
     }
     
@@ -234,5 +235,17 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             return false
         }
         return true
+    }
+    
+    func globalSettings(globalSettings: GlobalSettingsController, globalSettingsDidChangeWithKey key: String, newValue: AnyObject) {
+        if key == "gestureControl" {
+            let value = newValue as! Bool
+            NSUserDefaults.standardUserDefaults().setBool(value, forKey: key)
+            self.addSettingRecog.enabled = value
+            self.setTimerRecog.enabled = value
+            self.mySettingsRecog.enabled = value
+        } else if key == "fontStyle" {
+            
+        }
     }
 }

@@ -116,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="366" y="306"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Data Passer Controller-->
         <scene sceneID="4Bo-Ob-XkE">
             <objects>
-                <navigationController id="Uef-Ri-5mY" sceneMemberID="viewController">
+                <navigationController id="Uef-Ri-5mY" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="44L-tT-Rbw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
