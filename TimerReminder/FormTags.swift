@@ -17,3 +17,4 @@ let tagRemindMessage = "remindMessage"
 
 let tagGestureControls = "gestureControls"
 let tagFontStyle = "fontStyle"
+let tagAnimation = "animation"
