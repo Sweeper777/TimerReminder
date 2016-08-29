@@ -40,7 +40,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
 
     override func viewDidLoad() {
         timerLabel.delegate = self
-        timerLabel.morphingEffect = .Evaporate
+        timerLabel.morphingEffect = LTMorphingEffect(rawValue: NSUserDefaults.standardUserDefaults().integerForKey("timerAnimation"))!
         timerLabel.morphingEnabled = true
         UIApplication.sharedApplication().idleTimerDisabled = true
         
@@ -266,6 +266,10 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             
             timerLabel.font = timerLabel.font.fontWithSize(timer.hasLongDescription ? longFontSize : shortFontSize)
             timerLabel.text = textCache
+        } else if key == "timerAnimation" {
+            let value = newValue as! Int
+            NSUserDefaults.standardUserDefaults().setInteger(value, forKey: key)
+            timerLabel.morphingEffect = LTMorphingEffect(rawValue: value)!
         }
     }
 }
