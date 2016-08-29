@@ -27,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        if lastUsedBuild < 4 {
+            NSUserDefaults.standardUserDefaults().setInteger(1, forKey: "timerAnimation")
+        }
+        
         lastUsedBuild = Int(ez.appBuild ?? "0") ?? 0
         return true
     }
