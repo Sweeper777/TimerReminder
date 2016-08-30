@@ -60,6 +60,10 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         setTimerRecog.enabled = gestureEnabled
         mySettingsRecog.enabled = gestureEnabled
         
+        let nightMode = NSUserDefaults.standardUserDefaults().boolForKey("nightMode")
+        view.backgroundColor = nightMode ? UIColor.blackColor() : UIColor.whiteColor()
+        timerLabel.textColor = nightMode ? UIColor.whiteColor() : UIColor.blackColor()
+        
         let fontStyle = NSUserDefaults.standardUserDefaults().integerForKey("fontStyle") == 1 ? "" : "-Thin"
         timerLabel.font = UIFont(name: "SFUIDisplay\(fontStyle)", size: 16)
         let textCache = timerLabel.text
@@ -270,6 +274,11 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             let value = newValue as! Int
             NSUserDefaults.standardUserDefaults().setInteger(value, forKey: key)
             timerLabel.morphingEffect = LTMorphingEffect(rawValue: value)!
+        } else if key == "nightMode" {
+            let value = newValue as! Bool
+            NSUserDefaults.standardUserDefaults().setBool(value, forKey: key)
+            view.backgroundColor = value ? UIColor.blackColor() : UIColor.whiteColor()
+            timerLabel.textColor = value ? UIColor.whiteColor() : UIColor.blackColor()
         }
     }
 }
