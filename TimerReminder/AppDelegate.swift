@@ -1,6 +1,7 @@
 import UIKit
 import CoreData
 import EZSwiftExtensions
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -9,6 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        FIRApp.configure()
         window?.tintColor = UIColor(hexString: "3b7b3b")
         UINavigationBar.appearance().barStyle = .Black
         
