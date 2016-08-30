@@ -45,5 +45,14 @@ class GlobalSettingsController: FormViewController {
             row in
             self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "timerAnimation", newValue: row.value!.rawValue)
         }
+        
+            +++ SwitchRow(tagNightMode) {
+                row in
+                row.title = NSLocalizedString("Night Mode", comment: "")
+                row.value = NSUserDefaults.standardUserDefaults().boolForKey("nightMode")
+        }.onChange {
+            row in
+            self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "nightMode", newValue: row.value!)
+        }
     }
 }
