@@ -14,5 +14,6 @@ target 'TimerReminder' do
     pod 'ASToast'
     pod 'MGSwipeTableCell'
     pod 'ISHHoverBar'
+    pod 'Firebase/Analytics'
 end
 

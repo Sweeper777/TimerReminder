@@ -28,6 +28,7 @@
 		5A020B731D62980300CB6DD5 /* Beacon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A020B6A1D62980300CB6DD5 /* Beacon.mp3 */; };
 		5A020B741D62980300CB6DD5 /* Hillside.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A020B6B1D62980300CB6DD5 /* Hillside.mp3 */; };
 		5A020B7B1D63472C00CB6DD5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A020B7D1D63472C00CB6DD5 /* Localizable.strings */; };
+		5A0271AF1D75667D002B6D73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A0271AE1D75667D002B6D73 /* GoogleService-Info.plist */; };
 		5A0316541D5D520B0034F45F /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0316531D5D520B0034F45F /* Eureka.framework */; };
 		5A0316561D5DF6B70034F45F /* TimeIntervalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0316551D5DF6B70034F45F /* TimeIntervalRow.swift */; };
 		5A036C171D5FEF68007AADB5 /* ASToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A036C161D5FEF68007AADB5 /* ASToast.framework */; };
@@ -86,6 +87,7 @@
 		5A020B7C1D63472C00CB6DD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A020B7E1D63472D00CB6DD5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5A020B7F1D63472F00CB6DD5 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5A0271AE1D75667D002B6D73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A0316531D5D520B0034F45F /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = "Pods/../build/Debug-iphoneos/Eureka/Eureka.framework"; sourceTree = "<group>"; };
 		5A0316551D5DF6B70034F45F /* TimeIntervalRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalRow.swift; sourceTree = "<group>"; };
 		5A036C161D5FEF68007AADB5 /* ASToast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ASToast.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/ASToast/ASToast.framework"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		5A067CB71D4490A500238AF5 /* TimerReminder */ = {
 			isa = PBXGroup;
 			children = (
+				5A0271AE1D75667D002B6D73 /* GoogleService-Info.plist */,
 				5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */,
 				5A03B9F31D6D7AC0009F08B9 /* SF-UI-Display-Thin.otf */,
 				5A015F0B1D4DA8530032BB59 /* beep.mp3 */,
@@ -318,6 +321,7 @@
 				5A0167621D6143110035021F /* Radar.mp3 in Resources */,
 				5A020B6C1D62980300CB6DD5 /* Waves.mp3 in Resources */,
 				5A015F0C1D4DA8530032BB59 /* beep.mp3 in Resources */,
+				5A0271AF1D75667D002B6D73 /* GoogleService-Info.plist in Resources */,
 				5A020B6D1D62980300CB6DD5 /* Radiate.mp3 in Resources */,
 				5A020B721D62980300CB6DD5 /* Presto.mp3 in Resources */,
 				5A020B7B1D63472C00CB6DD5 /* Localizable.strings in Resources */,
