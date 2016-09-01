@@ -149,20 +149,42 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
                 })
         }
         
-        if timer is CountDownTimer {
+        func addStopwatchModeBtn() {
             menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Switch to Stopwatch Mode", comment: ""), image: UIImage(named: "countup")) {
                 [weak self] in
                 self?.timer.reset()
                 self?.playButton.image = UIImage(named: "play")
                 self?.timer = CountUpTimer(options: self?.appliedOptions, onTimerChange: self?.timerChangedClosure)
-            })
-        } else if timer is CountUpTimer {
+                })
+        }
+        
+        func addTimerModeBtn() {
             menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Switch to Timer Mode", comment: ""), image: UIImage(named: "countdown")) {
                 [weak self] in
                 self?.timer.reset()
                 self?.playButton.image = UIImage(named: "play")
                 self?.timer = CountDownTimer(time: 60, options: self?.appliedOptions, onTimerChange: self?.timerChangedClosure, onEnd: nil)
-            })
+                })
+        }
+        
+        func addClockModeBtn() {
+            menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Switch to Clock Mode", comment: ""), image: UIImage(named: "clock")) {
+                [weak self] in
+                self?.timer.reset()
+                self?.playButton.image = UIImage(named: "play")
+                self?.timer = Clock(options: self?.appliedOptions, onTimerChange: self?.timerChangedClosure)
+                })
+        }
+        
+        if timer is CountDownTimer {
+            addStopwatchModeBtn()
+            addClockModeBtn()
+        } else if timer is CountUpTimer {
+            addTimerModeBtn()
+            addClockModeBtn()
+        } else if timer is Clock {
+            addTimerModeBtn()
+            addStopwatchModeBtn()
         }
         
         menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Global Settings", comment: ""), image: UIImage(named: "settings")) {
