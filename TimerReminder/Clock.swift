@@ -39,9 +39,10 @@ class Clock: Timer {
     init(options: TimerOptions? = nil, onTimerChange: ((Timer) -> Void)?) {
         self.options = options
         self.onTimerChange = onTimerChange
-        formatter.dateFormat = "hh:mm"
+        formatter.dateFormat = "HH:mm"
         let date = NSDate()
         description = formatter.stringFromDate(date)
+        onTimerChange?(self)
         let secondsUntilMinute = 60 - NSCalendar.currentCalendar().component(.Second, fromDate: date)
         if secondsUntilMinute != 0 {
             NSTimer.runThisAfterDelay(seconds: Double(secondsUntilMinute)) {
@@ -69,5 +70,9 @@ class Clock: Timer {
                 self?.description = self?.formatter.stringFromDate(date) ?? ""
             }
         }
+    }
+    
+    deinit {
+        timer?.invalidate()
     }
 }
