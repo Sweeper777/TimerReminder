@@ -2,6 +2,9 @@ PODS:
   - ASToast (1.0.3)
   - Eureka (1.7.0)
   - EZSwiftExtensions (1.5)
+  - Firebase/AdMob (3.4.0):
+    - Firebase/Analytics
+    - Google-Mobile-Ads-SDK (= 7.9.1)
   - Firebase/Analytics (3.4.0):
     - FirebaseAnalytics (~> 3.3)
   - FirebaseAnalytics (3.3.0):
@@ -11,6 +14,7 @@ PODS:
     - GoogleUtilities (~> 1.2)
   - FirebaseInstanceID (1.0.8)
   - FittableFontLabel (1.3.0)
+  - Google-Mobile-Ads-SDK (7.9.1)
   - GoogleInterchangeUtilities (1.2.1):
     - GoogleSymbolUtilities (~> 1.0)
   - GoogleSymbolUtilities (1.1.1)
@@ -27,6 +31,7 @@ DEPENDENCIES:
   - ASToast
   - Eureka
   - EZSwiftExtensions
+  - Firebase/AdMob
   - Firebase/Analytics
   - FittableFontLabel
   - ISHHoverBar
@@ -44,6 +49,7 @@ SPEC CHECKSUMS:
   FirebaseAnalytics: 228be2991cb28efb96cdafc4d62f64680e615c69
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FittableFontLabel: e25aa22a79c9ae79655c65cd199d526e4768c1ee
+  Google-Mobile-Ads-SDK: 575583d7eae25793bb81ad8673737d1b4ecbedc5
   GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
@@ -54,6 +60,6 @@ SPEC CHECKSUMS:
   RWDropdownMenu: c7fda4b7adf4f3f63a46d96359c2f490a7713795
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 8e7c00df37893cb984508c95d01adab80a7c6c99
+PODFILE CHECKSUM: 6ec78e1b43c325e291b1084eda35026af41914de
 
 COCOAPODS: 1.1.0.beta.1
