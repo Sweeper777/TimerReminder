@@ -26,8 +26,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-gI-hVl" customClass="ISHHoverBar">
                                 <rect key="frame" x="448" y="28" width="132" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="ldL-AZ-kYu"/>
-                                    <constraint firstAttribute="width" constant="132" id="pjc-Ku-9zb"/>
+                                    <constraint firstAttribute="width" constant="132" id="QrX-da-Fm1"/>
+                                    <constraint firstAttribute="height" constant="44" id="rC9-ut-dUQ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -35,8 +35,15 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zro-fB-6Qb" customClass="GADBannerView">
+                                <rect key="frame" x="20" y="525" width="560" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="kzH-od-AyW"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEG-Po-lfJ" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                <rect key="frame" x="20" y="14" width="560" height="572"/>
+                                <rect key="frame" x="20" y="14" width="560" height="566"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -44,16 +51,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mEG-Po-lfJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9HG-qI-prG"/>
-                            <constraint firstItem="5wo-gI-hVl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="JWn-ky-udG"/>
-                            <constraint firstItem="5wo-gI-hVl" firstAttribute="trailing" secondItem="mEG-Po-lfJ" secondAttribute="trailing" id="W2U-Ac-JET"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mEG-Po-lfJ" secondAttribute="bottom" constant="14" id="WAg-uX-MbX"/>
-                            <constraint firstItem="mEG-Po-lfJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="i8G-f7-XqD"/>
-                            <constraint firstItem="mEG-Po-lfJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="nb2-jh-aTO"/>
+                            <constraint firstItem="zro-fB-6Qb" firstAttribute="leading" secondItem="mEG-Po-lfJ" secondAttribute="leading" id="1F5-RY-s42"/>
+                            <constraint firstItem="mEG-Po-lfJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="J3Z-LN-IN8"/>
+                            <constraint firstAttribute="bottom" secondItem="mEG-Po-lfJ" secondAttribute="bottom" constant="20" symbolic="YES" id="LqC-0h-PgO"/>
+                            <constraint firstItem="5wo-gI-hVl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="YaA-ne-JFN"/>
+                            <constraint firstItem="mEG-Po-lfJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aSu-ds-2NQ"/>
+                            <constraint firstItem="mEG-Po-lfJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="14" id="cNv-6X-cAi"/>
+                            <constraint firstItem="zro-fB-6Qb" firstAttribute="trailing" secondItem="5wo-gI-hVl" secondAttribute="trailing" id="e7X-PW-1fc"/>
+                            <constraint firstItem="mEG-Po-lfJ" firstAttribute="trailing" secondItem="5wo-gI-hVl" secondAttribute="trailing" id="fNR-PA-KYR"/>
+                            <constraint firstItem="zro-fB-6Qb" firstAttribute="bottom" secondItem="mEG-Po-lfJ" secondAttribute="bottom" id="wBF-kr-0Bx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2rJ-VZ-WE2"/>
                     <connections>
+                        <outlet property="ad" destination="zro-fB-6Qb" id="5Yv-TG-Y39"/>
                         <outlet property="addSettingRecog" destination="lXE-Uy-mIO" id="LV4-qJ-enJ"/>
                         <outlet property="edgePanRecog" destination="F1A-j3-HPf" id="KAL-L4-E0p"/>
                         <outlet property="hoverBar" destination="5wo-gI-hVl" id="xoy-Gy-f14"/>
@@ -378,8 +389,8 @@
         <image name="restart" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5q0-KL-pWc"/>
         <segue reference="EBd-y1-JLu"/>
-        <segue reference="G0T-33-zpY"/>
+        <segue reference="5q0-KL-pWc"/>
+        <segue reference="uZe-eJ-7TD"/>
     </inferredMetricsTieBreakers>
 </document>

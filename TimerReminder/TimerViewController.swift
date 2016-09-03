@@ -6,6 +6,7 @@ import RWDropdownMenu
 import ASToast
 import ISHHoverBar
 import CoreData
+import GoogleMobileAds
 
 class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureRecognizerDelegate, GlobalSettingsControllerDelegate {
     @IBOutlet var timerLabel: LTMorphingLabel!
@@ -20,6 +21,8 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     @IBOutlet var setTimerRecog: UISwipeGestureRecognizer!
     @IBOutlet var edgePanRecog: UIScreenEdgePanGestureRecognizer!
     @IBOutlet var hoverBar: ISHHoverBar!
+    
+    @IBOutlet var ad: GADBannerView!
     
     var shortFontSize: CGFloat!
     var longFontSize: CGFloat!
@@ -76,6 +79,11 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         
         hoverBar.orientation = .Horizontal
         hoverBar.items = [restartButton, playButton, moreButton]
+        
+        ad.adUnitID = adUnitID
+        ad.rootViewController = self
+        ad.loadRequest(getAdRequest())
+        view.bringSubviewToFront(ad)
     }
     
     override func viewDidAppear(animated: Bool) {
