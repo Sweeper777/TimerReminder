@@ -260,16 +260,19 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         if hoverBar.alpha == 0 {
             UIView.animateWithDuration(0.2) {
                 self.hoverBar.alpha = 1
+                self.ad.alpha = 1
             }
             return
         }
         if !touches.contains({
             touch -> Bool in
             let point = touch.locationInView(self.hoverBar)
-            return self.hoverBar.bounds.contains(point)
+            let point2 = touch.locationInView(self.ad)
+            return self.hoverBar.bounds.contains(point) || self.ad.bounds.contains(point2)
         }) {
             UIView.animateWithDuration(0.2) {
                 self.hoverBar.alpha = 0
+                self.ad.alpha = 0
             }
         }
     }
