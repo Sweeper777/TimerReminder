@@ -1,10 +1,12 @@
 import UIKit
 import EZSwiftExtensions
 import Eureka
+import GoogleMobileAds
 
 class SetTimerController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, TypedRowControllerType {
     var selectedTimeInterval: NSTimeInterval?
     @IBOutlet var timeIntervalPicker: UIPickerView!
+    @IBOutlet var ad: GADBannerView?
     var row: RowOf<Int>!
     var completionCallback: ((UIViewController) -> ())?
 
@@ -22,6 +24,10 @@ class SetTimerController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             timeIntervalPicker.selectRow(minutes, inComponent: 1, animated: false)
             timeIntervalPicker.selectRow(seconds, inComponent: 2, animated: false)
         }
+        
+        ad?.adUnitID = adUnitID2
+        ad?.rootViewController = self
+        ad?.loadRequest(getAdRequest())
     }
     
     @IBAction func cancel(sender: AnyObject) {

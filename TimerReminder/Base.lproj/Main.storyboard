@@ -345,16 +345,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLY-J2-tkW">
-                                <rect key="frame" x="20" y="28" width="560" height="564"/>
+                                <rect key="frame" x="20" y="28" width="560" height="503"/>
                                 <connections>
                                     <outlet property="dataSource" destination="J1G-ft-dxD" id="MlX-Ct-Tte"/>
                                     <outlet property="delegate" destination="J1G-ft-dxD" id="jQC-vu-krj"/>
                                 </connections>
                             </pickerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csy-UA-fSA" customClass="GADBannerView">
+                                <rect key="frame" x="20" y="539" width="560" height="53"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="JL9-Dk-HGy"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="L9M-36-ojp" firstAttribute="top" secondItem="aLY-J2-tkW" secondAttribute="bottom" constant="8" symbolic="YES" id="gst-oC-e5e"/>
+                            <constraint firstItem="csy-UA-fSA" firstAttribute="leading" secondItem="aLY-J2-tkW" secondAttribute="leading" id="4y0-nc-RrQ"/>
+                            <constraint firstItem="csy-UA-fSA" firstAttribute="trailing" secondItem="aLY-J2-tkW" secondAttribute="trailing" id="EsA-yt-qLe"/>
+                            <constraint firstItem="csy-UA-fSA" firstAttribute="top" secondItem="aLY-J2-tkW" secondAttribute="bottom" constant="8" symbolic="YES" id="Ftz-hE-rSp"/>
+                            <constraint firstItem="L9M-36-ojp" firstAttribute="top" secondItem="aLY-J2-tkW" secondAttribute="bottom" constant="69" id="gst-oC-e5e"/>
                             <constraint firstItem="aLY-J2-tkW" firstAttribute="top" secondItem="lgQ-EF-Btw" secondAttribute="bottom" constant="8" symbolic="YES" id="lxi-cx-tOy"/>
                             <constraint firstItem="aLY-J2-tkW" firstAttribute="trailing" secondItem="oeB-I3-OCI" secondAttribute="trailingMargin" id="tDA-JJ-1vL"/>
                             <constraint firstItem="aLY-J2-tkW" firstAttribute="leading" secondItem="oeB-I3-OCI" secondAttribute="leadingMargin" id="xDd-L5-nf9"/>
@@ -375,6 +385,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="ad" destination="csy-UA-fSA" id="Txb-fB-jku"/>
                         <outlet property="timeIntervalPicker" destination="aLY-J2-tkW" id="ngW-E3-6MR"/>
                     </connections>
                 </viewController>
