@@ -31,7 +31,7 @@ extension TimerOptions {
         case .Mandarin, .Cantonese:
             return "時間到"
         case .Japanese:
-            return "時間です"
+            return "時間切れです"
         default:
             return "Time is up"
         }
