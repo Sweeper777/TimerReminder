@@ -100,6 +100,12 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             timerLabel.font = timerLabel.font.fontWithSize(timer.hasLongDescription ? longFontSize : shortFontSize)
             timerLabel.text = textCache
         }
+        
+        if timer is Clock {
+            self.timer.reset()
+            self.playButton.image = UIImage(named: "play")
+            self.timer = Clock(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
+        }
     }
     
     override func viewDidLayoutSubviews() {
