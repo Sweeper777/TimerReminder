@@ -102,8 +102,6 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         }
         
         if timer is Clock {
-            self.timer.reset()
-            self.playButton.image = UIImage(named: "play")
             self.timer = Clock(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
         }
     }
