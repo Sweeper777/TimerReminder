@@ -4,7 +4,10 @@ import Eureka
 import GoogleMobileAds
 
 class SetTimerController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, TypedRowControllerType {
-    var selectedTimeInterval: NSTimeInterval?
+    /// A closure to be called when the controller disappears.
+    public var onDismissCallback: ((UIViewController) -> ())?
+
+    var selectedTimeInterval: TimeInterval?
     @IBOutlet var timeIntervalPicker: UIPickerView!
     @IBOutlet var ad: GADBannerView?
     var row: RowOf<Int>!
@@ -27,18 +30,18 @@ class SetTimerController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         ad?.adUnitID = adUnitID2
         ad?.rootViewController = self
-        ad?.loadRequest(getAdRequest())
+        ad?.load(getAdRequest())
     }
     
-    @IBAction func cancel(sender: AnyObject) {
+    @IBAction func cancel(_ sender: AnyObject) {
         dismissVC(completion: nil)
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
             return 25
@@ -49,7 +52,7 @@ class SetTimerController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         var suffix = ""
         
         switch component {
@@ -66,17 +69,17 @@ class SetTimerController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         return String(row) + suffix
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let hours = timeIntervalPicker.selectedRowInComponent(0)
-        let minutes = timeIntervalPicker.selectedRowInComponent(1)
-        let seconds = timeIntervalPicker.selectedRowInComponent(2)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let hours = timeIntervalPicker.selectedRow(inComponent: 0)
+        let minutes = timeIntervalPicker.selectedRow(inComponent: 1)
+        let seconds = timeIntervalPicker.selectedRow(inComponent: 2)
         self.selectedTimeInterval = Double(hours * 60 * 60 + minutes * 60 + seconds)
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let hours = timeIntervalPicker.selectedRowInComponent(0)
-        let minutes = timeIntervalPicker.selectedRowInComponent(1)
-        let seconds = timeIntervalPicker.selectedRowInComponent(2)
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let hours = timeIntervalPicker.selectedRow(inComponent: 0)
+        let minutes = timeIntervalPicker.selectedRow(inComponent: 1)
+        let seconds = timeIntervalPicker.selectedRow(inComponent: 2)
         self.row?.value = hours * 60 * 60 + minutes * 60 + seconds
     }
 }

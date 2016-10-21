@@ -1,9 +1,29 @@
 import AVFoundation
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class CountUpTimer: Timer {
     var beepSoundPlayer: AVAudioPlayer?
-    var timeMeasured: NSTimeInterval
-    var timer: NSTimer?
+    var timeMeasured: TimeInterval
+    var timer: Foundation.Timer?
     var paused = true
     var onEnd: ((Timer) -> Void)?
     var onTimerChange: ((Timer) -> Void)?
@@ -17,7 +37,7 @@ class CountUpTimer: Timer {
             }
             
             if enableBeep && beepSoundPlayer == nil {
-                beepSoundPlayer = try! AVAudioPlayer(contentsOfURL: NSBundle.mainBundle().URLForResource("beep", withExtension: ".mp3")!)
+                beepSoundPlayer = try! AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "beep", withExtension: ".mp3")!)
                 beepSoundPlayer?.prepareToPlay()
             }
         }
@@ -35,12 +55,12 @@ class CountUpTimer: Timer {
         timer = nil
         timeMeasured = 0
         paused = true
-        synthesizer.stopSpeakingAtBoundary(.Immediate)
+        synthesizer.stopSpeaking(at: .immediate)
         onTimerChange?(self)
     }
     
     func start() {
-        timer = NSTimer.runThisEvery(seconds: 1) {
+        timer = Foundation.Timer.runThisEvery(seconds: 1) {
             [unowned self]
             _ in
             self.timeMeasured += 1
@@ -52,13 +72,13 @@ class CountUpTimer: Timer {
                 if shouldRemind.customMessage == nil {
                     let utterance = AVSpeechUtterance(string: normalize(timeInterval: self.timeMeasured, with: self.options!))
                     utterance.voice = AVSpeechSynthesisVoice(language: self.options!.language!)
-                    self.synthesizer.stopSpeakingAtBoundary(.Immediate)
-                    self.synthesizer.speakUtterance(utterance)
+                    self.synthesizer.stopSpeaking(at: .immediate)
+                    self.synthesizer.speak(utterance)
                 } else {
                     let utterance = AVSpeechUtterance(string: shouldRemind.customMessage!)
                     utterance.voice = AVSpeechSynthesisVoice(language: self.options!.language!)
-                    self.synthesizer.stopSpeakingAtBoundary(.Immediate)
-                    self.synthesizer.speakUtterance(utterance)
+                    self.synthesizer.stopSpeaking(at: .immediate)
+                    self.synthesizer.speak(utterance)
                 }
             } else if enableBeep == true {
                 self.beepSoundPlayer?.play()
@@ -72,7 +92,7 @@ class CountUpTimer: Timer {
     func pause() {
         timer?.invalidate()
         timer = nil
-        synthesizer.stopSpeakingAtBoundary(.Immediate)
+        synthesizer.stopSpeaking(at: .immediate)
         paused = true
     }
     
@@ -98,17 +118,17 @@ class CountUpTimer: Timer {
         }
     }
     
-    private func setTimerOptions(options: TimerOptions) {
+    fileprivate func setTimerOptions(_ options: TimerOptions) {
         self.options = options
     }
     
-    private func shouldInvokeReminder() -> (should: Bool, customMessage: String?) {
+    fileprivate func shouldInvokeReminder() -> (should: Bool, customMessage: String?) {
         if options?.reminders?.count > 0 {
             if let specificReminders = options?.reminders {
                 let reminders = specificReminders.map { Int(($0 as! Reminder).remindTimeFrame!) }
                 let should = reminders.contains(Int(timeMeasured))
                 if should {
-                    let index = reminders.indexOf(Int(timeMeasured))
+                    let index = reminders.index(of: Int(timeMeasured))
                     let message = (specificReminders.array[index!] as! Reminder).customRemindMessage
                     return (should, message)
                 }

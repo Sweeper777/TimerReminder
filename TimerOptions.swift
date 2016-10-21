@@ -4,8 +4,8 @@ import UIKit
 
 class TimerOptions: NSManagedObject {
     static let defaultOptions: TimerOptions = {
-        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        let options = TimerOptions.init(entity: NSEntityDescription.entityForName("TimerOptions", inManagedObjectContext: context)!, insertIntoManagedObjectContext: nil)
+        let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+        let options = TimerOptions.init(entity: NSEntityDescription.entity(forEntityName: "TimerOptions", in: context)!, insertInto: nil)
         options.initializeWithDefValues()
         options.name = "Default"
         

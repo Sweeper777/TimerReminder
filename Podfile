@@ -5,13 +5,13 @@ use_frameworks!
 
 target 'TimerReminder' do
     pod 'EZSwiftExtensions'
-    pod 'Eureka'
+    pod 'Eureka', '~> 2.0.0-beta.1'
     pod 'SwiftyJSON'
-    pod 'LTMorphingLabel'
+    pod 'ASToast', '~> 1.0.4'
+    pod 'LTMorphingLabel', :git => 'https://github.com/lexrus/LTMorphingLabel.git', :branch => 'swift3'
     pod 'FittableFontLabel'
     pod 'RWDropdownMenu'
     pod 'MVSpeechSynthesizer'
-    pod 'ASToast'
     pod 'MGSwipeTableCell'
     pod 'ISHHoverBar'
     pod 'Firebase/Analytics'

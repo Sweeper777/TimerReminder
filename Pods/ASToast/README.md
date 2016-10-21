@@ -1,5 +1,6 @@
 ![Build Status](https://travis-ci.org/abdullahselek/ASToast.svg?branch=master)
 ![CocoaPods Compatible](https://img.shields.io/cocoapods/v/ASToast.svg)
+[![Coverage Status](https://coveralls.io/repos/github/abdullahselek/ASToast/badge.svg?branch=master)](https://coveralls.io/github/abdullahselek/ASToast?branch=master)
 
 # ASToast
 A Swift extension for using Android style Toast notifications. You may call ASToast methods directly from your view objects.
@@ -18,6 +19,15 @@ iOS 8.0+
 CocoaPods is a dependency manager for Cocoa projects. You can install it with the following command:
 ```	
 $ gem install cocoapods
+```
+
+### For Swift 3
+```
+You can use 1.0.4
+```
+### For Swift 2.3
+```
+Please use 1.0.3
 ```
 
 To integrate ASToast into your Xcode project using CocoaPods, specify it in your Podfile:

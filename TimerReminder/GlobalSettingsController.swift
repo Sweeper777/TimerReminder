@@ -5,7 +5,7 @@ import LTMorphingLabel
 class GlobalSettingsController: FormViewController {
     weak var delegate: GlobalSettingsControllerDelegate?
     
-    @IBAction func done(sender: AnyObject) {
+    @IBAction func done(_ sender: AnyObject) {
         dismissVC(completion: nil)
     }
     
@@ -20,39 +20,39 @@ class GlobalSettingsController: FormViewController {
             <<< SwitchRow(tagGestureControls) {
                 row in
                 row.title = NSLocalizedString("Gesture Controls", comment: "")
-                row.value = NSUserDefaults.standardUserDefaults().boolForKey("gestureControl")
+                row.value = UserDefaults.standard.bool(forKey: "gestureControl")
         }.onChange {
                 row in
-                self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "gestureControl", newValue: row.value!)
+                self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "gestureControl", newValue: row.value! as AnyObject)
         }
         
             +++ SegmentedRow<String>(tagFontStyle) {
                 row in
                 row.title = NSLocalizedString("Font Style", comment: "")
                 row.options = ["Light", "Regular"]
-                row.value = NSUserDefaults.standardUserDefaults().integerForKey("fontStyle") == 1 ? "Regular" : "Light"
+                row.value = UserDefaults.standard.integer(forKey: "fontStyle") == 1 ? "Regular" : "Light"
         }.onChange {
             row in
-            self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "fontStyle", newValue: row.value!)
+            self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "fontStyle", newValue: row.value! as AnyObject)
         }
         
             +++ PickerInlineRow<LTMorphingEffect>(tagAnimation) {
                 row in
                 row.title = NSLocalizedString("Timer Animation", comment: "")
-                row.value = LTMorphingEffect(rawValue: NSUserDefaults.standardUserDefaults().integerForKey("timerAnimation"))!
-                row.options = [.Evaporate, .Scale, .Pixelate, .Fall, .Burn]
+                row.value = LTMorphingEffect(rawValue: UserDefaults.standard.integer(forKey: "timerAnimation"))!
+                row.options = [.evaporate, .scale, .pixelate, .fall, .burn]
         }.onChange {
             row in
-            self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "timerAnimation", newValue: row.value!.rawValue)
+            self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "timerAnimation", newValue: row.value!.rawValue as AnyObject)
         }
         
             +++ SwitchRow(tagNightMode) {
                 row in
                 row.title = NSLocalizedString("Night Mode", comment: "")
-                row.value = NSUserDefaults.standardUserDefaults().boolForKey("nightMode")
+                row.value = UserDefaults.standard.bool(forKey: "nightMode")
         }.onChange {
             row in
-            self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "nightMode", newValue: row.value!)
+            self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "nightMode", newValue: row.value! as AnyObject)
         }
     }
 }

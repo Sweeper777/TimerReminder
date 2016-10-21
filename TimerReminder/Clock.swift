@@ -32,42 +32,42 @@ class Clock: Timer {
         }
     }
     
-    let formatter = NSDateFormatter()
+    let formatter = DateFormatter()
     
-    var timer: NSTimer?
+    var timer: Foundation.Timer?
     
     init(options: TimerOptions? = nil, onTimerChange: ((Timer) -> Void)?) {
         self.options = options
         self.onTimerChange = onTimerChange
         formatter.dateFormat = "HH:mm"
-        let date = NSDate()
-        description = formatter.stringFromDate(date)
+        let date = Date()
+        description = formatter.string(from: date)
         onTimerChange?(self)
-        let secondsUntilMinute = 60 - NSCalendar.currentCalendar().component(.Second, fromDate: date)
+        let secondsUntilMinute = 60 - (Calendar.current as NSCalendar).component(.second, from: date)
         if secondsUntilMinute != 0 {
-            NSTimer.runThisAfterDelay(seconds: Double(secondsUntilMinute)) {
+            Foundation.Timer.runThisAfterDelay(seconds: Double(secondsUntilMinute)) {
                 [weak self] in
-                let date = NSDate()
-                self?.description = (self?.formatter.stringFromDate(date)) ?? ""
+                let date = Date()
+                self?.description = (self?.formatter.string(from: date)) ?? ""
                 if let myself = self {
-                    myself.timer = NSTimer.runThisEvery(seconds: 60) {
+                    myself.timer = Foundation.Timer.runThisEvery(seconds: 60) {
                         [weak self] t in
                         if self == nil {
-                            t.invalidate()
+                            self?.timer?.invalidate()
                         }
-                        let date = NSDate()
-                        self?.description = self?.formatter.stringFromDate(date) ?? ""
+                        let date = Date()
+                        self?.description = self?.formatter.string(from: date) ?? ""
                     }
                 }
             }
         } else {
-            self.timer = NSTimer.runThisEvery(seconds: 60) {
+            self.timer = Foundation.Timer.runThisEvery(seconds: 60) {
                 [weak self] t in
                 if self == nil {
-                    t.invalidate()
+                    self?.timer?.invalidate()
                 }
-                let date = NSDate()
-                self?.description = self?.formatter.stringFromDate(date) ?? ""
+                let date = Date()
+                self?.description = self?.formatter.string(from: date) ?? ""
             }
         }
     }

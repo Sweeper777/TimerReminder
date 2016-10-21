@@ -134,6 +134,16 @@ SOFTWARE.
 			<key>License</key>
 			<string>Copyright</string>
 			<key>Title</key>
+			<string>FirebaseCore</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Copyright 2016 Google</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
 			<string>FirebaseInstanceID</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
@@ -182,7 +192,7 @@ SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright 2015 Google Inc.</string>
+			<string>Copyright 2016 Google</string>
 			<key>License</key>
 			<string>Copyright</string>
 			<key>Title</key>
@@ -192,7 +202,7 @@ SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright 2015 Google Inc.</string>
+			<string>Copyright 2016 Google</string>
 			<key>License</key>
 			<string>Copyright</string>
 			<key>Title</key>
@@ -202,7 +212,7 @@ SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright 2015 Google Inc.</string>
+			<string>Copyright 2016 Google</string>
 			<key>License</key>
 			<string>Copyright</string>
 			<key>Title</key>
@@ -244,7 +254,7 @@ SOFTWARE.
 		<dict>
 			<key>FooterText</key>
 			<string>The MIT License (MIT)
-Copyright &#169; 2015 Lex Tang, http://LexTang.com
+Copyright &#169; 2016 Lex Tang, http://lexrus.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the &#8220;Software&#8221;), to deal
@@ -275,7 +285,7 @@ THE SOFTWARE.
 			<key>FooterText</key>
 			<string>The MIT License (MIT)
 
-Copyright (c) 2014 Imanol Fernandez
+Copyright (c) 2016 Imanol Fernandez @MortimerGoro
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -346,7 +356,7 @@ SOFTWARE.</string>
 			<key>FooterText</key>
 			<string>The MIT License (MIT)
 
-Copyright (c) 2014 Ruoyu Fu
+Copyright (c) 2016 Ruoyu Fu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

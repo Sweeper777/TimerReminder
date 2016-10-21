@@ -3,8 +3,8 @@ import LTMorphingLabel
 import FittableFontLabel
 import EZSwiftExtensions
 import RWDropdownMenu
-import ASToast
 import ISHHoverBar
+import ASToast
 import CoreData
 import GoogleMobileAds
 
@@ -31,7 +31,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     
     var appliedOptions: TimerOptions?
     
-    private lazy var timerChangedClosure: (Timer) -> Void = {
+    fileprivate lazy var timerChangedClosure: (Timer) -> Void = {
         [weak self] timer in
         self!.timerLabel.text = timer.description
     }
@@ -43,14 +43,14 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
 
     override func viewDidLoad() {
         timerLabel.delegate = self
-        timerLabel.morphingEffect = LTMorphingEffect(rawValue: NSUserDefaults.standardUserDefaults().integerForKey("timerAnimation"))!
+        timerLabel.morphingEffect = LTMorphingEffect(rawValue: UserDefaults.standard.integer(forKey: "timerAnimation"))!
         timerLabel.morphingEnabled = true
-        UIApplication.sharedApplication().idleTimerDisabled = true
+        UIApplication.shared.isIdleTimerDisabled = true
         
-        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        if let url = NSUserDefaults.standardUserDefaults().URLForKey("selectedSetting"),
-            let oid = context.persistentStoreCoordinator!.managedObjectIDForURIRepresentation(url) {
-            let object = try? context.existingObjectWithID(oid)
+        let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+        if let url = UserDefaults.standard.url(forKey: "selectedSetting"),
+            let oid = context.persistentStoreCoordinator!.managedObjectID(forURIRepresentation: url) {
+            let object = try? context.existingObject(with: oid)
             appliedOptions = object as! TimerOptions?
         }
         
@@ -58,35 +58,35 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         view.addGestureRecognizer(mySettingsRecog)
         view.addGestureRecognizer(setTimerRecog)
         
-        let gestureEnabled = NSUserDefaults.standardUserDefaults().boolForKey("gestureControl")
-        addSettingRecog.enabled = gestureEnabled
-        setTimerRecog.enabled = gestureEnabled
-        mySettingsRecog.enabled = gestureEnabled
+        let gestureEnabled = UserDefaults.standard.bool(forKey: "gestureControl")
+        addSettingRecog.isEnabled = gestureEnabled
+        setTimerRecog.isEnabled = gestureEnabled
+        mySettingsRecog.isEnabled = gestureEnabled
         
-        let nightMode = NSUserDefaults.standardUserDefaults().boolForKey("nightMode")
-        view.backgroundColor = nightMode ? UIColor.blackColor() : UIColor.whiteColor()
-        timerLabel.textColor = nightMode ? UIColor.whiteColor() : UIColor.blackColor()
+        let nightMode = UserDefaults.standard.bool(forKey: "nightMode")
+        view.backgroundColor = nightMode ? UIColor.black : UIColor.white
+        timerLabel.textColor = nightMode ? UIColor.white : UIColor.black
         
-        let fontStyle = NSUserDefaults.standardUserDefaults().integerForKey("fontStyle") == 1 ? "" : "-Thin"
+        let fontStyle = UserDefaults.standard.integer(forKey: "fontStyle") == 1 ? "" : "-Thin"
         timerLabel.font = UIFont(name: "SFUIDisplay\(fontStyle)", size: 16)
         let textCache = timerLabel.text
         shortFontSize = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
         longFontSize = timerLabel.fontSizeThatFits(text: "00:00:00", maxFontSize: 500)
         timerLabel.text = ""
         
-        timerLabel.font = timerLabel.font.fontWithSize(shortFontSize)
+        timerLabel.font = timerLabel.font.withSize(shortFontSize)
         timerLabel.text = textCache
         
-        hoverBar.orientation = .Horizontal
+        hoverBar.orientation = .horizontal
         hoverBar.items = [restartButton, playButton, moreButton]
         
         ad.adUnitID = adUnitID
         ad.rootViewController = self
-        ad.loadRequest(getAdRequest())
-        view.bringSubviewToFront(ad)
+        ad.load(getAdRequest())
+        view.bringSubview(toFront: ad)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         let newShortFontSize = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
         let newLongFontSize = timerLabel.fontSizeThatFits(text: "00:00:00", maxFontSize: 500)
         
@@ -97,7 +97,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             let textCache = timerLabel.text
             timerLabel.text = ""
             
-            timerLabel.font = timerLabel.font.fontWithSize(timer.hasLongDescription ? longFontSize : shortFontSize)
+            timerLabel.font = timerLabel.font.withSize(timer.hasLongDescription ? longFontSize : shortFontSize)
             timerLabel.text = textCache
         }
         
@@ -111,17 +111,17 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         if !initializedFontSizes {
             shortFontSize = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
             longFontSize = timerLabel.fontSizeThatFits(text: "00:00:00", maxFontSize: 500)
-            timerLabel.font = timerLabel.font.fontWithSize(shortFontSize)
+            timerLabel.font = timerLabel.font.withSize(shortFontSize)
             timer = CountDownTimer(time: 60, options: appliedOptions, onTimerChange: timerChangedClosure, onEnd: nil)
             initializedFontSizes = true
         }
     }
     
-    @IBAction func pan(sender: AnyObject) {
+    @IBAction func pan(_ sender: AnyObject) {
         
     }
     
-    @IBAction func play(sender: UIBarButtonItem) {
+    @IBAction func play(_ sender: UIBarButtonItem) {
         if timer.ended {
             return
         }
@@ -136,28 +136,28 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         hoverBar.items = [restartButton, playButton, moreButton]
     }
     
-    @IBAction func restart(sender: UIBarButtonItem) {
+    @IBAction func restart(_ sender: UIBarButtonItem) {
         timer.reset()
         playButton.image = UIImage(named: "play")
         hoverBar.items = [restartButton, playButton, moreButton]
     }
     
-    @IBAction func more(sender: AnyObject) {
+    @IBAction func more(_ sender: AnyObject) {
         var menuItems = [
             RWDropdownMenuItem(text: NSLocalizedString("My Timer Settings", comment: ""), image: UIImage(named: "choose")) {
-                self.performSegueWithIdentifier("showChooseTimerSettings", sender: self)
+                self.performSegue(withIdentifier: "showChooseTimerSettings", sender: self)
                 
             },
             RWDropdownMenuItem(text: NSLocalizedString("Add New Timer Settings", comment: ""), image: UIImage(named: "add")) {
                 [weak self] in
-                self?.performSegueWithIdentifier("showTimerForm", sender: self)
+                self?.performSegue(withIdentifier: "showTimerForm", sender: self)
             }
         ]
         
         if timer.canBeSet {
             menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Set Timer", comment: ""), image: UIImage(named: "timer")) {
                 [weak self] in
-                self?.performSegueWithIdentifier("showSetTimer", sender: self)
+                self?.performSegue(withIdentifier: "showSetTimer", sender: self)
                 })
         }
         
@@ -201,103 +201,103 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         
         menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Global Settings", comment: ""), image: UIImage(named: "settings")) {
             [unowned self] in
-            self.performSegueWithIdentifier("showSettings", sender: self)
+            self.performSegue(withIdentifier: "showSettings", sender: self)
             })
         
-        RWDropdownMenu.presentFromViewController(self, withItems: menuItems, align: .Right, style: .Translucent, navBarImage: nil, completion: nil)
+        RWDropdownMenu.present(from: self, withItems: menuItems, align: .right, style: .translucent, navBarImage: nil, completion: nil)
     }
     
-    @IBAction func unwindFromSetTimer(segue: UIStoryboardSegue) {
-        if let vc = segue.sourceViewController as? SetTimerController {
+    @IBAction func unwindFromSetTimer(_ segue: UIStoryboardSegue) {
+        if let vc = segue.source as? SetTimerController {
             playButton.image = UIImage(named: "play")
             if vc.selectedTimeInterval! >= 3601 {
-                timerLabel.font = timerLabel.font.fontWithSize(longFontSize)
+                timerLabel.font = timerLabel.font.withSize(longFontSize)
             } else {
-                timerLabel.font = timerLabel.font.fontWithSize(shortFontSize)
+                timerLabel.font = timerLabel.font.withSize(shortFontSize)
             }
             
             timer = CountDownTimer(time: vc.selectedTimeInterval!, options: self.appliedOptions, onTimerChange: self.timerChangedClosure, onEnd: nil)
-            timerLabel.font = timerLabel.font.fontWithSize(timer.hasLongDescription ? longFontSize : shortFontSize)
+            timerLabel.font = timerLabel.font.withSize(timer.hasLongDescription ? longFontSize : shortFontSize)
         }
     }
     
-    @IBAction func unwindFromTimerForm(segue: UIStoryboardSegue) {
-        if let vc = segue.sourceViewController as? TimerFormController {
+    @IBAction func unwindFromTimerForm(_ segue: UIStoryboardSegue) {
+        if let vc = segue.source as? TimerFormController {
             if vc.shouldApplyOptions {
                 self.timer.options = vc.options
                 self.appliedOptions = vc.options
                 self.view.makeToast(NSLocalizedString("Settings applied", comment: ""), backgroundColor: nil)
-                if vc.options.inserted {
-                    NSUserDefaults.standardUserDefaults().setURL(self.timer.options!.objectID.URIRepresentation(), forKey: "selectedSetting")
+                if vc.options.isInserted {
+                    UserDefaults.standard.set(self.timer.options!.objectID.uriRepresentation(), forKey: "selectedSetting")
                 }
             }
         }
     }
     
-    @IBAction func unwindFromSettingsSelector(segue: UIStoryboardSegue) {
-        if let vc = segue.sourceViewController as? SettingSelectorController {
+    @IBAction func unwindFromSettingsSelector(_ segue: UIStoryboardSegue) {
+        if let vc = segue.source as? SettingSelectorController {
             self.appliedOptions = vc.selectedOption
             self.timer.options = vc.selectedOption ?? TimerOptions.defaultOptions
             self.view.makeToast(NSLocalizedString("Settings applied", comment: ""), backgroundColor: nil)
-            NSUserDefaults.standardUserDefaults().setURL(self.timer.options!.objectID.URIRepresentation(), forKey: "selectedSetting")
+            UserDefaults.standard.set(self.timer.options!.objectID.uriRepresentation(), forKey: "selectedSetting")
         }
     }
     
-    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
         let textCache = timerLabel.text
         shortFontSize = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
         longFontSize = timerLabel.fontSizeThatFits(text: "00:00:00", maxFontSize: 500)
         timerLabel.text = ""
         
-        timerLabel.font = timerLabel.font.fontWithSize(timer.hasLongDescription ? longFontSize : shortFontSize)
+        timerLabel.font = timerLabel.font.withSize(timer.hasLongDescription ? longFontSize : shortFontSize)
         timerLabel.text = textCache
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let vc = segue.destinationViewController as? DataPasserController {
-            vc.selectedOption = self.appliedOptions?.objectID.temporaryID == false ? self.appliedOptions : nil
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? DataPasserController {
+            vc.selectedOption = self.appliedOptions?.objectID.isTemporaryID == false ? self.appliedOptions : nil
             vc.settingsDelegate = self
         }
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if hoverBar.alpha == 0 {
-            UIView.animateWithDuration(0.2) {
+            UIView.animate(withDuration: 0.2, animations: {
                 self.hoverBar.alpha = 1
                 self.ad.alpha = 1
-            }
+            }) 
             return
         }
-        if !touches.contains({
+        if !touches.contains(where: {
             touch -> Bool in
-            let point = touch.locationInView(self.hoverBar)
-            let point2 = touch.locationInView(self.ad)
+            let point = touch.location(in: self.hoverBar)
+            let point2 = touch.location(in: self.ad)
             return self.hoverBar.bounds.contains(point) || self.ad.bounds.contains(point2)
         }) {
-            UIView.animateWithDuration(0.2) {
+            UIView.animate(withDuration: 0.2, animations: {
                 self.hoverBar.alpha = 0
                 self.ad.alpha = 0
-            }
+            }) 
         }
     }
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         if otherGestureRecognizer == edgePanRecog {
             return false
         }
         return true
     }
     
-    func globalSettings(globalSettings: GlobalSettingsController, globalSettingsDidChangeWithKey key: String, newValue: AnyObject) {
+    func globalSettings(_ globalSettings: GlobalSettingsController, globalSettingsDidChangeWithKey key: String, newValue: AnyObject) {
         if key == "gestureControl" {
             let value = newValue as! Bool
-            NSUserDefaults.standardUserDefaults().setBool(value, forKey: key)
-            self.addSettingRecog.enabled = value
-            self.setTimerRecog.enabled = value
-            self.mySettingsRecog.enabled = value
+            UserDefaults.standard.set(value, forKey: key)
+            self.addSettingRecog.isEnabled = value
+            self.setTimerRecog.isEnabled = value
+            self.mySettingsRecog.isEnabled = value
         } else if key == "fontStyle" {
             let value = (newValue as! String) == "Regular" ? 1 : 0
-            NSUserDefaults.standardUserDefaults().setInteger(value, forKey: key)
+            UserDefaults.standard.set(value, forKey: key)
             let fontStyle = value == 1 ? "" : "-Thin"
             timerLabel.font = UIFont(name: "SFUIDisplay\(fontStyle)", size: 16)
             let textCache = timerLabel.text
@@ -305,17 +305,17 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             longFontSize = timerLabel.fontSizeThatFits(text: "00:00:00", maxFontSize: 500)
             timerLabel.text = ""
             
-            timerLabel.font = timerLabel.font.fontWithSize(timer.hasLongDescription ? longFontSize : shortFontSize)
+            timerLabel.font = timerLabel.font.withSize(timer.hasLongDescription ? longFontSize : shortFontSize)
             timerLabel.text = textCache
         } else if key == "timerAnimation" {
             let value = newValue as! Int
-            NSUserDefaults.standardUserDefaults().setInteger(value, forKey: key)
+            UserDefaults.standard.set(value, forKey: key)
             timerLabel.morphingEffect = LTMorphingEffect(rawValue: value)!
         } else if key == "nightMode" {
             let value = newValue as! Bool
-            NSUserDefaults.standardUserDefaults().setBool(value, forKey: key)
-            view.backgroundColor = value ? UIColor.blackColor() : UIColor.whiteColor()
-            timerLabel.textColor = value ? UIColor.whiteColor() : UIColor.blackColor()
+            UserDefaults.standard.set(value, forKey: key)
+            view.backgroundColor = value ? UIColor.black : UIColor.white
+            timerLabel.textColor = value ? UIColor.white : UIColor.black
         }
     }
 }

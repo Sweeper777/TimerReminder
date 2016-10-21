@@ -87,6 +87,10 @@ Copyright 2016 Google
 
 Copyright 2016 Google
 
+## FirebaseCore
+
+Copyright 2016 Google
+
 ## FirebaseInstanceID
 
 Copyright 2016 Google
@@ -123,15 +127,15 @@ Copyright 2011 Google Inc. All Rights Reserved.
 
 ## GoogleInterchangeUtilities
 
-Copyright 2015 Google Inc.
+Copyright 2016 Google
 
 ## GoogleSymbolUtilities
 
-Copyright 2015 Google Inc.
+Copyright 2016 Google
 
 ## GoogleUtilities
 
-Copyright 2015 Google Inc.
+Copyright 2016 Google
 
 ## ISHHoverBar
 
@@ -161,7 +165,7 @@ SOFTWARE.
 ## LTMorphingLabel
 
 The MIT License (MIT)
-Copyright © 2015 Lex Tang, http://LexTang.com
+Copyright © 2016 Lex Tang, http://lexrus.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the “Software”), to deal
@@ -186,7 +190,7 @@ THE SOFTWARE.
 
 The MIT License (MIT)
 
-Copyright (c) 2014 Imanol Fernandez
+Copyright (c) 2016 Imanol Fernandez @MortimerGoro
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -239,7 +243,7 @@ SOFTWARE.
 
 The MIT License (MIT)
 
-Copyright (c) 2014 Ruoyu Fu
+Copyright (c) 2016 Ruoyu Fu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

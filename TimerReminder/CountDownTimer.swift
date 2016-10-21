@@ -1,12 +1,32 @@
 import AVFoundation
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class CountDownTimer: Timer {
     var beepSoundPlayer: AVAudioPlayer?
     var timesUpSoundPlayer: AVAudioPlayer?
-    var timeLeft: NSTimeInterval
-    let timeToMeasure: NSTimeInterval
+    var timeLeft: TimeInterval
+    let timeToMeasure: TimeInterval
     let synthesizer = AVSpeechSynthesizer()
-    var timer: NSTimer?
+    var timer: Foundation.Timer?
     var paused = true
     var onEnd: ((Timer) -> Void)?
     var onTimerChange: ((Timer) -> Void)?
@@ -18,13 +38,13 @@ class CountDownTimer: Timer {
             }
             
             if let timesUpSound = options?.timesUpSound {
-                timesUpSoundPlayer = try! AVAudioPlayer(contentsOfURL: NSBundle.mainBundle().URLForResource(timesUpSound, withExtension: ".mp3")!)
+                timesUpSoundPlayer = try! AVAudioPlayer(contentsOf: Bundle.main.url(forResource: timesUpSound, withExtension: ".mp3")!)
                 timesUpSoundPlayer?.prepareToPlay()
                 timesUpSoundPlayer?.numberOfLoops = -1
             }
             
             if enableBeep && beepSoundPlayer == nil {
-                beepSoundPlayer = try! AVAudioPlayer(contentsOfURL: NSBundle.mainBundle().URLForResource("beep", withExtension: ".mp3")!)
+                beepSoundPlayer = try! AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "beep", withExtension: ".mp3")!)
                 beepSoundPlayer?.prepareToPlay()
             }
         }
@@ -43,7 +63,7 @@ class CountDownTimer: Timer {
         timeLeft = timeToMeasure
         paused = true
         timesUpSoundPlayer?.stop()
-        synthesizer.stopSpeakingAtBoundary(.Immediate)
+        synthesizer.stopSpeaking(at: .immediate)
         onTimerChange?(self)
     }
     
@@ -52,7 +72,7 @@ class CountDownTimer: Timer {
             return
         }
         
-        timer = NSTimer.runThisEvery(seconds: 1) {
+        timer = Foundation.Timer.runThisEvery(seconds: 1) {
             [unowned self]
             _ in
             self.timeLeft -= 1
@@ -67,8 +87,8 @@ class CountDownTimer: Timer {
                 } else {
                     let utterance = AVSpeechUtterance(string: self.options!.localizedTimesUpMessage)
                     utterance.voice = AVSpeechSynthesisVoice(language: self.options!.language!)
-                    self.synthesizer.stopSpeakingAtBoundary(.Immediate)
-                    self.synthesizer.speakUtterance(utterance)
+                    self.synthesizer.stopSpeaking(at: .immediate)
+                    self.synthesizer.speak(utterance)
                 }
                 
                 if self.options!.vibrate?.boolValue ?? false {
@@ -78,23 +98,23 @@ class CountDownTimer: Timer {
                 // countdown
                 let utterance = AVSpeechUtterance(string: String(Int(self.timeLeft)))
                 utterance.voice = AVSpeechSynthesisVoice(language: self.options!.language!)
-                self.synthesizer.stopSpeakingAtBoundary(.Immediate)
-                self.synthesizer.speakUtterance(utterance)
+                self.synthesizer.stopSpeaking(at: .immediate)
+                self.synthesizer.speak(utterance)
             } else if shouldRemind.should {
                 // remind
                 if shouldRemind.customMessage == nil {
                     let utteranceString = String(format: self.options!.localizedLeftFormat, normalize(timeInterval: self.timeLeft, with: self.options!))
                     let utterance = AVSpeechUtterance(string: utteranceString)
                     utterance.voice = AVSpeechSynthesisVoice(language: self.options!.language!)
-                    self.synthesizer.stopSpeakingAtBoundary(.Immediate)
-                    self.synthesizer.speakUtterance(utterance)
+                    self.synthesizer.stopSpeaking(at: .immediate)
+                    self.synthesizer.speak(utterance)
                 } else {
                     // custom message
-                    let remindMessage = shouldRemind.customMessage!.stringByReplacingOccurrencesOfString("$TIMELEFT$", withString: normalize(timeInterval: self.timeLeft, with: self.options!))
+                    let remindMessage = shouldRemind.customMessage!.replacingOccurrences(of: "$TIMELEFT$", with: normalize(timeInterval: self.timeLeft, with: self.options!))
                     let utterance = AVSpeechUtterance(string: remindMessage)
                     utterance.voice = AVSpeechSynthesisVoice(language: self.options!.language!)
-                    self.synthesizer.stopSpeakingAtBoundary(.Immediate)
-                    self.synthesizer.speakUtterance(utterance)
+                    self.synthesizer.stopSpeaking(at: .immediate)
+                    self.synthesizer.speak(utterance)
                 }
             } else if enableBeep == true {
                 self.beepSoundPlayer?.play()
@@ -114,7 +134,7 @@ class CountDownTimer: Timer {
         timer?.invalidate()
         timer = nil
         timesUpSoundPlayer?.stop()
-        synthesizer.stopSpeakingAtBoundary(.Immediate)
+        synthesizer.stopSpeaking(at: .immediate)
         paused = true
     }
     
@@ -140,17 +160,17 @@ class CountDownTimer: Timer {
         }
     }
     
-    private func setTimerOptions(options: TimerOptions) {
+    fileprivate func setTimerOptions(_ options: TimerOptions) {
         self.options = options
     }
     
-    private func shouldInvokeReminder() -> (should: Bool, customMessage: String?) {
+    fileprivate func shouldInvokeReminder() -> (should: Bool, customMessage: String?) {
         if options?.reminders?.count > 0 {
             if let specificReminders = options?.reminders {
                 let reminders = specificReminders.map { Int(($0 as! Reminder).remindTimeFrame!) }
                 let should = reminders.contains(Int(timeLeft))
                 if should {
-                    let index = reminders.indexOf(Int(timeLeft))
+                    let index = reminders.index(of: Int(timeLeft))
                     let message = (specificReminders.array[index!] as! Reminder).customRemindMessage
                     return (should, message)
                 }
@@ -169,7 +189,7 @@ class CountDownTimer: Timer {
         return (false, nil)
     }
     
-    init(time: NSTimeInterval, options: TimerOptions? = nil, onTimerChange: ((Timer) -> Void)?, onEnd: ((Timer) -> Void)?) {
+    init(time: TimeInterval, options: TimerOptions? = nil, onTimerChange: ((Timer) -> Void)?, onEnd: ((Timer) -> Void)?) {
         self.timeLeft = time
         self.timeToMeasure = time
         self.onEnd = onEnd
@@ -184,17 +204,17 @@ class CountDownTimer: Timer {
 }
 
 extension String {
-    func padLeft(character character: Character, length: Int) -> String {
+    func padLeft(character: Character, length: Int) -> String {
         if self.length < length {
             let characterToAdd = length - self.length
-            let string = String(count: characterToAdd, repeatedValue: character)
+            let string = String(repeating: String(character), count: characterToAdd)
             return string + self
         }
         return self
     }
 }
 
-func normalize(timeInterval timeInterval: NSTimeInterval, with options: TimerOptions) -> String {
+func normalize(timeInterval: TimeInterval, with options: TimerOptions) -> String {
     let hours = Int(timeInterval) % 86400 / 60 / 60
     let minutes = Int(timeInterval) % 3600 / 60
     let seconds = Int(timeInterval) % 60
@@ -222,7 +242,7 @@ func normalize(timeInterval timeInterval: NSTimeInterval, with options: TimerOpt
     return normalized
 }
 
-func normalize(timeInterval timeInterval: NSTimeInterval) -> String {
+func normalize(timeInterval: TimeInterval) -> String {
     let hours = Int(timeInterval) % 86400 / 60 / 60
     let minutes = Int(timeInterval) % 3600 / 60
     let seconds = Int(timeInterval) % 60

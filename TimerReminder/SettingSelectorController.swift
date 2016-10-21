@@ -4,20 +4,20 @@ import MGSwipeTableCell
 
 class SettingSelectorController: UITableViewController {
     var options = [TimerOptions]()
-    let dataContext: NSManagedObjectContext! = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
+    let dataContext: NSManagedObjectContext! = (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
     var selectedOption: TimerOptions?
     var optionsToEdit: TimerOptions?
     
     func reloadData() {
         if dataContext != nil {
             self.options.removeAll()
-            let entity = NSEntityDescription.entityForName("TimerOptions", inManagedObjectContext: dataContext)
-            let request = NSFetchRequest()
+            let entity = NSEntityDescription.entity(forEntityName: "TimerOptions", in: dataContext)
+            let request = NSFetchRequest<TimerOptions>()
             request.entity = entity
-            let options = try? dataContext.executeFetchRequest(request)
+            let options = try? dataContext.fetch(request)
             if options != nil {
                 for item in options! {
-                    self.options.append(item as! TimerOptions)
+                    self.options.append(item)
                 }
             }
         }
@@ -27,60 +27,60 @@ class SettingSelectorController: UITableViewController {
         reloadData()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return options.count + 1
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (indexPath as NSIndexPath).row == 0 {
             let cell = UITableViewCell()
             if self.selectedOption != nil {
-                let index = selectedOption == nil ? 0 : options.indexOf { $0.objectID == self.selectedOption!.objectID }! + 1
-                if indexPath.row == index {
-                    cell.accessoryType = .Checkmark
+                let index = selectedOption == nil ? 0 : options.index { $0.objectID == self.selectedOption!.objectID }! + 1
+                if (indexPath as NSIndexPath).row == index {
+                    cell.accessoryType = .checkmark
                 }
-            } else if indexPath.row == 0 {
-                cell.accessoryType = .Checkmark
+            } else if (indexPath as NSIndexPath).row == 0 {
+                cell.accessoryType = .checkmark
             }
             cell.textLabel?.text = NSLocalizedString("Default", comment: "")
             return cell
         } else {
             let cell = MGSwipeTableCell()
             if self.selectedOption != nil {
-                let index = selectedOption == nil ? 0 : options.indexOf { $0 == self.selectedOption! }! + 1
-                if indexPath.row == index {
-                    cell.accessoryType = .Checkmark
+                let index = selectedOption == nil ? 0 : options.index { $0 == self.selectedOption! }! + 1
+                if (indexPath as NSIndexPath).row == index {
+                    cell.accessoryType = .checkmark
                 }
-            } else if indexPath.row == 0 {
-                cell.accessoryType = .Checkmark
+            } else if (indexPath as NSIndexPath).row == 0 {
+                cell.accessoryType = .checkmark
             }
-            cell.textLabel?.text = options[indexPath.row - 1].name!
-            cell.rightSwipeSettings.transition = .Drag
-            let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.redColor(), callback: { _ in
-                let itemToDelete = self.options[indexPath.row - 1]
+            cell.textLabel?.text = options[(indexPath as NSIndexPath).row - 1].name!
+            cell.rightSwipeSettings.transition = .drag
+            let deleteBtn = MGSwipeButton(title: NSLocalizedString("Delete", comment: ""), backgroundColor: UIColor.red, callback: { _ in
+                let itemToDelete = self.options[(indexPath as NSIndexPath).row - 1]
                 if itemToDelete == self.selectedOption {
 //                    tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))?.accessoryType = .Checkmark
                     self.selectedOption = nil
                 }
-                self.options.removeAtIndex(indexPath.row - 1)
-                self.dataContext.deleteObject(itemToDelete)
+                self.options.remove(at: (indexPath as NSIndexPath).row - 1)
+                self.dataContext.delete(itemToDelete)
                 _ = try? self.dataContext.save()
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+                tableView.deleteRows(at: [indexPath], with: .left)
                 tableView.reloadData()
                 return true
             })
             
-            let editBtn = MGSwipeButton(title: NSLocalizedString("Edit", comment: ""), backgroundColor: UIColor.grayColor(), callback: { _ in
-                self.optionsToEdit = self.options[indexPath.row - 1]
-                self.performSegueWithIdentifier("showSettingsEditor", sender: self)
+            let editBtn = MGSwipeButton(title: NSLocalizedString("Edit", comment: ""), backgroundColor: UIColor.gray, callback: { _ in
+                self.optionsToEdit = self.options[(indexPath as NSIndexPath).row - 1]
+                self.performSegue(withIdentifier: "showSettingsEditor", sender: self)
                 return true
             })
             cell.rightButtons = [deleteBtn, editBtn]
@@ -88,27 +88,27 @@ class SettingSelectorController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        selectedOption = indexPath.row == 0 ? nil : options[indexPath.row - 1]
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        selectedOption = (indexPath as NSIndexPath).row == 0 ? nil : options[(indexPath as NSIndexPath).row - 1]
         for i in 0...options.count {
-            tableView.cellForRowAtIndexPath(NSIndexPath(forRow: i, inSection: 0))?.accessoryType = .None
+            tableView.cellForRow(at: IndexPath(row: i, section: 0))?.accessoryType = .none
         }
-        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = .Checkmark
+        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let vc = segue.destinationViewController as? DataPasserController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? DataPasserController {
             vc.optionsToEdit = self.optionsToEdit
         }
     }
     
-    @IBAction func unwindFromSettingsEditor(segue: UIStoryboardSegue) {
+    @IBAction func unwindFromSettingsEditor(_ segue: UIStoryboardSegue) {
         reloadData()
         tableView.reloadData()
     }
     
-    @IBAction func cancel(sender: AnyObject) {
+    @IBAction func cancel(_ sender: AnyObject) {
         dismissVC(completion: nil)
     }
 }
