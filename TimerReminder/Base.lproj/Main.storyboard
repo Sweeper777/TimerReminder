@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="SF-UI-Display-Thin.otf">
+        <array key="SF-UI-Display-Thin.otf">
             <string>SFUIDisplay-Thin</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <scenes>
         <!--Timer View Controller-->
@@ -20,36 +21,36 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-gI-hVl" customClass="ISHHoverBar">
-                                <rect key="frame" x="448" y="28" width="132" height="44"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-gI-hVl" customClass="ISHHoverBar">
+                                <frame key="frameInset" minX="448" minY="28" width="132" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="132" id="QrX-da-Fm1"/>
                                     <constraint firstAttribute="height" constant="44" id="rC9-ut-dUQ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.23137254900000001" green="0.4823529412" blue="0.23137254900000001" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="value" red="0.18497182428836823" green="0.41621652245521545" blue="0.1762884259223938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zro-fB-6Qb" customClass="GADBannerView">
-                                <rect key="frame" x="20" y="525" width="560" height="55"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zro-fB-6Qb" customClass="GADBannerView">
+                                <frame key="frameInset" minX="20" minY="525" width="560" height="55"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="kzH-od-AyW"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEG-Po-lfJ" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                <rect key="frame" x="20" y="14" width="560" height="566"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEG-Po-lfJ" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
+                                <frame key="frameInset" minX="20" minY="14" width="560" height="566"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zro-fB-6Qb" firstAttribute="leading" secondItem="mEG-Po-lfJ" secondAttribute="leading" id="1F5-RY-s42"/>
                             <constraint firstItem="mEG-Po-lfJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="J3Z-LN-IN8"/>
@@ -106,19 +107,19 @@
                     </connections>
                 </swipeGestureRecognizer>
                 <barButtonItem image="more" id="QMk-t8-G7Y">
-                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <action selector="more:" destination="BYZ-38-t0r" id="ARL-Hl-HuI"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem image="restart" id="6QR-ca-i43">
-                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <action selector="restart:" destination="BYZ-38-t0r" id="aNK-8g-e32"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem image="play" id="yDO-VZ-boI">
-                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <action selector="play:" destination="BYZ-38-t0r" id="NSd-mC-ugo"/>
                     </connections>
@@ -131,12 +132,12 @@
         <scene sceneID="4Bo-Ob-XkE">
             <objects>
                 <navigationController id="Uef-Ri-5mY" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="44L-tT-Rbw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="44L-tT-Rbw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -153,7 +154,7 @@
                 <viewController id="Zdw-kJ-vtK" customClass="GlobalSettingsController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="B8O-k3-Y6Y">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="jZI-ir-4Cw">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="done:" destination="Zdw-kJ-vtK" id="KbX-IM-yYh"/>
                             </connections>
@@ -169,9 +170,9 @@
             <objects>
                 <tableViewController id="SlM-XX-x92" customClass="SettingSelectorController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="yN6-8H-9g5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <connections>
                             <outlet property="dataSource" destination="SlM-XX-x92" id="Hcl-zD-c4e"/>
                             <outlet property="delegate" destination="SlM-XX-x92" id="cSd-O0-l1V"/>
@@ -179,13 +180,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Timer Settings" id="3FL-TZ-lxw">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="N4Q-7m-Y2t">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="cancel:" destination="SlM-XX-x92" id="ZW5-U5-rjT"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="jMw-1a-hhd">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="6gf-lf-dXb" kind="unwind" identifier="" unwindAction="unwindFromSettingsSelector:" id="Rac-6G-Jjv"/>
                             </connections>
@@ -209,19 +210,19 @@
                         <viewControllerLayoutGuide type="bottom" id="9yJ-1R-fWA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="O7t-O4-1RZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Rkw-9E-GYw">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Smw-ak-6tK">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="cancel:" destination="OIo-kP-rcw" id="z3a-30-DbO"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="qar-hd-M2f">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="save:" destination="OIo-kP-rcw" id="uLj-rV-ByI"/>
                             </connections>
@@ -240,12 +241,12 @@
         <scene sceneID="TFk-vH-9XI">
             <objects>
                 <navigationController id="v5I-Uv-1Bn" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c3n-V5-Fqj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="c3n-V5-Fqj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -260,12 +261,12 @@
         <scene sceneID="20l-xr-YIf">
             <objects>
                 <navigationController id="75i-S5-sZD" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gk8-d0-rdD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Gk8-d0-rdD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -280,12 +281,12 @@
         <scene sceneID="8dQ-3c-pPS">
             <objects>
                 <navigationController id="LVp-DH-RsJ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MCP-gR-umF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MCP-gR-umF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -305,18 +306,18 @@
                         <viewControllerLayoutGuide type="bottom" id="c72-BQ-3si"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="J4F-Jg-Nux">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="So4-zf-Dsm">
-                                <rect key="frame" x="20" y="20" width="560" height="565"/>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="So4-zf-Dsm">
+                                <frame key="frameInset" minX="20" minY="20" width="560" height="565"/>
                                 <connections>
                                     <outlet property="dataSource" destination="v5k-S8-xxj" id="IGV-vR-7Ak"/>
                                     <outlet property="delegate" destination="v5k-S8-xxj" id="aZ0-7Z-hfo"/>
                                 </connections>
                             </pickerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="c72-BQ-3si" firstAttribute="top" secondItem="So4-zf-Dsm" secondAttribute="bottom" constant="15" id="3EW-cx-s0z"/>
                             <constraint firstItem="So4-zf-Dsm" firstAttribute="top" secondItem="VMQ-Rz-rPz" secondAttribute="bottom" id="SWK-8I-Pys"/>
@@ -341,25 +342,25 @@
                         <viewControllerLayoutGuide type="bottom" id="L9M-36-ojp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oeB-I3-OCI">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLY-J2-tkW">
-                                <rect key="frame" x="20" y="28" width="560" height="503"/>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aLY-J2-tkW">
+                                <frame key="frameInset" minX="20" minY="28" width="560" height="503"/>
                                 <connections>
                                     <outlet property="dataSource" destination="J1G-ft-dxD" id="MlX-Ct-Tte"/>
                                     <outlet property="delegate" destination="J1G-ft-dxD" id="jQC-vu-krj"/>
                                 </connections>
                             </pickerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csy-UA-fSA" customClass="GADBannerView">
-                                <rect key="frame" x="20" y="539" width="560" height="53"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="csy-UA-fSA" customClass="GADBannerView">
+                                <frame key="frameInset" minX="20" minY="539" width="560" height="53"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="JL9-Dk-HGy"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="csy-UA-fSA" firstAttribute="leading" secondItem="aLY-J2-tkW" secondAttribute="leading" id="4y0-nc-RrQ"/>
                             <constraint firstItem="csy-UA-fSA" firstAttribute="trailing" secondItem="aLY-J2-tkW" secondAttribute="trailing" id="EsA-yt-qLe"/>
@@ -372,13 +373,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Set Timer" id="Kds-0f-3uV">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Eac-fa-v56">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="cancel:" destination="J1G-ft-dxD" id="mIm-th-iKV"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="o91-Af-cq0">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="6gf-lf-dXb" kind="unwind" unwindAction="unwindFromSetTimer:" id="bJJ-rD-q44"/>
                             </connections>

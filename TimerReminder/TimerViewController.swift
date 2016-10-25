@@ -221,11 +221,34 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             menuItems.append("Switch to Timer Mode")
             menuItems.append("Switch to Stopwatch Mode")
         }
+        menuItems.append("Global Settings")
         
         moreMenu.anchorView = hoverBar
         moreMenu.dataSource = menuItems
-        moreMenu.cellConfiguration = {
-            _, item in return NSLocalizedString(item, comment: "")
+        moreMenu.width = view.w - 100
+        moreMenu.cellNib = UINib(nibName: "MoreMenuItem", bundle: nil)
+        moreMenu.customCellConfiguration = {
+            _, item, cell in
+            guard let menuItemCell = cell as? MoreMenuItem else { return }
+            menuItemCell.optionLabel.text = NSLocalizedString(item, comment: "")
+            switch item {
+            case "My Timer Settings":
+                menuItemCell.icon.image = UIImage(named: "choose")
+            case "Add New Timer Settings":
+                menuItemCell.icon.image = UIImage(named: "add")
+            case "Set Timer":
+                menuItemCell.icon.image = UIImage(named: "timer")
+            case "Switch to Clock Mode":
+                menuItemCell.icon.image = UIImage(named: "clock")
+            case "Switch to Stopwatch Mode":
+                menuItemCell.icon.image = UIImage(named: "countup")
+            case "Switch to Timer Mode":
+                menuItemCell.icon.image = UIImage(named: "countdown")
+            case "Global Settings":
+                menuItemCell.icon.image = UIImage(named: "settings")
+            default:
+                break
+            }
         }
         
         moreMenu.show()
