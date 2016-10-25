@@ -2,11 +2,11 @@ import UIKit
 import LTMorphingLabel
 import FittableFontLabel
 import EZSwiftExtensions
-import RWDropdownMenu
 import ISHHoverBar
 import ASToast
 import CoreData
 import GoogleMobileAds
+import DropDown
 
 class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureRecognizerDelegate, GlobalSettingsControllerDelegate {
     @IBOutlet var timerLabel: LTMorphingLabel!
@@ -23,6 +23,8 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     @IBOutlet var hoverBar: ISHHoverBar!
     
     @IBOutlet var ad: GADBannerView!
+    
+    let moreMenu = DropDown()
     
     var shortFontSize: CGFloat!
     var longFontSize: CGFloat!
@@ -143,68 +145,90 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     }
     
     @IBAction func more(_ sender: AnyObject) {
-        var menuItems = [
-            RWDropdownMenuItem(text: NSLocalizedString("My Timer Settings", comment: ""), image: UIImage(named: "choose")) {
-                self.performSegue(withIdentifier: "showChooseTimerSettings", sender: self)
-                
-            },
-            RWDropdownMenuItem(text: NSLocalizedString("Add New Timer Settings", comment: ""), image: UIImage(named: "add")) {
-                [weak self] in
-                self?.performSegue(withIdentifier: "showTimerForm", sender: self)
-            }
-        ]
-        
-        if timer.canBeSet {
-            menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Set Timer", comment: ""), image: UIImage(named: "timer")) {
-                [weak self] in
-                self?.performSegue(withIdentifier: "showSetTimer", sender: self)
-                })
+//        var menuItems = [
+//            RWDropdownMenuItem(text: NSLocalizedString("My Timer Settings", comment: ""), image: UIImage(named: "choose")) {
+//                self.performSegue(withIdentifier: "showChooseTimerSettings", sender: self)
+//                
+//            },
+//            RWDropdownMenuItem(text: NSLocalizedString("Add New Timer Settings", comment: ""), image: UIImage(named: "add")) {
+//                [weak self] in
+//                self?.performSegue(withIdentifier: "showTimerForm", sender: self)
+//            }
+//        ]
+//        
+//        if timer.canBeSet {
+//            menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Set Timer", comment: ""), image: UIImage(named: "timer")) {
+//                [weak self] in
+//                self?.performSegue(withIdentifier: "showSetTimer", sender: self)
+//                })
+//        }
+//        
+//        func addStopwatchModeBtn() {
+//            menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Switch to Stopwatch Mode", comment: ""), image: UIImage(named: "countup")) {
+//                [weak self] in
+//                self?.timer.reset()
+//                self?.playButton.image = UIImage(named: "play")
+//                self?.timer = CountUpTimer(options: self?.appliedOptions, onTimerChange: self?.timerChangedClosure)
+//                })
+//        }
+//        
+//        func addTimerModeBtn() {
+//            menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Switch to Timer Mode", comment: ""), image: UIImage(named: "countdown")) {
+//                [weak self] in
+//                self?.timer.reset()
+//                self?.playButton.image = UIImage(named: "play")
+//                self?.timer = CountDownTimer(time: 60, options: self?.appliedOptions, onTimerChange: self?.timerChangedClosure, onEnd: nil)
+//                })
+//        }
+//        
+//        func addClockModeBtn() {
+//            menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Switch to Clock Mode", comment: ""), image: UIImage(named: "clock")) {
+//                [weak self] in
+//                self?.timer.reset()
+//                self?.playButton.image = UIImage(named: "play")
+//                self?.timer = Clock(options: self?.appliedOptions, onTimerChange: self?.timerChangedClosure)
+//                })
+//        }
+//        
+//        if timer is CountDownTimer {
+//            addStopwatchModeBtn()
+//            addClockModeBtn()
+//        } else if timer is CountUpTimer {
+//            addTimerModeBtn()
+//            addClockModeBtn()
+//        } else if timer is Clock {
+//            addTimerModeBtn()
+//            addStopwatchModeBtn()
+//        }
+//        
+//        menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Global Settings", comment: ""), image: UIImage(named: "settings")) {
+//            [unowned self] in
+//            self.performSegue(withIdentifier: "showSettings", sender: self)
+//            })
+//        
+//        RWDropdownMenu.present(from: self, withItems: menuItems, align: .right, style: .translucent, navBarImage: nil, completion: nil)
+        var menuItems = ["My Timer Settings", "Add New Timer Settings"]
+        if self.timer.canBeSet {
+            menuItems.append("Set Timer")
         }
-        
-        func addStopwatchModeBtn() {
-            menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Switch to Stopwatch Mode", comment: ""), image: UIImage(named: "countup")) {
-                [weak self] in
-                self?.timer.reset()
-                self?.playButton.image = UIImage(named: "play")
-                self?.timer = CountUpTimer(options: self?.appliedOptions, onTimerChange: self?.timerChangedClosure)
-                })
-        }
-        
-        func addTimerModeBtn() {
-            menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Switch to Timer Mode", comment: ""), image: UIImage(named: "countdown")) {
-                [weak self] in
-                self?.timer.reset()
-                self?.playButton.image = UIImage(named: "play")
-                self?.timer = CountDownTimer(time: 60, options: self?.appliedOptions, onTimerChange: self?.timerChangedClosure, onEnd: nil)
-                })
-        }
-        
-        func addClockModeBtn() {
-            menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Switch to Clock Mode", comment: ""), image: UIImage(named: "clock")) {
-                [weak self] in
-                self?.timer.reset()
-                self?.playButton.image = UIImage(named: "play")
-                self?.timer = Clock(options: self?.appliedOptions, onTimerChange: self?.timerChangedClosure)
-                })
-        }
-        
         if timer is CountDownTimer {
-            addStopwatchModeBtn()
-            addClockModeBtn()
+            menuItems.append("Switch to Stopwatch Mode")
+            menuItems.append("Switch to Clock Mode")
         } else if timer is CountUpTimer {
-            addTimerModeBtn()
-            addClockModeBtn()
+            menuItems.append("Switch to Timer Mode")
+            menuItems.append("Switch to Clock Mode")
         } else if timer is Clock {
-            addTimerModeBtn()
-            addStopwatchModeBtn()
+            menuItems.append("Switch to Timer Mode")
+            menuItems.append("Switch to Stopwatch Mode")
         }
         
-        menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Global Settings", comment: ""), image: UIImage(named: "settings")) {
-            [unowned self] in
-            self.performSegue(withIdentifier: "showSettings", sender: self)
-            })
+        moreMenu.anchorView = hoverBar
+        moreMenu.dataSource = menuItems
+        moreMenu.cellConfiguration = {
+            _, item in return NSLocalizedString(item, comment: "")
+        }
         
-        RWDropdownMenu.present(from: self, withItems: menuItems, align: .right, style: .translucent, navBarImage: nil, completion: nil)
+        moreMenu.show()
     }
     
     @IBAction func unwindFromSetTimer(_ segue: UIStoryboardSegue) {

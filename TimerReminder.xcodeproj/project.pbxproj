@@ -54,6 +54,7 @@
 		5A19FDE51DB94CF70022F794 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDDB1DB94CF70022F794 /* MGSwipeTableCell.framework */; };
 		5A19FDE61DB94CF70022F794 /* MVSpeechSynthesizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDDC1DB94CF70022F794 /* MVSpeechSynthesizer.framework */; };
 		5A19FDE81DB94CF70022F794 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDDE1DB94CF70022F794 /* SwiftyJSON.framework */; };
+		5A1C1BFD1DBF69120009162D /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1C1BFC1DBF69120009162D /* DropDown.framework */; };
 		5A6FD15E1D795DC90003AC44 /* AdUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6FD15D1D795DC90003AC44 /* AdUtility.swift */; };
 		5A9608E71D498728001EE17F /* SetTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9608E61D498728001EE17F /* SetTimerController.swift */; };
 		5AFD04791D7843020099527B /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD04781D7843020099527B /* Clock.swift */; };
@@ -117,6 +118,7 @@
 		5A19FDDC1DB94CF70022F794 /* MVSpeechSynthesizer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MVSpeechSynthesizer.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/MVSpeechSynthesizer/MVSpeechSynthesizer.framework"; sourceTree = "<group>"; };
 		5A19FDDD1DB94CF70022F794 /* RWDropdownMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RWDropdownMenu.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/RWDropdownMenu/RWDropdownMenu.framework"; sourceTree = "<group>"; };
 		5A19FDDE1DB94CF70022F794 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		5A1C1BFC1DBF69120009162D /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/DropDown/DropDown.framework"; sourceTree = "<group>"; };
 		5A6FD15D1D795DC90003AC44 /* AdUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdUtility.swift; sourceTree = "<group>"; };
 		5A9608E61D498728001EE17F /* SetTimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimerController.swift; sourceTree = "<group>"; };
 		5AFD04781D7843020099527B /* Clock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A1C1BFD1DBF69120009162D /* DropDown.framework in Frameworks */,
 				5A19FDDF1DB94CF70022F794 /* ASToast.framework in Frameworks */,
 				5A19FDE01DB94CF70022F794 /* Eureka.framework in Frameworks */,
 				5A19FDE11DB94CF70022F794 /* EZSwiftExtensions.framework in Frameworks */,
@@ -232,6 +235,7 @@
 		F7E084DFAF08D18824FDF3A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A1C1BFC1DBF69120009162D /* DropDown.framework */,
 				5A19FDD51DB94CF70022F794 /* ASToast.framework */,
 				5A19FDD61DB94CF70022F794 /* Eureka.framework */,
 				5A19FDD71DB94CF70022F794 /* EZSwiftExtensions.framework */,
