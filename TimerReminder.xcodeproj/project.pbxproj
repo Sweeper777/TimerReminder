@@ -53,7 +53,6 @@
 		5A19FDE41DB94CF70022F794 /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDDA1DB94CF70022F794 /* LTMorphingLabel.framework */; };
 		5A19FDE51DB94CF70022F794 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDDB1DB94CF70022F794 /* MGSwipeTableCell.framework */; };
 		5A19FDE61DB94CF70022F794 /* MVSpeechSynthesizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDDC1DB94CF70022F794 /* MVSpeechSynthesizer.framework */; };
-		5A19FDE71DB94CF70022F794 /* RWDropdownMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDDD1DB94CF70022F794 /* RWDropdownMenu.framework */; };
 		5A19FDE81DB94CF70022F794 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDDE1DB94CF70022F794 /* SwiftyJSON.framework */; };
 		5A6FD15E1D795DC90003AC44 /* AdUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6FD15D1D795DC90003AC44 /* AdUtility.swift */; };
 		5A9608E71D498728001EE17F /* SetTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9608E61D498728001EE17F /* SetTimerController.swift */; };
@@ -146,7 +145,6 @@
 				5A19FDE41DB94CF70022F794 /* LTMorphingLabel.framework in Frameworks */,
 				5A19FDE51DB94CF70022F794 /* MGSwipeTableCell.framework in Frameworks */,
 				5A19FDE61DB94CF70022F794 /* MVSpeechSynthesizer.framework in Frameworks */,
-				5A19FDE71DB94CF70022F794 /* RWDropdownMenu.framework in Frameworks */,
 				5A19FDE81DB94CF70022F794 /* SwiftyJSON.framework in Frameworks */,
 				2467A8747BF6557031FAEF87 /* Pods_TimerReminder.framework in Frameworks */,
 			);

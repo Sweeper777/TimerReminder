@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DropDown.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>EZSwiftExtensions.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -49,11 +54,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RWDropdownMenu.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,17 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4BB7D20A68445E720E3792100F7348DB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6064FEBBCD8202A6C20E87B3FD729CB0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,7 +97,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9EFBA7A8E41B5058E9C9E8616243BC99</key>
+		<key>9F766ADB76A46AB732825D44C4BAAABF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D2D6F69075CC3952190BB5E941AD660B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E59F093033177D81B4DF3C940F6276F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

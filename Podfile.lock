@@ -1,5 +1,6 @@
 PODS:
   - ASToast (1.0.4)
+  - DropDown (2)
   - Eureka (2.0.0-beta.1)
   - EZSwiftExtensions (1.7)
   - Firebase/AdMob (3.7.1):
@@ -30,11 +31,11 @@ PODS:
   - LTMorphingLabel (0.3.0)
   - MGSwipeTableCell (1.5.6)
   - MVSpeechSynthesizer (1.0.1)
-  - RWDropdownMenu (1.0.3)
   - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
   - ASToast (~> 1.0.4)
+  - DropDown
   - Eureka (~> 2.0.0-beta.1)
   - EZSwiftExtensions
   - Firebase/AdMob
@@ -44,7 +45,6 @@ DEPENDENCIES:
   - LTMorphingLabel (from `https://github.com/lexrus/LTMorphingLabel.git`, branch `swift3`)
   - MGSwipeTableCell
   - MVSpeechSynthesizer
-  - RWDropdownMenu
   - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -59,6 +59,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ASToast: ceefaeb9e7aad8d8f64689eb84f12ed40f1f1cd9
+  DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
   Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
   EZSwiftExtensions: 4afef248066a036903d8496bf07bc355b22ce766
   Firebase: be473484f0d515e72ffd04acf22f981773c23e58
@@ -74,9 +75,8 @@ SPEC CHECKSUMS:
   LTMorphingLabel: 2777d8d9cb699125f48dfcd95d78bd3d77c87ade
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
   MVSpeechSynthesizer: d4deb5221bff17dfda644298497be3b4fa189040
-  RWDropdownMenu: c7fda4b7adf4f3f63a46d96359c2f490a7713795
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: b8b87a2215566cf06dd759b9b76dda78854fcda4
+PODFILE CHECKSUM: 8ea0c94879d702e1aa5a642f3e4aa412b73a67b9
 
 COCOAPODS: 1.1.0.beta.1
