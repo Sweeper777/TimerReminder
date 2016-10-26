@@ -145,68 +145,6 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     }
     
     @IBAction func more(_ sender: AnyObject) {
-//        var menuItems = [
-//            RWDropdownMenuItem(text: NSLocalizedString("My Timer Settings", comment: ""), image: UIImage(named: "choose")) {
-//                self.performSegue(withIdentifier: "showChooseTimerSettings", sender: self)
-//                
-//            },
-//            RWDropdownMenuItem(text: NSLocalizedString("Add New Timer Settings", comment: ""), image: UIImage(named: "add")) {
-//                [weak self] in
-//                self?.performSegue(withIdentifier: "showTimerForm", sender: self)
-//            }
-//        ]
-//        
-//        if timer.canBeSet {
-//            menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Set Timer", comment: ""), image: UIImage(named: "timer")) {
-//                [weak self] in
-//                self?.performSegue(withIdentifier: "showSetTimer", sender: self)
-//                })
-//        }
-//        
-//        func addStopwatchModeBtn() {
-//            menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Switch to Stopwatch Mode", comment: ""), image: UIImage(named: "countup")) {
-//                [weak self] in
-//                self?.timer.reset()
-//                self?.playButton.image = UIImage(named: "play")
-//                self?.timer = CountUpTimer(options: self?.appliedOptions, onTimerChange: self?.timerChangedClosure)
-//                })
-//        }
-//        
-//        func addTimerModeBtn() {
-//            menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Switch to Timer Mode", comment: ""), image: UIImage(named: "countdown")) {
-//                [weak self] in
-//                self?.timer.reset()
-//                self?.playButton.image = UIImage(named: "play")
-//                self?.timer = CountDownTimer(time: 60, options: self?.appliedOptions, onTimerChange: self?.timerChangedClosure, onEnd: nil)
-//                })
-//        }
-//        
-//        func addClockModeBtn() {
-//            menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Switch to Clock Mode", comment: ""), image: UIImage(named: "clock")) {
-//                [weak self] in
-//                self?.timer.reset()
-//                self?.playButton.image = UIImage(named: "play")
-//                self?.timer = Clock(options: self?.appliedOptions, onTimerChange: self?.timerChangedClosure)
-//                })
-//        }
-//        
-//        if timer is CountDownTimer {
-//            addStopwatchModeBtn()
-//            addClockModeBtn()
-//        } else if timer is CountUpTimer {
-//            addTimerModeBtn()
-//            addClockModeBtn()
-//        } else if timer is Clock {
-//            addTimerModeBtn()
-//            addStopwatchModeBtn()
-//        }
-//        
-//        menuItems.append(RWDropdownMenuItem(text: NSLocalizedString("Global Settings", comment: ""), image: UIImage(named: "settings")) {
-//            [unowned self] in
-//            self.performSegue(withIdentifier: "showSettings", sender: self)
-//            })
-//        
-//        RWDropdownMenu.present(from: self, withItems: menuItems, align: .right, style: .translucent, navBarImage: nil, completion: nil)
         var menuItems = ["My Timer Settings", "Add New Timer Settings"]
         if self.timer.canBeSet {
             menuItems.append("Set Timer")
@@ -246,6 +184,36 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
                 menuItemCell.icon.image = UIImage(named: "countdown")
             case "Global Settings":
                 menuItemCell.icon.image = UIImage(named: "settings")
+            default:
+                break
+            }
+        }
+        
+        moreMenu.selectionAction = {
+            [unowned self] index, item in
+            switch item {
+            case "My Timer Settings":
+                self.performSegue(withIdentifier: "showChooseTimerSettings", sender: self)
+            case "Add New Timer Settings":
+                self.performSegue(withIdentifier: "showTimerForm", sender: self)
+            case "Set Timer":
+                self.performSegue(withIdentifier: "showSetTimer", sender: self)
+            case "Switch to Clock Mode":
+                self.timer.reset()
+                self.playButton.image = UIImage(named: "play")
+                self.timer = Clock(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
+            case "Switch to Stopwatch Mode":
+                self.timer.reset()
+                self.playButton.image = UIImage(named: "play")
+                self.timer = CountUpTimer(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
+
+            case "Switch to Timer Mode":
+                self.timer.reset()
+                self.playButton.image = UIImage(named: "play")
+                self.timer = CountDownTimer(time: 60, options: self.appliedOptions, onTimerChange: self.timerChangedClosure, onEnd: nil)
+
+            case "Global Settings":
+                self.performSegue(withIdentifier: "showSettings", sender: self)
             default:
                 break
             }
