@@ -10,9 +10,9 @@ import UIKit
 
 // MARK: StepperCell
 
-open class StepperCell : Cell<Double>, CellType {
+open class StepperCell : Cell<Int>, CellType {
     
-    public typealias Value = Double
+    public typealias Value = Int
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -59,15 +59,15 @@ open class StepperCell : Cell<Double>, CellType {
     open override func update() {
         super.update()
         stepper.isEnabled = !row.isDisabled
-        stepper.value = row.value ?? 0
+        stepper.value = Double(row.value ?? 0)
         valueLabel.text = "\(row.value ?? 0)"
         stepper.alpha = row.isDisabled ? 0.3 : 1.0
         valueLabel.alpha = row.isDisabled ? 0.3 : 1.0
     }
     
     func valueChanged() {
-        valueLabel.text = "\(stepper.value)"
-        row.value = stepper.value
+        valueLabel.text = "\(Int(stepper.value))"
+        row.value = Int(stepper.value)
     }
 }
 

@@ -4,7 +4,7 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   case let (l?, r?):
     return l < r
   case (nil, _?):
-    return true
+    return false
   default:
     return false
   }
@@ -79,6 +79,9 @@ class CountDownTimer: Timer {
             
             let enableBeep = self.options?.beepSounds?.boolValue
             let shouldRemind = self.shouldInvokeReminder()
+            if abs(self.timeLeft - 50) < 5 {
+                print(shouldRemind)
+            }
             
             if self.timeLeft <= 0 {
                 // time's up
@@ -165,17 +168,18 @@ class CountDownTimer: Timer {
     }
     
     fileprivate func shouldInvokeReminder() -> (should: Bool, customMessage: String?) {
-        if options?.reminders?.count > 0 {
-            if let specificReminders = options?.reminders {
-                let reminders = specificReminders.map { Int(($0 as! Reminder).remindTimeFrame!) }
-                let should = reminders.contains(Int(timeLeft))
-                if should {
-                    let index = reminders.index(of: Int(timeLeft))
-                    let message = (specificReminders.array[index!] as! Reminder).customRemindMessage
-                    return (should, message)
-                }
-                return (should, nil)
+        if let specificReminders = options?.reminders {
+            let reminders = specificReminders.map { Int(($0 as! Reminder).remindTimeFrame!) }
+            print(reminders)
+            print(Int(timeLeft))
+            print()
+            let should = reminders.contains(Int(timeLeft))
+            if should {
+                let index = reminders.index(of: Int(timeLeft))
+                let message = (specificReminders.array[index!] as! Reminder).customRemindMessage
+                return (should, message)
             }
+            return (should, nil)
         }
         
         if let regularReminders = options?.regularReminderInterval {

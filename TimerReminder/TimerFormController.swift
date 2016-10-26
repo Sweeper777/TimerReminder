@@ -26,7 +26,7 @@ class TimerFormController: FormViewController {
         super.viewWillAppear(animated)
         let row: StepperRow = form.rowBy(tag: tagReminderCount)!
         if self.options != nil && self.options.reminders!.count != 0 {
-            row.value = Double(self.options.reminders!.count)
+            row.value = self.options.reminders!.count
         } else {
             row.value = 1
         }
@@ -178,7 +178,7 @@ class TimerFormController: FormViewController {
                 }
                 
                 if self.options != nil && self.options.reminders!.count != 0 {
-                    row.value = Double(self.options.reminders!.count)
+                    row.value = self.options.reminders!.count
                 } else {
                     row.value = 1
                 }
@@ -223,6 +223,9 @@ class TimerFormController: FormViewController {
                 section in
                 section.hidden = Condition.function([tagReminderCount, tagReminderOnOff, tagReminderStyle]) {
                     let count: StepperRow = $0.rowBy(tag: tagReminderCount)!
+                    print("\n\n\n\n")
+                    print(count.value)
+                    print("\n\n\n\n")
                     let onOff: SwitchRow = $0.rowBy(tag: tagReminderOnOff)!
                     let style: SegmentedRow<ReminderStyle> = $0.rowBy(tag: tagReminderStyle)!
                     

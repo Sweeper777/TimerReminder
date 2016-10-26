@@ -5,8 +5,7 @@ final class TimeIntervalRow: SelectorRow<PushSelectorCell<Int>, SetTimerControll
         super.init(tag: tag)
         initializer(self)
         presentationMode = PresentationMode.show(controllerProvider: ControllerProvider.storyBoard(storyboardId: "TimeIntervalSelector", storyboardName: "Main", bundle: nil), onDismiss: {
-            _ in
-            // vc in vc.navigationController?.popViewControllerAnimated(true)
+             _ in
         })
         displayValueFor = {
             guard let timeInterval = $0 else { return "" }
