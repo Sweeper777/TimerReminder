@@ -1,23 +1,4 @@
 import AVFoundation
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return false
-  default:
-    return false
-  }
-}
-
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
-}
 
 
 class CountDownTimer: Timer {
@@ -79,9 +60,6 @@ class CountDownTimer: Timer {
             
             let enableBeep = self.options?.beepSounds?.boolValue
             let shouldRemind = self.shouldInvokeReminder()
-            if abs(self.timeLeft - 50) < 5 {
-                print(shouldRemind)
-            }
             
             if self.timeLeft <= 0 {
                 // time's up
@@ -170,9 +148,6 @@ class CountDownTimer: Timer {
     fileprivate func shouldInvokeReminder() -> (should: Bool, customMessage: String?) {
         if let specificReminders = options?.reminders {
             let reminders = specificReminders.map { Int(($0 as! Reminder).remindTimeFrame!) }
-            print(reminders)
-            print(Int(timeLeft))
-            print()
             let should = reminders.contains(Int(timeLeft))
             if should {
                 let index = reminders.index(of: Int(timeLeft))

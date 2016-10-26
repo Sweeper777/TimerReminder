@@ -223,9 +223,6 @@ class TimerFormController: FormViewController {
                 section in
                 section.hidden = Condition.function([tagReminderCount, tagReminderOnOff, tagReminderStyle]) {
                     let count: StepperRow = $0.rowBy(tag: tagReminderCount)!
-                    print("\n\n\n\n")
-                    print(count.value)
-                    print("\n\n\n\n")
                     let onOff: SwitchRow = $0.rowBy(tag: tagReminderOnOff)!
                     let style: SegmentedRow<ReminderStyle> = $0.rowBy(tag: tagReminderStyle)!
                     
