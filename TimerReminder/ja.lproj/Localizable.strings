@@ -1,18 +1,18 @@
 "My Timer Settings" = "タイマー設定";
 "Add New Timer Settings" = "タイマー設定を追加";
-"Set Timer" = "セットタイマー";
+"Set Timer" = "タイマーをセットします";
 "Switch to Stopwatch Mode" = "ストップウォッチモード";
 "Switch to Timer Mode" = "タイマーモード";
 "Settings applied" = "設定が適用されます";
 
 "Add Settings" = "設定を追加";
-"Edit Settings" = "編集の設定";
+"Edit Settings" = "設定を編集";
 "This is the language in which the reminder messages and the \"Time is up\" message will be spoken." = "";
 "Name:" = "名：";
 "Language" = "言語";
-"Only applicable in Timer Mode" = "タイマモードのみに適用されます";
+"Only applicable in Timer Mode" = "タイマモードのみに適用します";
 "Countdown" = "カウントダウン";
-"Start Countdown At" = "カウントダウン時間を開始";
+"Start Countdown At" = "カウントダウンの開始時間";
 "Beep Sounds" = "ビープ音";
 "time is up" = "時がアップしています";
 "Message:" = "メッセージ：";
@@ -22,10 +22,10 @@
 "No. of Reminders" = "リマインダー数";
 "Remind Every" = "リマインダー間隔";
 "Reminder" = "リマインダー";
-"Remind At" = "時間を思い出させます";
-"Save and apply" = "保存して適用されます";
-"Apply but don't save" = "保存せずに適用されます";
-"Save but don't apply" = "保存して、適用されません";
+"Remind At" = "何時で思い出させますか？";
+"Save and apply" = "保存して、適用します";
+"Apply but don't save" = "保存しなくて、適用します";
+"Save but don't apply" = "保存して、適用しません";
 "Cancel" = "キャンセル";
 
 "Default" = "デフォルト";
@@ -45,7 +45,7 @@
 "Play a Sound" = "サウンドを再生";
 "Verbalize a Message" = "音声プロンプト";
 "Regular" = "特定の間隔で";
-"At Specific Times" = "特定の時間に";
+"At Specific Times" = "特定の時間で";
 
 "Edit" = "編集";
 "Delete" = "削除";
@@ -55,7 +55,7 @@
 "Gesture Controls" = "ジェスチャーコントロール";
 "Font Style" = "フォントスタイル";
 "Global Settings" = "グローバル設定";
-"gesture instructions" = "セットタイマー：1本の指で上にスワイプします\nタイマー設定：2本の指で上にスワイプします\n增加设定：2本の指でダブルタップ";
+"gesture instructions" = "タイマーをセット：1本の指で上にスワイプします\nタイマー設定：2本の指で上にスワイプします\nタイマー設定を追加：2本の指でダブルタップ";
 
 "Timer Animation" = "タイマーアニメーション";
 "Night Mode" = "ナイトモード";
