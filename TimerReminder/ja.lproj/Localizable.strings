@@ -23,9 +23,9 @@
 "Remind Every" = "リマインダー間隔";
 "Reminder" = "リマインダー";
 "Remind At" = "何時で思い出させますか？";
-"Save and apply" = "保存して、適用します";
-"Apply but don't save" = "保存しなくて、適用します";
-"Save but don't apply" = "保存して、適用しません";
+"Save and apply" = "保存して、適用する";
+"Apply but don't save" = "保存しなくて、適用する";
+"Save but don't apply" = "保存して、適用しない";
 "Cancel" = "キャンセル";
 
 "Default" = "デフォルト";
