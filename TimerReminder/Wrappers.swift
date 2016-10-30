@@ -33,3 +33,10 @@ enum ReminderStyle: String, CustomStringConvertible {
     case Regular = "Regular"
     case AtSpecificTimes = "At Specific Times"
 }
+
+enum FontStyle: Int {
+    case Thin = 0
+    case Regular = 1
+    case Light = 2
+    case Ultralight = 3
+}
