@@ -23,17 +23,19 @@ class GlobalSettingsController: FormViewController {
                 row.value = UserDefaults.standard.bool(forKey: "gestureControl")
         }.onChange {
                 row in
-                self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "gestureControl", newValue: row.value! as AnyObject)
+                self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "gestureControl", newValue: row.value!)
         }
         
-            +++ SegmentedRow<String>(tagFontStyle) {
+            +++ PickerInlineRow<FontStyle>(tagFontStyle) {
                 row in
                 row.title = NSLocalizedString("Font Style", comment: "")
-                row.options = ["Light", "Regular"]
-                row.value = UserDefaults.standard.integer(forKey: "fontStyle") == 1 ? "Regular" : "Light"
+                row.options = [.Thin, .Regular, .Light, .Ultralight]
+                let fontStyle = UserDefaults.standard.integer(forKey: "fontStyle")
+                row.value = FontStyle(rawValue: fontStyle)
         }.onChange {
             row in
-            self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "fontStyle", newValue: row.value! as AnyObject)
+            print(row.value!)
+            self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "fontStyle", newValue: row.value!)
         }
         
             +++ PickerInlineRow<LTMorphingEffect>(tagAnimation) {
@@ -43,7 +45,7 @@ class GlobalSettingsController: FormViewController {
                 row.options = [.evaporate, .scale, .pixelate, .fall, .burn]
         }.onChange {
             row in
-            self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "timerAnimation", newValue: row.value!.rawValue as AnyObject)
+            self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "timerAnimation", newValue: row.value!.rawValue)
         }
         
             +++ SwitchRow(tagNightMode) {
@@ -52,7 +54,7 @@ class GlobalSettingsController: FormViewController {
                 row.value = UserDefaults.standard.bool(forKey: "nightMode")
         }.onChange {
             row in
-            self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "nightMode", newValue: row.value! as AnyObject)
+            self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "nightMode", newValue: row.value!)
         }
     }
 }

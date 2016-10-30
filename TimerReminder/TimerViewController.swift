@@ -69,8 +69,8 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         view.backgroundColor = nightMode ? UIColor.black : UIColor.white
         timerLabel.textColor = nightMode ? UIColor.white : UIColor.black
         
-        let fontStyle = UserDefaults.standard.integer(forKey: "fontStyle") == 1 ? "" : "-Thin"
-        timerLabel.font = UIFont(name: "SFUIDisplay\(fontStyle)", size: 16)
+        let fontStyle = FontStyle(rawValue: UserDefaults.standard.integer(forKey: "fontStyle"))
+        timerLabel.font = UIFont(name: "SFUIDisplay-\(fontStyle!)", size: 16)
         let textCache = timerLabel.text
         shortFontSize = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
         longFontSize = timerLabel.fontSizeThatFits(text: "00:00:00", maxFontSize: 500)
@@ -303,7 +303,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         return true
     }
     
-    func globalSettings(_ globalSettings: GlobalSettingsController, globalSettingsDidChangeWithKey key: String, newValue: AnyObject) {
+    func globalSettings(_ globalSettings: GlobalSettingsController, globalSettingsDidChangeWithKey key: String, newValue: Any) {
         if key == "gestureControl" {
             let value = newValue as! Bool
             UserDefaults.standard.set(value, forKey: key)
@@ -311,10 +311,9 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             self.setTimerRecog.isEnabled = value
             self.mySettingsRecog.isEnabled = value
         } else if key == "fontStyle" {
-            let value = (newValue as! String) == "Regular" ? 1 : 0
-            UserDefaults.standard.set(value, forKey: key)
-            let fontStyle = value == 1 ? "" : "-Thin"
-            timerLabel.font = UIFont(name: "SFUIDisplay\(fontStyle)", size: 16)
+            let value = newValue as! FontStyle
+            UserDefaults.standard.set(value.rawValue, forKey: key)
+            timerLabel.font = UIFont(name: "SFUIDisplay-\(value)", size: 16)
             let textCache = timerLabel.text
             shortFontSize = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
             longFontSize = timerLabel.fontSizeThatFits(text: "00:00:00", maxFontSize: 500)
