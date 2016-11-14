@@ -154,7 +154,9 @@ class CountDownTimer: Timer {
                 let message = (specificReminders.array[index!] as! Reminder).customRemindMessage
                 return (should, message)
             }
-            return (should, nil)
+            if reminders.count != 0 {
+                return (should, nil)
+            }
         }
         
         if let regularReminders = options?.regularReminderInterval {

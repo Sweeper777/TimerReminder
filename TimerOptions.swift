@@ -16,12 +16,12 @@ class TimerOptions: NSManagedObject {
         self.name = "Unnamed"
         self.beepSounds = false
         self.countDownTime = 0
-        self.reminders = NSOrderedSet()
         self.language = Languages.English.rawValue
         self.timesUpMessage = nil
         self.regularReminderInterval = nil
         self.timesUpSound = nil
         self.vibrate = false
         self.regularReminderMessage = nil
+        self.reminders = nil
     }
 }
