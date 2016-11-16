@@ -22,15 +22,15 @@ class TimerFormController: FormViewController {
         initializeForm()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let row: StepperRow = form.rowBy(tag: tagReminderCount)!
-        if self.options != nil && self.options.reminders!.count != 0 {
-            row.value = self.options.reminders!.count
-        } else {
-            row.value = 1
-        }
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        let row: StepperRow = form.rowBy(tag: tagReminderCount)!
+//        if self.options != nil && self.options.reminders!.count != 0 {
+//            row.value = Double(self.options.reminders!.count)
+//        } else {
+//            row.value = 1
+//        }
+//    }
     
     func initializeForm() {
         
