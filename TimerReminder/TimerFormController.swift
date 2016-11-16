@@ -178,7 +178,7 @@ class TimerFormController: FormViewController {
                 }
                 
                 if self.options != nil && self.options.reminders!.count != 0 {
-                    row.value = self.options.reminders!.count
+                    row.value = Double(self.options.reminders!.count)
                 } else {
                     row.value = 1
                 }
