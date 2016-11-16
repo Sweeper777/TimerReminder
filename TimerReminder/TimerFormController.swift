@@ -200,6 +200,7 @@ class TimerFormController: FormViewController {
                 }
                 
         }
+            
             <<< TextRow(tagRegularReminderMessage) {
                 row in
                 row.title = NSLocalizedString("Message:", comment: "")
@@ -355,7 +356,7 @@ class TimerFormController: FormViewController {
             options.regularReminderMessage = regularReminderMessage
         }
         
-        if let reminderCount = values[tagReminderCount] as? Int {
+        if let reminderCount = values[tagReminderCount] as? Double {
             var reminders = [Reminder]()
             for i in 1...Int(reminderCount) {
                 let reminder = Reminder(entity: NSEntityDescription.entity(forEntityName: "Reminder", in: context)!, insertInto: shouldSave ? context : nil)
