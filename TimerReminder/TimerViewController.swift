@@ -163,7 +163,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         
         moreMenu.anchorView = hoverBar
         moreMenu.dataSource = menuItems
-        moreMenu.width = view.w - 100
+        moreMenu.width = view.w
         moreMenu.cellNib = UINib(nibName: "MoreMenuItem", bundle: nil)
         moreMenu.customCellConfiguration = {
             _, item, cell in
