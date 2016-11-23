@@ -7,7 +7,7 @@
 
 "Add Settings" = "增加设置";
 "Edit Settings" = "编辑设置";
-"This is the language in which the reminder messages and the \"Time is up\" message will be spoken." = "";
+"This is the language in which the reminder messages and the \"Time is up\" message will be spoken." = "提醒信息和“时间到”信息会以这个语言说出";
 "Name:" = "名字：";
 "Language" = "语言";
 "Only applicable in Timer Mode" = "只适用于计时器模式";

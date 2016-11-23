@@ -7,7 +7,7 @@
 
 "Add Settings" = "設定を追加";
 "Edit Settings" = "設定を編集";
-"This is the language in which the reminder messages and the \"Time is up\" message will be spoken." = "";
+"This is the language in which the reminder messages and the \"Time is up\" message will be spoken." = "この言語では、リマインダーのメッセージと「時間切れです」と言います";
 "Name:" = "名：";
 "Language" = "言語";
 "Only applicable in Timer Mode" = "タイマモードのみに適用します";
