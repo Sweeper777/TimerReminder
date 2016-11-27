@@ -161,9 +161,14 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         }
         menuItems.append("Global Settings")
         
+        let widths = menuItems.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
+        print(widths)
+        let menuWidth = widths.max()! + 70
+        print(menuWidth)
+        
         moreMenu.anchorView = hoverBar
         moreMenu.dataSource = menuItems
-        moreMenu.width = view.w
+        moreMenu.width = menuWidth
         moreMenu.cellNib = UINib(nibName: "MoreMenuItem", bundle: nil)
         moreMenu.customCellConfiguration = {
             _, item, cell in
