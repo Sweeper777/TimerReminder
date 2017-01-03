@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16A323" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="2">
+    <entity name="Reminder" representedClassName=".Reminder" syncable="YES">
+        <attribute name="customRemindMessage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remindTimeFrame" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="timer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimerOptions" inverseName="reminders" inverseEntity="TimerOptions" syncable="YES"/>
+    </entity>
+    <entity name="TimerOptions" representedClassName=".TimerOptions" syncable="YES">
+        <attribute name="beepSounds" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="countDownTime" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="counting" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="regularReminderInterval" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="regularReminderMessage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timesUpMessage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timesUpSound" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vibrate" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="reminders" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Reminder" inverseName="timer" inverseEntity="Reminder" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Reminder" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="TimerOptions" positionX="-54" positionY="-9" width="128" height="210"/>
+    </elements>
+</model>

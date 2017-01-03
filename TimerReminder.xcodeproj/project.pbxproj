@@ -129,6 +129,7 @@
 		5A20D16F1DC5ECD0009862F7 /* SF-UI-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Light.otf"; sourceTree = "<group>"; };
 		5A6FD15D1D795DC90003AC44 /* AdUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdUtility.swift; sourceTree = "<group>"; };
 		5A9608E61D498728001EE17F /* SetTimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimerController.swift; sourceTree = "<group>"; };
+		5AC14D551E1B33D400448123 /* TimerReminder 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TimerReminder 3.xcdatamodel"; sourceTree = "<group>"; };
 		5AFD04781D7843020099527B /* Clock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		5AFEF2FB1D6833DC00176303 /* TimerReminder 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TimerReminder 2.xcdatamodel"; sourceTree = "<group>"; };
 		5AFF72A81D65BBA80031429E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
@@ -656,10 +657,11 @@
 		5A067CBF1D4490A500238AF5 /* TimerReminder.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				5AC14D551E1B33D400448123 /* TimerReminder 3.xcdatamodel */,
 				5AFEF2FB1D6833DC00176303 /* TimerReminder 2.xcdatamodel */,
 				5A067CC01D4490A500238AF5 /* TimerReminder.xcdatamodel */,
 			);
-			currentVersion = 5AFEF2FB1D6833DC00176303 /* TimerReminder 2.xcdatamodel */;
+			currentVersion = 5AC14D551E1B33D400448123 /* TimerReminder 3.xcdatamodel */;
 			path = TimerReminder.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

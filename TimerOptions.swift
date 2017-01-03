@@ -23,5 +23,6 @@ class TimerOptions: NSManagedObject {
         self.vibrate = false
         self.regularReminderMessage = nil
         self.reminders = NSOrderedSet()
+        self.counting = false
     }
 }

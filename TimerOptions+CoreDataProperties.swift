@@ -13,5 +13,6 @@ extension TimerOptions {
     @NSManaged var language: String?
     @NSManaged var vibrate: NSNumber?
     @NSManaged var reminders: NSOrderedSet?
+    @NSManaged var counting: NSNumber?
 
 }
