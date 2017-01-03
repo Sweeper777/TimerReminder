@@ -66,6 +66,7 @@ class CountUpTimer: Timer {
             self.timeMeasured += 1
             
             let enableBeep = self.options?.beepSounds?.boolValue
+            let counting = self.options?.counting?.boolValue
             let shouldRemind = self.shouldInvokeReminder()
             
             if shouldRemind.should {
@@ -81,6 +82,12 @@ class CountUpTimer: Timer {
                     self.synthesizer.stopSpeaking(at: .immediate)
                     self.synthesizer.speak(utterance)
                 }
+            } else if counting == true {
+                let utterance = AVSpeechUtterance(string: Int(self.timeMeasured) % 60 == 0 ? normalize(timeInterval: self.timeMeasured) : String(Int(self.timeMeasured) % 60))
+                utterance.voice = AVSpeechSynthesisVoice(language: self.options!.language!)
+                utterance.rate = AVSpeechUtteranceMaximumSpeechRate * 0.61
+                self.synthesizer.stopSpeaking(at: .immediate)
+                self.synthesizer.speak(utterance)
             } else if enableBeep == true {
                 self.beepSoundPlayer?.play()
             }
