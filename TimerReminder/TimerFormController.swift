@@ -74,6 +74,17 @@ class TimerFormController: FormViewController {
                 }
         }
         
+        form +++ Section(footer: NSLocalizedString("Only applicable in Stopwatch Mode", comment: ""))
+            <<< SwitchRow(tagCounting) {
+                row in
+                row.title = NSLocalizedString("Counting", comment: "")
+                row.value = false
+                
+                if self.options != nil {
+                    row.value = self.options.counting?.boolValue
+                }
+        }
+        
         form +++ SwitchRow(tagBeepSounds) {
             row in
             row.title = NSLocalizedString("Beep Sounds", comment: "")

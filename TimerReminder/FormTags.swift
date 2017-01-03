@@ -14,6 +14,7 @@ let tagRegularReminderMessage = "regularReminderMessage"
 let tagReminderCount = "reminderCount"
 let tagRemindAt = "remindAt"
 let tagRemindMessage = "remindMessage"
+let tagCounting = "counting"
 
 let tagGestureControls = "gestureControls"
 let tagFontStyle = "fontStyle"
