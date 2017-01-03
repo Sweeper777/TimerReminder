@@ -75,7 +75,8 @@ class CountUpTimer: Timer {
                     self.synthesizer.stopSpeaking(at: .immediate)
                     self.synthesizer.speak(utterance)
                 } else {
-                    let utterance = AVSpeechUtterance(string: shouldRemind.customMessage!)
+                    let remindMessage = shouldRemind.customMessage!.replacingOccurrences(of: "$TIMEELAPSED$", with: normalize(timeInterval: self.timeMeasured, with: self.options!))
+                    let utterance = AVSpeechUtterance(string: remindMessage)
                     utterance.voice = AVSpeechSynthesisVoice(language: self.options!.language!)
                     self.synthesizer.stopSpeaking(at: .immediate)
                     self.synthesizer.speak(utterance)
