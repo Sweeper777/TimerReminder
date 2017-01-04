@@ -10,7 +10,7 @@
 "This is the language in which the reminder messages and the \"Time is up\" message will be spoken." = "この言語では、リマインダーのメッセージと「時間切れです」と言います";
 "Name:" = "名：";
 "Language" = "言語";
-"Only applicable in Timer Mode" = "タイマモードのみに適用します";
+"Only applicable in Timer Mode" = "タイマモードのみに適用できます";
 "Countdown" = "カウントダウン";
 "Start Countdown At" = "カウントダウンの開始時間";
 "Beep Sounds" = "ビープ音";
@@ -61,5 +61,5 @@
 "Night Mode" = "ナイトモード";
 "Switch to Clock Mode" = "クロックモード";
 
-"Only applicable in Stopwatch Mode" = "ストップウォッチモードのみに適用します";
+"Only applicable in Stopwatch Mode" = "ストップウォッチモードのみに適用できます";
 "Counting" = "讀秒";
