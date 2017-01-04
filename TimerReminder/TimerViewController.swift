@@ -20,6 +20,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     @IBOutlet var mySettingsRecog: UISwipeGestureRecognizer!
     @IBOutlet var setTimerRecog: UISwipeGestureRecognizer!
     @IBOutlet var edgePanRecog: UIScreenEdgePanGestureRecognizer!
+    @IBOutlet var changeModeRecog: UISwipeGestureRecognizer!
     @IBOutlet var hoverBar: ISHHoverBar!
     
     @IBOutlet var ad: GADBannerView!
@@ -59,6 +60,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         view.addGestureRecognizer(addSettingRecog)
         view.addGestureRecognizer(mySettingsRecog)
         view.addGestureRecognizer(setTimerRecog)
+        view.addGestureRecognizer(changeModeRecog)
         
         let gestureEnabled = UserDefaults.standard.bool(forKey: "gestureControl")
         addSettingRecog.isEnabled = gestureEnabled
@@ -261,6 +263,10 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             self.view.makeToast(NSLocalizedString("Settings applied", comment: ""), backgroundColor: nil)
             UserDefaults.standard.set(self.timer.options!.objectID.uriRepresentation(), forKey: "selectedSetting")
         }
+    }
+    
+    @IBAction func changeMode() {
+        
     }
     
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {

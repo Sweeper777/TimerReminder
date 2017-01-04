@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,11 +24,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-gI-hVl" customClass="ISHHoverBar">
-                                <frame key="frameInset" minX="448" minY="28" width="132" height="44"/>
+                                <rect key="frame" x="448" y="28" width="132" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="132" id="QrX-da-Fm1"/>
                                     <constraint firstAttribute="height" constant="44" id="rC9-ut-dUQ"/>
@@ -37,14 +40,14 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zro-fB-6Qb" customClass="GADBannerView">
-                                <frame key="frameInset" minX="20" minY="525" width="560" height="55"/>
+                                <rect key="frame" x="20" y="525" width="560" height="55"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="kzH-od-AyW"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEG-Po-lfJ" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                <frame key="frameInset" minX="20" minY="14" width="560" height="566"/>
+                                <rect key="frame" x="20" y="14" width="560" height="566"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -67,6 +70,7 @@
                     <connections>
                         <outlet property="ad" destination="zro-fB-6Qb" id="5Yv-TG-Y39"/>
                         <outlet property="addSettingRecog" destination="lXE-Uy-mIO" id="LV4-qJ-enJ"/>
+                        <outlet property="changeModeRecog" destination="edC-4q-ZCq" id="pgh-aY-Fyl"/>
                         <outlet property="edgePanRecog" destination="F1A-j3-HPf" id="KAL-L4-E0p"/>
                         <outlet property="hoverBar" destination="5wo-gI-hVl" id="xoy-Gy-f14"/>
                         <outlet property="moreButton" destination="QMk-t8-G7Y" id="YfO-6O-pie"/>
@@ -82,6 +86,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" numberOfTouchesRequired="2" id="edC-4q-ZCq">
+                    <connections>
+                        <action selector="changeMode" destination="BYZ-38-t0r" id="4YV-Nx-emy"/>
+                    </connections>
+                </swipeGestureRecognizer>
                 <tapGestureRecognizer numberOfTapsRequired="2" numberOfTouchesRequired="2" id="lXE-Uy-mIO">
                     <connections>
                         <outlet property="delegate" destination="BYZ-38-t0r" id="Cas-oH-rWX"/>
@@ -170,7 +179,7 @@
             <objects>
                 <tableViewController id="SlM-XX-x92" customClass="SettingSelectorController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="yN6-8H-9g5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <connections>
@@ -210,7 +219,7 @@
                         <viewControllerLayoutGuide type="bottom" id="9yJ-1R-fWA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="O7t-O4-1RZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -306,11 +315,11 @@
                         <viewControllerLayoutGuide type="bottom" id="c72-BQ-3si"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="J4F-Jg-Nux">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="So4-zf-Dsm">
-                                <frame key="frameInset" minX="20" minY="20" width="560" height="565"/>
+                                <rect key="frame" x="20" y="20" width="560" height="565"/>
                                 <connections>
                                     <outlet property="dataSource" destination="v5k-S8-xxj" id="IGV-vR-7Ak"/>
                                     <outlet property="delegate" destination="v5k-S8-xxj" id="aZ0-7Z-hfo"/>
@@ -342,18 +351,18 @@
                         <viewControllerLayoutGuide type="bottom" id="L9M-36-ojp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oeB-I3-OCI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aLY-J2-tkW">
-                                <frame key="frameInset" minX="20" minY="28" width="560" height="503"/>
+                                <rect key="frame" x="20" y="28" width="560" height="503"/>
                                 <connections>
                                     <outlet property="dataSource" destination="J1G-ft-dxD" id="MlX-Ct-Tte"/>
                                     <outlet property="delegate" destination="J1G-ft-dxD" id="jQC-vu-krj"/>
                                 </connections>
                             </pickerView>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="csy-UA-fSA" customClass="GADBannerView">
-                                <frame key="frameInset" minX="20" minY="539" width="560" height="53"/>
+                                <rect key="frame" x="20" y="539" width="560" height="53"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="JL9-Dk-HGy"/>
