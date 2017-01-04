@@ -60,3 +60,6 @@
 "Timer Animation" = "タイマーアニメーション";
 "Night Mode" = "ナイトモード";
 "Switch to Clock Mode" = "クロックモード";
+
+"Only applicable in Stopwatch Mode" = "ストップウォッチモードのみに適用します";
+"Counting" = "讀秒";

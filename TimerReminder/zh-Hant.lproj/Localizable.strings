@@ -60,3 +60,6 @@
 "Timer Animation" = "計時器動畫效果";
 "Night Mode" = "夜間模式";
 "Switch to Clock Mode" = "切換至時鐘模式";
+
+"Only applicable in Stopwatch Mode" = "只適用於秒錶模式";
+"Counting" = "讀秒";
