@@ -347,6 +347,10 @@ class TimerFormController: FormViewController {
             options.beepSounds = beepSounds as NSNumber?
         }
         
+        if let counting = values[tagCounting] as? Bool {
+            options.counting = counting as NSNumber
+        }
+        
         if let timesUpMessage = values[tagTimesUpMessage] as? String {
             options.timesUpMessage = timesUpMessage
         }
