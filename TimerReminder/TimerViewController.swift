@@ -266,7 +266,19 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     }
     
     @IBAction func changeMode() {
-        
+        if timer is CountDownTimer {
+            self.timer.reset()
+            self.playButton.image = UIImage(named: "play")
+            self.timer = CountUpTimer(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
+        } else if timer is CountUpTimer {
+            self.timer.reset()
+            self.playButton.image = UIImage(named: "play")
+            self.timer = Clock(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
+        } else if timer is Clock {
+            self.timer.reset()
+            self.playButton.image = UIImage(named: "play")
+            self.timer = CountDownTimer(time: 60, options: self.appliedOptions, onTimerChange: self.timerChangedClosure, onEnd: nil)
+        }
     }
     
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
