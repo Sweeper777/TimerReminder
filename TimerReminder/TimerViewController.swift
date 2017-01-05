@@ -68,6 +68,8 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         addSettingRecog.isEnabled = gestureEnabled
         setTimerRecog.isEnabled = gestureEnabled
         mySettingsRecog.isEnabled = gestureEnabled
+        changePreviousModeRecog.isEnabled = gestureEnabled
+        changeModeRecog.isEnabled = gestureEnabled
         
         let nightMode = UserDefaults.standard.bool(forKey: "nightMode")
         view.backgroundColor = nightMode ? UIColor.black : UIColor.white
