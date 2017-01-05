@@ -55,7 +55,7 @@
 "Gesture Controls" = "手勢控制";
 "Font Style" = "字體樣式";
 "Global Settings" = "全局設定";
-"gesture instructions" = "設定計時器：用一隻手指向上滑動\n我的設定：用兩只手指向上滑動\n增加設定：用兩只手指雙擊";
+"gesture instructions" = "設定計時器：用一隻手指向上滑動\n我的設定：用兩只手指向上滑動\n增加設定：用兩只手指雙擊\n改變模式：用兩只手指向左或右滑動";
 
 "Timer Animation" = "計時器動畫效果";
 "Night Mode" = "夜間模式";
