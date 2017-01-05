@@ -63,3 +63,7 @@
 
 "Only applicable in Stopwatch Mode" = "只适用于秒表模式";
 "Counting" = "读秒";
+
+"Changed to Stopwatch Mode" = "已切换至秒表模式";
+"Changed to Timer Mode" = "已切换至计时器模式";
+"Changed to Clock Mode" = "已切换至时钟模式";

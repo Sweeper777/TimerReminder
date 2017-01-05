@@ -63,3 +63,7 @@
 
 "Only applicable in Stopwatch Mode" = "ストップウォッチモードのみに適用できます";
 "Counting" = "讀秒";
+
+"Changed to Stopwatch Mode" = "ストップウォッチモードに変えました";
+"Changed to Timer Mode" = "タイマーモードに変えました";
+"Changed to Clock Mode" = "クロックモードに変えました";
