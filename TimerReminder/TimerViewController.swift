@@ -274,14 +274,17 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             self.timer.reset()
             self.playButton.image = UIImage(named: "play")
             self.timer = CountUpTimer(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
+            self.view.makeToast(NSLocalizedString("Changed to Stopwatch Mode", comment: ""), backgroundColor: nil)
         } else if timer is CountUpTimer {
             self.timer.reset()
             self.playButton.image = UIImage(named: "play")
             self.timer = Clock(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
+            self.view.makeToast(NSLocalizedString("Changed to Clock Mode", comment: ""), backgroundColor: nil)
         } else if timer is Clock {
             self.timer.reset()
             self.playButton.image = UIImage(named: "play")
             self.timer = CountDownTimer(time: 60, options: self.appliedOptions, onTimerChange: self.timerChangedClosure, onEnd: nil)
+            self.view.makeToast(NSLocalizedString("Changed to Timer Mode", comment: ""), backgroundColor: nil)
         }
     }
     
@@ -290,14 +293,17 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             self.timer.reset()
             self.playButton.image = UIImage(named: "play")
             self.timer = CountUpTimer(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
+            self.view.makeToast(NSLocalizedString("Changed to Stopwatch Mode", comment: ""), backgroundColor: nil)
         } else if timer is CountDownTimer {
             self.timer.reset()
             self.playButton.image = UIImage(named: "play")
             self.timer = Clock(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
+            self.view.makeToast(NSLocalizedString("Changed to Clock Mode", comment: ""), backgroundColor: nil)
         } else if timer is CountUpTimer {
             self.timer.reset()
             self.playButton.image = UIImage(named: "play")
             self.timer = CountDownTimer(time: 60, options: self.appliedOptions, onTimerChange: self.timerChangedClosure, onEnd: nil)
+            self.view.makeToast(NSLocalizedString("Changed to Timer Mode", comment: ""), backgroundColor: nil)
         }
     }
     
