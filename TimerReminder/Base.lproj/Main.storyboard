@@ -71,6 +71,7 @@
                         <outlet property="ad" destination="zro-fB-6Qb" id="5Yv-TG-Y39"/>
                         <outlet property="addSettingRecog" destination="lXE-Uy-mIO" id="LV4-qJ-enJ"/>
                         <outlet property="changeModeRecog" destination="edC-4q-ZCq" id="pgh-aY-Fyl"/>
+                        <outlet property="changePreviousModeRecog" destination="IBt-te-B7O" id="dcV-rH-Uhx"/>
                         <outlet property="edgePanRecog" destination="F1A-j3-HPf" id="KAL-L4-E0p"/>
                         <outlet property="hoverBar" destination="5wo-gI-hVl" id="xoy-Gy-f14"/>
                         <outlet property="moreButton" destination="QMk-t8-G7Y" id="YfO-6O-pie"/>
@@ -134,6 +135,11 @@
                     </connections>
                 </barButtonItem>
                 <exit id="6gf-lf-dXb" userLabel="Exit" sceneMemberID="exit"/>
+                <swipeGestureRecognizer direction="right" numberOfTouchesRequired="2" id="IBt-te-B7O">
+                    <connections>
+                        <action selector="changePreviousMode" destination="BYZ-38-t0r" id="i8a-6n-KbB"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="366" y="306"/>
         </scene>
@@ -141,7 +147,7 @@
         <scene sceneID="4Bo-Ob-XkE">
             <objects>
                 <navigationController id="Uef-Ri-5mY" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="44L-tT-Rbw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="44L-tT-Rbw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -250,7 +256,7 @@
         <scene sceneID="TFk-vH-9XI">
             <objects>
                 <navigationController id="v5I-Uv-1Bn" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="c3n-V5-Fqj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c3n-V5-Fqj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -270,7 +276,7 @@
         <scene sceneID="20l-xr-YIf">
             <objects>
                 <navigationController id="75i-S5-sZD" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Gk8-d0-rdD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gk8-d0-rdD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -290,7 +296,7 @@
         <scene sceneID="8dQ-3c-pPS">
             <objects>
                 <navigationController id="LVp-DH-RsJ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MCP-gR-umF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MCP-gR-umF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

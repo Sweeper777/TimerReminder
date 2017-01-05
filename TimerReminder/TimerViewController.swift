@@ -21,6 +21,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     @IBOutlet var setTimerRecog: UISwipeGestureRecognizer!
     @IBOutlet var edgePanRecog: UIScreenEdgePanGestureRecognizer!
     @IBOutlet var changeModeRecog: UISwipeGestureRecognizer!
+    @IBOutlet var changePreviousModeRecog: UISwipeGestureRecognizer!
     @IBOutlet var hoverBar: ISHHoverBar!
     
     @IBOutlet var ad: GADBannerView!
@@ -279,6 +280,10 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             self.playButton.image = UIImage(named: "play")
             self.timer = CountDownTimer(time: 60, options: self.appliedOptions, onTimerChange: self.timerChangedClosure, onEnd: nil)
         }
+    }
+    
+    @IBAction func changePreviousMode() {
+        
     }
     
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
