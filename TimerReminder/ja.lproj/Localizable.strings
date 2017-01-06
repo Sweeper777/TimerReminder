@@ -3,7 +3,7 @@
 "Set Timer" = "タイマーをセットする";
 "Switch to Stopwatch Mode" = "ストップウォッチモード";
 "Switch to Timer Mode" = "タイマーモード";
-"Settings applied" = "設定が適用されます";
+"Settings applied" = "設定が適用されました";
 
 "Add Settings" = "設定を追加";
 "Edit Settings" = "設定を編集";
@@ -55,15 +55,15 @@
 "Gesture Controls" = "ジェスチャーコントロール";
 "Font Style" = "フォントスタイル";
 "Global Settings" = "グローバル設定";
-"gesture instructions" = "タイマーをセット：1本の指で上にスワイプします\nタイマー設定：2本の指で上にスワイプします\nタイマー設定を追加：2本の指でダブルタップします\nモードを変え：2本の指で左または右にスワイプします";
+"gesture instructions" = "タイマーをセット：1本の指で上にスワイプします\nタイマー設定：2本の指で上にスワイプします\nタイマー設定を追加：2本の指でダブルタップします\nモードを変更：2本の指で左または右にスワイプします";
 
 "Timer Animation" = "タイマーアニメーション";
 "Night Mode" = "ナイトモード";
 "Switch to Clock Mode" = "クロックモード";
 
 "Only applicable in Stopwatch Mode" = "ストップウォッチモードのみに適用できます";
-"Counting" = "讀秒";
+"Counting" = "カウンチイング";
 
-"Changed to Stopwatch Mode" = "ストップウォッチモードに変えました";
-"Changed to Timer Mode" = "タイマーモードに変えました";
-"Changed to Clock Mode" = "クロックモードに変えました";
+"Changed to Stopwatch Mode" = "ストップウォッチモードに変更しました";
+"Changed to Timer Mode" = "タイマーモードに変更しました";
+"Changed to Clock Mode" = "クロックモードに変更しました";
