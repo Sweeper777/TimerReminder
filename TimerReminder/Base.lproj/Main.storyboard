@@ -27,10 +27,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-gI-hVl" customClass="ISHHoverBar">
-                                <rect key="frame" x="448" y="28" width="132" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-gI-hVl" customClass="ISHHoverBar">
+                                <rect key="frame" x="181" y="28" width="178" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="132" id="QrX-da-Fm1"/>
+                                    <constraint firstAttribute="width" constant="178" id="QrX-da-Fm1"/>
                                     <constraint firstAttribute="height" constant="44" id="rC9-ut-dUQ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -39,15 +39,15 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zro-fB-6Qb" customClass="GADBannerView">
-                                <rect key="frame" x="20" y="525" width="560" height="55"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zro-fB-6Qb" customClass="GADBannerView">
+                                <rect key="frame" x="16" y="592" width="343" height="55"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="kzH-od-AyW"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEG-Po-lfJ" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                <rect key="frame" x="20" y="14" width="560" height="566"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEG-Po-lfJ" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
+                                <rect key="frame" x="16" y="14" width="343" height="633"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -78,6 +78,7 @@
                         <outlet property="mySettingsRecog" destination="nLz-ad-0ql" id="KKv-Ox-GNi"/>
                         <outlet property="playButton" destination="yDO-VZ-boI" id="Ias-SL-sjp"/>
                         <outlet property="restartButton" destination="6QR-ca-i43" id="65l-K7-Tak"/>
+                        <outlet property="screenshotButton" destination="zBB-Xc-yuj" id="7CK-gH-jH1"/>
                         <outlet property="setTimerRecog" destination="hr1-4a-SNr" id="j4w-xY-mo5"/>
                         <outlet property="timerLabel" destination="mEG-Po-lfJ" id="Fgz-7t-ooI"/>
                         <segue destination="LVp-DH-RsJ" kind="presentation" identifier="showSetTimer" modalPresentationStyle="formSheet" id="TwS-Ha-VvY"/>
@@ -128,6 +129,9 @@
                         <action selector="restart:" destination="BYZ-38-t0r" id="aNK-8g-e32"/>
                     </connections>
                 </barButtonItem>
+                <barButtonItem image="camera" id="zBB-Xc-yuj">
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </barButtonItem>
                 <barButtonItem image="play" id="yDO-VZ-boI">
                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
@@ -141,13 +145,13 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="366" y="306"/>
+            <point key="canvasLocation" x="365.60000000000002" y="305.39730134932535"/>
         </scene>
         <!--Data Passer Controller-->
         <scene sceneID="4Bo-Ob-XkE">
             <objects>
                 <navigationController id="Uef-Ri-5mY" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="44L-tT-Rbw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="44L-tT-Rbw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -256,7 +260,7 @@
         <scene sceneID="TFk-vH-9XI">
             <objects>
                 <navigationController id="v5I-Uv-1Bn" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c3n-V5-Fqj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="c3n-V5-Fqj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -276,7 +280,7 @@
         <scene sceneID="20l-xr-YIf">
             <objects>
                 <navigationController id="75i-S5-sZD" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gk8-d0-rdD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Gk8-d0-rdD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -296,7 +300,7 @@
         <scene sceneID="8dQ-3c-pPS">
             <objects>
                 <navigationController id="LVp-DH-RsJ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MCP-gR-umF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MCP-gR-umF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -324,8 +328,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="So4-zf-Dsm">
-                                <rect key="frame" x="20" y="20" width="560" height="565"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="So4-zf-Dsm">
+                                <rect key="frame" x="16" y="20" width="343" height="632"/>
                                 <connections>
                                     <outlet property="dataSource" destination="v5k-S8-xxj" id="IGV-vR-7Ak"/>
                                     <outlet property="delegate" destination="v5k-S8-xxj" id="aZ0-7Z-hfo"/>
@@ -360,15 +364,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aLY-J2-tkW">
-                                <rect key="frame" x="20" y="28" width="560" height="503"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLY-J2-tkW">
+                                <rect key="frame" x="16" y="28" width="343" height="570"/>
                                 <connections>
                                     <outlet property="dataSource" destination="J1G-ft-dxD" id="MlX-Ct-Tte"/>
                                     <outlet property="delegate" destination="J1G-ft-dxD" id="jQC-vu-krj"/>
                                 </connections>
                             </pickerView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="csy-UA-fSA" customClass="GADBannerView">
-                                <rect key="frame" x="20" y="539" width="560" height="53"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csy-UA-fSA" customClass="GADBannerView">
+                                <rect key="frame" x="16" y="606" width="343" height="53"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="JL9-Dk-HGy"/>
@@ -411,6 +415,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" width="25" height="25"/>
         <image name="more" width="25" height="25"/>
         <image name="play" width="25" height="25"/>
         <image name="restart" width="25" height="25"/>

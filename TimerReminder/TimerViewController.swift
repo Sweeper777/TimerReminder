@@ -15,6 +15,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     @IBOutlet var playButton: UIBarButtonItem!
     @IBOutlet var restartButton: UIBarButtonItem!
     @IBOutlet var moreButton: UIBarButtonItem!
+    @IBOutlet var screenshotButton: UIBarButtonItem!
     
     @IBOutlet var addSettingRecog: UITapGestureRecognizer!
     @IBOutlet var mySettingsRecog: UISwipeGestureRecognizer!
@@ -86,7 +87,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         timerLabel.text = textCache
         
         hoverBar.orientation = .horizontal
-        hoverBar.items = [restartButton, playButton, moreButton]
+        hoverBar.items = [screenshotButton, restartButton, playButton, moreButton]
         
         ad.adUnitID = adUnitID
         ad.rootViewController = self
