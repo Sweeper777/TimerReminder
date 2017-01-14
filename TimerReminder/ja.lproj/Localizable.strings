@@ -1,6 +1,6 @@
 "My Timer Settings" = "タイマー設定";
 "Add New Timer Settings" = "タイマー設定を追加";
-"Set Timer" = "タイマーをセットする";
+"Set Timer" = "タイマーをセット";
 "Switch to Stopwatch Mode" = "ストップウォッチモード";
 "Switch to Timer Mode" = "タイマーモード";
 "Settings applied" = "設定が適用されました";
@@ -62,7 +62,7 @@
 "Switch to Clock Mode" = "クロックモード";
 
 "Only applicable in Stopwatch Mode" = "ストップウォッチモードのみに適用できます";
-"Counting" = "カウンチイング";
+"Counting" = "秒数を数える";
 
 "Changed to Stopwatch Mode" = "ストップウォッチモードに変更しました";
 "Changed to Timer Mode" = "タイマーモードに変更しました";
