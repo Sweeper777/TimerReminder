@@ -21,6 +21,9 @@ private let DeviceList = [
     /* iPhone 6 Plus */   "iPhone7,1": "iPhone 6 Plus",
     /* iPhone 6S */       "iPhone8,1": "iPhone 6S",
     /* iPhone 6S Plus */  "iPhone8,2": "iPhone 6S Plus",
+    /* iPhone 7 */        "iPhone9,1": "iPhone 7", "iPhone9,3": "iPhone 7",
+    /* iPhone 7 Plus */   "iPhone9,2": "iPhone 7 Plus", "iPhone9,4": "iPhone 7 Plus",
+    /* iPhone SE */       "iPhone8,4": "iPhone SE",
 
     /* iPad 2 */          "iPad2,1": "iPad 2", "iPad2,2": "iPad 2", "iPad2,3": "iPad 2", "iPad2,4": "iPad 2",
     /* iPad 3 */          "iPad3,1": "iPad 3", "iPad3,2": "iPad 3", "iPad3,3": "iPad 3",
@@ -93,6 +96,7 @@ extension UIDevice {
 
         for child in mirror.children {
             let value = child.value
+
             if let value = value as? Int8, value != 0 {
                 identifier.append(String(UnicodeScalar(UInt8(value))))
             }
@@ -111,6 +115,7 @@ extension UIDevice {
         case seven = 7.0
         case eight = 8.0
         case nine = 9.0
+        case ten = 10.0
     }
 
     public class func isVersion(_ version: Versions) -> Bool {
@@ -199,9 +204,23 @@ extension UIDevice {
         return isVersionOrEarlier(.nine)
     }
 
+    // MARK: iOS 10 Checks
+
+    public class func IS_OS_10() -> Bool {
+        return isVersion(.ten)
+    }
+
+    public class func IS_OS_10_OR_LATER() -> Bool {
+        return isVersionOrLater(.ten)
+    }
+
+    public class func IS_OS_10_OR_EARLIER() -> Bool {
+        return isVersionOrEarlier(.ten)
+    }
+
     /// EZSwiftExtensions
     public class func isSystemVersionOver(_ requiredVersion: String) -> Bool {
-        switch systemVersion().compare(requiredVersion, options: .numeric) {
+        switch systemVersion().compare(requiredVersion, options: NSString.CompareOptions.numeric) {
         case .orderedSame, .orderedDescending:
             //println("iOS >= 8.0")
             return true

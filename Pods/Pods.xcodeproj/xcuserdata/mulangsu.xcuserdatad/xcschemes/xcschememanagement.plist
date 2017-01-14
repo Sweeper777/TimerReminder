@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ISHHoverBar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -40,6 +45,11 @@
 			<false/>
 		</dict>
 		<key>MGSwipeTableCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MLScreenshot.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -82,11 +92,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D46ACCA4C3F2BE3B8F9A9E35B37F4A4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>873B1A0D84F1FF2C0ECD8A2440705B43</key>
 		<dict>
 			<key>primary</key>
@@ -97,17 +102,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>92BB131FA876445E027D20AE23EA7B5F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>97A83A304CBA7B6DA5B82376F87BBA9A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9F766ADB76A46AB732825D44C4BAAABF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D2D6F69075CC3952190BB5E941AD660B</key>
+		<key>A3BE1481AC01E986980D7C24CAEA636F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E59F093033177D81B4DF3C940F6276F9</key>
+		<key>A4BFBA8C7058BE78582520AB6C9E98F4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D324E4E796C89589572D55A15E096FA4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

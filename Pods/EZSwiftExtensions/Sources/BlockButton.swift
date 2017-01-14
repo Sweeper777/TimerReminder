@@ -53,6 +53,7 @@ open class BlockButton: UIButton {
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        defaultInit()
     }
 
     private func defaultInit() {
@@ -64,8 +65,8 @@ open class BlockButton: UIButton {
             UIControlEvents.touchCancel,
             UIControlEvents.touchDragExit
         ])
-        setTitleColor(.black, for: .normal)
-        setTitleColor(.blue, for: .selected)
+        setTitleColor(UIColor.black, for: UIControlState.normal)
+        setTitleColor(UIColor.blue, for: UIControlState.selected)
     }
 
     open func addAction(_ action: @escaping BlockButtonAction) {

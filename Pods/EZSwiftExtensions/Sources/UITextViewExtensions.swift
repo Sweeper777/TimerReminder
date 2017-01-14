@@ -26,13 +26,16 @@ extension UITextView {
         isUserInteractionEnabled = true
 
         #if os(iOS)
+
         isEditable = false
+
         #endif
 
         isScrollEnabled = false
     }
 
     #if os(iOS)
+
     /// EZSE: Automatically adds a toolbar with a done button to the top of the keyboard. Tapping the button will dismiss the keyboard.
     public func addDoneButton(_ barStyle: UIBarStyle = .default, title: String? = nil) {
         let keyboardToolbar = UIToolbar()
@@ -46,5 +49,6 @@ extension UITextView {
 
         inputAccessoryView = keyboardToolbar
     }
+
     #endif
 }

@@ -43,16 +43,12 @@ extension String {
     public subscript(integerRange: Range<Int>) -> String {
         let start = characters.index(startIndex, offsetBy: integerRange.lowerBound)
         let end = characters.index(startIndex, offsetBy: integerRange.upperBound)
-        let range = start..<end
-        return self[range]
+        return self[start..<end]
     }
-    
+
     /// EZSE: Cut string from closedrange
     public subscript(integerClosedRange: ClosedRange<Int>) -> String {
-        let start = characters.index(startIndex, offsetBy: integerClosedRange.lowerBound)
-        let end = characters.index(startIndex, offsetBy: integerClosedRange.upperBound)
-        let range = start...end
-        return self[range]
+        return self[integerClosedRange.lowerBound..<(integerClosedRange.upperBound + 1)]
     }
 
     /// EZSE: Character count
@@ -75,6 +71,7 @@ extension String {
     public func capitalizedFirst() -> String {
         guard characters.count > 0 else { return self }
         var result = self
+        
         result.replaceSubrange(startIndex...startIndex, with: String(self[startIndex]).capitalized)
         return result
     }
@@ -224,9 +221,9 @@ extension String {
         if subString.isEmpty {
             return -1
         }
-        var searchOption = fromEnd ? String.CompareOptions.anchored : .backwards
+        var searchOption = fromEnd ? NSString.CompareOptions.anchored : NSString.CompareOptions.backwards
         if caseInsensitive {
-            searchOption.insert(.caseInsensitive)
+            searchOption.insert(NSString.CompareOptions.caseInsensitive)
         }
         if let range = self.range(of: subString, options: searchOption), !range.isEmpty {
             return self.characters.distance(from: self.startIndex, to: range.lowerBound)
@@ -317,13 +314,7 @@ extension String {
         return urls
     }
 
-//    /// EZSE: Checking if String contains input
-//    public func contains(_ find: String) -> Bool {
-//        return self.range(of: find) != nil
-//    }
-
     /// EZSE: Checking if String contains input with comparing options
-    /// WARNING: tests?
     public func contains(_ find: String, compareOption: NSString.CompareOptions) -> Bool {
         return self.range(of: find, options: compareOption) != nil
     }
@@ -356,11 +347,10 @@ extension String {
     }
 
     /// EZSE: Converts String to Bool
-    /// WARNING: not expected behaviour
     public func toBool() -> Bool? {
-        let boolString = trimmed().lowercased()
-        if boolString == "true" || boolString == "false" {
-            return (boolString as NSString).boolValue
+        let trimmedString = trimmed().lowercased()
+        if trimmedString == "true" || trimmedString == "false" {
+            return (trimmedString as NSString).boolValue
         }
         return nil
     }
@@ -401,7 +391,7 @@ extension String {
         let italicString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
         return italicString
     }
-
+    
     #endif
 
     #if os(iOS)
@@ -466,6 +456,16 @@ extension String {
     }
     
     #endif
+    
+    // EZSE: URL encode a string (percent encoding special chars)
+    public func urlEncoded() -> String {
+        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+    }
+    
+    // EZSE: URL encode a string (percent encoding special chars) mutating version
+    mutating func urlEncode() {
+        self = urlEncoded()
+    }
 
 }
 
