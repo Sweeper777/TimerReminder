@@ -1,0 +1,6 @@
+framework module MLScreenshot {
+  umbrella header "MLScreenshot-umbrella.h"
+
+  export *
+  module * { export * }
+}

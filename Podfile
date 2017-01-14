@@ -16,5 +16,6 @@ target 'TimerReminder' do
     pod 'ISHHoverBar'
     pod 'Firebase/Analytics'
     pod 'Firebase/AdMob'
+    pod 'MLScreenshot'
 end
 
