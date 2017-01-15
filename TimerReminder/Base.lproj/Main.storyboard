@@ -85,6 +85,7 @@
                         <segue destination="v5I-Uv-1Bn" kind="presentation" identifier="showChooseTimerSettings" modalPresentationStyle="formSheet" id="nZp-SL-VcV"/>
                         <segue destination="75i-S5-sZD" kind="presentation" identifier="showTimerForm" modalPresentationStyle="formSheet" id="5FA-iO-18H"/>
                         <segue destination="Uef-Ri-5mY" kind="presentation" identifier="showSettings" modalPresentationStyle="formSheet" id="fTG-wx-tTi"/>
+                        <segue destination="HZq-A3-C2n" kind="presentation" identifier="showScreenshotPreview" modalPresentationStyle="formSheet" id="ffG-mJ-d7i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -151,7 +152,7 @@
         <scene sceneID="4Bo-Ob-XkE">
             <objects>
                 <navigationController id="Uef-Ri-5mY" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="44L-tT-Rbw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="44L-tT-Rbw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -165,7 +166,57 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Et-O0-RhW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366" y="1140"/>
+            <point key="canvasLocation" x="366" y="1134"/>
+        </scene>
+        <!--Data Passer Controller-->
+        <scene sceneID="Kz2-Oc-45e">
+            <objects>
+                <navigationController id="HZq-A3-C2n" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="z1P-Dv-mu9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sOa-zp-nCn" kind="relationship" relationship="rootViewController" id="VKr-a9-f8P"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8YC-6n-z36" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1122" y="1134"/>
+        </scene>
+        <!--Screenshot-->
+        <scene sceneID="WAJ-cp-Vws">
+            <objects>
+                <viewController id="sOa-zp-nCn" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QQo-5I-NQd"/>
+                        <viewControllerLayoutGuide type="bottom" id="m4M-gQ-6Yo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cw3-zK-MaA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZrI-4J-i9f">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZrI-4J-i9f" secondAttribute="trailing" id="MbG-Cq-Ftm"/>
+                            <constraint firstItem="ZrI-4J-i9f" firstAttribute="leading" secondItem="cw3-zK-MaA" secondAttribute="leading" id="hWb-ql-xiC"/>
+                            <constraint firstItem="ZrI-4J-i9f" firstAttribute="bottom" secondItem="m4M-gQ-6Yo" secondAttribute="top" id="nC4-JL-Bf9"/>
+                            <constraint firstItem="ZrI-4J-i9f" firstAttribute="top" secondItem="QQo-5I-NQd" secondAttribute="bottom" id="uHv-hf-yYF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Screenshot" id="lfv-TE-bWs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e2J-MX-aJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1120.8" y="1849.9250374812596"/>
         </scene>
         <!--Global Settings Controller-->
         <scene sceneID="eoj-wv-lTT">
@@ -254,13 +305,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTj-Kg-NmU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2030" y="1134"/>
+            <point key="canvasLocation" x="2721" y="1134"/>
         </scene>
         <!--Data Passer Controller-->
         <scene sceneID="TFk-vH-9XI">
             <objects>
                 <navigationController id="v5I-Uv-1Bn" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="c3n-V5-Fqj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c3n-V5-Fqj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -280,7 +331,7 @@
         <scene sceneID="20l-xr-YIf">
             <objects>
                 <navigationController id="75i-S5-sZD" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Gk8-d0-rdD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gk8-d0-rdD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -294,13 +345,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mwL-vA-QNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1318" y="1134"/>
+            <point key="canvasLocation" x="1900" y="1134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8dQ-3c-pPS">
             <objects>
                 <navigationController id="LVp-DH-RsJ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MCP-gR-umF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MCP-gR-umF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -421,8 +472,8 @@
         <image name="restart" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="uZe-eJ-7TD"/>
         <segue reference="EBd-y1-JLu"/>
         <segue reference="5q0-KL-pWc"/>
-        <segue reference="uZe-eJ-7TD"/>
     </inferredMetricsTieBreakers>
 </document>
