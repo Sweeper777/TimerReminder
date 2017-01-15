@@ -6,6 +6,7 @@ class ScreenshotController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageView.image = image
     }
 
     @IBAction func cancel() {
@@ -13,6 +14,12 @@ class ScreenshotController: UIViewController {
     }
     
     @IBAction func save() {
-        
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
+    }
+    
+    func saveCompleted() {
+        let alert = UIAlertController(title: NSLocalizedString("Screenshot has been saved.", comment: ""), message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil))
+        presentVC(alert)
     }
 }
