@@ -10,7 +10,7 @@ class SettingSelectorController: UITableViewController {
     
     func reloadData() {
         if dataContext != nil {
-            self.options.removeAll()
+            self.options = []
             let entity = NSEntityDescription.entity(forEntityName: "TimerOptions", in: dataContext)
             let request = NSFetchRequest<TimerOptions>()
             request.entity = entity

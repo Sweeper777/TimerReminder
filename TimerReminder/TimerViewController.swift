@@ -251,7 +251,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             if vc.shouldApplyOptions {
                 self.timer.options = vc.options
                 self.appliedOptions = vc.options
-                self.view.makeToast(NSLocalizedString("Settings applied", comment: ""), backgroundColor: nil)
+                self.view.makeToast(NSLocalizedString("Settings applied", comment: ""), backgroundColor: nil, messageColor: nil)
                 if vc.options.isInserted {
                     UserDefaults.standard.set(self.timer.options!.objectID.uriRepresentation(), forKey: "selectedSetting")
                 }
@@ -263,7 +263,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         if let vc = segue.source as? SettingSelectorController {
             self.appliedOptions = vc.selectedOption
             self.timer.options = vc.selectedOption ?? TimerOptions.defaultOptions
-            self.view.makeToast(NSLocalizedString("Settings applied", comment: ""), backgroundColor: nil)
+            self.view.makeToast(NSLocalizedString("Settings applied", comment: ""), backgroundColor: nil, messageColor: nil)
             UserDefaults.standard.set(self.timer.options!.objectID.uriRepresentation(), forKey: "selectedSetting")
         }
     }
@@ -273,17 +273,17 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             self.timer.reset()
             self.playButton.image = UIImage(named: "play")
             self.timer = CountUpTimer(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
-            self.view.makeToast(NSLocalizedString("Changed to Stopwatch Mode", comment: ""), backgroundColor: nil)
+            self.view.makeToast(NSLocalizedString("Changed to Stopwatch Mode", comment: ""), backgroundColor: nil, messageColor: nil)
         } else if timer is CountUpTimer {
             self.timer.reset()
             self.playButton.image = UIImage(named: "play")
             self.timer = Clock(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
-            self.view.makeToast(NSLocalizedString("Changed to Clock Mode", comment: ""), backgroundColor: nil)
+            self.view.makeToast(NSLocalizedString("Changed to Clock Mode", comment: ""), backgroundColor: nil, messageColor: nil)
         } else if timer is Clock {
             self.timer.reset()
             self.playButton.image = UIImage(named: "play")
             self.timer = CountDownTimer(time: 60, options: self.appliedOptions, onTimerChange: self.timerChangedClosure, onEnd: nil)
-            self.view.makeToast(NSLocalizedString("Changed to Timer Mode", comment: ""), backgroundColor: nil)
+            self.view.makeToast(NSLocalizedString("Changed to Timer Mode", comment: ""), backgroundColor: nil, messageColor: nil)
         }
     }
     
@@ -292,17 +292,17 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             self.timer.reset()
             self.playButton.image = UIImage(named: "play")
             self.timer = CountUpTimer(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
-            self.view.makeToast(NSLocalizedString("Changed to Stopwatch Mode", comment: ""), backgroundColor: nil)
+            self.view.makeToast(NSLocalizedString("Changed to Stopwatch Mode", comment: ""), backgroundColor: nil, messageColor: nil)
         } else if timer is CountDownTimer {
             self.timer.reset()
             self.playButton.image = UIImage(named: "play")
             self.timer = Clock(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
-            self.view.makeToast(NSLocalizedString("Changed to Clock Mode", comment: ""), backgroundColor: nil)
+            self.view.makeToast(NSLocalizedString("Changed to Clock Mode", comment: ""), backgroundColor: nil, messageColor: nil)
         } else if timer is CountUpTimer {
             self.timer.reset()
             self.playButton.image = UIImage(named: "play")
             self.timer = CountDownTimer(time: 60, options: self.appliedOptions, onTimerChange: self.timerChangedClosure, onEnd: nil)
-            self.view.makeToast(NSLocalizedString("Changed to Timer Mode", comment: ""), backgroundColor: nil)
+            self.view.makeToast(NSLocalizedString("Changed to Timer Mode", comment: ""), backgroundColor: nil, messageColor: nil)
         }
     }
     

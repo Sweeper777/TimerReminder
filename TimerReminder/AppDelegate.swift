@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             request.entity = entity
             let options = try? managedObjectContext.fetch(request)
             if options != nil {
-                options?.forEach {
+                options?.forEachEnumerated {
                     if $0.1.vibrate == nil {
                         $0.1.vibrate = false
                     }
