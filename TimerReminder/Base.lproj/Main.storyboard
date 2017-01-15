@@ -152,7 +152,7 @@
         <scene sceneID="4Bo-Ob-XkE">
             <objects>
                 <navigationController id="Uef-Ri-5mY" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="44L-tT-Rbw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="44L-tT-Rbw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -191,7 +191,7 @@
         <!--Screenshot-->
         <scene sceneID="WAJ-cp-Vws">
             <objects>
-                <viewController id="sOa-zp-nCn" sceneMemberID="viewController">
+                <viewController id="sOa-zp-nCn" customClass="ScreenshotController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QQo-5I-NQd"/>
                         <viewControllerLayoutGuide type="bottom" id="m4M-gQ-6Yo"/>
@@ -212,7 +212,23 @@
                             <constraint firstItem="ZrI-4J-i9f" firstAttribute="top" secondItem="QQo-5I-NQd" secondAttribute="bottom" id="uHv-hf-yYF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Screenshot" id="lfv-TE-bWs"/>
+                    <navigationItem key="navigationItem" title="Screenshot" id="lfv-TE-bWs">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ajP-Rn-dUF">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancel" destination="sOa-zp-nCn" id="ewE-Mr-NRR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Dgf-NJ-1ib">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="save" destination="sOa-zp-nCn" id="O5G-O0-CiL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="ZrI-4J-i9f" id="98P-62-zb6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e2J-MX-aJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -311,7 +327,7 @@
         <scene sceneID="TFk-vH-9XI">
             <objects>
                 <navigationController id="v5I-Uv-1Bn" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c3n-V5-Fqj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="c3n-V5-Fqj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -331,7 +347,7 @@
         <scene sceneID="20l-xr-YIf">
             <objects>
                 <navigationController id="75i-S5-sZD" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gk8-d0-rdD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Gk8-d0-rdD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -351,7 +367,7 @@
         <scene sceneID="8dQ-3c-pPS">
             <objects>
                 <navigationController id="LVp-DH-RsJ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MCP-gR-umF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MCP-gR-umF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

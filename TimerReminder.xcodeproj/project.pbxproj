@@ -45,6 +45,7 @@
 		5A067CC11D4490A500238AF5 /* TimerReminder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A067CBF1D4490A500238AF5 /* TimerReminder.xcdatamodeld */; };
 		5A067CC31D4490A500238AF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A067CC21D4490A500238AF5 /* Assets.xcassets */; };
 		5A067CC61D4490A500238AF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A067CC41D4490A500238AF5 /* LaunchScreen.storyboard */; };
+		5A1715FC1E2B670100333971 /* ScreenshotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1715FB1E2B670100333971 /* ScreenshotController.swift */; };
 		5A19FDDF1DB94CF70022F794 /* ASToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDD51DB94CF70022F794 /* ASToast.framework */; };
 		5A19FDE01DB94CF70022F794 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDD61DB94CF70022F794 /* Eureka.framework */; };
 		5A19FDE11DB94CF70022F794 /* EZSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDD71DB94CF70022F794 /* EZSwiftExtensions.framework */; };
@@ -112,6 +113,7 @@
 		5A067CC51D4490A500238AF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A067CC71D4490A500238AF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Regular.otf"; path = "../SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
+		5A1715FB1E2B670100333971 /* ScreenshotController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotController.swift; sourceTree = "<group>"; };
 		5A19FDD51DB94CF70022F794 /* ASToast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ASToast.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/ASToast/ASToast.framework"; sourceTree = "<group>"; };
 		5A19FDD61DB94CF70022F794 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/Eureka/Eureka.framework"; sourceTree = "<group>"; };
 		5A19FDD71DB94CF70022F794 /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZSwiftExtensions.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/EZSwiftExtensions/EZSwiftExtensions.framework"; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				5A036C181D5FF6B1007AADB5 /* SettingSelectorController.swift */,
 				5A036C1C1D6019FE007AADB5 /* DataPasserController.swift */,
 				5A00C4BF1D7208BA00AB34C3 /* GlobalSettingsController.swift */,
+				5A1715FB1E2B670100333971 /* ScreenshotController.swift */,
 				5A06728C1D45905D007F7AEB /* Timer.swift */,
 				5A0672921D45ED0F007F7AEB /* CountDownTimer.swift */,
 				5A00B5421D519A390074B114 /* CountUpTimer.swift */,
@@ -418,6 +421,7 @@
 				5A067CB91D4490A500238AF5 /* AppDelegate.swift in Sources */,
 				5A03F2851D5C45F100723262 /* FormTags.swift in Sources */,
 				5A03F2831D5C0D9B00723262 /* Wrappers.swift in Sources */,
+				5A1715FC1E2B670100333971 /* ScreenshotController.swift in Sources */,
 				5A036C191D5FF6B1007AADB5 /* SettingSelectorController.swift in Sources */,
 				5A1C1C021DBF6CD10009162D /* MoreMenuItem.swift in Sources */,
 				5A03F2811D5AEED600723262 /* TimerFormController.swift in Sources */,
