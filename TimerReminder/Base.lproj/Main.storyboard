@@ -132,6 +132,9 @@
                 </barButtonItem>
                 <barButtonItem image="camera" id="zBB-Xc-yuj">
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="screenshot" destination="BYZ-38-t0r" id="DbG-EH-3y9"/>
+                    </connections>
                 </barButtonItem>
                 <barButtonItem image="play" id="yDO-VZ-boI">
                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

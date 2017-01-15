@@ -7,6 +7,7 @@ import ASToast
 import CoreData
 import GoogleMobileAds
 import DropDown
+import MLScreenshot
 
 class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureRecognizerDelegate, GlobalSettingsControllerDelegate {
     @IBOutlet var timerLabel: LTMorphingLabel!
@@ -149,6 +150,16 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         timer.reset()
         playButton.image = UIImage(named: "play")
         hoverBar.items = [restartButton, playButton, moreButton]
+    }
+    
+    @IBAction func screenshot() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.hoverBar.alpha = 0
+            self.ad.alpha = 0
+        })
+        Foundation.Timer.runThisAfterDelay(seconds: 0.2) {
+            self.performSegue(withIdentifier: "showScreenshotPreview", sender: self)
+        }
     }
     
     @IBAction func more(_ sender: AnyObject) {
@@ -320,6 +331,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         if let vc = segue.destination as? DataPasserController {
             vc.selectedOption = self.appliedOptions?.objectID.isTemporaryID == false ? self.appliedOptions : nil
             vc.settingsDelegate = self
+            vc.image = self.view.screenshot()
         }
     }
     
