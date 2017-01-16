@@ -17,7 +17,7 @@ class ScreenshotController: UIViewController {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
     }
     
-    func saveCompleted() {
+    func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeMutableRawPointer) {
         let alert = UIAlertController(title: NSLocalizedString("Screenshot has been saved.", comment: ""), message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil))
         presentVC(alert)
