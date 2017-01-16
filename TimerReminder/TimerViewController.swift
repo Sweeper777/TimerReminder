@@ -159,6 +159,9 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         })
         Foundation.Timer.runThisAfterDelay(seconds: 0.2) {
             self.performSegue(withIdentifier: "showScreenshotPreview", sender: self)
+            if !self.timer.paused {
+                self.play(self.playButton)
+            }
         }
     }
     
