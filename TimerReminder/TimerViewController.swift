@@ -143,13 +143,13 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             playButton.image = UIImage(named: "play")
             timer.pause()
         }
-        hoverBar.items = [restartButton, playButton, moreButton]
+        hoverBar.items = [screenshotButton, restartButton, playButton, moreButton]
     }
     
     @IBAction func restart(_ sender: UIBarButtonItem) {
         timer.reset()
         playButton.image = UIImage(named: "play")
-        hoverBar.items = [restartButton, playButton, moreButton]
+        hoverBar.items = [screenshotButton, restartButton, playButton, moreButton]
     }
     
     @IBAction func screenshot() {
