@@ -45,13 +45,13 @@ class Clock: Timer {
         onTimerChange?(self)
         let secondsUntilMinute = 60 - (Calendar.current as NSCalendar).component(.second, from: date)
         if secondsUntilMinute != 0 {
-            Foundation.Timer.runThisAfterDelay(seconds: Double(secondsUntilMinute)) {
+            _ = Foundation.Timer.after(Double(secondsUntilMinute)) {
                 [weak self] in
                 let date = Date()
                 self?.description = (self?.formatter.string(from: date)) ?? ""
                 if let myself = self {
-                    myself.timer = Foundation.Timer.runThisEvery(seconds: 60) {
-                        [weak self] t in
+                    myself.timer = Foundation.Timer.every(60) {
+                        [weak self] in
                         if self == nil {
                             self?.timer?.invalidate()
                         }
@@ -61,8 +61,8 @@ class Clock: Timer {
                 }
             }
         } else {
-            self.timer = Foundation.Timer.runThisEvery(seconds: 60) {
-                [weak self] t in
+            self.timer = Foundation.Timer.every(60) {
+                [weak self] in
                 if self == nil {
                     self?.timer?.invalidate()
                 }

@@ -9,7 +9,7 @@ class TimerFormController: FormViewController {
     var player: AVAudioPlayer?
     
     @IBAction func cancel(_ sender: AnyObject) {
-        dismissVC(completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -302,7 +302,7 @@ class TimerFormController: FormViewController {
             alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) {
                 _ in
                 })
-            self.presentVC(alert)
+            self.present(alert, animated: true, completion: nil)
         } else {
             processOptions(true)
         }
@@ -324,11 +324,12 @@ class TimerFormController: FormViewController {
         }
         options.initializeWithDefValues()
         var values = form.values(includeHidden: false)
-        values = values.filter {
+        values.forEach {
             if let value = $0.1 as? String {
-                return value.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) != ""
+                if value.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) == "" {
+                    values[$0.0] = nil
+                }
             }
-            return true
         }
         
         if let name = values[tagName] as? String {

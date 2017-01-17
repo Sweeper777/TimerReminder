@@ -1,7 +1,7 @@
 import UIKit
 import LTMorphingLabel
 import FittableFontLabel
-import EZSwiftExtensions
+import SwiftyUtils
 import ISHHoverBar
 import ASToast
 import CoreData
@@ -157,7 +157,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             self.hoverBar.alpha = 0
             self.ad.alpha = 0
         })
-        Foundation.Timer.runThisAfterDelay(seconds: 0.2) {
+        Foundation.Timer.after(0.2) {
             self.performSegue(withIdentifier: "showScreenshotPreview", sender: self)
             if !self.timer.paused {
                 self.play(self.playButton)

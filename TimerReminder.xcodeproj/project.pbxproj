@@ -45,10 +45,11 @@
 		5A067CC11D4490A500238AF5 /* TimerReminder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A067CBF1D4490A500238AF5 /* TimerReminder.xcdatamodeld */; };
 		5A067CC31D4490A500238AF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A067CC21D4490A500238AF5 /* Assets.xcassets */; };
 		5A067CC61D4490A500238AF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A067CC41D4490A500238AF5 /* LaunchScreen.storyboard */; };
+		5A168E101E2CFB1B007F698C /* MLScreenshot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A168E0E1E2CFB1B007F698C /* MLScreenshot.framework */; };
+		5A168E111E2CFB1B007F698C /* SwiftyUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A168E0F1E2CFB1B007F698C /* SwiftyUtils.framework */; };
 		5A1715FC1E2B670100333971 /* ScreenshotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1715FB1E2B670100333971 /* ScreenshotController.swift */; };
 		5A19FDDF1DB94CF70022F794 /* ASToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDD51DB94CF70022F794 /* ASToast.framework */; };
 		5A19FDE01DB94CF70022F794 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDD61DB94CF70022F794 /* Eureka.framework */; };
-		5A19FDE11DB94CF70022F794 /* EZSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDD71DB94CF70022F794 /* EZSwiftExtensions.framework */; };
 		5A19FDE21DB94CF70022F794 /* FittableFontLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDD81DB94CF70022F794 /* FittableFontLabel.framework */; };
 		5A19FDE31DB94CF70022F794 /* ISHHoverBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDD91DB94CF70022F794 /* ISHHoverBar.framework */; };
 		5A19FDE41DB94CF70022F794 /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDDA1DB94CF70022F794 /* LTMorphingLabel.framework */; };
@@ -60,6 +61,7 @@
 		5A1C1C021DBF6CD10009162D /* MoreMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C1C011DBF6CD10009162D /* MoreMenuItem.swift */; };
 		5A20D16D1DC5EAEA009862F7 /* SF-UI-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A20D16B1DC5EADE009862F7 /* SF-UI-Display-Ultralight.otf */; };
 		5A20D1701DC5ECD0009862F7 /* SF-UI-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A20D16F1DC5ECD0009862F7 /* SF-UI-Display-Light.otf */; };
+		5A46676B1E2D032100132B56 /* ImageScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A46676A1E2D032100132B56 /* ImageScrollView.framework */; };
 		5A6FD15E1D795DC90003AC44 /* AdUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6FD15D1D795DC90003AC44 /* AdUtility.swift */; };
 		5A9608E71D498728001EE17F /* SetTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9608E61D498728001EE17F /* SetTimerController.swift */; };
 		5AFD04791D7843020099527B /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD04781D7843020099527B /* Clock.swift */; };
@@ -113,6 +115,8 @@
 		5A067CC51D4490A500238AF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A067CC71D4490A500238AF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Regular.otf"; path = "../SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
+		5A168E0E1E2CFB1B007F698C /* MLScreenshot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MLScreenshot.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/MLScreenshot/MLScreenshot.framework"; sourceTree = "<group>"; };
+		5A168E0F1E2CFB1B007F698C /* SwiftyUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyUtils.framework; path = "Pods/../build/Debug-iphoneos/SwiftyUtils/SwiftyUtils.framework"; sourceTree = "<group>"; };
 		5A1715FB1E2B670100333971 /* ScreenshotController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotController.swift; sourceTree = "<group>"; };
 		5A19FDD51DB94CF70022F794 /* ASToast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ASToast.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/ASToast/ASToast.framework"; sourceTree = "<group>"; };
 		5A19FDD61DB94CF70022F794 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/Eureka/Eureka.framework"; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 		5A1C1C011DBF6CD10009162D /* MoreMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreMenuItem.swift; sourceTree = "<group>"; };
 		5A20D16B1DC5EADE009862F7 /* SF-UI-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Ultralight.otf"; sourceTree = SOURCE_ROOT; };
 		5A20D16F1DC5ECD0009862F7 /* SF-UI-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Light.otf"; sourceTree = "<group>"; };
+		5A46676A1E2D032100132B56 /* ImageScrollView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageScrollView.framework; path = "Pods/../build/Debug-iphoneos/ImageScrollView/ImageScrollView.framework"; sourceTree = "<group>"; };
 		5A6FD15D1D795DC90003AC44 /* AdUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdUtility.swift; sourceTree = "<group>"; };
 		5A9608E61D498728001EE17F /* SetTimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimerController.swift; sourceTree = "<group>"; };
 		5AC14D551E1B33D400448123 /* TimerReminder 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TimerReminder 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -150,10 +155,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A46676B1E2D032100132B56 /* ImageScrollView.framework in Frameworks */,
+				5A168E101E2CFB1B007F698C /* MLScreenshot.framework in Frameworks */,
+				5A168E111E2CFB1B007F698C /* SwiftyUtils.framework in Frameworks */,
 				5A1C1BFD1DBF69120009162D /* DropDown.framework in Frameworks */,
 				5A19FDDF1DB94CF70022F794 /* ASToast.framework in Frameworks */,
 				5A19FDE01DB94CF70022F794 /* Eureka.framework in Frameworks */,
-				5A19FDE11DB94CF70022F794 /* EZSwiftExtensions.framework in Frameworks */,
 				5A19FDE21DB94CF70022F794 /* FittableFontLabel.framework in Frameworks */,
 				5A19FDE31DB94CF70022F794 /* ISHHoverBar.framework in Frameworks */,
 				5A19FDE41DB94CF70022F794 /* LTMorphingLabel.framework in Frameworks */,
@@ -251,6 +258,9 @@
 		F7E084DFAF08D18824FDF3A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A46676A1E2D032100132B56 /* ImageScrollView.framework */,
+				5A168E0E1E2CFB1B007F698C /* MLScreenshot.framework */,
+				5A168E0F1E2CFB1B007F698C /* SwiftyUtils.framework */,
 				5A1C1BFC1DBF69120009162D /* DropDown.framework */,
 				5A19FDD51DB94CF70022F794 /* ASToast.framework */,
 				5A19FDD61DB94CF70022F794 /* Eureka.framework */,
@@ -599,6 +609,8 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Eureka",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/MGSwipeTableCell",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/ISHHoverBar",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SwiftyUtils",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/ImageScrollView",
 				);
 				INFOPLIST_FILE = TimerReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -627,6 +639,8 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Eureka",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/MGSwipeTableCell",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/ISHHoverBar",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SwiftyUtils",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/ImageScrollView",
 				);
 				INFOPLIST_FILE = TimerReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

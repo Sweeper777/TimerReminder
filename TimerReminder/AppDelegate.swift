@@ -1,6 +1,6 @@
 import UIKit
 import CoreData
-import EZSwiftExtensions
+import SwiftyUtils
 import Firebase
 
 @UIApplicationMain
@@ -11,7 +11,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
-        window?.tintColor = UIColor(hexString: "3b7b3b")
+        window?.tintColor = UIColor(hex: "3b7b3b")
         UINavigationBar.appearance().barStyle = .black
         
         if lastUsedBuild < 2 {
@@ -20,9 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             request.entity = entity
             let options = try? managedObjectContext.fetch(request)
             if options != nil {
-                options?.forEachEnumerated {
-                    if $0.1.vibrate == nil {
-                        $0.1.vibrate = false
+                options?.forEach {
+                    if $0.vibrate == nil {
+                        $0.vibrate = false
                     }
                 }
                 _  = try? managedObjectContext.save()
@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(1, forKey: "timerAnimation")
         }
         
-        lastUsedBuild = Int(ez.appBuild ?? "0") ?? 0
+        lastUsedBuild = Int(Bundle.main.appBuild) ?? 0
         return true
     }
 

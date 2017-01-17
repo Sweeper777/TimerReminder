@@ -109,6 +109,6 @@ class SettingSelectorController: UITableViewController {
     }
     
     @IBAction func cancel(_ sender: AnyObject) {
-        dismissVC(completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }

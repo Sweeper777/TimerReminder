@@ -1,5 +1,5 @@
 import UIKit
-import EZSwiftExtensions
+import SwiftyUtils
 import Eureka
 import GoogleMobileAds
 
@@ -34,7 +34,7 @@ class SetTimerController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     @IBAction func cancel(_ sender: AnyObject) {
-        dismissVC(completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

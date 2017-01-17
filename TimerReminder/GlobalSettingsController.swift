@@ -6,7 +6,7 @@ class GlobalSettingsController: FormViewController {
     weak var delegate: GlobalSettingsControllerDelegate?
     
     @IBAction func done(_ sender: AnyObject) {
-        dismissVC(completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
