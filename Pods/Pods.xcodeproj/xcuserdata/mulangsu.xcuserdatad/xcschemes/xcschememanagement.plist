@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>EZSwiftExtensions.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Eureka.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -35,6 +30,11 @@
 			<false/>
 		</dict>
 		<key>ISHHoverBar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ImageScrollView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -69,10 +69,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftyUtils.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>06008BDA8C88338D6B6E5BDC162E6148</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>09414BE8BC362C3107A0BE8B06466766</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -83,6 +93,11 @@
 			<true/>
 		</dict>
 		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>53EF75C1CCD87B491DB7D2CD6691CDEA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,11 +122,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>97A83A304CBA7B6DA5B82376F87BBA9A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9F766ADB76A46AB732825D44C4BAAABF</key>
 		<dict>
 			<key>primary</key>
@@ -122,12 +132,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A4BFBA8C7058BE78582520AB6C9E98F4</key>
+		<key>B1FBB3DA549F4E64345B3BB249177450</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D324E4E796C89589572D55A15E096FA4</key>
+		<key>E13D372627C889E5368AE631E0523148</key>
 		<dict>
 			<key>primary</key>
 			<true/>

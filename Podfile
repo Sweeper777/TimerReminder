@@ -4,7 +4,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'TimerReminder' do
-    pod 'EZSwiftExtensions'
+    pod 'SwiftyUtils'
     pod 'Eureka', '~> 2.0.0-beta.1'
     pod 'SwiftyJSON'
     pod 'ASToast', '~> 1.0.4'
@@ -17,5 +17,6 @@ target 'TimerReminder' do
     pod 'Firebase/Analytics'
     pod 'Firebase/AdMob'
     pod 'MLScreenshot'
+    pod 'ImageScrollView'
 end
 
