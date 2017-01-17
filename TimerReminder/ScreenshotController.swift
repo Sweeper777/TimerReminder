@@ -1,12 +1,13 @@
 import UIKit
+import ImageScrollView
 
 class ScreenshotController: UIViewController {
     var image: UIImage!
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var imageView: ImageScrollView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = image
+        imageView.display(image: image)
     }
 
     @IBAction func cancel() {

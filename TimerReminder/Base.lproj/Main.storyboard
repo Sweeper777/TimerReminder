@@ -203,16 +203,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZrI-4J-i9f">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="F0l-xX-Xcq" customClass="ImageScrollView" customModule="ImageScrollView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </imageView>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ZrI-4J-i9f" secondAttribute="trailing" id="MbG-Cq-Ftm"/>
-                            <constraint firstItem="ZrI-4J-i9f" firstAttribute="leading" secondItem="cw3-zK-MaA" secondAttribute="leading" id="hWb-ql-xiC"/>
-                            <constraint firstItem="ZrI-4J-i9f" firstAttribute="bottom" secondItem="m4M-gQ-6Yo" secondAttribute="top" id="nC4-JL-Bf9"/>
-                            <constraint firstItem="ZrI-4J-i9f" firstAttribute="top" secondItem="QQo-5I-NQd" secondAttribute="bottom" id="uHv-hf-yYF"/>
+                            <constraint firstItem="F0l-xX-Xcq" firstAttribute="top" secondItem="QQo-5I-NQd" secondAttribute="bottom" id="3QY-00-PWc"/>
+                            <constraint firstItem="F0l-xX-Xcq" firstAttribute="bottom" secondItem="m4M-gQ-6Yo" secondAttribute="top" id="Hpg-7k-CfQ"/>
+                            <constraint firstAttribute="trailing" secondItem="F0l-xX-Xcq" secondAttribute="trailing" id="dyw-ar-Hc7"/>
+                            <constraint firstItem="F0l-xX-Xcq" firstAttribute="leading" secondItem="cw3-zK-MaA" secondAttribute="leading" id="yqT-8J-bfO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Screenshot" id="lfv-TE-bWs">
@@ -230,7 +230,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageView" destination="ZrI-4J-i9f" id="98P-62-zb6"/>
+                        <outlet property="imageView" destination="F0l-xX-Xcq" id="PWr-0a-23O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e2J-MX-aJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
