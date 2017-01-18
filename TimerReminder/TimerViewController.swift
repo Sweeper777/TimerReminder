@@ -157,7 +157,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             self.hoverBar.alpha = 0
             self.ad.alpha = 0
         })
-        Foundation.Timer.after(0.2) {
+        _ = Foundation.Timer.after(0.2) {
             self.performSegue(withIdentifier: "showScreenshotPreview", sender: self)
             if !self.timer.paused {
                 self.play(self.playButton)
