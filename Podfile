@@ -18,5 +18,6 @@ target 'TimerReminder' do
     pod 'Firebase/AdMob'
     pod 'MLScreenshot'
     pod 'ImageScrollView'
+    pod 'SlideMenuControllerSwift'
 end
 
