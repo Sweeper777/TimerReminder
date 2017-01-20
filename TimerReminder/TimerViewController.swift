@@ -8,6 +8,7 @@ import CoreData
 import GoogleMobileAds
 import DropDown
 import MLScreenshot
+import SlideMenuControllerSwift
 
 class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureRecognizerDelegate, GlobalSettingsControllerDelegate {
     @IBOutlet var timerLabel: LTMorphingLabel!
