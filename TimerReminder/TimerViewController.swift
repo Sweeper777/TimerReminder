@@ -403,4 +403,18 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         self.slideMenuController()!.rightPanGesture?.isEnabled = false
         (self.slideMenuController()!.rightViewController!.childViewControllers.first! as! CurrentOptionsFormController).syncTimerOptions()
     }
+    
+    func rightDidClose() {
+        self.slideMenuController()!.rightPanGesture?.isEnabled = true
+        appliedOptions = (self.slideMenuController()!.rightViewController!.childViewControllers.first! as! CurrentOptionsFormController).processOptions()
+        self.view.makeToast(NSLocalizedString("Settings applied", comment: ""), backgroundColor: nil, messageColor: nil)
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if traitCollection.containsTraits(in: UITraitCollection(horizontalSizeClass: .compact)) {
+            self.slideMenuController()?.changeRightViewWidth(self.view.frame.width * 0.9)
+        } else {
+            self.slideMenuController()?.changeRightViewWidth(self.view.frame.width * 0.5)
+        }
+    }
 }
