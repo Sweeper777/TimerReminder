@@ -10,6 +10,7 @@ class CurrentOptionsFormController: FormViewController {
         super.viewDidLoad()
         initializeForm()
         title = NSLocalizedString("Current Options", comment: "")
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     override func viewDidAppear(_ animated: Bool) {
