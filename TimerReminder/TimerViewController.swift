@@ -10,7 +10,7 @@ import DropDown
 import MLScreenshot
 import SlideMenuControllerSwift
 
-class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureRecognizerDelegate, GlobalSettingsControllerDelegate {
+class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureRecognizerDelegate, GlobalSettingsControllerDelegate, SlideMenuControllerDelegate {
     @IBOutlet var timerLabel: LTMorphingLabel!
     var timer: Timer!
     
@@ -95,6 +95,8 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         ad.rootViewController = self
         ad.load(getAdRequest())
         view.bringSubview(toFront: ad)
+        
+        self.slideMenuController()!.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -395,5 +397,10 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             view.backgroundColor = value ? UIColor.black : UIColor.white
             timerLabel.textColor = value ? UIColor.white : UIColor.black
         }
+    }
+    
+    func rightDidOpen() {
+        self.slideMenuController()!.rightPanGesture?.isEnabled = false
+        (self.slideMenuController()!.rightViewController!.childViewControllers.first! as! CurrentOptionsFormController).syncTimerOptions()
     }
 }
