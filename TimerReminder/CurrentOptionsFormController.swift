@@ -14,7 +14,37 @@ class CurrentOptionsFormController: FormViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    func syncTimerOptions() {
+        let options = (self.slideMenuController()?.mainViewController as? TimerViewController)?.appliedOptions ?? TimerOptions.defaultOptions
+        form.rowBy(tag: tagName)?.baseValue = options.name
+        form.rowBy(tag: tagLanguage)?.baseValue = Languages(rawValue: options.language!)
+        form.rowBy(tag: tagCountDownEnabled)?.baseValue = options.countDownTime != 0
+        form.rowBy(tag: tagStartCountDown)?.baseValue = CountDownTime(rawValue: Int(options.countDownTime!)) ?? ._10
+        form.rowBy(tag: tagCounting)?.baseValue = options.counting?.boolValue
+        form.rowBy(tag: tagBeepSounds)?.baseValue = options.beepSounds!.boolValue
+        form.rowBy(tag: tagTimesUpAction)?.baseValue = options.timesUpSound == nil ? TimeIsUpAction.SayMessage : .PlaySound
+        form.rowBy(tag: tagTimesUpMessage)?.baseValue = options.timesUpMessage ?? ""
+        form.rowBy(tag: tagTimesUpSound)?.baseValue = options.timesUpSound == nil ? "Radar" : options.timesUpSound
+        form.rowBy(tag: tagVibrate)?.baseValue = options.vibrate?.boolValue ?? false
+        form.rowBy(tag: tagReminderOnOff)?.baseValue = options.reminders!.count != 0 || options.regularReminderInterval != nil
+        form.rowBy(tag: tagReminderStyle)?.baseValue = options.regularReminderInterval == nil ? ReminderStyle.AtSpecificTimes : .Regular
+        if options.reminders!.count != 0 {
+            form.rowBy(tag: tagReminderCount)?.baseValue = Double(options.reminders!.count)
+        } else {
+            form.rowBy(tag: tagReminderCount)?.baseValue = 1.0
+        }
+        form.rowBy(tag: tagRegularReminderInterval)?.baseValue = Int(options.regularReminderInterval ?? 300)
+        form.rowBy(tag: tagRegularReminderMessage)?.baseValue = options.regularReminderMessage ?? ""
+        for i in 1...10 {
+            if options.reminders != nil && options.reminders!.count >= i {
+                form.rowBy(tag: tagRemindAt + String(i))?.baseValue = Int((options.reminders!.array[i - 1] as! Reminder).remindTimeFrame!)
+                form.rowBy(tag: tagRemindMessage + String(i))?.baseValue = (options.reminders!.array[i - 1] as! Reminder).customRemindMessage ?? ""
+            }
+        }
         
+        form.allRows.forEach { $0.updateCell() }
     }
     
     func initializeForm() {
@@ -23,7 +53,6 @@ class CurrentOptionsFormController: FormViewController {
                 row in
                 row.title = NSLocalizedString("Name:", comment: "")
                 row.cell.textField.textAlignment = .left
-//                row.value = self.options == nil ? "" : self.options.name
                 }.cellUpdate { cell, row in
                     cell.textField.textAlignment = .left
             }
@@ -32,7 +61,6 @@ class CurrentOptionsFormController: FormViewController {
                 row.title = NSLocalizedString("Language", comment: "")
                 let langs: [Languages] = [.English, .Mandarin, .Cantonese, .Japanese]
                 row.options = langs
-//                row.value = self.options == nil ? .English : Languages(rawValue: self.options.language!)
         }
         
         form +++ Section(footer: NSLocalizedString("Only applicable in Timer Mode", comment: ""))
@@ -40,15 +68,10 @@ class CurrentOptionsFormController: FormViewController {
                 row in
                 row.title = NSLocalizedString("Countdown", comment: "")
                 row.value = true
-                
-//                if self.options != nil {
-//                    row.value = self.options.countDownTime != 0
-//                }
             }
             <<< PickerInlineRow<CountDownTime>(tagStartCountDown) {
                 row in
                 row.title = NSLocalizedString("Start Countdown At", comment: "")
-//                row.value = self.options == nil ? ._10 : (CountDownTime(rawValue: Int(self.options.countDownTime!)) ?? ._10)
                 row.options = [
                     ._3, ._5, ._10, ._20, ._30, ._60
                 ]
@@ -63,27 +86,18 @@ class CurrentOptionsFormController: FormViewController {
                 row in
                 row.title = NSLocalizedString("Counting", comment: "")
                 row.value = false
-                
-//                if self.options != nil {
-//                    row.value = self.options.counting?.boolValue
-//                }
         }
         
         form +++ SwitchRow(tagBeepSounds) {
             row in
             row.title = NSLocalizedString("Beep Sounds", comment: "")
             row.value = false
-            
-//            if self.options != nil {
-//                row.value = self.options.beepSounds!.boolValue
-//            }
         }
         
         form +++ Section(header: NSLocalizedString("time is up", comment: ""), footer: NSLocalizedString("Only applicable in Timer Mode", comment: ""))
             <<< SegmentedRow<TimeIsUpAction>(tagTimesUpAction) {
                 row in
                 row.options = [.SayMessage, .PlaySound]
-//                row.value = self.options == nil ? .SayMessage : (self.options.timesUpSound == nil ? .SayMessage : .PlaySound)
                 }.onChange {
                     row in
                     self.player?.stop()
@@ -95,7 +109,6 @@ class CurrentOptionsFormController: FormViewController {
                     let action: SegmentedRow<TimeIsUpAction> = $0.rowBy(tag: tagTimesUpAction)!
                     return action.value == .PlaySound
                 }
-//                row.value = self.options == nil ? "" : self.options.timesUpMessage ?? ""
                 row.placeholder = NSLocalizedString("Leave blank for default", comment: "")
                 
                 }.cellUpdate { cell, row in
@@ -109,7 +122,6 @@ class CurrentOptionsFormController: FormViewController {
                     return action.value == .SayMessage
                 }
                 row.options = ["Radar", "Waves", "Radiate", "Night Owl", "Circuit", "Sencha", "Cosmic", "Presto", "Beacon", "Hillside"]
-//                row.value = self.options?.timesUpSound == nil ? "Radar" : self.options.timesUpSound
                 }.onChange {
                     row in
                     if let url = Bundle.main.url(forResource: row.value, withExtension: ".mp3") {
@@ -127,10 +139,6 @@ class CurrentOptionsFormController: FormViewController {
                 row in
                 row.title = NSLocalizedString("Vibrate", comment: "")
                 row.value = false
-                
-//                if let newValue = options?.vibrate?.boolValue {
-//                    row.value = newValue
-//                }
         }
         
         form +++ Section()
@@ -138,19 +146,11 @@ class CurrentOptionsFormController: FormViewController {
                 row in
                 row.title = NSLocalizedString("Reminders", comment: "")
                 row.value = false
-                
-//                if self.options != nil {
-//                    row.value = self.options.reminders!.count != 0 || self.options.regularReminderInterval != nil
-//                }
             }
             <<< SegmentedRow<ReminderStyle>(tagReminderStyle) {
                 row in
                 row.options = [.Regular, .AtSpecificTimes]
                 row.value = .AtSpecificTimes
-                
-//                if self.options != nil {
-//                    row.value = self.options.regularReminderInterval == nil ? .AtSpecificTimes : .Regular
-//                }
                 
                 row.hidden = Condition.function([tagReminderOnOff]) {
                     let onOff: SwitchRow = $0.rowBy(tag: tagReminderOnOff)!
@@ -171,12 +171,6 @@ class CurrentOptionsFormController: FormViewController {
                     
                     return !enabled.value! || style.value! == .Regular
                 }
-                
-//                if self.options != nil && self.options.reminders!.count != 0 {
-//                    row.value = Double(self.options.reminders!.count)
-//                } else {
-//                    row.value = 1
-//                }
             }
             
             <<< TimeIntervalRow(tag: tagRegularReminderInterval) {
@@ -189,20 +183,12 @@ class CurrentOptionsFormController: FormViewController {
                     
                     return !enabled.value! || style.value! == .AtSpecificTimes
                 }
-                
-//                if self.options?.regularReminderInterval != nil {
-//                    row.value = Int(options.regularReminderInterval!)
-//                }
-                
             }
             
             <<< TextRow(tagRegularReminderMessage) {
                 row in
                 row.title = NSLocalizedString("Message:", comment: "")
                 row.placeholder = NSLocalizedString("Leave blank for default", comment: "")
-//                if let newValue = self.options?.regularReminderMessage {
-//                    row.value = newValue
-//                }
                 
                 row.hidden = Condition.function([tagReminderOnOff, tagReminderStyle]) {
                     let enabled: SwitchRow = $0.rowBy(tag: tagReminderOnOff)!
@@ -244,18 +230,11 @@ class CurrentOptionsFormController: FormViewController {
                     row in
                     row.title = NSLocalizedString("Remind At", comment: "")
                     row.value = i * 60
-                    
-//                    if self.options?.reminders != nil && self.options.reminders!.count >= i {
-//                        row.value = Int((self.options.reminders!.array[i - 1] as! Reminder).remindTimeFrame!)
-//                    }
                 }
                 <<< TextRow(tagRemindMessage + String(i)) {
                     row in
                     row.title = NSLocalizedString("Message:", comment: "")
                     row.placeholder = NSLocalizedString("Leave blank for default", comment: "")
-//                    if self.options?.reminders != nil && self.options.reminders!.count >= i {
-//                        row.value = (self.options.reminders!.array[i - 1] as! Reminder).customRemindMessage ?? ""
-//                    }
                     }.cellUpdate { cell, row in
                         cell.textField.textAlignment = .left
             }
