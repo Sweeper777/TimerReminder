@@ -2,6 +2,7 @@ import UIKit
 import Eureka
 import SlideMenuControllerSwift
 import AVFoundation
+import CoreData
 
 class CurrentOptionsFormController: FormViewController {
     var player: AVAudioPlayer?
@@ -241,5 +242,81 @@ class CurrentOptionsFormController: FormViewController {
             }
         }
 
+    }
+    
+    func processOptions() -> TimerOptions {
+        let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+        let options = TimerOptions.init(entity: NSEntityDescription.entity(forEntityName: "TimerOptions", in: context)!, insertInto: nil)
+        options.initializeWithDefValues()
+        var values = form.values(includeHidden: false)
+        values.forEach {
+            if let value = $0.1 as? String {
+                if value.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) == "" {
+                    values[$0.0] = nil
+                }
+            }
+        }
+        
+        if let name = values[tagName] as? String {
+            options.name = name
+        }
+        
+        if let language = values[tagLanguage] as? Languages {
+            options.language = language.rawValue
+        }
+        
+        if let countDown = values[tagStartCountDown] as? CountDownTime {
+            options.countDownTime = countDown.rawValue as NSNumber?
+        }
+        
+        if let beepSounds = values[tagBeepSounds] as? Bool {
+            options.beepSounds = beepSounds as NSNumber?
+        }
+        
+        if let counting = values[tagCounting] as? Bool {
+            options.counting = counting as NSNumber
+        }
+        
+        if let timesUpMessage = values[tagTimesUpMessage] as? String {
+            options.timesUpMessage = timesUpMessage
+        }
+        
+        if let timesUpSound = values[tagTimesUpSound] as? String {
+            options.timesUpSound = timesUpSound
+        }
+        
+        if let vibrate = values[tagVibrate] as? Bool {
+            options.vibrate = vibrate as NSNumber?
+        }
+        
+        if let regularReminderInterval = values[tagRegularReminderInterval] as? Int {
+            options.regularReminderInterval = regularReminderInterval as NSNumber?
+        }
+        
+        if let regularReminderMessage = values[tagRegularReminderMessage] as? String {
+            options.regularReminderMessage = regularReminderMessage
+        }
+        
+        if let reminderCount = values[tagReminderCount] as? Double {
+            var reminders = [Reminder]()
+            for i in 1...Int(reminderCount) {
+                let reminder = Reminder(entity: NSEntityDescription.entity(forEntityName: "Reminder", in: context)!, insertInto: nil)
+                reminder.initializeWithDefValues()
+                
+                if let remindAt = values[tagRemindAt + String(i)] as? Int {
+                    reminder.remindTimeFrame = remindAt as NSNumber?
+                }
+                
+                if let message = values[tagRemindMessage + String(i)] as? String {
+                    reminder.customRemindMessage = message
+                }
+                
+                reminder.timer = options
+                reminders.append(reminder)
+            }
+            
+            options.reminders = NSOrderedSet(array: reminders)
+        }
+        return options
     }
 }
