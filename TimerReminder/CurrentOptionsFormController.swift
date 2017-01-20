@@ -9,6 +9,7 @@ class CurrentOptionsFormController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeForm()
+        title = NSLocalizedString("Current Options", comment: "")
     }
     
     override func viewDidAppear(_ animated: Bool) {
