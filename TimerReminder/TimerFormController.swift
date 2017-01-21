@@ -287,7 +287,7 @@ class TimerFormController: FormViewController {
                 self.shouldApplyOptions = true
                 self.processOptions(true)
                 })
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Save but don't apply", comment: ""), style: .default) {
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Save", comment: ""), style: .default) {
                 [unowned self]
                 _ in
                 self.shouldApplyOptions = false
