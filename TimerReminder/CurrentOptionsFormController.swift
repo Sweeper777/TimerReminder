@@ -126,6 +126,10 @@ class CurrentOptionsFormController: FormViewController {
                 row.options = ["Radar", "Waves", "Radiate", "Night Owl", "Circuit", "Sencha", "Cosmic", "Presto", "Beacon", "Hillside"]
                 }.onChange {
                     row in
+                    if row.isHidden {
+                        return
+                    }
+                    
                     if let url = Bundle.main.url(forResource: row.value, withExtension: ".mp3") {
                         self.player?.stop()
                         self.player = try? AVAudioPlayer(contentsOf: url)
