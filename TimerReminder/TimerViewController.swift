@@ -97,6 +97,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         view.bringSubview(toFront: ad)
         
         self.slideMenuController()!.delegate = self
+        self.slideMenuController()!.rightPanGesture?.maximumNumberOfTouches = 1
     }
     
     override func viewDidAppear(_ animated: Bool) {
