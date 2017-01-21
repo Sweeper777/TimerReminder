@@ -377,6 +377,8 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             self.addSettingRecog.isEnabled = value
             self.setTimerRecog.isEnabled = value
             self.mySettingsRecog.isEnabled = value
+            self.changeModeRecog.isEnabled = value
+            self.changeModeRecog.isEnabled = value
         } else if key == "fontStyle" {
             let value = newValue as! FontStyle
             UserDefaults.standard.set(value.rawValue, forKey: key)
