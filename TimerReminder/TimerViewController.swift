@@ -410,6 +410,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     func rightDidClose() {
         self.slideMenuController()!.rightPanGesture?.isEnabled = true
         appliedOptions = (self.slideMenuController()!.rightViewController!.childViewControllers.first! as! CurrentOptionsFormController).processOptions()
+        self.timer.options = appliedOptions
         self.view.makeToast(NSLocalizedString("Settings applied", comment: ""), backgroundColor: nil, messageColor: nil)
     }
     
