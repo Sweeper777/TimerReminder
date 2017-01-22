@@ -411,7 +411,6 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         self.slideMenuController()!.rightPanGesture?.isEnabled = true
         appliedOptions = (self.slideMenuController()!.rightViewController!.childViewControllers.first! as! CurrentOptionsFormController).processOptions()
         self.timer.options = appliedOptions
-        self.view.makeToast(NSLocalizedString("Settings applied", comment: ""), backgroundColor: nil, messageColor: nil)
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
