@@ -69,3 +69,8 @@
 "Changed to Clock Mode" = "已切換至時鐘模式";
 
 "Screenshot has been saved." = "截圖已儲存";
+
+"Save" = "保存";
+"Current Options" = "当前的设置";
+"Tip" = "提示";
+"Here you can save a frequently used timer option. If you just want to edit the currently applied timer option, please go back to the timer and swipe to the left" = "在这里可以储存经常用的计时器设置，如果只想要编辑当前的设置，请返回计时器并向左滑动。";

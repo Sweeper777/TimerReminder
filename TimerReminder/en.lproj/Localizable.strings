@@ -69,3 +69,8 @@
 "Changed to Clock Mode" = "Changed to Clock Mode";
 
 "Screenshot has been saved." = "Screenshot has been saved.";
+
+"Save" = "Save";
+"Current Options" = "Current Options";
+"Tip" = "Tip";
+"Here you can save a frequently used timer option. If you just want to edit the currently applied timer option, please go back to the timer and swipe to the left" = "Here you can save a frequently used timer option. If you just want to edit the currently applied timer option, please go back to the timer and swipe to the left";
