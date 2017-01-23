@@ -22,7 +22,7 @@ class TimerFormController: FormViewController {
         initializeForm()
         
         if !UserDefaults.standard.bool(forKey: "tipShowed") {
-            let alert = UIAlertController(title: NSLocalizedString("Tip", comment: ""), message: NSLocalizedString("Here you can save a frequently used timer option. If you just want to edit the currently applied timer option, please go back to the timer and pan from the right edge.", comment: ""), preferredStyle: .alert)
+            let alert = UIAlertController(title: NSLocalizedString("Tip", comment: ""), message: NSLocalizedString("Here you can save a frequently used timer option. If you just want to edit the currently applied timer option, please go back to the timer and swipe to the left", comment: ""), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { _ in UserDefaults.standard.set(true, forKey: "tipShowed") }))
             self.present(alert, animated: true, completion: nil)
         }
