@@ -1,51 +1,31 @@
+//
 //  PickerInlineRow.swift
-//  Eureka ( https://github.com/xmartlabs/Eureka )
+//  Eureka
 //
-//  Copyright (c) 2016 Xmartlabs SRL ( http://xmartlabs.com )
+//  Created by Martin Barreto on 2/23/16.
+//  Copyright © 2016 Xmartlabs. All rights reserved.
 //
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
 
 import Foundation
 
-open class PickerInlineCell<T: Equatable> : Cell<T>, CellType {
+public class PickerInlineCell<T: Equatable> : Cell<T>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        accessoryType = .none
-        editingAccessoryType =  .none
+        accessoryType = .None
+        editingAccessoryType =  .None
     }
     
-    open override func update() {
+    public override func update() {
         super.update()
-        selectionStyle = row.isDisabled ? .none : .default
+        selectionStyle = row.isDisabled ? .None : .Default
     }
     
-    open override func didSelect() {
+    public override func didSelect() {
         super.didSelect()
         row.deselect()
     }
@@ -53,11 +33,11 @@ open class PickerInlineCell<T: Equatable> : Cell<T>, CellType {
 
 //MARK: PickerInlineRow
 
-open class _PickerInlineRow<T> : Row<PickerInlineCell<T>>, NoValueDisplayTextConformance where T: Equatable {
+public class _PickerInlineRow<T where T: Equatable> : Row<T, PickerInlineCell<T>>, NoValueDisplayTextConformance {
     
     public typealias InlineRow = PickerRow<T>
-    open var options = [T]()
-    open var noValueDisplayText: String?
+    public var options = [T]()
+    public var noValueDisplayText: String?
     
     required public init(tag: String?) {
         super.init(tag: tag)
@@ -65,7 +45,7 @@ open class _PickerInlineRow<T> : Row<PickerInlineCell<T>>, NoValueDisplayTextCon
 }
 
 /// A generic inline row where the user can pick an option from a picker view
-public final class PickerInlineRow<T> : _PickerInlineRow<T>, RowType, InlineRowType where T: Equatable {
+public final class PickerInlineRow<T where T: Equatable> : _PickerInlineRow<T>, RowType, InlineRowType {
     
     required public init(tag: String?) {
         super.init(tag: tag)
@@ -85,7 +65,7 @@ public final class PickerInlineRow<T> : _PickerInlineRow<T>, RowType, InlineRowT
         }
     }
     
-    public func setupInlineRow(_ inlineRow: InlineRow) {
+    public func setupInlineRow(inlineRow: InlineRow) {
         inlineRow.options = self.options
         inlineRow.displayValueFor = self.displayValueFor
     }

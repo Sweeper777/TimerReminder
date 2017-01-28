@@ -26,16 +26,17 @@
 import Foundation
 
 /// Class for the navigation accessory view used in FormViewController
-open class NavigationAccessoryView : UIToolbar {
-    open var previousButton: UIBarButtonItem!
-    open var nextButton: UIBarButtonItem!
-    open var doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
-    private var fixedSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-    private var flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+public class NavigationAccessoryView : UIToolbar {
+
+    public var previousButton: UIBarButtonItem!
+    public var nextButton: UIBarButtonItem!
+    public var doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: nil, action: nil)
+    private var fixedSpace = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
+    private var flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
     
     public override init(frame: CGRect) {
-        super.init(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: 44.0))
-        autoresizingMask = .flexibleWidth
+        super.init(frame: CGRectMake(0, 0, frame.size.width, 44.0))
+        autoresizingMask = .FlexibleWidth
         fixedSpace.width = 22.0
         initializeChevrons()
         setItems([previousButton, fixedSpace, nextButton, flexibleSpace, doneButton], animated: false)
@@ -46,24 +47,24 @@ open class NavigationAccessoryView : UIToolbar {
     }
 
     private func initializeChevrons() {
-        var bundle = Bundle(for: self.classForCoder)
-        if let resourcePath = bundle.path(forResource: "Eureka", ofType: "bundle") {
-            if let resourcesBundle = Bundle(path: resourcePath) {
+        var bundle = NSBundle(forClass: self.classForCoder)
+        if let resourcePath = bundle.pathForResource("Eureka", ofType: "bundle") {
+            if let resourcesBundle = NSBundle(path: resourcePath) {
                 bundle = resourcesBundle
             }
         }
 
-        var imageLeftChevron = UIImage(named: "back-chevron", in: bundle, compatibleWith: nil)
-        var imageRightChevron = UIImage(named: "forward-chevron", in: bundle, compatibleWith: nil)
+        var imageLeftChevron = UIImage(named: "back-chevron", inBundle: bundle, compatibleWithTraitCollection: nil)
+        var imageRightChevron = UIImage(named: "forward-chevron", inBundle: bundle, compatibleWithTraitCollection: nil)
         // RTL language support
         if #available(iOS 9.0, *) {
             imageLeftChevron = imageLeftChevron?.imageFlippedForRightToLeftLayoutDirection()
             imageRightChevron = imageRightChevron?.imageFlippedForRightToLeftLayoutDirection()
         }
 
-        previousButton = UIBarButtonItem(image: imageLeftChevron, style: .plain, target: nil, action: nil)
-        nextButton = UIBarButtonItem(image: imageRightChevron, style: .plain, target: nil, action: nil)
+        previousButton = UIBarButtonItem(image: imageLeftChevron, style: .Plain, target: nil, action: nil)
+        nextButton = UIBarButtonItem(image: imageRightChevron, style: .Plain, target: nil, action: nil)
     }
     
-    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {}
+    public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {}
 }

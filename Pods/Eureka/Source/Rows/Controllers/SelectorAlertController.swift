@@ -1,31 +1,15 @@
+//
 //  SelectorAlertController.swift
-//  Eureka ( https://github.com/xmartlabs/Eureka )
+//  Eureka
 //
-//  Copyright (c) 2016 Xmartlabs SRL ( http://xmartlabs.com )
+//  Created by Martin Barreto on 2/24/16.
+//  Copyright © 2016 Xmartlabs. All rights reserved.
 //
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
 
 import Foundation
 
 /// Selector UIAlertController
-open class SelectorAlertController<T: Equatable> : UIAlertController, TypedRowControllerType {
+public class SelectorAlertController<T: Equatable> : UIAlertController, TypedRowControllerType {
     
     /// The row that pushed or presented this controller
     public var row: RowOf<T>!
@@ -33,9 +17,9 @@ open class SelectorAlertController<T: Equatable> : UIAlertController, TypedRowCo
     public var cancelTitle = NSLocalizedString("Cancel", comment: "")
     
     /// A closure to be called when the controller disappears.
-    public var onDismissCallback : ((UIViewController) -> ())?
+    public var completionCallback : ((UIViewController) -> ())?
     
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -43,19 +27,19 @@ open class SelectorAlertController<T: Equatable> : UIAlertController, TypedRowCo
         super.init(coder: aDecoder)
     }
     
-    convenience public init(_ callback: ((UIViewController) -> ())?){
+    convenience public init(_ callback: (UIViewController) -> ()){
         self.init()
-        onDismissCallback = callback
+        completionCallback = callback
     }
     
-    open override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         guard let options = row.dataProvider?.arrayData else { return }
-        addAction(UIAlertAction(title: cancelTitle, style: .cancel, handler: nil))
+        addAction(UIAlertAction(title: cancelTitle, style: .Cancel, handler: nil))
         for option in options {
-            addAction(UIAlertAction(title: row.displayValueFor?(option), style: .default, handler: { [weak self] _ in
+            addAction(UIAlertAction(title: row.displayValueFor?(option), style: .Default, handler: { [weak self] _ in
                 self?.row.value = option
-                self?.onDismissCallback?(self!)
+                self?.completionCallback?(self!)
                 }))
         }
     }

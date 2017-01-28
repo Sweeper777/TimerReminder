@@ -32,5 +32,5 @@ import Foundation
 public protocol RowControllerType : NSObjectProtocol {
     
     /// A closure to be called when the controller disappears.
-    var onDismissCallback: ((UIViewController) -> ())? { get set }
+    var completionCallback : ((UIViewController) -> ())? { get set }
 }

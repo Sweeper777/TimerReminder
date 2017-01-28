@@ -37,26 +37,26 @@ public enum HeaderFooterProvider<ViewType: UIView> {
     /**
      * Will generate a view of the specified class.
      */
-    case `class`
+    case Class
     
     /**
      * Will generate the view as a result of the given closure.
      */
-    case callback(()->ViewType)
+    case Callback(()->ViewType)
     
     /**
      * Will load the view from a nib file.
      */
-    case nibFile(name: String, bundle: Bundle?)
+    case NibFile(name: String, bundle: NSBundle?)
     
     internal func createView() -> ViewType {
         switch self {
-        case .class:
-            return ViewType()
-        case .callback(let builder):
+        case .Class:
+            return ViewType.init()
+        case .Callback(let builder):
             return builder()
-        case .nibFile(let nibName, let bundle):
-            return (bundle ?? Bundle(for: ViewType.self)).loadNibNamed(nibName, owner: nil, options: nil)![0] as! ViewType
+        case .NibFile(let nibName, let bundle):
+            return (bundle ?? NSBundle(forClass: ViewType.self)).loadNibNamed(nibName, owner: nil, options: nil)[0] as! ViewType
         }
     }
 }
@@ -65,13 +65,13 @@ public enum HeaderFooterProvider<ViewType: UIView> {
  * Represents headers and footers of sections
  */
 public enum HeaderFooterType {
-    case header, footer
+    case Header, Footer
 }
 
 /**
  *  Struct used to generate headers and footers either from a view or a String.
  */
-public struct HeaderFooterView<ViewType: UIView> : ExpressibleByStringLiteral, HeaderFooterViewRepresentable {
+public struct HeaderFooterView<ViewType: UIView> : StringLiteralConvertible, HeaderFooterViewRepresentable {
     
     /// Holds the title of the view if it was set up with a String.
     public var title: String?
@@ -80,7 +80,7 @@ public struct HeaderFooterView<ViewType: UIView> : ExpressibleByStringLiteral, H
     public var viewProvider: HeaderFooterProvider<ViewType>?
     
     /// Closure called when the view is created. Useful to customize its appearance.
-    public var onSetupView: ((_ view: ViewType, _ section: Section) -> ())?
+    public var onSetupView: ((view: ViewType, section: Section) -> ())?
     
     /// A closure that returns the height for the header or footer view.
     public var height: (()->CGFloat)?
@@ -95,9 +95,9 @@ public struct HeaderFooterView<ViewType: UIView> : ExpressibleByStringLiteral, H
      
      - returns: The header or footer of the specified section.
      */
-    public func viewForSection(_ section: Section, type: HeaderFooterType) -> UIView? {
+    public func viewForSection(section: Section, type: HeaderFooterType) -> UIView? {
         var view: ViewType?
-        if type == .header {
+        if type == .Header {
             view = section.headerView as? ViewType ?? {
                             let result = viewProvider?.createView()
                             section.headerView = result
@@ -112,7 +112,7 @@ public struct HeaderFooterView<ViewType: UIView> : ExpressibleByStringLiteral, H
                         }()
         }
         guard let v = view else { return nil }
-        onSetupView?(v, section)
+        onSetupView?(view: v, section: section)
         return v
     }
     

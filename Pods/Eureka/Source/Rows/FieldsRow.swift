@@ -1,298 +1,238 @@
+//
 //  FieldsRow.swift
-//  Eureka ( https://github.com/xmartlabs/Eureka )
+//  Eureka
 //
-//  Copyright (c) 2016 Xmartlabs SRL ( http://xmartlabs.com )
+//  Created by Martin Barreto on 2/24/16.
+//  Copyright © 2016 Xmartlabs. All rights reserved.
 //
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
 
 import Foundation
 
-open class TextCell : _FieldCell<String>, CellType {
+public class TextCell : _FieldCell<String>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        textField.autocorrectionType = .default
-        textField.autocapitalizationType = .sentences
-        textField.keyboardType = .default
+        textField.autocorrectionType = .Default
+        textField.autocapitalizationType = .Sentences
+        textField.keyboardType = .Default
     }
 }
 
 
-open class IntCell : _FieldCell<Int>, CellType {
+public class IntCell : _FieldCell<Int>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        textField.autocorrectionType = .default
-        textField.autocapitalizationType = .none
-        textField.keyboardType = .numberPad
+        textField.autocorrectionType = .Default
+        textField.autocapitalizationType = .None
+        textField.keyboardType = .NumberPad
     }
 }
 
-open class PhoneCell : _FieldCell<String>, CellType {
+public class PhoneCell : _FieldCell<String>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        textField.keyboardType = .phonePad
+        textField.keyboardType = .PhonePad
     }
 }
 
-open class NameCell : _FieldCell<String>, CellType {
+public class NameCell : _FieldCell<String>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        textField.autocorrectionType = .no
-        textField.autocapitalizationType = .words
-        textField.keyboardType = .asciiCapable
+        textField.autocorrectionType = .No
+        textField.autocapitalizationType = .Words
+        textField.keyboardType = .ASCIICapable
     }
 }
 
-open class EmailCell : _FieldCell<String>, CellType {
+public class EmailCell : _FieldCell<String>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        textField.autocorrectionType = .no
-        textField.autocapitalizationType = .none
-        textField.keyboardType = .emailAddress
+        textField.autocorrectionType = .No
+        textField.autocapitalizationType = .None
+        textField.keyboardType = .EmailAddress
     }
 }
 
-open class PasswordCell : _FieldCell<String>, CellType {
+public class PasswordCell : _FieldCell<String>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        textField.autocorrectionType = .no
-        textField.autocapitalizationType = .none
-        textField.keyboardType = .asciiCapable
-        textField.isSecureTextEntry = true
+        textField.autocorrectionType = .No
+        textField.autocapitalizationType = .None
+        textField.keyboardType = .ASCIICapable
+        textField.secureTextEntry = true
     }
 }
 
-open class DecimalCell : _FieldCell<Double>, CellType {
+public class DecimalCell : _FieldCell<Double>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        textField.autocorrectionType = .no
-        textField.keyboardType = .decimalPad
+        textField.autocorrectionType = .No
+        textField.keyboardType = .DecimalPad
     }
 }
 
-open class URLCell : _FieldCell<URL>, CellType {
+public class URLCell : _FieldCell<NSURL>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        textField.autocorrectionType = .no
-        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .No
+        textField.autocapitalizationType = .None
         textField.keyboardType = .URL
     }
 }
 
-open class TwitterCell : _FieldCell<String>, CellType {
+public class TwitterCell : _FieldCell<String>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        textField.autocorrectionType = .no
-        textField.autocapitalizationType = .none
-        textField.keyboardType = .twitter
+        textField.autocorrectionType = .No
+        textField.autocapitalizationType = .None
+        textField.keyboardType = .Twitter
     }
 }
 
-open class AccountCell : _FieldCell<String>, CellType {
+public class AccountCell : _FieldCell<String>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        textField.autocorrectionType = .no
-        textField.autocapitalizationType = .none
-        textField.keyboardType = .asciiCapable
+        textField.autocorrectionType = .No
+        textField.autocapitalizationType = .None
+        textField.keyboardType = .ASCIICapable
     }
 }
 
-open class ZipCodeCell : _FieldCell<String>, CellType {
+public class ZipCodeCell : _FieldCell<String>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    open override func update() {
+    public override func update() {
         super.update()
-        textField.autocorrectionType = .no
-        textField.autocapitalizationType = .allCharacters
-        textField.keyboardType = .numbersAndPunctuation
+        textField.autocorrectionType = .No
+        textField.autocapitalizationType = .AllCharacters
+        textField.keyboardType = .NumbersAndPunctuation
     }
 }
 
-open class _TextRow: FieldRow<TextCell> {
+public class _TextRow: FieldRow<String, TextCell> {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
 
-open class _IntRow: FieldRow<IntCell> {
+public class _IntRow: FieldRow<Int, IntCell> {
     public required init(tag: String?) {
         super.init(tag: tag)
-        let numberFormatter = NumberFormatter()
-        numberFormatter.locale = Locale.current
-        numberFormatter.numberStyle = .decimal
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.locale = .currentLocale()
+        numberFormatter.numberStyle = .DecimalStyle
         numberFormatter.minimumFractionDigits = 0
         formatter = numberFormatter
     }
 }
 
-open class _PhoneRow: FieldRow<PhoneCell> {
+public class _PhoneRow: FieldRow<String, PhoneCell> {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
 
-open class _NameRow: FieldRow<NameCell> {
+public class _NameRow: FieldRow<String, NameCell> {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
 
-open class _EmailRow: FieldRow<EmailCell> {
+public class _EmailRow: FieldRow<String, EmailCell> {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
 
-open class _PasswordRow: FieldRow<PasswordCell> {
+public class _PasswordRow: FieldRow<String, PasswordCell> {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
 
 
-open class _DecimalRow: FieldRow<DecimalCell> {
+public class _DecimalRow: FieldRow<Double, DecimalCell> {
     public required init(tag: String?) {
         super.init(tag: tag)
-        let numberFormatter = NumberFormatter()
-        numberFormatter.locale = Locale.current
-        numberFormatter.numberStyle = .decimal
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.locale = .currentLocale()
+        numberFormatter.numberStyle = .DecimalStyle
         numberFormatter.minimumFractionDigits = 2
         formatter = numberFormatter
     }
 }
 
-open class _URLRow: FieldRow<URLCell> {
+public class _URLRow: FieldRow<NSURL, URLCell> {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
 
-open class _TwitterRow: FieldRow<TwitterCell> {
+public class _TwitterRow: FieldRow<String, TwitterCell> {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
 
-open class _AccountRow: FieldRow<AccountCell> {
+public class _AccountRow: FieldRow<String, AccountCell> {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
 
-open class _ZipCodeRow: FieldRow<ZipCodeCell> {
+public class _ZipCodeRow: FieldRow<String, ZipCodeCell> {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
@@ -303,6 +243,13 @@ open class _ZipCodeRow: FieldRow<ZipCodeCell> {
 public final class TextRow: _TextRow, RowType {
     required public init(tag: String?) {
         super.init(tag: tag)
+        onCellHighlight { cell, row  in
+            let color = cell.textLabel?.textColor
+            row.onCellUnHighlight { cell, _ in
+                cell.textLabel?.textColor = color
+            }
+            cell.textLabel?.textColor = cell.tintColor
+        }
     }
 }
 
@@ -310,6 +257,13 @@ public final class TextRow: _TextRow, RowType {
 public final class NameRow: _NameRow, RowType {
     required public init(tag: String?) {
         super.init(tag: tag)
+        onCellHighlight { cell, row  in
+            let color = cell.textLabel?.textColor
+            row.onCellUnHighlight { cell, _ in
+                cell.textLabel?.textColor = color
+            }
+            cell.textLabel?.textColor = cell.tintColor
+        }
     }
 }
 
@@ -317,6 +271,13 @@ public final class NameRow: _NameRow, RowType {
 public final class PasswordRow: _PasswordRow, RowType {
     required public init(tag: String?) {
         super.init(tag: tag)
+        onCellHighlight { cell, row  in
+            let color = cell.textLabel?.textColor
+            row.onCellUnHighlight { cell, _ in
+                cell.textLabel?.textColor = color
+            }
+            cell.textLabel?.textColor = cell.tintColor
+        }
     }
 }
 
@@ -324,6 +285,13 @@ public final class PasswordRow: _PasswordRow, RowType {
 public final class EmailRow: _EmailRow, RowType {
     required public init(tag: String?) {
         super.init(tag: tag)
+        onCellHighlight { cell, row  in
+            let color = cell.textLabel?.textColor
+            row.onCellUnHighlight { cell, _ in
+                cell.textLabel?.textColor = color
+            }
+            cell.textLabel?.textColor = cell.tintColor
+        }
     }
 }
 
@@ -331,6 +299,13 @@ public final class EmailRow: _EmailRow, RowType {
 public final class TwitterRow: _TwitterRow, RowType {
     required public init(tag: String?) {
         super.init(tag: tag)
+        onCellHighlight { cell, row  in
+            let color = cell.textLabel?.textColor
+            row.onCellUnHighlight { cell, _ in
+                cell.textLabel?.textColor = color
+            }
+            cell.textLabel?.textColor = cell.tintColor
+        }
     }
 }
 
@@ -338,6 +313,13 @@ public final class TwitterRow: _TwitterRow, RowType {
 public final class AccountRow: _AccountRow, RowType {
     required public init(tag: String?) {
         super.init(tag: tag)
+        onCellHighlight { cell, row  in
+            let color = cell.textLabel?.textColor
+            row.onCellUnHighlight { cell, _ in
+                cell.textLabel?.textColor = color
+            }
+            cell.textLabel?.textColor = cell.tintColor
+        }
     }
 }
 
@@ -345,6 +327,13 @@ public final class AccountRow: _AccountRow, RowType {
 public final class ZipCodeRow: _ZipCodeRow, RowType {
     required public init(tag: String?) {
         super.init(tag: tag)
+        onCellHighlight { cell, row  in
+            let color = cell.textLabel?.textColor
+            row.onCellUnHighlight { cell, _ in
+                cell.textLabel?.textColor = color
+            }
+            cell.textLabel?.textColor = cell.tintColor
+        }
     }
 }
 
@@ -352,6 +341,13 @@ public final class ZipCodeRow: _ZipCodeRow, RowType {
 public final class IntRow: _IntRow, RowType {
     required public init(tag: String?) {
         super.init(tag: tag)
+        onCellHighlight { cell, row  in
+            let color = cell.textLabel?.textColor
+            row.onCellUnHighlight { cell, _ in
+                cell.textLabel?.textColor = color
+            }
+            cell.textLabel?.textColor = cell.tintColor
+        }
     }
 }
 
@@ -359,13 +355,27 @@ public final class IntRow: _IntRow, RowType {
 public final class DecimalRow: _DecimalRow, RowType {
     required public init(tag: String?) {
         super.init(tag: tag)
+        onCellHighlight { cell, row  in
+            let color = cell.textLabel?.textColor
+            row.onCellUnHighlight { cell, _ in
+                cell.textLabel?.textColor = color
+            }
+            cell.textLabel?.textColor = cell.tintColor
+        }
     }
 }
 
-/// A row where the user can enter an URL. The value of this row will be a URL.
+/// A row where the user can enter an URL. The value of this row will be a NSURL.
 public final class URLRow: _URLRow, RowType {
     required public init(tag: String?) {
         super.init(tag: tag)
+        onCellHighlight { cell, row  in
+            let color = cell.textLabel?.textColor
+            row.onCellUnHighlight { cell, _ in
+                cell.textLabel?.textColor = color
+            }
+            cell.textLabel?.textColor = cell.tintColor
+        }
     }
 }
 
@@ -373,5 +383,12 @@ public final class URLRow: _URLRow, RowType {
 public final class PhoneRow: _PhoneRow, RowType {
     required public init(tag: String?) {
         super.init(tag: tag)
+        onCellHighlight { cell, row  in
+            let color = cell.textLabel?.textColor
+            row.onCellUnHighlight { cell, _ in
+                cell.textLabel?.textColor = color
+            }
+            cell.textLabel?.textColor = cell.tintColor
+        }
     }
 }

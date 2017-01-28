@@ -1,32 +1,16 @@
+//
 //  SwitchRow.swift
-//  Eureka ( https://github.com/xmartlabs/Eureka )
+//  Eureka
 //
-//  Copyright (c) 2016 Xmartlabs SRL ( http://xmartlabs.com )
+//  Created by Martin Barreto on 2/23/16.
+//  Copyright © 2016 Xmartlabs. All rights reserved.
 //
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
 
 import Foundation
 
 // MARK: SwitchCell
 
-open class SwitchCell : Cell<Bool>, CellType {
+public class SwitchCell : Cell<Bool>, CellType {
     
     public typealias Value = Bool
     
@@ -34,40 +18,36 @@ open class SwitchCell : Cell<Bool>, CellType {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    open var switchControl: UISwitch? {
+    public var switchControl: UISwitch? {
         return accessoryView as? UISwitch
     }
     
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        selectionStyle = .none
+        selectionStyle = .None
         accessoryView = UISwitch()
         editingAccessoryView = accessoryView
-        switchControl?.addTarget(self, action: #selector(SwitchCell.valueChanged), for: .valueChanged)
+        switchControl?.addTarget(self, action: #selector(SwitchCell.valueChanged), forControlEvents: .ValueChanged)
     }
     
     deinit {
-        switchControl?.removeTarget(self, action: nil, for: .allEvents)
+        switchControl?.removeTarget(self, action: nil, forControlEvents: .AllEvents)
     }
     
-    open override func update() {
+    public override func update() {
         super.update()
-        switchControl?.isOn = row.value ?? false
-        switchControl?.isEnabled = !row.isDisabled
+        switchControl?.on = row.value ?? false
+        switchControl?.enabled = !row.isDisabled
     }
     
     func valueChanged() {
-        row.value = switchControl?.isOn ?? false
+        row.value = switchControl?.on.boolValue ?? false
     }
 }
 
 // MARK: SwitchRow
 
-open class _SwitchRow: Row<SwitchCell> {
+public class _SwitchRow: Row<Bool, SwitchCell> {
     required public init(tag: String?) {
         super.init(tag: tag)
         displayValueFor = nil

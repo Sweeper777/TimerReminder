@@ -1,7 +1,7 @@
 //  Rows.swift
 //  Eureka ( https://github.com/xmartlabs/Eureka )
 //
-//  Copyright (c) 2016 Xmartlabs ( http://xmartlabs.com )
+//  Copyright (c) 2015 Xmartlabs ( http://xmartlabs.com )
 //
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,22 +24,22 @@
 
 import Foundation
 
-open class _ButtonRowWithPresent<VCType: TypedRowControllerType>: Row<ButtonCellOf<VCType.RowValue>>, PresenterRowType where VCType: UIViewController {
+public class _ButtonRowWithPresent<T: Equatable, VCType: TypedRowControllerType where VCType: UIViewController, VCType.RowValue == T>: Row<T, ButtonCellOf<T>>, PresenterRowType {
     
-    open var presentationMode: PresentationMode<VCType>?
-    open var onPresentCallback : ((FormViewController, VCType)->())?
+    public var presentationMode: PresentationMode<VCType>?
+    public var onPresentCallback : ((FormViewController, VCType)->())?
     
     required public init(tag: String?) {
         super.init(tag: tag)
         displayValueFor = nil
-        cellStyle = .default
+        cellStyle = .Default
     }
     
-    open override func customUpdateCell() {
+    public override func customUpdateCell() {
         super.customUpdateCell()
         let leftAligmnment = presentationMode != nil
-        cell.textLabel?.textAlignment = leftAligmnment ? .left : .center
-        cell.accessoryType = !leftAligmnment || isDisabled ? .none : .disclosureIndicator
+        cell.textLabel?.textAlignment = leftAligmnment ? .Left : .Center
+        cell.accessoryType = !leftAligmnment || isDisabled ? .None : .DisclosureIndicator
         cell.editingAccessoryType = cell.accessoryType
         if (!leftAligmnment){
             var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
@@ -51,27 +51,27 @@ open class _ButtonRowWithPresent<VCType: TypedRowControllerType>: Row<ButtonCell
         }
     }
     
-    open override func customDidSelect() {
+    public override func customDidSelect() {
         super.customDidSelect()
-        if let presentationMode = presentationMode, !isDisabled {
-            if let controller = presentationMode.makeController(){
+        if let presentationMode = presentationMode where !isDisabled {
+            if let controller = presentationMode.createController(){
                 controller.row = self
                 onPresentCallback?(cell.formViewController()!, controller)
-                presentationMode.present(controller, row: self, presentingController: cell.formViewController()!)
+                presentationMode.presentViewController(controller, row: self, presentingViewController: cell.formViewController()!)
             }
             else{
-                presentationMode.present(nil, row: self, presentingController: cell.formViewController()!)
+                presentationMode.presentViewController(nil, row: self, presentingViewController: cell.formViewController()!)
             }
         }
     }
     
-    open override func prepare(for segue: UIStoryboardSegue) {
-        super.prepare(for: segue)
-        guard let rowVC = segue.destination as? VCType else {
+    public override func prepareForSegue(segue: UIStoryboardSegue) {
+        super.prepareForSegue(segue)
+        guard let rowVC = segue.destinationViewController as? VCType else {
             return
         }
-        if let callback = presentationMode?.onDismissCallback{
-            rowVC.onDismissCallback = callback
+        if let callback = self.presentationMode?.completionHandler{
+            rowVC.completionCallback = callback
         }
         rowVC.row = self
         onPresentCallback?(cell.formViewController()!, rowVC)
@@ -83,7 +83,7 @@ open class _ButtonRowWithPresent<VCType: TypedRowControllerType>: Row<ButtonCell
 //MARK: Rows
 
 /// A generic row with a button that presents a view controller when tapped
-public final class ButtonRowWithPresent<VCType: TypedRowControllerType> : _ButtonRowWithPresent<VCType>, RowType where VCType: UIViewController {
+public final class ButtonRowWithPresent<T: Equatable, VCType: TypedRowControllerType where VCType: UIViewController, VCType.RowValue == T> : _ButtonRowWithPresent<T, VCType>, RowType {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
