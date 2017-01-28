@@ -7,7 +7,7 @@ target 'TimerReminder' do
     pod 'SwiftyUtils'
     pod 'Eureka', '~> 2.0.0-beta.1'
     pod 'SwiftyJSON'
-    pod 'ASToast', '~> 1.0.4'
+    pod 'ASToast'
     pod 'LTMorphingLabel', :git => 'https://github.com/lexrus/LTMorphingLabel.git', :branch => 'swift3'
     pod 'FittableFontLabel'
     pod 'DropDown'

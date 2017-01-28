@@ -1,23 +1,24 @@
 PODS:
-  - ASToast (1.0.6)
+  - ASToast (1.0.7)
   - DropDown (2)
   - Eureka (2.0.0-beta.1)
-  - Firebase/AdMob (3.11.0):
+  - Firebase/AdMob (3.11.1):
     - Firebase/Core
     - Google-Mobile-Ads-SDK (= 7.16.0)
-  - Firebase/Analytics (3.11.0):
+  - Firebase/Analytics (3.11.1):
     - Firebase/Core
-  - Firebase/Core (3.11.0):
+  - Firebase/Core (3.11.1):
     - FirebaseAnalytics (= 3.6.0)
-    - FirebaseCore (= 3.4.6)
+    - FirebaseCore (= 3.4.7)
   - FirebaseAnalytics (3.6.0):
     - FirebaseCore (~> 3.4)
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.4.6):
+  - FirebaseCore (3.4.7):
     - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseInstanceID (1.0.8)
   - FittableFontLabel (1.4.0)
@@ -36,10 +37,10 @@ PODS:
   - MVSpeechSynthesizer (1.0.1)
   - SlideMenuControllerSwift (3.0.1)
   - SwiftyJSON (3.1.4)
-  - SwiftyUtils (0.6.0)
+  - SwiftyUtils (0.7.0)
 
 DEPENDENCIES:
-  - ASToast (~> 1.0.4)
+  - ASToast
   - DropDown
   - Eureka (~> 2.0.0-beta.1)
   - Firebase/AdMob
@@ -66,12 +67,12 @@ CHECKOUT OPTIONS:
     :git: https://github.com/lexrus/LTMorphingLabel.git
 
 SPEC CHECKSUMS:
-  ASToast: 126a0ed341e2d19be5bdd448d713ce50e71b0f34
+  ASToast: 111dda73186fcf091193a38eb31de3013bd392a7
   DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
   Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
-  Firebase: b8134e285eb33201115bc688bc5d7f112923bc1f
+  Firebase: 53b2343db1ebfa3eb16bdb4318b8bb65360b2220
   FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
-  FirebaseCore: 03da1cb32615569bbc2830a22f9ad753d9a02ef5
+  FirebaseCore: 46afaf2c2e0419ea7d3acfb08cf26a461a75fe85
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FittableFontLabel: 20502441e83bb41eb8b41611cca91af85c4e21e3
   Google-Mobile-Ads-SDK: 92dff0e9ce1cfdfe640d9d80ab86d5e4371e478f
@@ -86,8 +87,8 @@ SPEC CHECKSUMS:
   MVSpeechSynthesizer: d4deb5221bff17dfda644298497be3b4fa189040
   SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  SwiftyUtils: dbfeedd5e01bbf13f23e64ea9fd4c77ffd494688
+  SwiftyUtils: 87094996d977846e5a9f2cbe653ff28dc15ba187
 
-PODFILE CHECKSUM: 8e7fab53feba6993a93cab81f24135f80e7d0bf6
+PODFILE CHECKSUM: 4cc339f61ecd57200dfadc91fd168925a9d54834
 
 COCOAPODS: 1.1.0.beta.1

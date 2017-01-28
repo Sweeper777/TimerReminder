@@ -26,7 +26,7 @@ public extension String {
 public extension String {
 
     init?(value: Float, maxDigits: Int) {
-        let numberFormatter = SUNumberFormatter.sharedInstance
+        let numberFormatter = SUNumberFormatter.shared
         numberFormatter.numberStyle = .decimal
         numberFormatter.maximumFractionDigits = maxDigits
         guard let string = numberFormatter.string(for: value) else {
@@ -36,7 +36,7 @@ public extension String {
     }
 
     init?(value: Double, maxDigits: Int) {
-        let numberFormatter = SUNumberFormatter.sharedInstance
+        let numberFormatter = SUNumberFormatter.shared
         numberFormatter.numberStyle = .decimal
         numberFormatter.maximumFractionDigits = maxDigits
         guard let string = numberFormatter.string(for: value) else {
@@ -55,17 +55,13 @@ public extension String {
         return self.characters.count
     }
 
-    public func isOnlyEmptySpacesAndNewLineCharacters() -> Bool {
+    public var isOnlyEmptySpacesAndNewLineCharacters: Bool {
         let characterSet = NSCharacterSet.whitespacesAndNewlines
         let newText = self.trimmingCharacters(in: characterSet)
         return newText.isEmpty
     }
 
-    func contains(text: String) -> Bool {
-        return self.range(of: text) != nil
-    }
-
-    public func contains(text: String, compareOption: NSString.CompareOptions) -> Bool {
+    public func contains(_ text: String, compareOption: NSString.CompareOptions) -> Bool {
         return self.range(of: text, options: compareOption) != nil
     }
 
@@ -85,7 +81,7 @@ public extension String {
 
 public extension String {
 
-    public var extractURLs: [URL] {
+    public var extractedURLs: [URL] {
         var urls: [URL] = []
         let detector: NSDataDetector?
         do {
@@ -96,8 +92,7 @@ public extension String {
 
         let text = self
         if let detector = detector {
-            detector.enumerateMatches(in: text, options: [], range: NSRange(location: 0, length: text.characters.count), using: {
-                (result: NSTextCheckingResult?, flags: NSRegularExpression.MatchingFlags, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
+            detector.enumerateMatches(in: text, options: [], range: NSRange(location: 0, length: text.characters.count), using: { result, _, _ in
                 if let result = result,
                     let url = result.url {
                     urls.append(url as URL)
@@ -134,7 +129,7 @@ public extension String {
         return self
     }
 
-    public var capitalizeFirst: String {
+    public var capitalizedFirst: String {
         let result = replacingCharacters(in: Range(startIndex..<startIndex), with: String(self[startIndex]).capitalized)
         return result
     }
@@ -145,8 +140,8 @@ public extension String {
 
 public extension String {
 
-    public func isNumber() -> Bool {
-        if let _ = SUNumberFormatter.sharedInstance.number(from: self) {
+    public var isNumber: Bool {
+        if let _ = SUNumberFormatter.shared.number(from: self) {
             return true
         }
         return false
