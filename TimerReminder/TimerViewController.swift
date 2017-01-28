@@ -269,7 +269,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             if vc.shouldApplyOptions {
                 self.timer.options = vc.options
                 self.appliedOptions = vc.options
-                self.view.makeToast(NSLocalizedString("Settings applied", comment: ""), backgroundColor: nil, messageColor: nil)
+                self.view.makeToast(message: NSLocalizedString("Settings applied", comment: ""), backgroundColor: nil, messageColor: nil)
                 if vc.options.isInserted {
                     UserDefaults.standard.set(self.timer.options!.objectID.uriRepresentation(), forKey: "selectedSetting")
                 }
@@ -281,7 +281,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         if let vc = segue.source as? SettingSelectorController {
             self.appliedOptions = vc.selectedOption
             self.timer.options = vc.selectedOption ?? TimerOptions.defaultOptions
-            self.view.makeToast(NSLocalizedString("Settings applied", comment: ""), backgroundColor: nil, messageColor: nil)
+            self.view.makeToast(message: NSLocalizedString("Settings applied", comment: ""), backgroundColor: nil, messageColor: nil)
             UserDefaults.standard.set(self.timer.options!.objectID.uriRepresentation(), forKey: "selectedSetting")
         }
     }
