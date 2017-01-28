@@ -5,7 +5,7 @@ use_frameworks!
 
 target 'TimerReminder' do
     pod 'SwiftyUtils'
-    pod 'Eureka'#, '~> 2.0.0-beta.1'
+    pod 'Eureka', '~> 2.0.0-beta.1'
     pod 'SwiftyJSON'
     pod 'ASToast'
     pod 'LTMorphingLabel'#, :git => 'https://github.com/lexrus/LTMorphingLabel.git', :branch => 'swift3'

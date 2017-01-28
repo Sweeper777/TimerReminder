@@ -1,7 +1,7 @@
 PODS:
   - ASToast (1.0.7)
   - DropDown (2)
-  - Eureka (1.7.0)
+  - Eureka (2.0.0-beta.1)
   - Firebase/AdMob (3.11.1):
     - Firebase/Core
     - Google-Mobile-Ads-SDK (= 7.16.0)
@@ -42,7 +42,7 @@ PODS:
 DEPENDENCIES:
   - ASToast
   - DropDown
-  - Eureka
+  - Eureka (~> 2.0.0-beta.1)
   - Firebase/AdMob
   - Firebase/Analytics
   - FittableFontLabel
@@ -59,7 +59,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   ASToast: 111dda73186fcf091193a38eb31de3013bd392a7
   DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
-  Eureka: 2020d9faeef7b7e9adeb9e3d8af779e5931c1897
+  Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
   Firebase: 53b2343db1ebfa3eb16bdb4318b8bb65360b2220
   FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
   FirebaseCore: 46afaf2c2e0419ea7d3acfb08cf26a461a75fe85
@@ -79,6 +79,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUtils: 87094996d977846e5a9f2cbe653ff28dc15ba187
 
-PODFILE CHECKSUM: 133cfb8a6c4d0efbf672e94110efb7f5ddf1c3f7
+PODFILE CHECKSUM: c894a8e1c0db3621e62d224b0e29be61bc882bd7
 
 COCOAPODS: 1.1.0.beta.1
