@@ -45,17 +45,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-gI-hVl" customClass="ISHHoverBar">
-                                <rect key="frame" x="181" y="28" width="178" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-gI-hVl">
+                                <rect key="frame" x="169" y="28" width="190" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="178" id="QrX-da-Fm1"/>
+                                    <constraint firstAttribute="width" constant="190" id="QrX-da-Fm1"/>
                                     <constraint firstAttribute="height" constant="44" id="rC9-ut-dUQ"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.18497182428836823" green="0.41621652245521545" blue="0.1762884259223938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zro-fB-6Qb" customClass="GADBannerView">
                                 <rect key="frame" x="16" y="592" width="343" height="55"/>
@@ -92,11 +87,7 @@
                         <outlet property="changePreviousModeRecog" destination="IBt-te-B7O" id="dcV-rH-Uhx"/>
                         <outlet property="edgePanRecog" destination="F1A-j3-HPf" id="KAL-L4-E0p"/>
                         <outlet property="hoverBar" destination="5wo-gI-hVl" id="xoy-Gy-f14"/>
-                        <outlet property="moreButton" destination="QMk-t8-G7Y" id="YfO-6O-pie"/>
                         <outlet property="mySettingsRecog" destination="nLz-ad-0ql" id="KKv-Ox-GNi"/>
-                        <outlet property="playButton" destination="yDO-VZ-boI" id="Ias-SL-sjp"/>
-                        <outlet property="restartButton" destination="6QR-ca-i43" id="65l-K7-Tak"/>
-                        <outlet property="screenshotButton" destination="zBB-Xc-yuj" id="7CK-gH-jH1"/>
                         <outlet property="setTimerRecog" destination="hr1-4a-SNr" id="j4w-xY-mo5"/>
                         <outlet property="timerLabel" destination="mEG-Po-lfJ" id="Fgz-7t-ooI"/>
                         <segue destination="LVp-DH-RsJ" kind="presentation" identifier="showSetTimer" modalPresentationStyle="formSheet" id="TwS-Ha-VvY"/>
@@ -136,30 +127,6 @@
                         <segue destination="v5I-Uv-1Bn" kind="presentation" modalPresentationStyle="formSheet" id="EBd-y1-JLu"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <barButtonItem image="more" id="QMk-t8-G7Y">
-                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <connections>
-                        <action selector="more:" destination="BYZ-38-t0r" id="ARL-Hl-HuI"/>
-                    </connections>
-                </barButtonItem>
-                <barButtonItem image="restart" id="6QR-ca-i43">
-                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <connections>
-                        <action selector="restart:" destination="BYZ-38-t0r" id="aNK-8g-e32"/>
-                    </connections>
-                </barButtonItem>
-                <barButtonItem image="camera" id="zBB-Xc-yuj">
-                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <action selector="screenshot" destination="BYZ-38-t0r" id="DbG-EH-3y9"/>
-                    </connections>
-                </barButtonItem>
-                <barButtonItem image="play" id="yDO-VZ-boI">
-                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <connections>
-                        <action selector="play:" destination="BYZ-38-t0r" id="NSd-mC-ugo"/>
-                    </connections>
-                </barButtonItem>
                 <exit id="6gf-lf-dXb" userLabel="Exit" sceneMemberID="exit"/>
                 <swipeGestureRecognizer direction="right" numberOfTouchesRequired="2" id="IBt-te-B7O">
                     <connections>
@@ -232,7 +199,7 @@
         <scene sceneID="Kz2-Oc-45e">
             <objects>
                 <navigationController id="HZq-A3-C2n" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z1P-Dv-mu9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="z1P-Dv-mu9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -407,7 +374,7 @@
         <scene sceneID="20l-xr-YIf">
             <objects>
                 <navigationController id="75i-S5-sZD" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gk8-d0-rdD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Gk8-d0-rdD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -541,12 +508,6 @@
             <point key="canvasLocation" x="2030" y="-527"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="camera" width="25" height="25"/>
-        <image name="more" width="25" height="25"/>
-        <image name="play" width="25" height="25"/>
-        <image name="restart" width="25" height="25"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uZe-eJ-7TD"/>
         <segue reference="EBd-y1-JLu"/>
