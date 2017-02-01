@@ -2,7 +2,6 @@ import UIKit
 import LTMorphingLabel
 import FittableFontLabel
 import SwiftyUtils
-import ISHHoverBar
 import ASToast
 import CoreData
 import GoogleMobileAds
@@ -14,10 +13,6 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     @IBOutlet var timerLabel: LTMorphingLabel!
     var timer: Timer!
     
-    @IBOutlet var playButton: UIBarButtonItem!
-    @IBOutlet var restartButton: UIBarButtonItem!
-    @IBOutlet var moreButton: UIBarButtonItem!
-    @IBOutlet var screenshotButton: UIBarButtonItem!
     
     @IBOutlet var addSettingRecog: UITapGestureRecognizer!
     @IBOutlet var mySettingsRecog: UISwipeGestureRecognizer!
@@ -25,7 +20,6 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     @IBOutlet var edgePanRecog: UIScreenEdgePanGestureRecognizer!
     @IBOutlet var changeModeRecog: UISwipeGestureRecognizer!
     @IBOutlet var changePreviousModeRecog: UISwipeGestureRecognizer!
-    @IBOutlet var hoverBar: ISHHoverBar!
     
     @IBOutlet var ad: GADBannerView!
     
@@ -88,8 +82,6 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         timerLabel.font = timerLabel.font.withSize(shortFontSize)
         timerLabel.text = textCache
         
-        hoverBar.orientation = .horizontal
-        hoverBar.items = [screenshotButton, restartButton, playButton, moreButton]
         
         ad.adUnitID = adUnitID
         ad.rootViewController = self
@@ -147,7 +139,6 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             playButton.image = UIImage(named: "play")
             timer.pause()
         }
-        hoverBar.items = [screenshotButton, restartButton, playButton, moreButton]
     }
     
     @IBAction func restart(_ sender: UIBarButtonItem) {
