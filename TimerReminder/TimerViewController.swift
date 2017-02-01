@@ -160,24 +160,23 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         
     }
     
-    @IBAction func play(_ sender: UIBarButtonItem) {
+    @IBAction func play() {
         if timer.ended {
             return
         }
         
         if timer.paused {
-            playButton.image = UIImage(named: "pause")
+            playButton.customImage = UIImage(named: "pause")
             timer.start()
         } else {
-            playButton.image = UIImage(named: "play")
+            playButton.customImage = UIImage(named: "play")
             timer.pause()
         }
     }
     
     @IBAction func restart(_ sender: UIBarButtonItem) {
         timer.reset()
-        playButton.image = UIImage(named: "play")
-        hoverBar.items = [screenshotButton, restartButton, playButton, moreButton]
+        playButton.customImage = UIImage(named: "play")
     }
     
     @IBAction func screenshot() {
@@ -188,7 +187,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         _ = Foundation.Timer.after(0.2) {
             self.performSegue(withIdentifier: "showScreenshotPreview", sender: self)
             if !self.timer.paused {
-                self.play(self.playButton)
+                self.play()
             }
         }
     }
@@ -252,16 +251,16 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
                 self.performSegue(withIdentifier: "showSetTimer", sender: self)
             case "Switch to Clock Mode":
                 self.timer.reset()
-                self.playButton.image = UIImage(named: "play")
+                self.playButton.customImage = UIImage(named: "play")
                 self.timer = Clock(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
             case "Switch to Stopwatch Mode":
                 self.timer.reset()
-                self.playButton.image = UIImage(named: "play")
+                self.playButton.customImage = UIImage(named: "play")
                 self.timer = CountUpTimer(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
 
             case "Switch to Timer Mode":
                 self.timer.reset()
-                self.playButton.image = UIImage(named: "play")
+                self.playButton.customImage = UIImage(named: "play")
                 self.timer = CountDownTimer(time: 60, options: self.appliedOptions, onTimerChange: self.timerChangedClosure, onEnd: nil)
 
             case "Global Settings":
@@ -276,7 +275,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     
     @IBAction func unwindFromSetTimer(_ segue: UIStoryboardSegue) {
         if let vc = segue.source as? SetTimerController {
-            playButton.image = UIImage(named: "play")
+            playButton.customImage = UIImage(named: "play")
             if vc.selectedTimeInterval! >= 3601 {
                 timerLabel.font = timerLabel.font.withSize(longFontSize)
             } else {
@@ -313,17 +312,17 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     @IBAction func changeMode() {
         if timer is CountDownTimer {
             self.timer.reset()
-            self.playButton.image = UIImage(named: "play")
+            self.playButton.customImage = UIImage(named: "play")
             self.timer = CountUpTimer(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
 //            self.view.makeToast(NSLocalizedString("Changed to Stopwatch Mode", comment: ""), backgroundColor: nil, messageColor: nil)
         } else if timer is CountUpTimer {
             self.timer.reset()
-            self.playButton.image = UIImage(named: "play")
+            self.playButton.customImage = UIImage(named: "play")
             self.timer = Clock(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
 //            self.view.makeToast(NSLocalizedString("Changed to Clock Mode", comment: ""), backgroundColor: nil, messageColor: nil)
         } else if timer is Clock {
             self.timer.reset()
-            self.playButton.image = UIImage(named: "play")
+            self.playButton.customImage = UIImage(named: "play")
             self.timer = CountDownTimer(time: 60, options: self.appliedOptions, onTimerChange: self.timerChangedClosure, onEnd: nil)
 //            self.view.makeToast(NSLocalizedString("Changed to Timer Mode", comment: ""), backgroundColor: nil, messageColor: nil)
         }
@@ -332,17 +331,17 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     @IBAction func changePreviousMode() {
         if timer is Clock {
             self.timer.reset()
-            self.playButton.image = UIImage(named: "play")
+            self.playButton.customImage = UIImage(named: "play")
             self.timer = CountUpTimer(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
 //            self.view.makeToast(NSLocalizedString("Changed to Stopwatch Mode", comment: ""), backgroundColor: nil, messageColor: nil)
         } else if timer is CountDownTimer {
             self.timer.reset()
-            self.playButton.image = UIImage(named: "play")
+            self.playButton.customImage = UIImage(named: "play")
             self.timer = Clock(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
 //            self.view.makeToast(NSLocalizedString("Changed to Clock Mode", comment: ""), backgroundColor: nil, messageColor: nil)
         } else if timer is CountUpTimer {
             self.timer.reset()
-            self.playButton.image = UIImage(named: "play")
+            self.playButton.customImage = UIImage(named: "play")
             self.timer = CountDownTimer(time: 60, options: self.appliedOptions, onTimerChange: self.timerChangedClosure, onEnd: nil)
 //            self.view.makeToast(NSLocalizedString("Changed to Timer Mode", comment: ""), backgroundColor: nil, messageColor: nil)
         }
