@@ -8,11 +8,16 @@ import GoogleMobileAds
 import DropDown
 import MLScreenshot
 import SlideMenuControllerSwift
+import NGORoundedButton
 
 class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureRecognizerDelegate, GlobalSettingsControllerDelegate, SlideMenuControllerDelegate {
     @IBOutlet var timerLabel: LTMorphingLabel!
     var timer: Timer!
     
+    var playButton: NGORoundedButton!
+    var restartButton: NGORoundedButton!
+    var moreButton: NGORoundedButton!
+    var screenshotButton: NGORoundedButton!
     
     @IBOutlet var addSettingRecog: UITapGestureRecognizer!
     @IBOutlet var mySettingsRecog: UISwipeGestureRecognizer!
@@ -20,6 +25,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     @IBOutlet var edgePanRecog: UIScreenEdgePanGestureRecognizer!
     @IBOutlet var changeModeRecog: UISwipeGestureRecognizer!
     @IBOutlet var changePreviousModeRecog: UISwipeGestureRecognizer!
+    @IBOutlet var hoverBar: UIView!
     
     @IBOutlet var ad: GADBannerView!
     
@@ -43,6 +49,29 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
 //    }
 
     override func viewDidLoad() {
+        playButton = NGORoundedButton(buttonCustomImage: UIImage(named: "play"), andShape: .circle)
+        playButton.frame = playButton.frame.with(width: 44).with(height: 44)
+        playButton.x = 94
+        playButton.color = .green
+        playButton.addTarget(self, action: #selector(play), for: .touchUpInside)
+        
+        restartButton = NGORoundedButton(buttonCustomImage: UIImage(named: "restart"), andShape: .circle)
+        restartButton.frame = restartButton.frame.with(width: 44).with(height: 44)
+        restartButton.x = 47
+        restartButton.color = .green
+        restartButton.addTarget(self, action: #selector(restart), for: .touchUpInside)
+        
+        moreButton = NGORoundedButton(buttonCustomImage: UIImage(named: "more"), andShape: .circle)
+        moreButton.frame = moreButton.frame.with(width: 44).with(height: 44)
+        moreButton.x = 141
+        moreButton.color = .green
+        moreButton.addTarget(self, action: #selector(more), for: .touchUpInside)
+        
+        screenshotButton = NGORoundedButton(buttonCustomImage: UIImage(named: "camera"), andShape: .circle)
+        screenshotButton.frame = screenshotButton.frame.with(width: 44).with(height: 44)
+        screenshotButton.color = .green
+        screenshotButton.addTarget(self, action: #selector(screenshot), for: .touchUpInside)
+        
         timerLabel.delegate = self
         timerLabel.morphingEffect = LTMorphingEffect(rawValue: UserDefaults.standard.integer(forKey: "timerAnimation"))!
         timerLabel.morphingEnabled = true
@@ -82,6 +111,10 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         timerLabel.font = timerLabel.font.withSize(shortFontSize)
         timerLabel.text = textCache
         
+        hoverBar.addSubview(screenshotButton)
+        hoverBar.addSubview(restartButton)
+        hoverBar.addSubview(playButton)
+        hoverBar.addSubview(moreButton)
         
         ad.adUnitID = adUnitID
         ad.rootViewController = self
