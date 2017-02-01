@@ -13,7 +13,7 @@ target 'TimerReminder' do
     pod 'DropDown'
     pod 'MVSpeechSynthesizer'
     pod 'MGSwipeTableCell'
-    pod 'ISHHoverBar'
+    pod 'NGORoundedButton'
     pod 'Firebase/Analytics'
     pod 'Firebase/AdMob'
     pod 'MLScreenshot'

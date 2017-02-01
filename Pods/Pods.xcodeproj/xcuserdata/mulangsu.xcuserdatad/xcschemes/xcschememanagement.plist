@@ -29,11 +29,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ISHHoverBar.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>ImageScrollView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -55,6 +50,11 @@
 			<false/>
 		</dict>
 		<key>MVSpeechSynthesizer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>NGORoundedButton.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -82,16 +82,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>06008BDA8C88338D6B6E5BDC162E6148</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>0E483F76EE71EBA5238672F58A8908C7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3C900E8E2449EBBCC12128A9BDA69E7F</key>
 		<dict>
 			<key>primary</key>
@@ -102,7 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5A0DA9C4A27B7B0919EE4DD214835A80</key>
+		<key>621A4ECF1E600590CA95104DB3332755</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,17 +102,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6FA04637F40F90165A196431145CEF38</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>873B1A0D84F1FF2C0ECD8A2440705B43</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>877D67F614EE8018CEED7EFE64790E57</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8EFB44D2DE7C5EB00C3EC386780F54FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>91FAFDFF845A6E9F3BB1A0630F73C4BE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,12 +142,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F051D42F18D273ED1E6E222E33588C9D</key>
+		<key>CE9FFA3A52A3EC3714E038D40F2E4164</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F9075365F1B594289EBC8AE858E9F65E</key>
+		<key>DF1A394CAB1D57C40EA98E7B0A7EA70B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F051D42F18D273ED1E6E222E33588C9D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

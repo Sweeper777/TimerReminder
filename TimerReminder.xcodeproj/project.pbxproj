@@ -53,7 +53,6 @@
 		5A19FDDF1DB94CF70022F794 /* ASToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDD51DB94CF70022F794 /* ASToast.framework */; };
 		5A19FDE01DB94CF70022F794 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDD61DB94CF70022F794 /* Eureka.framework */; };
 		5A19FDE21DB94CF70022F794 /* FittableFontLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDD81DB94CF70022F794 /* FittableFontLabel.framework */; };
-		5A19FDE31DB94CF70022F794 /* ISHHoverBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDD91DB94CF70022F794 /* ISHHoverBar.framework */; };
 		5A19FDE41DB94CF70022F794 /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDDA1DB94CF70022F794 /* LTMorphingLabel.framework */; };
 		5A19FDE51DB94CF70022F794 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDDB1DB94CF70022F794 /* MGSwipeTableCell.framework */; };
 		5A19FDE61DB94CF70022F794 /* MVSpeechSynthesizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDDC1DB94CF70022F794 /* MVSpeechSynthesizer.framework */; };
@@ -169,7 +168,6 @@
 				5A19FDDF1DB94CF70022F794 /* ASToast.framework in Frameworks */,
 				5A19FDE01DB94CF70022F794 /* Eureka.framework in Frameworks */,
 				5A19FDE21DB94CF70022F794 /* FittableFontLabel.framework in Frameworks */,
-				5A19FDE31DB94CF70022F794 /* ISHHoverBar.framework in Frameworks */,
 				5A19FDE41DB94CF70022F794 /* LTMorphingLabel.framework in Frameworks */,
 				5A19FDE51DB94CF70022F794 /* MGSwipeTableCell.framework in Frameworks */,
 				5A19FDE61DB94CF70022F794 /* MVSpeechSynthesizer.framework in Frameworks */,
