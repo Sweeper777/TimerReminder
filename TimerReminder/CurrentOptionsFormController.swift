@@ -18,6 +18,10 @@ class CurrentOptionsFormController: FormViewController {
         super.viewDidAppear(animated)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        view.endEditing(true)
+    }
+    
     func syncTimerOptions() {
         let options = (self.slideMenuController()?.mainViewController as? TimerViewController)?.appliedOptions ?? TimerOptions.defaultOptions
         form.rowBy(tag: tagName)?.baseValue = options.name
