@@ -199,7 +199,7 @@
         <scene sceneID="Kz2-Oc-45e">
             <objects>
                 <navigationController id="HZq-A3-C2n" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="z1P-Dv-mu9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z1P-Dv-mu9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -374,7 +374,7 @@
         <scene sceneID="20l-xr-YIf">
             <objects>
                 <navigationController id="75i-S5-sZD" customClass="DataPasserController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Gk8-d0-rdD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gk8-d0-rdD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
