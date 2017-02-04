@@ -1,7 +1,6 @@
 import UIKit
 import LTMorphingLabel
 import FittableFontLabel
-import SwiftyUtils
 import ASToast
 import CoreData
 import GoogleMobileAds
@@ -214,7 +213,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         
         moreMenu.anchorView = hoverBar
         moreMenu.dataSource = menuItems
-        moreMenu.width = menuWidth
+        moreMenu.width = menuWidth as CGFloat?
         moreMenu.bottomOffset = CGPoint(x: 0, y:(moreMenu.anchorView?.plainView.bounds.height)!)
         moreMenu.cellNib = UINib(nibName: "MoreMenuItem", bundle: nil)
         moreMenu.customCellConfiguration = {
