@@ -29,7 +29,7 @@ class GlobalSettingsController: FormViewController {
             +++ PickerInlineRow<FontStyle>(tagFontStyle) {
                 row in
                 row.title = NSLocalizedString("Font Style", comment: "")
-                row.options = [.Thin, .Regular, .Light, .Ultralight]
+                row.options = [.Thin, .Regular, .Light, .Ultralight, .Bodoni72, .Chalkduster]
                 let fontStyle = UserDefaults.standard.integer(forKey: "fontStyle")
                 row.value = FontStyle(rawValue: fontStyle)
         }.onChange {
