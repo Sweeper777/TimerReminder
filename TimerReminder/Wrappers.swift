@@ -39,4 +39,6 @@ enum FontStyle: Int {
     case Regular = 1
     case Light = 2
     case Ultralight = 3
+    case Bodoni72 = 4
+    case Chalkduster = 5
 }
