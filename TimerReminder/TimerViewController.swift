@@ -101,7 +101,11 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         timerLabel.textColor = nightMode ? UIColor.white : UIColor.black
         
         let fontStyle = FontStyle(rawValue: UserDefaults.standard.integer(forKey: "fontStyle"))
-        timerLabel.font = UIFont(name: "SFUIDisplay-\(fontStyle!)", size: 16)
+        if fontStyle!.rawValue > 3 {
+            timerLabel.font = UIFont(name: "\(fontStyle!)", size: 16)
+        } else {
+            timerLabel.font = UIFont(name: "SFUIDisplay-\(fontStyle!)", size: 16)
+        }
         let textCache = timerLabel.text
         shortFontSize = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
         longFontSize = timerLabel.fontSizeThatFits(text: "00:00:00", maxFontSize: 500)
