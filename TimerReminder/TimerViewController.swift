@@ -405,7 +405,11 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         } else if key == "fontStyle" {
             let value = newValue as! FontStyle
             UserDefaults.standard.set(value.rawValue, forKey: key)
-            timerLabel.font = UIFont(name: "SFUIDisplay-\(value)", size: 16)
+            if value.rawValue > 3 {
+                timerLabel.font = UIFont(name: "\(value)", size: 16)
+            } else {
+                timerLabel.font = UIFont(name: "SFUIDisplay-\(value)", size: 16)
+            }
             let textCache = timerLabel.text
             shortFontSize = timerLabel.fontSizeThatFits(text: "00:00", maxFontSize: 500)
             longFontSize = timerLabel.fontSizeThatFits(text: "00:00:00", maxFontSize: 500)
