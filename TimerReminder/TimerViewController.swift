@@ -236,7 +236,9 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             }
         }
         
-        YCXMenu.show(in: self.view, from: hoverBar.frame, menuItems: menuItems) {
+        let rect = self.view.convert(moreButton.frame, from: hoverBar)
+        
+        YCXMenu.show(in: self.view, from: rect, menuItems: menuItems) {
             [unowned self] index, item in
             switch menuItemStrings[index] {
             case "My Timer Settings":
