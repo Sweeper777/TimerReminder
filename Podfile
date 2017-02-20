@@ -19,5 +19,7 @@ target 'TimerReminder' do
     pod 'MLScreenshot'
     pod 'ImageScrollView'
     pod 'SlideMenuControllerSwift'
+    pod 'SCLAlertView'
+    pod 'YCXMenu'
 end
 

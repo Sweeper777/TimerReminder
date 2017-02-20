@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimerReminder/TimerViewController.swift"
-            timestampString = "507891633.072766"
+            timestampString = "507980922.080547"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
             landmarkName = "more(_:)"
             landmarkType = "7">
          </BreakpointContent>
