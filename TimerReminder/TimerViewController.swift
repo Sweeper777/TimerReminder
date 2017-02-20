@@ -4,7 +4,7 @@ import FittableFontLabel
 import ASToast
 import CoreData
 import GoogleMobileAds
-import DropDown
+import YCXMenu
 import MLScreenshot
 import SlideMenuControllerSwift
 import NGORoundedButton
@@ -27,8 +27,6 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     @IBOutlet var hoverBar: UIView!
     
     @IBOutlet var ad: GADBannerView!
-    
-    let moreMenu = DropDown()
     
     var shortFontSize: CGFloat!
     var longFontSize: CGFloat!
@@ -196,57 +194,51 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     }
     
     @IBAction func more(_ sender: AnyObject) {
-        var menuItems = ["My Timer Settings", "Add New Timer Settings"]
+        var menuItemStrings = ["My Timer Settings", "Add New Timer Settings"]
         if self.timer.canBeSet {
-            menuItems.append("Set Timer")
+            menuItemStrings.append("Set Timer")
         }
         if timer is CountDownTimer {
-            menuItems.append("Switch to Stopwatch Mode")
-            menuItems.append("Switch to Clock Mode")
+            menuItemStrings.append("Switch to Stopwatch Mode")
+            menuItemStrings.append("Switch to Clock Mode")
         } else if timer is CountUpTimer {
-            menuItems.append("Switch to Timer Mode")
-            menuItems.append("Switch to Clock Mode")
+            menuItemStrings.append("Switch to Timer Mode")
+            menuItemStrings.append("Switch to Clock Mode")
         } else if timer is Clock {
-            menuItems.append("Switch to Timer Mode")
-            menuItems.append("Switch to Stopwatch Mode")
+            menuItemStrings.append("Switch to Timer Mode")
+            menuItemStrings.append("Switch to Stopwatch Mode")
         }
-        menuItems.append("Global Settings")
+        menuItemStrings.append("Global Settings")
         
-        let widths = menuItems.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
+        let widths = menuItemStrings.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
         let menuWidth = widths.max()! + 70
         
-        moreMenu.anchorView = hoverBar
-        moreMenu.dataSource = menuItems
-        moreMenu.width = menuWidth as CGFloat?
-        moreMenu.bottomOffset = CGPoint(x: 0, y:(moreMenu.anchorView?.plainView.bounds.height)!)
-        moreMenu.cellNib = UINib(nibName: "MoreMenuItem", bundle: nil)
-        moreMenu.customCellConfiguration = {
-            _, item, cell in
-            guard let menuItemCell = cell as? MoreMenuItem else { return }
-            menuItemCell.optionLabel.text = NSLocalizedString(item, comment: "")
-            switch item {
-            case "My Timer Settings":
-                menuItemCell.icon.image = UIImage(named: "choose")
-            case "Add New Timer Settings":
-                menuItemCell.icon.image = UIImage(named: "add")
-            case "Set Timer":
-                menuItemCell.icon.image = UIImage(named: "timer")
-            case "Switch to Clock Mode":
-                menuItemCell.icon.image = UIImage(named: "clock")
-            case "Switch to Stopwatch Mode":
-                menuItemCell.icon.image = UIImage(named: "countup")
-            case "Switch to Timer Mode":
-                menuItemCell.icon.image = UIImage(named: "countdown")
-            case "Global Settings":
-                menuItemCell.icon.image = UIImage(named: "settings")
+        var menuItems = menuItemStrings.map { YCXMenuItem.init(NSLocalizedString($0, comment: ""), image: nil, target: nil, action: nil) }
+        menuItems.forEach {
+            item in
+            switch item!.title {
+            case NSLocalizedString("My Timer Settings", comment: ""):
+                item!.image = UIImage(named: "choose")
+            case NSLocalizedString("Add New Timer Settings", comment: ""):
+                item!.image = UIImage(named: "add")
+            case NSLocalizedString("Set Timer", comment: ""):
+                item!.image = UIImage(named: "timer")
+            case NSLocalizedString("Switch to Clock Mode", comment: ""):
+                item!.image = UIImage(named: "clock")
+            case NSLocalizedString("Switch to Stopwatch Mode", comment: ""):
+                item!.image = UIImage(named: "countup")
+            case NSLocalizedString("Switch to Timer Mode", comment: ""):
+                item!.image = UIImage(named: "countdown")
+            case NSLocalizedString("Global Settings", comment: ""):
+                item!.image = UIImage(named: "settings")
             default:
                 break
             }
         }
         
-        moreMenu.selectionAction = {
+        YCXMenu.show(in: self.view, from: hoverBar.frame, menuItems: menuItems) {
             [unowned self] index, item in
-            switch item {
+            switch menuItemStrings[index] {
             case "My Timer Settings":
                 self.performSegue(withIdentifier: "showChooseTimerSettings", sender: self)
             case "Add New Timer Settings":
@@ -273,8 +265,6 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
                 break
             }
         }
-        
-        moreMenu.show()
     }
     
     @IBAction func unwindFromSetTimer(_ segue: UIStoryboardSegue) {
