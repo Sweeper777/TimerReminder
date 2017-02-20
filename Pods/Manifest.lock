@@ -1,31 +1,24 @@
 PODS:
-  - ASToast (1.0.7)
+  - ASToast (1.0.8)
   - DropDown (2)
-  - Eureka (2.0.0-beta.1)
-  - Firebase/AdMob (3.11.1):
+  - Eureka (2.0.1)
+  - Firebase/AdMob (3.13.0):
     - Firebase/Core
-    - Google-Mobile-Ads-SDK (= 7.16.0)
-  - Firebase/Analytics (3.11.1):
+    - Google-Mobile-Ads-SDK (= 7.17.0)
+  - Firebase/Analytics (3.13.0):
     - Firebase/Core
-  - Firebase/Core (3.11.1):
-    - FirebaseAnalytics (= 3.6.0)
-    - FirebaseCore (= 3.4.7)
-  - FirebaseAnalytics (3.6.0):
-    - FirebaseCore (~> 3.4)
+  - Firebase/Core (3.13.0):
+    - FirebaseAnalytics (= 3.7.0)
+    - FirebaseCore (= 3.5.0)
+  - FirebaseAnalytics (3.7.0):
+    - FirebaseCore (~> 3.5)
     - FirebaseInstanceID (~> 1.0)
-    - GoogleInterchangeUtilities (~> 1.2)
-    - GoogleSymbolUtilities (~> 1.1)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.4.7):
-    - GoogleInterchangeUtilities (~> 1.2)
-    - GoogleSymbolUtilities (~> 1.1)
+  - FirebaseCore (3.5.0):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (1.0.8)
+  - FirebaseInstanceID (1.0.9)
   - FittableFontLabel (1.4.0)
-  - Google-Mobile-Ads-SDK (7.16.0)
-  - GoogleInterchangeUtilities (1.2.2):
-    - GoogleSymbolUtilities (~> 1.1)
-  - GoogleSymbolUtilities (1.1.2)
+  - Google-Mobile-Ads-SDK (7.17.0)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
@@ -61,17 +54,15 @@ DEPENDENCIES:
   - YCXMenu
 
 SPEC CHECKSUMS:
-  ASToast: 111dda73186fcf091193a38eb31de3013bd392a7
+  ASToast: 60d9280c1dd1fdacc8755f666ec48cbe0d307be4
   DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
-  Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
-  Firebase: 53b2343db1ebfa3eb16bdb4318b8bb65360b2220
-  FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
-  FirebaseCore: 46afaf2c2e0419ea7d3acfb08cf26a461a75fe85
-  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
+  Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
+  Firebase: 5bc34d7b5ff5792e3386c8b28dc6265deeab0da4
+  FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
+  FirebaseCore: 1c0a13bf59bb95cdd19577252499f0ec6a03e999
+  FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   FittableFontLabel: 20502441e83bb41eb8b41611cca91af85c4e21e3
-  Google-Mobile-Ads-SDK: 92dff0e9ce1cfdfe640d9d80ab86d5e4371e478f
-  GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
-  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
+  Google-Mobile-Ads-SDK: a8bf4211624999b73e4184be516f94770b139525
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   ImageScrollView: 2f2d7139fb5a7d0c0b021eb8b086d8c3dc54c233
   LTMorphingLabel: d9a85f16ac306f0e07321d6819964deb2dc69638
