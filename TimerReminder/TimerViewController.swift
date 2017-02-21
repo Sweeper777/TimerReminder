@@ -213,24 +213,31 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         let widths = menuItemStrings.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
         let menuWidth = widths.max()! + 70
         
-        var menuItems = menuItemStrings.map { YCXMenuItem.init(NSLocalizedString($0, comment: ""), image: nil, target: nil, action: nil) }
+        var menuItems = menuItemStrings.map { YCXMenuItem.init(NSLocalizedString($0, comment: ""), image: nil, target: self, action: nil) }
         menuItems.forEach {
             item in
             switch item!.title {
             case NSLocalizedString("My Timer Settings", comment: ""):
                 item!.image = UIImage(named: "choose")
+                item!.action = #selector(myTimerSettings)
             case NSLocalizedString("Add New Timer Settings", comment: ""):
                 item!.image = UIImage(named: "add")
+                item!.action = #selector(addNewTimerSettings)
             case NSLocalizedString("Set Timer", comment: ""):
                 item!.image = UIImage(named: "timer")
+                item!.action = #selector(setTimer)
             case NSLocalizedString("Switch to Clock Mode", comment: ""):
                 item!.image = UIImage(named: "clock")
+                item!.action = #selector(switchToClockMode)
             case NSLocalizedString("Switch to Stopwatch Mode", comment: ""):
                 item!.image = UIImage(named: "countup")
+                item!.action = #selector(switchToStopwatchMode)
             case NSLocalizedString("Switch to Timer Mode", comment: ""):
                 item!.image = UIImage(named: "countdown")
+                item!.action = #selector(switchToTimerMode)
             case NSLocalizedString("Global Settings", comment: ""):
                 item!.image = UIImage(named: "settings")
+                item!.action = #selector(goToGlobalSettings)
             default:
                 break
             }
@@ -267,6 +274,40 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
                 break
             }
         }
+    }
+    
+    func myTimerSettings() {
+        self.performSegue(withIdentifier: "showChooseTimerSettings", sender: self)
+    }
+    
+    func addNewTimerSettings() {
+        self.performSegue(withIdentifier: "showTimerForm", sender: self)
+    }
+    
+    func setTimer() {
+        self.performSegue(withIdentifier: "showSetTimer", sender: self)
+    }
+    
+    func switchToClockMode() {
+        self.timer.reset()
+        self.playButton.customImage = UIImage(named: "play")
+        self.timer = Clock(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
+    }
+    
+    func switchToStopwatchMode() {
+        self.timer.reset()
+        self.playButton.customImage = UIImage(named: "play")
+        self.timer = CountUpTimer(options: self.appliedOptions, onTimerChange: self.timerChangedClosure)
+    }
+    
+    func switchToTimerMode() {
+        self.timer.reset()
+        self.playButton.customImage = UIImage(named: "play")
+        self.timer = CountDownTimer(time: 60, options: self.appliedOptions, onTimerChange: self.timerChangedClosure, onEnd: nil)
+    }
+    
+    func goToGlobalSettings() {
+        self.performSegue(withIdentifier: "showSettings", sender: self)
     }
     
     @IBAction func unwindFromSetTimer(_ segue: UIStoryboardSegue) {
