@@ -1,5 +1,6 @@
 import UIKit
 import ImageScrollView
+import SCLAlertView
 
 class ScreenshotController: UIViewController {
     var image: UIImage!
@@ -19,8 +20,9 @@ class ScreenshotController: UIViewController {
     }
     
     func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeMutableRawPointer) {
-        let alert = UIAlertController(title: NSLocalizedString("Screenshot has been saved.", comment: ""), message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+        let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false, showCircularIcon: false))
+        alert.addButton(NSLocalizedString("OK", comment: ""), action: {})
+        _ = alert.showCustom("", subTitle: NSLocalizedString("Screenshot has been saved.", comment: ""), color: UIColor(hex: "5abb5a"), icon: UIImage(color: nil))
+        
     }
 }
