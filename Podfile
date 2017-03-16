@@ -16,6 +16,7 @@ target 'TimerReminder' do
     pod 'NGORoundedButton'
     pod 'Firebase/Analytics'
     pod 'Firebase/AdMob'
+    pod 'Firebase/Crash'
     pod 'MLScreenshot'
     pod 'ImageScrollView'
     pod 'SlideMenuControllerSwift'
