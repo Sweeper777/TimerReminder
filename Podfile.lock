@@ -1,23 +1,23 @@
 PODS:
-  - ASToast (1.0.8)
+  - ASToast (1.0.9)
   - DropDown (2)
   - Eureka (2.0.1)
-  - Firebase/AdMob (3.13.0):
+  - Firebase/AdMob (3.15.0):
     - Firebase/Core
-    - Google-Mobile-Ads-SDK (= 7.17.0)
-  - Firebase/Analytics (3.13.0):
+    - Google-Mobile-Ads-SDK (= 7.19.0)
+  - Firebase/Analytics (3.15.0):
     - Firebase/Core
-  - Firebase/Core (3.13.0):
+  - Firebase/Core (3.15.0):
     - FirebaseAnalytics (= 3.7.0)
-    - FirebaseCore (= 3.5.0)
-  - Firebase/Crash (3.13.0):
+    - FirebaseCore (= 3.5.2)
+  - Firebase/Crash (3.15.0):
     - Firebase/Core
     - FirebaseCrash (= 1.1.6)
   - FirebaseAnalytics (3.7.0):
     - FirebaseCore (~> 3.5)
     - FirebaseInstanceID (~> 1.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.5.0):
+  - FirebaseCore (3.5.2):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseCrash (1.1.6):
     - FirebaseAnalytics (~> 3.7)
@@ -27,7 +27,7 @@ PODS:
     - Protobuf (~> 3.1)
   - FirebaseInstanceID (1.0.9)
   - FittableFontLabel (1.4.0)
-  - Google-Mobile-Ads-SDK (7.17.0)
+  - Google-Mobile-Ads-SDK (7.19.0)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/Logger (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
@@ -67,16 +67,16 @@ DEPENDENCIES:
   - YCXMenu
 
 SPEC CHECKSUMS:
-  ASToast: 60d9280c1dd1fdacc8755f666ec48cbe0d307be4
+  ASToast: 7b0a104bba38264e2525924a6ab60dde972d0c83
   DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
-  Firebase: 5bc34d7b5ff5792e3386c8b28dc6265deeab0da4
+  Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
-  FirebaseCore: 1c0a13bf59bb95cdd19577252499f0ec6a03e999
+  FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
   FirebaseCrash: db4c05d9c75baa050744d31b36357c8f1efba481
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   FittableFontLabel: 20502441e83bb41eb8b41611cca91af85c4e21e3
-  Google-Mobile-Ads-SDK: a8bf4211624999b73e4184be516f94770b139525
+  Google-Mobile-Ads-SDK: d1bcdbd8347a105a687345b8511701172a5074e9
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   ImageScrollView: 2f2d7139fb5a7d0c0b021eb8b086d8c3dc54c233
   LTMorphingLabel: d9a85f16ac306f0e07321d6819964deb2dc69638
