@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FTPopOverMenu_Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FittableFontLabel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -97,22 +102,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1612061E41B37F8A8B7DEDB2C9AFF536</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1C624AA44BD31C428D1517349E51A0C9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>367775726ABA7003552CA455107C1627</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>3C900E8E2449EBBCC12128A9BDA69E7F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>45EE2261CD8D644131FB813E0A1AF0FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,7 +127,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>75D355B2157E109765AC3417633955D3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7FC26F99995267126C4710BF6D2F59D1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>80C60946D217ECA1FA9DE772EAE2C583</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>811FE55BFB3FF3AE4883F5B80E6697D5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8EFB44D2DE7C5EB00C3EC386780F54FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EC5159DF68A146178B050D7BFCAB448</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,7 +172,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A45DFB46D69F8FA6713B5EA78941201A</key>
+		<key>AFAF6A2684D0BE779CC6707EFB5B73EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,27 +182,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B5D21D3B98459AC790BCB6246C4AD50A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CAB896F873CE0E2EEE1ADD89E9FCB5D9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>CE9FFA3A52A3EC3714E038D40F2E4164</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CEDB21F8D8145F8631D86A6AD1C25140</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EA18C1B7283DBB339035ECDFCAF0B5E9</key>
+		<key>EE276D797B407C827BC2B24B7CCA8785</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -27,6 +27,7 @@ PODS:
     - Protobuf (~> 3.1)
   - FirebaseInstanceID (1.0.9)
   - FittableFontLabel (1.4.0)
+  - FTPopOverMenu_Swift (0.0.6)
   - Google-Mobile-Ads-SDK (7.19.0)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/Logger (2.1.1):
@@ -54,6 +55,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Crash
   - FittableFontLabel
+  - FTPopOverMenu_Swift
   - ImageScrollView
   - LTMorphingLabel
   - MGSwipeTableCell
@@ -76,6 +78,7 @@ SPEC CHECKSUMS:
   FirebaseCrash: db4c05d9c75baa050744d31b36357c8f1efba481
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   FittableFontLabel: 20502441e83bb41eb8b41611cca91af85c4e21e3
+  FTPopOverMenu_Swift: ddc5689b89d375e22efd7ccd0c022392f33785ea
   Google-Mobile-Ads-SDK: d1bcdbd8347a105a687345b8511701172a5074e9
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   ImageScrollView: 2f2d7139fb5a7d0c0b021eb8b086d8c3dc54c233
@@ -91,6 +94,6 @@ SPEC CHECKSUMS:
   SwiftyUtils: 87094996d977846e5a9f2cbe653ff28dc15ba187
   YCXMenu: 6003bcd20d8ac72e3eb3c442c97ed21948c6dc1f
 
-PODFILE CHECKSUM: 6c307c397ca3fdd5e5d05ae240497e2e832f3f24
+PODFILE CHECKSUM: e77d5e8dbc850c197e929f4372d1568bda1dccbd
 
 COCOAPODS: 1.1.0.beta.1
