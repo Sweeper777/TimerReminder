@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>DropDown.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Eureka.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -97,17 +92,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0B747F9B7BE0138EA8AFAAE2C2807B1B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>21DDDE7716267D9EFBD007A5057C1894</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>26EEE1E13B9D74E932B708647458192C</key>
+		<key>210CABFF3683E387325F6D7CDBD0EFCC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,27 +117,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>56C59421CC8B5860F59D998EACAAA23C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>6819754D454CCFB5578F7BB3E4DD1A9D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>76B1D00E5DD3D2999F23FE6DD27921A6</key>
+		<key>7C2A843C99910DD3E4B12758A18508FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>8EFB44D2DE7C5EB00C3EC386780F54FB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9F766ADB76A46AB732825D44C4BAAABF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -167,6 +142,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A3E9A69D95EBD4B6C9DA8FA3B5768748</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B1FBB3DA549F4E64345B3BB249177450</key>
 		<dict>
 			<key>primary</key>
@@ -177,12 +157,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E74E1E17C8F6291727F5B8C624F10003</key>
+		<key>DF81C283AE1B623F87CDFD52D89CBF7A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DFDFF1220AB2B72A53E9522D0DB03F0A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>F051D42F18D273ED1E6E222E33588C9D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F435A43D5B8242F61EC147808526A54C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

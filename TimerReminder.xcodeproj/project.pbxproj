@@ -45,24 +45,10 @@
 		5A067CC11D4490A500238AF5 /* TimerReminder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A067CBF1D4490A500238AF5 /* TimerReminder.xcdatamodeld */; };
 		5A067CC31D4490A500238AF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A067CC21D4490A500238AF5 /* Assets.xcassets */; };
 		5A067CC61D4490A500238AF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A067CC41D4490A500238AF5 /* LaunchScreen.storyboard */; };
-		5A168E101E2CFB1B007F698C /* MLScreenshot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A168E0E1E2CFB1B007F698C /* MLScreenshot.framework */; };
-		5A168E111E2CFB1B007F698C /* SwiftyUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A168E0F1E2CFB1B007F698C /* SwiftyUtils.framework */; };
-		5A16C0351E2E0E6300D1DE46 /* SlideMenuControllerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16C0341E2E0E6300D1DE46 /* SlideMenuControllerSwift.framework */; };
 		5A16C0391E2E126100D1DE46 /* CurrentOptionsSlideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A16C0381E2E126100D1DE46 /* CurrentOptionsSlideController.swift */; };
 		5A1715FC1E2B670100333971 /* ScreenshotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1715FB1E2B670100333971 /* ScreenshotController.swift */; };
-		5A19FDDF1DB94CF70022F794 /* ASToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDD51DB94CF70022F794 /* ASToast.framework */; };
-		5A19FDE01DB94CF70022F794 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDD61DB94CF70022F794 /* Eureka.framework */; };
-		5A19FDE21DB94CF70022F794 /* FittableFontLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDD81DB94CF70022F794 /* FittableFontLabel.framework */; };
-		5A19FDE41DB94CF70022F794 /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDDA1DB94CF70022F794 /* LTMorphingLabel.framework */; };
-		5A19FDE51DB94CF70022F794 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDDB1DB94CF70022F794 /* MGSwipeTableCell.framework */; };
-		5A19FDE61DB94CF70022F794 /* MVSpeechSynthesizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDDC1DB94CF70022F794 /* MVSpeechSynthesizer.framework */; };
-		5A19FDE81DB94CF70022F794 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A19FDDE1DB94CF70022F794 /* SwiftyJSON.framework */; };
-		5A1C1BFD1DBF69120009162D /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1C1BFC1DBF69120009162D /* DropDown.framework */; };
-		5A1C1C001DBF6C9D0009162D /* MoreMenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A1C1BFF1DBF6C9D0009162D /* MoreMenuItem.xib */; };
-		5A1C1C021DBF6CD10009162D /* MoreMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C1C011DBF6CD10009162D /* MoreMenuItem.swift */; };
 		5A20D16D1DC5EAEA009862F7 /* SF-UI-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A20D16B1DC5EADE009862F7 /* SF-UI-Display-Ultralight.otf */; };
 		5A20D1701DC5ECD0009862F7 /* SF-UI-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A20D16F1DC5ECD0009862F7 /* SF-UI-Display-Light.otf */; };
-		5A46676B1E2D032100132B56 /* ImageScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A46676A1E2D032100132B56 /* ImageScrollView.framework */; };
 		5A6FD15E1D795DC90003AC44 /* AdUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6FD15D1D795DC90003AC44 /* AdUtility.swift */; };
 		5A9608E71D498728001EE17F /* SetTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9608E61D498728001EE17F /* SetTimerController.swift */; };
 		5AD336F71E2E4D140043DAA8 /* CurrentOptionsFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD336F61E2E4D140043DAA8 /* CurrentOptionsFormController.swift */; };
@@ -133,8 +119,6 @@
 		5A19FDDD1DB94CF70022F794 /* RWDropdownMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RWDropdownMenu.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/RWDropdownMenu/RWDropdownMenu.framework"; sourceTree = "<group>"; };
 		5A19FDDE1DB94CF70022F794 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		5A1C1BFC1DBF69120009162D /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/DropDown/DropDown.framework"; sourceTree = "<group>"; };
-		5A1C1BFF1DBF6C9D0009162D /* MoreMenuItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreMenuItem.xib; sourceTree = "<group>"; };
-		5A1C1C011DBF6CD10009162D /* MoreMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreMenuItem.swift; sourceTree = "<group>"; };
 		5A20D16B1DC5EADE009862F7 /* SF-UI-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Ultralight.otf"; sourceTree = SOURCE_ROOT; };
 		5A20D16F1DC5ECD0009862F7 /* SF-UI-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Light.otf"; sourceTree = "<group>"; };
 		5A46676A1E2D032100132B56 /* ImageScrollView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageScrollView.framework; path = "Pods/../build/Debug-iphoneos/ImageScrollView/ImageScrollView.framework"; sourceTree = "<group>"; };
@@ -160,18 +144,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A16C0351E2E0E6300D1DE46 /* SlideMenuControllerSwift.framework in Frameworks */,
-				5A46676B1E2D032100132B56 /* ImageScrollView.framework in Frameworks */,
-				5A168E101E2CFB1B007F698C /* MLScreenshot.framework in Frameworks */,
-				5A168E111E2CFB1B007F698C /* SwiftyUtils.framework in Frameworks */,
-				5A1C1BFD1DBF69120009162D /* DropDown.framework in Frameworks */,
-				5A19FDDF1DB94CF70022F794 /* ASToast.framework in Frameworks */,
-				5A19FDE01DB94CF70022F794 /* Eureka.framework in Frameworks */,
-				5A19FDE21DB94CF70022F794 /* FittableFontLabel.framework in Frameworks */,
-				5A19FDE41DB94CF70022F794 /* LTMorphingLabel.framework in Frameworks */,
-				5A19FDE51DB94CF70022F794 /* MGSwipeTableCell.framework in Frameworks */,
-				5A19FDE61DB94CF70022F794 /* MVSpeechSynthesizer.framework in Frameworks */,
-				5A19FDE81DB94CF70022F794 /* SwiftyJSON.framework in Frameworks */,
 				2467A8747BF6557031FAEF87 /* Pods_TimerReminder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,11 +211,9 @@
 				5A03F2841D5C45F100723262 /* FormTags.swift */,
 				5A6FD15D1D795DC90003AC44 /* AdUtility.swift */,
 				5A0316551D5DF6B70034F45F /* TimeIntervalRow.swift */,
-				5A1C1C011DBF6CD10009162D /* MoreMenuItem.swift */,
 				5A00C4C11D72113200AB34C3 /* GlobalSettingsControllerDelegate.swift */,
 				5A067CBC1D4490A500238AF5 /* Main.storyboard */,
 				5A067CC21D4490A500238AF5 /* Assets.xcassets */,
-				5A1C1BFF1DBF6C9D0009162D /* MoreMenuItem.xib */,
 				5A067CC41D4490A500238AF5 /* LaunchScreen.storyboard */,
 				5A020B7D1D63472C00CB6DD5 /* Localizable.strings */,
 				5A067CC71D4490A500238AF5 /* Info.plist */,
@@ -365,7 +335,6 @@
 				5A020B6C1D62980300CB6DD5 /* Waves.mp3 in Resources */,
 				5A015F0C1D4DA8530032BB59 /* beep.mp3 in Resources */,
 				5A0271AF1D75667D002B6D73 /* GoogleService-Info.plist in Resources */,
-				5A1C1C001DBF6C9D0009162D /* MoreMenuItem.xib in Resources */,
 				5A020B6D1D62980300CB6DD5 /* Radiate.mp3 in Resources */,
 				5A020B721D62980300CB6DD5 /* Presto.mp3 in Resources */,
 				5A20D1701DC5ECD0009862F7 /* SF-UI-Display-Light.otf in Resources */,
@@ -442,7 +411,6 @@
 				5A1715FC1E2B670100333971 /* ScreenshotController.swift in Sources */,
 				5AD336F71E2E4D140043DAA8 /* CurrentOptionsFormController.swift in Sources */,
 				5A036C191D5FF6B1007AADB5 /* SettingSelectorController.swift in Sources */,
-				5A1C1C021DBF6CD10009162D /* MoreMenuItem.swift in Sources */,
 				5A03F2811D5AEED600723262 /* TimerFormController.swift in Sources */,
 				5A0135A41D470B90008A0F1D /* TimerOptions.swift in Sources */,
 				5A9608E71D498728001EE17F /* SetTimerController.swift in Sources */,

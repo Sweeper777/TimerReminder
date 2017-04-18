@@ -10,7 +10,6 @@ target 'TimerReminder' do
     pod 'ASToast'
     pod 'LTMorphingLabel'#, :git => 'https://github.com/lexrus/LTMorphingLabel.git', :branch => 'swift3'
     pod 'FittableFontLabel'
-    pod 'DropDown'
     pod 'MVSpeechSynthesizer'
     pod 'MGSwipeTableCell'
     pod 'NGORoundedButton'

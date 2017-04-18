@@ -4,7 +4,6 @@ import FittableFontLabel
 import ASToast
 import CoreData
 import GoogleMobileAds
-//import DropDown
 import MLScreenshot
 import SlideMenuControllerSwift
 import NGORoundedButton
@@ -28,8 +27,6 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     @IBOutlet var hoverBar: UIView!
     
     @IBOutlet var ad: GADBannerView!
-    
-//    let moreMenu = DropDown()
     
     var shortFontSize: CGFloat!
     var longFontSize: CGFloat!
@@ -256,42 +253,6 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
                 break
             }
         }, cancel: {})
-        
-//
-//        moreMenu.anchorView = hoverBar
-//        moreMenu.dataSource = menuItems
-//        moreMenu.width = menuWidth as CGFloat?
-//        moreMenu.bottomOffset = CGPoint(x: 0, y:(moreMenu.anchorView?.plainView.bounds.height)!)
-//        moreMenu.cellNib = UINib(nibName: "MoreMenuItem", bundle: nil)
-//        moreMenu.customCellConfiguration = {
-//            _, item, cell in
-//            guard let menuItemCell = cell as? MoreMenuItem else { return }
-//            menuItemCell.optionLabel.text = NSLocalizedString(item, comment: "")
-//            switch item {
-//            case "My Timer Settings":
-//                menuItemCell.icon.image = UIImage(named: "choose")
-//            case "Add New Timer Settings":
-//                menuItemCell.icon.image = UIImage(named: "add")
-//            case "Set Timer":
-//                menuItemCell.icon.image = UIImage(named: "timer")
-//            case "Switch to Clock Mode":
-//                menuItemCell.icon.image = UIImage(named: "clock")
-//            case "Switch to Stopwatch Mode":
-//                menuItemCell.icon.image = UIImage(named: "countup")
-//            case "Switch to Timer Mode":
-//                menuItemCell.icon.image = UIImage(named: "countdown")
-//            case "Global Settings":
-//                menuItemCell.icon.image = UIImage(named: "settings")
-//            default:
-//                break
-//            }
-//        }
-//        
-//        moreMenu.selectionAction = {
-//            [unowned self] index, item in
-//        }
-        
-//        moreMenu.show()
     }
     
     @IBAction func unwindFromSetTimer(_ segue: UIStoryboardSegue) {

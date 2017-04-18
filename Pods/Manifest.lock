@@ -1,6 +1,5 @@
 PODS:
   - ASToast (1.0.9)
-  - DropDown (2)
   - Eureka (2.0.1)
   - Firebase/AdMob (3.15.0):
     - Firebase/Core
@@ -48,7 +47,6 @@ PODS:
 
 DEPENDENCIES:
   - ASToast
-  - DropDown
   - Eureka (~> 2.0.0-beta.1)
   - Firebase/AdMob
   - Firebase/Analytics
@@ -68,7 +66,6 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   ASToast: 7b0a104bba38264e2525924a6ab60dde972d0c83
-  DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
@@ -91,6 +88,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUtils: 87094996d977846e5a9f2cbe653ff28dc15ba187
 
-PODFILE CHECKSUM: a26fa77d7df270df062dec12c58986f64bd53c95
+PODFILE CHECKSUM: 903cd175594d435068ef667071589a26b4a67726
 
 COCOAPODS: 1.1.0.beta.1
