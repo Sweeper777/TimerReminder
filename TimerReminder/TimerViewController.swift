@@ -223,7 +223,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         images.append("settings")
         menuItems = menuItems.map { NSLocalizedString($0, comment: "") }
         let widths = menuItems.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
-        let menuWidth = widths.max()! + 120
+        let menuWidth = widths.max()! + 70
         let config = FTConfiguration.shared
         config.menuWidth = menuWidth
         FTPopOverMenu.showForSender(sender: hoverBar, with: menuItems, menuImageArray: images, done: { index in
