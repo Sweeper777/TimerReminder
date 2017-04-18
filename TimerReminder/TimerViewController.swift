@@ -226,7 +226,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         let menuWidth = widths.max()! + 70
         let config = FTConfiguration.shared
         config.menuWidth = menuWidth
-        FTPopOverMenu.showForSender(sender: hoverBar, with: menuItems, menuImageArray: images, done: { index in
+        FTPopOverMenu.showForSender(sender: moreButton, with: menuItems, menuImageArray: images, done: { index in
             let item = menuItems[index]
             switch item {
             case "My Timer Settings":
