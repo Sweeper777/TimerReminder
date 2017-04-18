@@ -225,8 +225,8 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         let menuWidth = widths.max()! + 70
         let config = FTConfiguration.shared
         config.menuWidth = menuWidth
-        config.backgoundTintColor = #colorLiteral(red: 0.315116967, green: 0.5854673849, blue: 0.3258940074, alpha: 1)
-        config.ignoreImageOriginalColor = true
+        config.backgoundTintColor = #colorLiteral(red: 0.8242458767, green: 0.8242458767, blue: 0.8242458767, alpha: 1)
+        config.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         FTPopOverMenu.showForSender(sender: moreButton, with: menuItems.map { NSLocalizedString($0, comment: "") }, menuImageArray: images, done: { index in
             let item = menuItems[index]
             switch item {
