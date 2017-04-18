@@ -221,6 +221,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         }
         menuItems.append("Global Settings")
         images.append("settings")
+        menuItems = menuItems.map { NSLocalizedString($0, comment: "") }
         let widths = menuItems.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
         let menuWidth = widths.max()! + 120
         let config = FTConfiguration.shared
