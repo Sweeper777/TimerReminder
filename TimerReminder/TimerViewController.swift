@@ -221,14 +221,13 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         }
         menuItems.append("Global Settings")
         images.append("settings")
-        menuItems = menuItems.map { NSLocalizedString($0, comment: "") }
         let widths = menuItems.map { (NSLocalizedString($0, comment: "") as NSString).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)]).width }
         let menuWidth = widths.max()! + 70
         let config = FTConfiguration.shared
         config.menuWidth = menuWidth
         config.backgoundTintColor = #colorLiteral(red: 0.315116967, green: 0.5854673849, blue: 0.3258940074, alpha: 1)
         config.ignoreImageOriginalColor = true
-        FTPopOverMenu.showForSender(sender: moreButton, with: menuItems, menuImageArray: images, done: { index in
+        FTPopOverMenu.showForSender(sender: moreButton, with: menuItems.map { NSLocalizedString($0, comment: "") }, menuImageArray: images, done: { index in
             let item = menuItems[index]
             switch item {
             case "My Timer Settings":
