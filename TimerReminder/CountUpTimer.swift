@@ -60,7 +60,7 @@ class CountUpTimer: Timer {
     }
     
     func start() {
-        timer = Foundation.Timer.every(1) {
+        timer = Foundation.Timer.every(1, firesImmediately: true) {
             [unowned self] _ in
             self.timeMeasured += 1
             

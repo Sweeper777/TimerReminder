@@ -53,7 +53,7 @@ class CountDownTimer: Timer {
             return
         }
         
-        timer = Foundation.Timer.every(1) {
+        timer = Foundation.Timer.every(1, firesImmediately: true) {
             [unowned self] _ in
             self.timeLeft -= 1
             
