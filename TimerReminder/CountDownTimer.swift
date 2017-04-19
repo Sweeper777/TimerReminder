@@ -54,7 +54,7 @@ class CountDownTimer: Timer {
         }
         
         timer = Foundation.Timer.every(1) {
-            [unowned self] in
+            [unowned self] _ in
             self.timeLeft -= 1
             
             let enableBeep = self.options?.beepSounds?.boolValue

@@ -51,7 +51,7 @@ class Clock: Timer {
                 self?.description = (self?.formatter.string(from: date)) ?? ""
                 if let myself = self {
                     myself.timer = Foundation.Timer.every(60) {
-                        [weak self] in
+                        [weak self] _ in
                         if self == nil {
                             self?.timer?.invalidate()
                         }
@@ -62,7 +62,7 @@ class Clock: Timer {
             }
         } else {
             self.timer = Foundation.Timer.every(60) {
-                [weak self] in
+                [weak self] _ in
                 if self == nil {
                     self?.timer?.invalidate()
                 }

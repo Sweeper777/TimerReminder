@@ -61,7 +61,7 @@ class CountUpTimer: Timer {
     
     func start() {
         timer = Foundation.Timer.every(1) {
-            [unowned self] in
+            [unowned self] _ in
             self.timeMeasured += 1
             
             let enableBeep = self.options?.beepSounds?.boolValue
