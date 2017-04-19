@@ -1,7 +1,7 @@
 # SwiftyUtils
 
 [![CI Status](https://travis-ci.org/tbaranes/SwiftyUtils.svg)](https://travis-ci.org/tbaranes/SwiftyUtils)
-![Language](https://img.shields.io/badge/language-Swift%203.0-orange.svg)
+![Language](https://img.shields.io/badge/language-Swift%203.1-orange.svg)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SwiftyUtils.svg)](https://img.shields.io/cocoapods/v/SwiftyUtils.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftyUtils.svg?style=flat)](http://cocoadocs.org/docsets/SwiftyUtils)
@@ -21,17 +21,17 @@ Check out the repository to find examples / tests for each feature.
 **Available for iOS, macOS, tvOS and watchOS:**
 
 - [Array](#array-extension)
-- [BlockNotification](#blocknotification)
 - [Bundle](#bundle-extension)
 - [CGFloat](#cgfloat-extension)
+- [CGPoint](#cgpoint-extension)
 - [CGRect](#cgrect-extension)
-- [CollectionType](#collectiontype-extension)
+- [CGSize](#cgsize-extension)
+- [Color](#color-extension)
 - [Date](#date-extension)
 - [Dictionary](#dictionary-extension)
 - [Double](#double-extension)
 - [FileManager](#filemanager-extension)
 - [Int](#int-extension)
-- [MutableCollectionType](#mutablecollectiontype-extension)
 - [NotificationCenter](#notificationcenter-extension)
 - [NSLayoutConstraint](#nslayoutconstraint-extension)
 - [NSMutableAttributedString](#nsmutableattributedstring-extension)
@@ -41,7 +41,6 @@ Check out the repository to find examples / tests for each feature.
 - [String](#string-extension)
 - [Timer](#timer-extension)
 - [URL](#url-extension)
-- [UIColor / NSColor](#color-extension)
 - [UnitTesting](#unittesting)
 - [UITesting](#uitesting)
 - [UserDefaults](#userdefaults-extension)
@@ -49,10 +48,9 @@ Check out the repository to find examples / tests for each feature.
  - [Injectable](#injectable)
  - [Iteratable](#iteratable)
  - [Occupiable](#occupiable)
- - [Selfie](#selfie)
  - [Then](#then)
 
-**Available for iOS:**
+**Available for iOS, tvOS, and watchOS (a few):**
 
 - [UIAlertController](#uialertcontroller-extension)
 - [UIApplication](#uiapplication-extension)
@@ -62,15 +60,10 @@ Check out the repository to find examples / tests for each feature.
 - [UIScreen](#uiscreen-extension)
 - [UIStoryboard](#uistoryboard-extension)
 - [UISwitch](#uiswitch-extension)
+- [UITextFied](#uitextfield-extension)
 - [UIView](#uiview-extension)
 - [UIViewController](#uiviewcontroller-extension)
 - [Simulator](#simulator)
-- **Gestures:**
- - [BlockLongPressGesturesRecognizers](#blocklongpressgesturesrecognizers)
- - [BlockPanGesturesRecognizers](#blockpangesturesrecognizers)
- - [BlockPinchGesturesRecognizers](#blockpinchgesturesrecognizers)
- - [BlockSwipeGesturesRecognizers](#blockswipegesturesrecognizers)
- - [BlockTapGesturesRecognizers](#blocktapgesturesrecognizers)
 
 **Available for macOS:**
 
@@ -83,108 +76,124 @@ Check out the repository to find examples / tests for each feature.
 Safely access to an element:
 
 ```swift
-var myArray = [1, 2, 3]
-print(myArray[safe: 0]) // Optional(1)
-print(myArray[safe: 10]) // nil
+var array = [1, 2, 3]
+print(array[safe: 0]) // Optional(1)
+print(array[safe: 10]) // nil
 ```
 
 Access to a random element:
 
 ``` swift
-var myArray = [1, 2, 3]
-print(myArray.random()) // 2 or something else
+var array = [1, 2, 3]
+print(array.random()) // 1, 2 or 3
 ```
 
-Find the indexes of an object:
+Find all the index of an object:
 
 ``` swift
-var myArray = [1, 2, 3, 1]
-print(myArray.indexes(of: 1)) // [0,3]
+var array = [1, 2, 3, 1]
+print(array.indexes(of: 1)) // [0,3]
 ```
 
-Get index of last occurrence of an object:
+Get index of first / last occurrence of an object:
 
 ``` swift
-var myArray = [1, 2, 3, 1]
-print(myArray.lastIndex(of: 1)) // 3
+var array = [1, 2, 3, 1]
+print(array.firstIndex(of: 1)) // Optional(0)
+print(array.lastIndex(of: 1)) // Optional(3)
 ```
 
 Remove an object:
 
 ``` swift
-var myArray = [1, 2, 3]
+var array = [1, 2, 3]
 myArray.remove(object: 2)
 print(myArray) // [1, 3]
 myArray.remove(objects: [1, 3])
 print(myArray) // []
 ```
 
-Check if an array contains instance of an object:
+Remove all the duplicates:
 
-``` swift
-var myArray = [1, 2, 3]
-print(myArray.contains(instanceOf: 1)) // true
-print(myArray.contains(instanceOf: "1")) // false
+```swift
+var array = [0, 0, 1, 1, 2]
+array.removeDuplicates()
+print(array) // [0,1,2]
+
+let array = [0, 0, 1, 1, 2]
+let newArray.removedDuplicates()
+print(newArray) // [0,1,2]
 ```
 
-Check if an array contains another array:
+Remove all instances of an item:
 
 ``` swift
-var myArray = [1, 2, 3]
-print(myArray.contains(array: [1, 2])) // true
-print(myArray.contains(array: [5])) // false
+var array = [0, 0, 1, 1, 2]
+array.removeAll(0)
+print(array) // [1,1,2]
+
+let array = [0, 0, 1, 1, 2]
+let newArray = array.removedAll(0)
+print(newArray) // [1,1,2]
 ```
 
-Get an object at a specified index:
+Check if an array is a subset of another array:
 
 ``` swift
-var myArray = [1, 2, 3]
-print(myArray.get(index: 1)) // 2
+var array = [1, 2, 3]
+print(array.contains([1, 2])) // true
+print(array.contains([5])) // false
 ```
 
 Determine if an array contains an object:
 
 ``` swift
-var myArray = [1, 2, 3]
-print(myArray.contains(1)) // true
-print(myArray.contains(11)) // false
+var array = [1, 2, 3]
+print(array.contains(1)) // true
+print(array.contains(11)) // false
 ```
 
 Get intersection and union of two arrays:
 
 ``` swift
 var myArray = [1, 2, 3]
-print(myArray.intersection(for: [1, 5, 3])) // [1, 3]
-print(myArray.union(values: [5, 6])) // [1, 2, 3, 5, 6]
+print(array.intersection(for: [1, 5, 3])) // [1, 3]
+print(array.union(values: [5, 6])) // [1, 2, 3, 5, 6]
 ```
 
 Get difference between two arrays:
 
 ``` swift
-var myArray = [1, 2, 3]
-print(myArray.difference(with: [1])) // [2, 3]
+var array = [1, 2, 3]
+print(array.difference(with: [1])) // [2, 3]
+```
+
+Split into chunk of a specific size:
+
+``` swift
+var array = [1, 2, 3, 4]
+print(array.split(intoChunksOf: 2)) // [[1, 2], [3, 4]]
+```
+
+Shuffle array's elements:
+
+``` swift
+var array = [1, 2, 3, 5, 6]
+array.shuffle()
+print(array) // [3, 6, 1, 2, 5]
+
+let arrayShuffled = array.shuffled()
+print(arrayShuffled) // [2, 1, 6, 3, 5]
 ```
 
 Test all elements of an array against a closure:
 
 ``` swift
-var myArray = [1, 2, 3]
-let result = myArray.testAll {
+var array = [1, 2, 3]
+let result = array.testAll {
 	$0 == 1
 }
 print(result) // false
-```
-
-### BlockNotification
-
-```swift
-// Register a notification
-let notificationProxy = BlockNotification("aNotificationName": name) { notification in
-	print("notification received: \(notification.object))
-}
-
-// Post a notification
-NotificationCenter.default.postNotification("aNotificationName", object: "Hello world")
 ```
 
 ### Bundle extension
@@ -193,29 +202,25 @@ Get bundle information:
 
 ```swift
 Bundle.main.appName
-Bundle(url: someURL)?.appName
+Bundle(url: url)?.appName
 
 Bundle.main.appVersion
-Bundle(url: someURL)?.appVersion
+Bundle(url: url)?.appVersion
 
 Bundle.main.appBuild
-Bundle(url: someURL)?.appBuild
+Bundle(url: url)?.appBuild
 
 Bundle.main.bundleId
-Bundle(url: someURL)?.bundleId
+Bundle(url: url)?.bundleId
 
 Bundle.main.schemes
-Bundle(url: someURL)?.schemes
+Bundle(url: url)?.schemes
 
 Bundle.main.mainScheme
-Bundle(url.i: someURL)?.mainScheme
-```
+Bundle(url: url)?.mainScheme
 
-Get the app build:
-
-```swift
-Bundle(url: someURL)?.appBuild
-Bundle.main.appBuild
+Bundle.main.isInTestFlight
+Bundle(url: url)?.isInTestFlight
 ```
 
 ### CGFloat extension
@@ -224,6 +229,40 @@ Create a CGFloat from a Float or an Integer:
 
 ```swift
 let imageViewTop = 15.f
+```
+
+### CGPoint extension
+
+Add two `CGPoint`:
+
+```swift
+var point1 = CGPoint(x: 10, y: 10)
+let point2 = CGPoint(x: 10, y: 10)
+print(point1 + point2) // CGPoint(x: 20, y: 20)
+
+point1 += point2
+print(point1) // CGPoint(x: 20, y: 20)
+```
+
+Substract two `CGPoint`:
+
+```swift
+var point1 = CGPoint(x: 10, y: 10)
+let point2 = CGPoint(x: 10, y: 10)
+print(point1 - point2) // CGPoint(x: 0, y: 0)
+
+point1 -= point2
+print(point1) // CGPoint(x: 0, y: 0)
+```
+
+Multiply a `CGPoint` with a scalar:
+
+```swift
+var point1 = CGPoint(x: 10, y: 10)
+print(point1 * 2) // CGPoint(x: 20, y: 20)
+
+point1 *= 2
+print(point1) // CGPoint(x: 20, y: 20)
 ```
 
 ### CGRect extension
@@ -246,508 +285,38 @@ let rectWithAnotherSize = rect.with(size: CGSize(width: 200, height: 200)) // x:
 let rectAtYetAnotherPosition = rect.with(origin: CGPoint(x: 100, y: 100)) // x: 100, y: 100, width: 30, height: 40
 ```
 
-### CollectionType extension
+### CGSize extension
 
-Shuffle a collection:
-
-``` swift
-let myArray = [1, 2, 3, "5", "6]
-let arraySuffled = myArray.shuffled()
-print(arraySuffled) // [3, "6", 1, 2, "5"]
-```
-
-## Date extension
-
-Initialize from string:
-
-``` swift
-let format = "yyyy/MM/dd"
-let fromString = "2015/03/11"
-print(Date(fromString: fromString, format: format)) // Optional("2015/03/11 00:00:00 +0000")
-```
-
-Convert date into string:
-
-``` swift
-let now = Date()
-print(now.toString())
-print(now.toString(dateStyle: .medium, timeStyle: .medium))
-print(now.toString(format: "yyyy/MM/dd HH:mm:ss"))
-```
-
-See how much time passed:
-
-``` swift
-let now = Date()
-let later = Date(timeIntervalSinceNow: -100000)
-print(later.days(inBetween: now)) // 1.15740740782409
-print(later.hours(inBetween: now)) // 27.7777777733571
-print(later.minutes(inBetween: now)) // 1666.66666641732
-print(later.seconds(inBetween: now)) // 99999.999984026
-```
-
-Date utils:
+Add two `CGSize`:
 
 ```swift
-Date(year: 1995, month: 1, day: 14, hours: 13, minutes: 7, seconds: 24.5)    // datetime
+var size1 = CGSize(width: 10, height: 10)
+let size2 = CGSize(width: 10, height: 10)
+print(size1 + size2) // CGSize(width: 20, height: 20)
 
-Date(year: 1995, month: 1, day: 14)   // date
-Date.date(1995, 1, 14)                // date in shorter
-
-Date(hours: 13, minutes: 7, seconds: 24.5)   // time; it doesn't take care of year, month and date.
-Date.time(13, 7, 24.920110)                  // time in shorter
-
-Date.today                    // Returns today's date.
-
-Date().year                   // Returns this year.
-Date().month                  // Returns this month.
-Date().day                    // Returns today's day.
-
-Date().hours                  // Returns current hour.
-Date().minutes                // Returns current minute.
-Date().seconds                // Returns current second in Double.
-
-Date.today.with(year: 2014)     // Returns new date with given year.
-Date.today.with(month: 3)       // Returns new date with given month.
-Date.today.with(day: 15)        // Returns new date with given day.
-
-Date.today.with(hours: 12).with(minutes: 30)  // Returns new date with given hours and minutes.
-
-Date.january.first.friday     // Returns first Friday in January.
-Date.today.second.friday      // Returns second Friday in current month.
-
-Date.march.third.friday       // Returns third Friday in March.
-Date.april.fourth.friday      // Returns fourth Friday in April.
-
-Date.today.fifth.friday       // Returns fifth Friday in current month or `nil` if not exists.
-Date.december.last.sunday     // Returns last Sunday in December.
-
-Date.monday                   // Returns Monday in current week.
-Date.friday                   // Returns Friday in current week.
-
-1.year.after(someDate)          // Returns a new date after 1 year from given date.
-3.days.fromNow                  // Returns a new date after 3 days from now.
-
-2.hours.before(someDate)        // Returns a new date before 2 hours from given date.
-4.seconds.ago                   // Returns a new date before 4 sconds from now.
-
-someDate + 5.months             // A new date by adding 5 months.
-someDate - 6.minutes            // A new date by subtracting 6 minutes.
+size1 += size2
+print(size1) // CGSize(width: 20, height: 20)
 ```
 
-### Dictionary extension
-
-Check if a key exists in the dictionary:
-
-``` swift
-let dic1 = ["one": 1, "two": 2]
-print(myDict.has(key: "one")) // True
-print(myDict.has(key: "1")) // False
-```
-
-Access a random element:
-
-``` swift
-let dic1 = ["one": 1, "two": 2]
-print(myDict.random()) // 1 or something else
-```
-
-Add dictionaries to create new ones:
-
-``` swift
-let dic1 = ["one": 1]
-let dic2 = ["three": 3]
-
-dictionary1 += dictionary2
-print(dictionary1) // ["one": 1, "three": 3]
-```
-
-Easily get union of two dictionaries:
-
-``` swift
-let dic1 = ["one": 1, "two": 2]
-let dic2 = ["one": 1, "four": 4]
-
-let dictionary3 = dictionary1.union(values: dictionary2)
-print(dictionary3) // ["one": 1, "two": 2, "four": 4]
-```
-
-Get difference of two dictionaries:
-
-``` swift
-let dic1 = ["one": 1, "two": 2]
-let dic2 = ["one": 1, "four": 4]
-difference(with: dictionary1, dictionary2) // ["two": 2, "four": 4]
-```
-
-Merge several dictionaries:
+Substract two `CGSize`:
 
 ```swift
-let dic1 = ["one": 1, "two": 2]
-let dic2 = ["three": 3, "four": 4]
-var finalDic: Dictionary<String, Int> = [:]
-finalDic.merge(with: dic1, dic2)
-print(finalDic) // ["one": 1, "two": 2, "three": 3, "four": 4]
+var size1 = CGSize(width: 10, height: 10)
+let size2 = CGSize(width: 10, height: 10)
+print(size1 - size2) // CGSize(width: 0, height: 0)
+
+size1 -= size2
+print(size1) // CGSize(width: 0, height: 0)
 ```
 
-### Double extension
-
-Get the time interval for a number of milliseconds, seconds, hour, or days:
+Multiply a `CGSize` with a scalar:
 
 ```swift
-print(1.second) // 1
-print(1.minute) // 60
-print(1.hour) // 3600
-print(1.2.seconds) // 1.2
-print(1.5.minutes) // 90.0
-print(1.5.hours) // 5400.0
-print(1.3.milliseconds) // 0.0013
-print(0.5.day) // 43200
-print(1.day) // 86400
-print(2.day) // 172800
-```
-
-### FileManager extension
-
-Get documents directory url following the os:
-
-```
-FileManager.document
-// OR
-FileManager.default.document
-```
-
-Create a new directory:
-
-```
-FileManager.createDirectory(at: directoryUrl)
-// OR
-FileManager.default.createDirectory(at: directoryUrl)
-```
-
-Delete contents of temporary directory
-
-```
-FileManager.deleteAllTemporaryFiles()
-// OR
-FileManager.default.deleteAllTemporaryFiles()
-```
-
-Delete contents of documents directory
-
-```
-FileManager.deleteAllDocumentFiles()
-// OR
-FileManager.default.deleteAllDocumentFiles()
-```
-
-### Int extension
-
-```swift
-var myNumber = -33
-print(myNumber.isEven) // false
-print(myNumber.isOdd) // true
-print(myNumber.isPositive) // false
-print(myNumber.isNegative) // true
-print(myNumber.digits) // 2
-```
-
-### MutableCollectionType extension
-
-Shuffle a collection:
-
-``` swift
-var myArray = [1, 2, 3, "5", "6]
-myArray.shuffle()
-print(newArray) // [3, "6", 1, 2, "5"]
-```
-
-### NotificationCenter extension
-
-Post a notification from a specific queue:
-
-```
-NotificationCenter.default.postNotification("aNotification", queue: DispatchQueue.main) 
-NotificationCenter.default.postNotification("aNotification", object: aObject queue: DispatchQueue.main)
-NotificationCenter.default.postNotification("aNotification", object: aObject userInfo: userInfo queue: DispatchQueue.main)
-```
-
-### NSLayoutConstraint extension
-
-*No available for watchOS*
-
-Apply a multiplier to a constraint (currently working only for width and height):
-
-```swift
-let view = UIView(CGRect(x: 0, y: 0, width: 100, height: 200))
-let constraint = NSLayoutConstraint(item: view, attribute: .width, ...)
-constraint.apply(multiplier: 0.5, toView: superview)
-print(constraint.constants) // 50
-
-let constraint = NSLayoutConstraint(item: view, attribute: .height, ...)
-constraint.apply(multiplier0.5, toView: superview)
-print(constraint.constants) // 100
-```
-
-
-### NSMutableAttributedString extension
-
-Colorize each occurence:
-
-```swift
-let attrStr: NSMutableAttributedString = NSMutableAttributedString.colored(text: "hello world", color: UIColor.yellowColor(), forOccurences: "llo")
-
-// OR
-
-let attrStr: NSMutableAttributedString = NSMutableAttributedString(string: "Hello world")
-attrStr.setTextColor(UIColor.yellowColor(), forOccurences: "llo")
-```
-
-Colorize everything after an occurence:
-
-```swift
-let attrStr = NSMutableAttributedString.colored(text: "Hello world", color: UIColor.yellowColor(), afterOcurrence: "llo")
-
-// OR
-
-let attrStr = NSMutableAttributedString(string: "Hello world")
-attrStr.setTextColor(UIColor.yellowColor(), afterOcurrence: "llo")
-```
-
-Strike each occurence:
-
-```swift
-let attrStr: NSMutableAttributedString = NSMutableAttributedString.striked(text: "Hello world", forOccurences: "llo")
-
-// OR
-
-let attrStr = NSMutableAttributedString(string: "Hello world")
-attrStr.setTextStrike(forOccurences: "llo")
-```
-
-Strike everything after an occurence:
-
-```swift
-let attrStr: NSMutableAttributedString = NSMutableAttributedString.striked(text: "Hello world", afterOcurrence: "llo")
-
-// OR
-
-let attrStr = NSMutableAttributedString(string: "Hello world")
-attrStr.setTextStrike(afterOcurrence: "llo")
-```
-
-Underline each occurence:
-
-```swift
-let attrStr: NSMutableAttributedString = NSMutableAttributedString.underlined(text: "Hello world", forOccurences: "llo")
-
-// OR
-
-let attrStr = NSMutableAttributedString(string: "Hello world")
-attrStr.setTextUnderline(forOccurences: "llo")
-```
-
-Underline everything after an occurence:
-
-```swift
-let attrStr: NSMutableAttributedString = NSMutableAttributedString.underlined(text: "Hello world", afterOcurrence: "llo")
-
-// OR
-
-let attrStr = NSMutableAttributedString(string: "Hello world")
-attrStr.setTextUnderline(afterOcurrence: "llo")
-```
-
-### NSObject extension
-
-Get the class name of a `NSObject`:
-
-```swift
-let vc = UIViewController()
-print(vc.className) // UIViewController
-print(UIViewController.className) // UIViewController
-```
-
-### NSRange extension
-
-Range after an occurence:
-
-```swift
-let string = "Hello world"
-let range = NSRange(text: string, afterOccurence: "llo")
-print(range) // location: 3, length: 8
-```
-
-Range of string:
-
-```swift
-let string = "Hello world"
-let stringToFind = "ello wo"
-let range = NSRange(textToFind: stringToFind, in: string)
-print(range) // location: 1, length: 7
-```
-
-### ReusableFormatters
-
-Reuse your formatter to avoid heavy allocation:
-
-```swift
-SUDateFormatter.shared
-SUNumberFormatter.shared
-SUByteCountFormatter.shared
-SUDateComponentsFormatter.shared
-SUDateIntervalFormatter.shared
-SUEnergyFormatter.shared
-SUMassFormatter.shared
-```
-
-### String extension
-
-Get the length of a string:
-
-```swift
-var aString = "hello world"
-print(aString.length) // 11
-```
-
-Access with subscript:
-
-```swift
-var aString = "hello world"
-print(aString[0]) // h
-print(aString[2]) // l
-print(aString[1...3]) // ell
-```
-
-Create a string from Float or Double with max digits:
-
-```swift
-let aString = String(value: 2.323232, maxDigits: 2)
-print(aString) // 2.32
-```
-
-Check if it contains a string:
-
-```swift
-let aString = "Hello world"
-print (aString.contains(text: "hello")) // true
-print (aString.contains(text: "hellooooo")) // false
-```
-
-Capitalize the first letter:
-
-```swift
-var aString = "hello world"
-aString = aString.capitalizedFirst
-print(aString)// Hello world
-```
-
-Check if it's composed only of spaces and new lines:
-
-```swift
-var aString = "  \n  "
-print(aString.isOnlyEmptySpacesAndNewLineCharacters) // true
-var aString = "test"
-print(aString.isOnlyEmptySpacesAndNewLineCharacters) // false
-```
-
-Trimmed spaces and new lines:
-
-```swift
-var aString = " I'  am a    test  \n  "
-print(aString.trimmed()) // I'am a test
-```
-
-Truncated to have a limit of characters:
-
-```swift
-var aString = "0123456789aaaa"
-print(aString.truncate(limit: 10)) // 0123456789...
-```
-Check if it's a number:
-
-```swift
-var aString = "4242"
-print(aString.isNumber) // true
-var aString = "test"
-print(aString.isNumber) // false
-```
-
-Check if it's a valid email:
-
-```swift
-var aString = "test@gmail.com"
-print(aString.isEmail) // true
-var aString = "test@"
-print(aString.isEmail) // false
-```
-
-Extracts URLs:
-
-```swift
-let string = "http://google.com http fpt:// http://facebook.com test"
-print(aString.extractedURLs) // [http://google.com, http://facebook.com]
-```
-
-## Timer extension
-
-Schedule timer every seconds:
-
-``` swift
-var count = 0
-Timer.every(1.seconds) { (timer: Timer) in
-    print("Will print every second")
-    if count == 3 {
-        timer.invalidate()
-    }
-    count++
-}
-```
-
-Schedule timer after a certain delay:
-
-``` swift
-Timer.after(2.seconds) {
-    print("Prints this 2 seconds later in main queue")
-}
-```
-
-Manual scheduling a timer:
-
-``` swift
-let timer = Timer.new(every: 2.seconds) {
-    print("Prints this 2 seconds later in main queue")
-}
-timer.start(onRunLoop: RunLoop.current, modes: RunLoopMode.defaultRunLoopMode)
-```
-
-Manual scheduling a timer with a delay:
-
-``` swift
-let timer = Timer.new(after: 2.seconds) {
-    print("Prints this 2 seconds later in main queue")
-}
-timer.start(onRunLoop: RunLoop.current, modes: RunLoopMode.defaultRunLoopMode)
-```
-
-### URL extension
-
-Put query in a Dictionary:
-
-``` swift
-let url = URL(string: "http://example.com/api?v=1.1&q=google")
-if let queryParameters = url?.queryParameters {
-    print(queryParameters["v"]) //Optional("1.1")
-    print(queryParameters["q"]) //Optional("google")
-    print(queryParameters["other"]) //nil
-}
-```
-
-Add skip backup attributes to you URL:
-
-``` swift
-let url = URL(string: "/path/to/your/file")        
-url?.addSkipBackupAttribute() // File at url won't be backupped!
+var size1 = CGSize(x: 10, y: 10)
+print(size1 * 2) // CGSize(width: 20, height: 20)
+
+size1 *= 2
+print(size1) // CGSize(width: 20, height: 20)
 ```
 
 ### Color extension
@@ -785,6 +354,505 @@ let lighter = color.lighter()
 // OR
 let darker = color.darker(amount: 0.5)
 let darker = color.darker()
+```
+
+## Date extension
+
+Initialize from string:
+
+``` swift
+let format = "yyyy/MM/dd"
+let string = "2015/03/11"
+print(Date(fromString: string, format: format)) // Optional("2015/03/11 00:00:00 +0000")
+```
+
+Convert date to string:
+
+``` swift
+let now = Date()
+print(now.string())
+print(now.string(dateStyle: .medium, timeStyle: .medium))
+print(now.string(format: "yyyy/MM/dd HH:mm:ss"))
+```
+
+See how much time passed:
+
+``` swift
+let now = Date()
+let later = Date(timeIntervalSinceNow: -100000)
+print(later.days(since: now)) // 1.15740740782409
+print(later.hours(since: now)) // 27.7777777733571
+print(later.minutes(since: now)) // 1666.66666641732
+print(later.seconds(since: now)) // 99999.999984026
+```
+
+Check if a date is in future or past:
+
+```swift
+let later = Date(timeIntervalSinceNow: -100000)
+print(now.isInFuture) // true
+print(now.isInPast) // false
+```
+
+### Dictionary extension
+
+Check if a key exists in the dictionary:
+
+``` swift
+let dic = ["one": 1, "two": 2]
+print(dic.has(key: "one")) // True
+print(dic.has(key: "1")) // False
+```
+
+Access a random element:
+
+``` swift
+let dic= ["one": 1, "two": 2]
+print(dic.random()) // 1 or something else
+```
+
+Easily get union of two dictionaries:
+
+``` swift
+let dic1 = ["one": 1, "two": 2]
+let dic2 = ["one": 1, "four": 4]
+
+let dic3 = dic1.union(values: dic2)
+print(dic3) // ["one": 1, "two": 2, "four": 4]
+```
+
+`map` a dictionary:
+
+```swift
+let dic = ["a": 1, "b": 2, "c": 3]
+let result = dic.map { key, value in
+	return (key.uppercased(), "\(value * 2)")
+}
+print(dic) // ["A": "2, "B": "4", "C": "6"]
+```
+
+`flatMap` a dictionary:
+
+```swift
+let dic = ["a": 1, "b": 2, "c": 3]
+let result = dic.flatMap { key, value -> (String, String)? in
+	if value % 2 == 0 {
+	 	return nil
+	}
+	return (key.uppercased(), "\(value * 2)")
+}
+print(dic) // ["A": "2, "C": "6"]
+```
+
+Get difference of two dictionaries:
+
+``` swift
+let dic1 = ["one": 1, "two": 2]
+let dic2 = ["one": 1, "four": 4]
+difference(with: dic1, dic2) // ["two": 2, "four": 4]
+```
+
+Merge several dictionaries:
+
+```swift
+let dic1 = ["one": 1, "two": 2]
+let dic2 = ["three": 3, "four": 4]
+var finalDic = [String: Int]()
+finalDic.merge(with: dic1, dic2)
+print(finalDic) // ["one": 1, "two": 2, "three": 3, "four": 4]
+```
+
+Test each element against a closure:
+
+``` swift
+var dic = ["abc": "abc, "ab": "a", "b": "b"]
+let result = dic.testAll { key, _ in 
+    key.length < 3 
+}
+print(result) // false
+```
+
+### Double extension
+
+Get the time interval for a number of milliseconds, seconds, hour, or days:
+
+```swift
+print(1.second) // 1
+print(1.minute) // 60
+print(1.hour) // 3600
+print(1.2.seconds) // 1.2
+print(1.5.minutes) // 90.0
+print(1.5.hours) // 5400.0
+print(1.3.milliseconds) // 0.0013
+print(0.5.day) // 43200
+print(1.day) // 86400
+print(2.day) // 172800
+```
+
+Formatted value with the locale currency:
+
+```
+print(Double(3.24).formattedPrice) // "$3.24"
+print(Double(10).formattedPrice) // "$10.00"
+```
+
+
+### FileManager extension
+
+Get documents directory url following the os:
+
+```
+FileManager.document
+// OR
+FileManager.default.document
+```
+
+Create a new directory:
+
+```
+FileManager.createDirectory(at: directoryUrl)
+// OR
+FileManager.default.createDirectory(at: directoryUrl)
+```
+
+Delete contents of temporary directory
+
+```
+FileManager.removeTemporaryFiles()
+// OR
+FileManager.default.removeTemporaryFiles()
+```
+
+Delete contents of documents directory
+
+```
+FileManager.removeDocumentFiles()
+// OR
+FileManager.default.removeDocumentFiles()
+```
+
+### Int extension
+
+```swift
+var myNumber = -33
+print(myNumber.isEven) // false
+print(myNumber.isOdd) // true
+print(myNumber.isPositive) // false
+print(myNumber.isNegative) // true
+print(myNumber.digits) // 2
+```
+
+Round to the nearest / nearest down / nearest up:
+
+```swift
+var value = 17572
+print(value.nearestDozens) // 17570
+print(value.nearestHundreds) // 17600
+print(value.nearestThousands) // 18000
+print(value.nearest(to: 1000) // 18000
+
+value = 17578
+print(value.nearestBelowDozens) // 17570
+print(value.nearestBelowHundreds) // 17500
+print(value.nearestBelowThousands) // 17000
+print(value.nearestBelow(to: 1000) // 17000
+
+value = 17442
+print(value.nearestUpDozens) // 17450
+print(value.nearestUpHundreds) // 17500)
+print(value.nearestUpThousands) // 18000
+print(value.nearestUp(to: 1000) // 18000
+```
+
+Formatted value with the locale currency:
+
+```
+print(10.formattedPrice) // "$10.00"
+```
+
+### NotificationCenter extension
+
+Post a notification from a specific queue:
+
+```
+NotificationCenter.default.postNotification("aNotification", queue: DispatchQueue.main) 
+NotificationCenter.default.postNotification("aNotification", object: aObject queue: DispatchQueue.main)
+NotificationCenter.default.postNotification("aNotification", object: aObject userInfo: userInfo queue: DispatchQueue.main)
+```
+
+### NSLayoutConstraint extension
+
+*No available for watchOS*
+
+Apply a multiplier to a constraint (currently working only for width and height):
+
+```swift
+let view = UIView(CGRect(x: 0, y: 0, width: 100, height: 200))
+let constraint = NSLayoutConstraint(item: view, attribute: .width, ...)
+constraint.apply(multiplier: 0.5, toView: superview)
+print(constraint.constants) // 50
+
+let constraint = NSLayoutConstraint(item: view, attribute: .height, ...)
+constraint.apply(multiplier0.5, toView: superview)
+print(constraint.constants) // 100
+```
+
+
+### NSMutableAttributedString extension
+
+Colorize each occurence:
+
+```swift
+let attrStr: NSMutableAttributedString = NSMutableAttributedString.colored(inText: "hello world", color: .yellow, occurences: "llo")
+
+// OR
+
+let attrStr: NSMutableAttributedString = NSMutableAttributedString(string: "Hello world")
+attrStr.color(.yellow, occurences: "llo")
+```
+
+Colorize everything after an occurence:
+
+```swift
+let attrStr = NSMutableAttributedString.colored(inText: "Hello world", color: .yellow, afterOcurrence: "llo")
+
+// OR
+
+let attrStr = NSMutableAttributedString(string: "Hello world")
+attrStr.color(.yellow, afterOcurrence: "llo")
+```
+
+Strike each occurence:
+
+```swift
+let attrStr: NSMutableAttributedString = NSMutableAttributedString.struck(inText: "Hello world", occurences: "llo")
+
+// OR
+
+let attrStr = NSMutableAttributedString(string: "Hello world")
+attrStr.strike(occurences: "llo")
+```
+
+Strike everything after an occurence:
+
+```swift
+let attrStr: NSMutableAttributedString = NSMutableAttributedString.struck(inText: "Hello world", afterOcurrence: "llo")
+
+// OR
+
+let attrStr = NSMutableAttributedString(string: "Hello world")
+attrStr.strike(ocurrences: "llo")
+```
+
+Underline each occurence:
+
+```swift
+let attrStr: NSMutableAttributedString = NSMutableAttributedString.underlined(inText: "Hello world", occurences: "llo")
+
+// OR
+
+let attrStr = NSMutableAttributedString(string: "Hello world")
+attrStr.underline(occurences: "llo")
+```
+
+Underline everything after an occurence:
+
+```swift
+let attrStr: NSMutableAttributedString = NSMutableAttributedString.underlined(inText: "Hello world", afterOcurrence: "llo")
+
+// OR
+
+let attrStr = NSMutableAttributedString(string: "Hello world")
+attrStr.underline(afterOcurrence: "llo")
+```
+
+### NSObject extension
+
+Get the class name of a `NSObject`:
+
+```swift
+#if !os(macOS)
+	let vc = NSViewController()
+	print(vc.className) // NSViewController
+#else
+	let vc = UIViewController()
+	print(vc.className) // UIViewController
+	print(UIViewController.className) // UIViewController
+#endif
+```
+
+### NSRange extension
+
+Range after an occurence:
+
+```swift
+let string = "Hello world"
+let range = NSRange(text: string, afterOccurence: "llo")
+print(range) // location: 3, length: 8
+```
+
+Range of string:
+
+```swift
+let string = "Hello world"
+let stringToFind = "ello wo"
+let range = NSRange(textToFind: stringToFind, in: string)
+print(range) // location: 1, length: 7
+```
+
+### ReusableFormatters
+
+Reuse your formatter to avoid heavy allocation:
+
+```swift
+SUDateFormatter.shared
+SUNumberFormatter.shared
+SUByteCountFormatter.shared
+SUDateComponentsFormatter.shared
+SUDateIntervalFormatter.shared
+SUEnergyFormatter.shared
+SUMassFormatter.shared
+```
+
+### String extension
+
+Access with subscript:
+
+```swift
+var string = "hello world"
+print(string[0]) // h
+print(string[2]) // l
+print(string[1...3]) // ell
+```
+
+Get the length of a string:
+
+```swift
+var string = "hello world"
+print(string.length) // 11
+```
+
+Check if it contains a string:
+
+```swift
+let string = "Hello world"
+print (string.contains(text: "hello")) // true
+print (string.contains(text: "hellooooo")) // false
+```
+
+Check if it's a number:
+
+```swift
+var string = "4242"
+print(string.isNumber) // true
+
+var string = "test"
+print(string.isNumber) // false
+```
+
+Check if it's a valid email:
+
+```swift
+var string = "test@gmail.com"
+print(string.isEmail) // true
+var string = "test@"
+print(string.isEmail) // false
+```
+
+Uncamelize a string:
+
+```swift
+var camelString = "isCamelled"
+print(camelString.uncamelize) // is_camelled
+```
+
+Capitalize the first letter:
+
+```swift
+var string = "hello world"
+string = string.capitalizedFirst
+print(string)// Hello world
+```
+
+Trimmed spaces and new lines:
+
+```swift
+var string = " I'  am a    test  \n  "
+print(string.trimmed()) // I'am a test
+```
+
+Truncated to have a limit of characters:
+
+```swift
+var string = "0123456789aaaa"
+print(string.truncate(limit: 10)) // 0123456789...
+```
+
+Split string in chunks of n elements:
+
+```swift
+let string = "abcd"
+print(string.split(intoChunksOf: 2)) // ["ab", "cd"]
+```
+
+## Timer extension
+
+Schedule timer every seconds:
+
+``` swift
+var count = 0
+Timer.every(1.second, fireImmediately: true) { timer in // fireImmediately is an optional parameter, defaults to false
+    print("Will print every second")
+    if count == 3 {
+        timer.invalidate()
+    }
+    count++
+}
+```
+
+Schedule timer after a certain delay:
+
+``` swift
+Timer.after(2.seconds) { _ in
+    print("Prints this 2 seconds later in main queue")
+}
+```
+
+Manual scheduling a timer:
+
+``` swift
+let timer = Timer.new(every: 2.seconds) { _ in
+    print("Prints this 2 seconds later in main queue")
+}
+timer.start(onRunLoop: RunLoop.current, modes: RunLoopMode.defaultRunLoopMode)
+```
+
+Manual scheduling a timer with a delay:
+
+``` swift
+let timer = Timer.new(after: 2.seconds) { _ in
+    print("Prints this 2 seconds later in main queue")
+}
+timer.start(onRunLoop: RunLoop.current, modes: RunLoopMode.defaultRunLoopMode)
+```
+
+### URL extension
+
+Get query parameters from URL:
+
+``` swift
+let url = URL(string: "http://example.com/api?v=1.1&q=google")
+let queryParameters = url?.queryParameters
+print(queryParameters?["v"]) // 1.1
+print(queryParameters?["q"]) // google
+print(queryParameters?["other"]) // nil
+```
+
+Add skip backup attributes to you URL:
+
+``` swift
+let url = URL(string: "/path/to/your/file")        
+url?.addSkipBackupAttribute() // File at url won't be backupped!
 ```
 
 ### UnitTesting
@@ -825,7 +893,7 @@ if UITesting.isRunning {
 
 ### UserDefaults extension
 
-Get and set values from UserDefaults with subscripts:
+Get and set values from `UserDefaults` with subscripts:
 
 ```swift
 let Defaults = UserDefaults.standard
@@ -833,18 +901,18 @@ Defaults["userName"] = "test"
 print(Defaults["userName"]) // test
 ```
 
-Check if the userdefaults contains a key:
+Check if the `UserDefaults` has a key:
 
 ```swift
-UserDefaults.contains("aKey")
+UserDefaults.has(key: "aKey")
 // OR
-UserDefaults.standard.contains("aKey")
+UserDefaults.standard.has(key: "aKey")
 ```
 
-Reset the defaults:
+Remove all values in `UserDefaults`:
 
 ```swift
-UserDefaults.standard.reset()
+UserDefaults.standard.removeAll()
 ```
 
 ### Injectable
@@ -934,19 +1002,6 @@ let string: String? = ""
 print(string.isNilOrEmpty) // true
 ```
 
-### Selfie
-
-Log your classes's members and values when making a `description`, like Value types:
-
-```
-class MyModel: Selfie {
-	let property1 = "I'm a property"
-	let property2 = 100
-}
-
-print(MyModel().description) // MyModel(property1: "I'm a property", property2: 100)
-```
-
 ### Then
 
 Syntactic sugar for Swift initializers:
@@ -959,23 +1014,67 @@ let label = UILabel().then {
 }
 ```
 
-## Available on iOS
+## Available on iOS, tvOS, and watchOS (a few)
+
+### UIAlertController extension
+
+Create a custom `UIAlertController`:
+
+```swift
+let alertController1 = UIAlertController(title: "Title",
+                                        message: "Message")
+                          
+let alertController2 = UIAlertController(title: "Title",
+                                        message: "Message",
+                                        defaultActionButtonTitle: "Cancel")
+                                                      
+let alertController3 = UIAlertController(title: "Title",
+                                        message: "Message",
+                                        defaultActionButtonTitle: "Cancel",
+                                        defaultActionButtonStyle: .cancel) 
+                                        
+let alertController1 = UIAlertController(title: "Title",
+                                        message: "Message",
+                                        defaultActionButtonTitle: "Cancel",
+                                        defaultActionButtonStyle: .cancel,
+                                        tintColor: .blue)
+```
+
+Show an `UIAlertController`:
+
+```swift
+alertController.show()
+alertController.show(animated: false)
+alertController.show(animated: true, completion: {
+	print("Presented")
+})
+```
+
+Add an action to the `UIAlertController`:
+
+```swift
+alertController.addAction(title: "ActionTitle")
+
+alertController.addAction(title: "ActionTitle",
+                          style: .destructive)
+                          
+alertController.addAction(title: "ActionTitle",
+                          style: .destructive,
+                          isEnabled: false)
+                          
+alertController.addAction(title: "ActionTitle",
+                          style: .destructive,
+                          isEnabled: false,
+                          handler: nil)
+```
 
 ### UIApplication extension
 
 Get the current view controller display:
 
 ```swift
-UIApplication.shared.topViewController()
-```
-
-### UIAlertController extension
-
-Show a basic alert:
-
-```swift
-UIAlertController.show(title: "Title", message: "Message")
-UIAlertController.show(title: "Title", message: "Message", cancelTitle: "Custom cancel title")
+UIApplication.shared.topViewController() // Using UIWindow's rootViewController as baseVC
+UIApplication.shared.topViewController(from: baseVC) // topVC from the base view controller
 ```
 
 ### UIDevice extension
@@ -983,11 +1082,13 @@ UIAlertController.show(title: "Title", message: "Message", cancelTitle: "Custom 
 Access to your device information:
 
 ``` swift
-print(UIDevice.idForVendor()) // 104C9F7F-7403-4B3E-B6A2-C222C82074FF
+print(UIDevice.idForVendor) // 104C9F7F-7403-4B3E-B6A2-C222C82074FF
 print(UIDevice.systemName()) // iPhone OS
 print(UIDevice.systemVersion()) // 9.0
-print(UIDevice.deviceName()) // iPhone Simulator / iPhone 6 Wifi
-print(UIDevice.deviceLanguage()) // en
+print(UIDevice.deviceName) // iPhone Simulator / iPhone 6 Wifi
+print(UIDevice.deviceLanguage) // en
+print(UIDevice.isPhone) // true or false
+print(UIDevice.isPad) // true or false
 ```
 
 Check your system version:
@@ -1002,8 +1103,7 @@ Force device orientation:
 
 ```swift
 UIDevice.forceRotation(.portrait)
-// or
-UIDevice.current.setValue(orientation.rawValue, forKey: "orientation")
+UIDevice.current.forceRotation(.portrait)
 ```
 
 ### UIImage extension
@@ -1011,27 +1111,35 @@ UIDevice.current.setValue(orientation.rawValue, forKey: "orientation")
 Create an image from a color:
 
 ```swift
-let image = UIImage(color: UIColor.greenColor())
+let image = UIImage(color: .green)
+```
+
+Fill an image with a color:
+
+```swift
+let image = UIImage(named: "image")
+let greenImage = image.filled(with: .green)
+```
+
+Combined an image with another:
+
+```swift
+let image = UIImage(named: "image")
+let image2 = UIImage(named: "image2")
+let combinedImage = image.combined(with: image2)
 ```
 
 Change the rendering mode:
 
 ```swift
-var image = UIImage(...)
-image = image.template // imageWithRenderingMode(.AlwaysTemplate)
-image = image.original // imageWithRenderingMode(.AlwaysOriginal)
-```
-
-Fill an image with a color:
-
-```
-let image = UIImage(named: "anImage")
-let greenImage = image.filled(with: UIColor.greenColor())
+var image = UIImage(named: "image")
+image = image.template // imageWithRenderingMode(.alwaysTemplate)
+image = image.original // imageWithRenderingMode(.alwaysOriginal)
 ```
 
 ### UILabel extension
 
-Check if the text of a label is truncated:
+Detect if a label text is truncated:
 
 ```swift
 let label = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: 40))
@@ -1043,7 +1151,7 @@ label.text = ":)"
 print(label.isTruncated()) // false
 ```
 
-Change line height:
+Customize label line height:
 
 ```swift
 let label = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: 40))
@@ -1051,7 +1159,7 @@ label.setText("A long multiline text")
 label.setLineHeight(0.9)
 ```
 
-Change the truncated text:
+Customize the label truncated text (replace the default `...`):
 
 ```swift
 let label = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: 40))
@@ -1064,7 +1172,7 @@ print(label.text) // I wi.
 Get the screen orientation:
 
 ```swift
-if UIInterfaceOrientationIsPortrait(UIScreen.screenOrientation()) {
+if UIInterfaceOrientationIsPortrait(UIScreen.screenOrientation) {
 	// Portrait
 } else {
 	// Landscape
@@ -1074,16 +1182,16 @@ if UIInterfaceOrientationIsPortrait(UIScreen.screenOrientation()) {
 Get the screen size:
 
 ```swift
-print(UIScreen.currentSize) // CGSize(375.0, 667.0) on iPhone6
-print(UIScreen.screenWidth) // 375.0 on iPhone6
-print(UIScreen.screenHeight) // 667.0 on iPhone6
-print(UIScreen.screenHeightWithoutStatusBar) // 647.0 on iPhone6
+print(UIScreen.size) // CGSize(375.0, 667.0) on iPhone6
+print(UIScreen.width) // 375.0 on iPhone6
+print(UIScreen.height) // 667.0 on iPhone6
+print(UIScreen.heightWithoutStatusBar) // 647.0 on iPhone6
 ```
 
 Get the status bar height:
 
 ```swift
-print(UIScreen.screenStatusBarHeight) // 20.0 on iPhone6
+print(UIScreen.statusBarHeight) // 20.0 on iPhone6
 ```
 
 ### UIStoryboard extension
@@ -1096,16 +1204,38 @@ let storyboard = UIStoryboard.main
 
 ### UISwitch extension
 
-Toggle a switch state:
+Toggle `UISwitch`:
 
 ```swift
-let mySwitch = UISwitch()
-mySwitch.toggle()
+let aSwitch = UISwitch(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
+aSwitch.toggle()
+print(aSwitch.isOn) // true
+
+aSwitch.toggle(animated: false)
+```
+
+### UITextField extension
+
+Modify clear button image:
+
+```swift
+let clearButtonImage = UIImage(named: "clear_button")
+let textField = UITextField()
+textField.setClearButton(with: clearButtonImage)
+```
+
+Modify placeholder's color:
+
+```swift
+let textField = UITextField()
+// set `placeholder` or `attributedPlaceholder`
+textField.setPlaceHolderTextColor(.blue)
 ```
 
 ### UIView extension
 
 **Change the frame of the view easily**
+
 ```swift
 let aView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
 aView.x += 100 // move  to right
@@ -1117,45 +1247,30 @@ aView.height -= 10 // make the view shorter
 **Automates your localizables**
 
 ```swift
-aView.convertLocalizables()
+aView.translateSubviews()
 ```
 
 It will iterate on all the subviews of the view, and use the text / placeholder as key in `NSLocalizedString`.
 By settings your localizable key in your xib / storyboard, all yours string will be automatically translated just by calling the above method.
-
-**Instantiate view from nib programatically**
-
-```swift
-let myCustomView: CustomView = UIView.fromNib()
-// or
-let myCustomView = UIView.fromNib() as? CustomView
-```
 
 ### UIViewController extension
 
 Reset the navigation stack by deleting previous view controllers:
 
 ```swift
-        let navController = UINavigationController()
-        navController.pushViewController(vc1, animated: true)
-        navController.pushViewController(vc2, animated: true)
-        navController.pushViewController(vc3, animated: true)
-        vc3.deletePreviousViewControllers(true)
-        print(navController.viewControllers) // [vc3]
+let navController = UINavigationController()
+navController.pushViewController(vc1, animated: true)
+navController.pushViewController(vc2, animated: true)
+navController.pushViewController(vc3, animated: true)
+vc3.removePreviousControllers(animated: true)
+print(navController.viewControllers) // [vc3]
 ```
 
-
-Setup your navigation bar:
+Check if ViewController is onscreen and not hidden:
 
 ```swift
-let vc = UIViewController()
-vc.setupBackButton(title: String = "Example", tintColor: UIColor.blueColor())
-vc.setupRightBarView(aView)
-
-let vc2 = UIViewController()
-vc2.setupBackButton(hidden: false)
-vc2.setupBar(leftView:  aView)
-vc2.setupBar(rightView: aView)
+let viewController = UIViewController()
+print(viewController.isVisible) // false
 ```
 
 ### Simulator
@@ -1166,79 +1281,6 @@ Check if you are running on a simulator:
 if !Simulator.isRunning {
   // add device specific operations here
 }
-```
-
-### BlockLongPressGesturesRecognizers
-
-```swift
-let longPressGesture = BlockLongPressGestureRecognizer() { _ in
-	print("long press gesture detected")
-}
-view.addGestureRecognizer(longPressGesture)
-
-// OR
-
-let longPressGesture = BlockLongPressGestureRecognizer(numberOfTapsRequired: 0, numberOfTouchesRequired: 1, minimumPressDuration: 0.5) { _ in
-	print("long press gesture detected")
-}
-view.addGestureRecognizer(longPressGesture)
-```
-
-### BlockPanGesturesRecognizers
-
-```swift
-let panGesture = BlockPanGestureRecognizer() { _ in
-	print("pan gesture detected"
-}
-view.addGestureRecognizer(panGesture)
-
-// OR
-
-let panGesture = BlockPanGestureRecognizer(minimumNumberOfTouches: 1) { _ in
-	print("pan gesture detected"
-}
-view.addGestureRecognizer(panGesture)
-```
-
-### BlockPinchGesturesRecognizers
-
-```swift
-let pinchGesture = BlockPinchGestureRecognizer { _ in
-	print("pinch gesture detected"
-}
-viewPinchGesture.addGestureRecognizer(pinchGesture)     
-```
-
-### BlockSwipeGesturesRecognizers
-
-```swift
-let swipeDownGesture = BlockSwipeGestureRecognizer(direction: .Down) { _ in
-	print("swipe gesture detected")
-}
-view.addGestureRecognizer(swipeDownGesture)
-
-// OR
-
-let swipeDownGesture = BlockSwipeGestureRecognizer(numberOfTouchesRequired: 1, direction: .Down) { _ in
-	print("swipe gesture detected")
-}
-view.addGestureRecognizer(swipeDownGesture)
-```
-
-### BlockTapGesturesRecognizers
-
-```swift
-let blockTapGesture = BlockTapGestureRecognizer() { _ in
-   print("tap gesture detected")
-}
-view.addGestureRecognizer(blockTapGesture)
-
-// OR
-
-let blockTapGesture = BlockTapGestureRecognizer(numberOfTapsRequired: 1, numberOfTouchesRequired: 1) { _ in
-   print("tap gesture detected")
-}
-view.addGestureRecognizer(blockTapGesture)
 ```
 
 ## Available on macOS
@@ -1311,3 +1353,4 @@ let package = Package(
 ## License
 
 SwiftyUtils is under the MIT license. See the [LICENSE](https://github.com/tbaranes/SwiftyUtils/blob/master/LICENSE) file for more information.
+dic.testAll
