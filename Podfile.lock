@@ -35,6 +35,9 @@ PODS:
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - ImageScrollView (1.3)
+  - Instructions (0.5.0):
+    - Instructions/Core (= 0.5.0)
+  - Instructions/Core (0.5.0)
   - LTMorphingLabel (0.5.0)
   - MGSwipeTableCell (1.5.6)
   - MLScreenshot (1.0.3)
@@ -55,6 +58,7 @@ DEPENDENCIES:
   - FittableFontLabel
   - FTPopOverMenu_Swift
   - ImageScrollView
+  - Instructions
   - LTMorphingLabel
   - MGSwipeTableCell
   - MLScreenshot
@@ -78,6 +82,7 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 43ac87810e4961f5093024d3525bfe022f956da3
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   ImageScrollView: 2f2d7139fb5a7d0c0b021eb8b086d8c3dc54c233
+  Instructions: 6976f674ce788aefec475be6f18500572f1645d4
   LTMorphingLabel: bc170be74b219b7dae0e5543a44676d16da70ff7
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
   MLScreenshot: 09b476048a115b1f34a2e7347bb8d473b62682bd
@@ -89,6 +94,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUtils: f48a22d2fa8eece42a11d8bbb4d01a9758dd0602
 
-PODFILE CHECKSUM: 903cd175594d435068ef667071589a26b4a67726
+PODFILE CHECKSUM: 4ec5fb0ad6d6bb0ab1a6c5933c73a63ac5485a15
 
 COCOAPODS: 1.1.0.beta.1
