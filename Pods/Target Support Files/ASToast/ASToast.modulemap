@@ -1,0 +1,6 @@
+framework module ASToast {
+  umbrella header "ASToast-umbrella.h"
+
+  export *
+  module * { export * }
+}

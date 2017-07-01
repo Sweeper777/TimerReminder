@@ -21,6 +21,5 @@ target 'TimerReminder' do
     pod 'SlideMenuControllerSwift'
     pod 'SCLAlertView'
     pod 'FTPopOverMenu_Swift'
-    pod 'Instructions', :git => 'https://github.com/ephread/Instructions.git'
 end
 

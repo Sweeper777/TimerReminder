@@ -34,11 +34,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Instructions.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>LTMorphingLabel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -97,12 +92,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0D0C007210938C799DEF0329CF4D9D50</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>16F3F906CAAF7DAE89B08CB8A40C31C4</key>
+		<key>210CABFF3683E387325F6D7CDBD0EFCC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,17 +112,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4A95D48A7273A98D040EDEC92EEB7E1D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>6819754D454CCFB5578F7BB3E4DD1A9D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7C2A843C99910DD3E4B12758A18508FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,6 +142,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A3E9A69D95EBD4B6C9DA8FA3B5768748</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B1FBB3DA549F4E64345B3BB249177450</key>
 		<dict>
 			<key>primary</key>
@@ -162,17 +157,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D2716BD6C50E09A57784BF4D720A1263</key>
+		<key>DF81C283AE1B623F87CDFD52D89CBF7A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DFCD8F10A7CE0CE85BF769D4D884A60C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EE43F32C832A2F40945F3D0B94DF856F</key>
+		<key>DFDFF1220AB2B72A53E9522D0DB03F0A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -182,7 +172,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FCF02711704456F70BE952904F5585E9</key>
+		<key>F435A43D5B8242F61EC147808526A54C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

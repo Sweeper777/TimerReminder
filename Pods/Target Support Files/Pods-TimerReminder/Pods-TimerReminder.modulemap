@@ -1,0 +1,6 @@
+framework module Pods_TimerReminder {
+  umbrella header "Pods-TimerReminder-umbrella.h"
+
+  export *
+  module * { export * }
+}
