@@ -1,0 +1,6 @@
+framework module AFBlurSegue {
+  umbrella header "AFBlurSegue-umbrella.h"
+
+  export *
+  module * { export * }
+}
