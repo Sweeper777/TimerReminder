@@ -1,5 +1,4 @@
 PODS:
-  - AFBlurSegue (1.2.1)
   - ASToast (1.0.9)
   - Eureka (2.0.1)
   - Firebase/AdMob (3.16.0):
@@ -48,7 +47,6 @@ PODS:
   - SwiftyUtils (1.0.0)
 
 DEPENDENCIES:
-  - AFBlurSegue
   - ASToast
   - Eureka (~> 2.0.0-beta.1)
   - Firebase/AdMob
@@ -68,7 +66,6 @@ DEPENDENCIES:
   - SwiftyUtils
 
 SPEC CHECKSUMS:
-  AFBlurSegue: 27e55f015360f4e11117d2c3a959dbb5316eef78
   ASToast: 7b0a104bba38264e2525924a6ab60dde972d0c83
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
   Firebase: 21bf4a89d3f01bfbe11adc3a5d934a4a3d3a5fd6
@@ -92,6 +89,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUtils: f48a22d2fa8eece42a11d8bbb4d01a9758dd0602
 
-PODFILE CHECKSUM: 57b0d03aef8dbed2db243a61ab581abdadcbf542
+PODFILE CHECKSUM: 903cd175594d435068ef667071589a26b4a67726
 
 COCOAPODS: 1.1.0.beta.1

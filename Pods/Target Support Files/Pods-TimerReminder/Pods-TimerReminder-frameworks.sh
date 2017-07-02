@@ -84,7 +84,6 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/AFBlurSegue/AFBlurSegue.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ASToast/ASToast.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Eureka/Eureka.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FTPopOverMenu_Swift/FTPopOverMenu_Swift.framework"
@@ -103,7 +102,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyUtils/SwiftyUtils.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/AFBlurSegue/AFBlurSegue.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ASToast/ASToast.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Eureka/Eureka.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FTPopOverMenu_Swift/FTPopOverMenu_Swift.framework"
