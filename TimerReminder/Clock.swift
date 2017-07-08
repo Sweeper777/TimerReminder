@@ -39,7 +39,7 @@ class Clock: Timer {
     init(options: TimerOptions? = nil, onTimerChange: ((Timer) -> Void)?) {
         self.options = options
         self.onTimerChange = onTimerChange
-        formatter.dateFormat = "HH:mm"
+        formatter.dateFormat = "HH˸mm"
         let date = Date()
         description = formatter.string(from: date)
         onTimerChange?(self)
