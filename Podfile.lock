@@ -41,10 +41,13 @@ PODS:
   - MVSpeechSynthesizer (1.0.1)
   - NGORoundedButton (3.1)
   - Protobuf (3.2.1)
+  - Result (3.2.3)
   - SCLAlertView (0.7.0)
   - SlideMenuControllerSwift (3.0.1)
   - SwiftyJSON (3.1.4)
   - SwiftyUtils (1.0.0)
+  - TrueTime (4.1.1):
+    - Result (~> 3.0)
 
 DEPENDENCIES:
   - ASToast
@@ -64,6 +67,7 @@ DEPENDENCIES:
   - SlideMenuControllerSwift
   - SwiftyJSON
   - SwiftyUtils
+  - TrueTime
 
 SPEC CHECKSUMS:
   ASToast: 7b0a104bba38264e2525924a6ab60dde972d0c83
@@ -84,11 +88,13 @@ SPEC CHECKSUMS:
   MVSpeechSynthesizer: d4deb5221bff17dfda644298497be3b4fa189040
   NGORoundedButton: dd1e7a293ccc16e0f5c073ba9be62b0fb8b8d496
   Protobuf: 2ccbaf193f6c65adc67745453ca0c13234c32796
+  Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUtils: f48a22d2fa8eece42a11d8bbb4d01a9758dd0602
+  TrueTime: 22bd3a6c9e9ce75e62e2c1a6b39d7cf290f7b78f
 
-PODFILE CHECKSUM: 903cd175594d435068ef667071589a26b4a67726
+PODFILE CHECKSUM: 2f3d085030043b7dc93d425c544bfbf58efe7394
 
 COCOAPODS: 1.1.0.beta.1

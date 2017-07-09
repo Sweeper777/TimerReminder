@@ -21,5 +21,6 @@ target 'TimerReminder' do
     pod 'SlideMenuControllerSwift'
     pod 'SCLAlertView'
     pod 'FTPopOverMenu_Swift'
+    pod 'TrueTime'
 end
 
