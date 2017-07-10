@@ -2,6 +2,7 @@ import UIKit
 import CoreData
 import SwiftyUtils
 import Firebase
+import TrueTime
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         window?.tintColor = UIColor(hex: "3b7b3b")
         UINavigationBar.appearance().barStyle = .black
+        TrueTimeClient.sharedInstance.start()
         
         if lastUsedBuild < 2 {
             let entity = NSEntityDescription.entity(forEntityName: "TimerOptions", in: managedObjectContext)
