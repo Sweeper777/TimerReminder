@@ -1,4 +1,5 @@
 import Foundation
+import TrueTime
 
 class Clock: Timer {
     func reset() {
@@ -40,7 +41,8 @@ class Clock: Timer {
         self.options = options
         self.onTimerChange = onTimerChange
         formatter.dateFormat = "HH:mm"
-        let date = Date()
+        let useTrueTime = UserDefaults.standard.bool(forKey: "trueTime")
+        let date = useTrueTime ? TrueTimeClient.sharedInstance.referenceTime?.now() ?? Date() : Date()
         description = formatter.string(from: date)
         onTimerChange?(self)
         let secondsUntilMinute = 60 - (Calendar.current as NSCalendar).component(.second, from: date)
