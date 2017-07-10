@@ -57,7 +57,7 @@ class GlobalSettingsController: FormViewController {
             self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "nightMode", newValue: row.value!)
         }
         
-        form +++ Section(footer: NSLocalizedString("This will use the actual time, instead of the device time, in Clock Mode", comment: ""))
+        form +++ Section(footer: NSLocalizedString("This will use the actual time whenever possible, instead of the device time, in Clock Mode", comment: ""))
         
             <<< SwitchRow(tagTrueTime) {
                 row in
