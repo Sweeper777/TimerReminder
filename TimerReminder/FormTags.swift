@@ -20,3 +20,5 @@ let tagGestureControls = "gestureControls"
 let tagFontStyle = "fontStyle"
 let tagAnimation = "animation"
 let tagNightMode = "nightMode"
+
+let tagTrueTime = "trueTime"
