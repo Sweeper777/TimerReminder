@@ -49,7 +49,7 @@ class Clock: Timer {
         if secondsUntilMinute != 0 {
             _ = Foundation.Timer.after(Double(secondsUntilMinute)) {
                 [weak self] in
-                let date = Date()
+                let date = useTrueTime ? TrueTimeClient.sharedInstance.referenceTime?.now() ?? Date() : Date()
                 self?.description = (self?.formatter.string(from: date)) ?? ""
                 if let myself = self {
                     myself.timer = Foundation.Timer.every(60) {
@@ -57,7 +57,7 @@ class Clock: Timer {
                         if self == nil {
                             self?.timer?.invalidate()
                         }
-                        let date = Date()
+                        let date = useTrueTime ? TrueTimeClient.sharedInstance.referenceTime?.now() ?? Date() : Date()
                         self?.description = self?.formatter.string(from: date) ?? ""
                     }
                 }
@@ -68,7 +68,7 @@ class Clock: Timer {
                 if self == nil {
                     self?.timer?.invalidate()
                 }
-                let date = Date()
+                let date = useTrueTime ? TrueTimeClient.sharedInstance.referenceTime?.now() ?? Date() : Date()
                 self?.description = self?.formatter.string(from: date) ?? ""
             }
         }
