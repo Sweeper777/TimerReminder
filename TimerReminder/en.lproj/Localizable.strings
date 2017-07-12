@@ -74,3 +74,6 @@
 "Current Options" = "Current Options";
 "Tip" = "Tip";
 "Here you can save a frequently used timer option. If you just want to edit the currently applied timer option, please go back to the timer and swipe to the left" = "Here you can save a frequently used timer option. If you just want to edit the currently applied timer option, please go back to the timer and swipe to the left";
+
+"Use True Time" = "Use True Time";
+"This will use the actual time, instead of the device time, in Clock Mode" = "This will use the actual time, instead of the device time, in Clock Mode";
