@@ -74,3 +74,6 @@
 "Current Options" = "當前的設置";
 "Tip" = "提示";
 "Here you can save a frequently used timer option. If you just want to edit the currently applied timer option, please go back to the timer and swipe to the left" = "在這裡可以儲存經常用的計時器設置，如果只想要編輯當前的設置，請返回計時器並向左滑動。";
+
+"Use True Time" = "使用實際時間";
+"This will use the actual time, instead of the device time, in Clock Mode" = "打開這個選項會使時鐘模式盡可能地使用實際時間，而並非系統時間。";
