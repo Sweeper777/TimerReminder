@@ -76,4 +76,4 @@
 "Here you can save a frequently used timer option. If you just want to edit the currently applied timer option, please go back to the timer and swipe to the left" = "ここでは、よく使用するタイマー設定が保存できます。現在適用されているタイマー設定を編集する場合は、タイマーに戻って左にスワイプしてください。";
 
 "Use True Time" = "実際の時間の使用";
-"This will use the actual time whenever possible, instead of the device time, in Clock Mode" = "このオプションをオンにすると、クロックモードではシステム時間ではなく、実際の時間が表示されます";
+"This will use the actual time whenever possible, instead of the device time, in Clock Mode" = "このオプションをオンにすると、可能な限りクロックモードではシステム時間ではなく、実際の時間が表示されます";
