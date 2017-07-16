@@ -57,11 +57,11 @@ class SetTimerController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         switch component {
         case 0:
-            suffix = " h"
+            suffix = NSLocalizedString(" h", comment: "")
         case 1:
-            suffix = " m"
+            suffix = NSLocalizedString(" m", comment: "")
         case 2:
-            suffix = " s"
+            suffix = NSLocalizedString(" s", comment: "")
         default:
             suffix = ""
         }
