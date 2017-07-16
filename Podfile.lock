@@ -1,34 +1,35 @@
 PODS:
   - ASToast (1.0.9)
   - Eureka (2.0.1)
-  - Firebase/AdMob (3.16.0):
+  - Firebase/AdMob (4.0.4):
     - Firebase/Core
-    - Google-Mobile-Ads-SDK (= 7.19.1)
-  - Firebase/Analytics (3.16.0):
+    - Google-Mobile-Ads-SDK (= 7.21.0)
+  - Firebase/Analytics (4.0.4):
     - Firebase/Core
-  - Firebase/Core (3.16.0):
-    - FirebaseAnalytics (= 3.8.0)
-    - FirebaseCore (= 3.6.0)
-  - Firebase/Crash (3.16.0):
+  - Firebase/Core (4.0.4):
+    - FirebaseAnalytics (= 4.0.2)
+    - FirebaseCore (= 4.0.4)
+  - Firebase/Crash (4.0.4):
     - Firebase/Core
-    - FirebaseCrash (= 1.1.6)
-  - FirebaseAnalytics (3.8.0):
-    - FirebaseCore (~> 3.6)
-    - FirebaseInstanceID (~> 1.0)
+    - FirebaseCrash (= 2.0.0)
+  - FirebaseAnalytics (4.0.2):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.6.0):
+  - FirebaseCore (4.0.4):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCrash (1.1.6):
-    - FirebaseAnalytics (~> 3.7)
-    - FirebaseInstanceID (~> 1.0)
+    - nanopb (~> 0.3)
+  - FirebaseCrash (2.0.0):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - Protobuf (~> 3.1)
-  - FirebaseInstanceID (1.0.10):
-    - FirebaseCore (~> 3.6)
+  - FirebaseInstanceID (2.0.0):
+    - FirebaseCore (~> 4.0)
   - FittableFontLabel (1.4.0)
-  - FTPopOverMenu_Swift (0.0.7)
-  - Google-Mobile-Ads-SDK (7.19.1)
+  - FTPopOverMenu_Swift (0.0.8)
+  - Google-Mobile-Ads-SDK (7.21.0)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/Logger (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
@@ -39,8 +40,13 @@ PODS:
   - MGSwipeTableCell (1.5.6)
   - MLScreenshot (1.0.3)
   - MVSpeechSynthesizer (1.0.1)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
   - NGORoundedButton (3.1)
-  - Protobuf (3.2.1)
+  - Protobuf (3.3.0)
   - Result (3.2.3)
   - SCLAlertView (0.7.0)
   - SlideMenuControllerSwift (3.0.1)
@@ -72,22 +78,23 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   ASToast: 7b0a104bba38264e2525924a6ab60dde972d0c83
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
-  Firebase: 21bf4a89d3f01bfbe11adc3a5d934a4a3d3a5fd6
-  FirebaseAnalytics: 920e46455f27b0a52a80907a6d9b73ee4bd1c635
-  FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
-  FirebaseCrash: db4c05d9c75baa050744d31b36357c8f1efba481
-  FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
+  Firebase: 1492bf04e1b73a7353b4fb2cf5a20bac9692f341
+  FirebaseAnalytics: ad41720e3e67fc63fbe3d2948d3e26932a8de311
+  FirebaseCore: cfc042628ef9f20debe09c0eb683135fcd404cb4
+  FirebaseCrash: 600ec2cbd8e10c3064a42de2c6ee7687bd02a076
+  FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   FittableFontLabel: 20502441e83bb41eb8b41611cca91af85c4e21e3
-  FTPopOverMenu_Swift: 8939e3c98a72217c761e806c915101227ed7c8fc
-  Google-Mobile-Ads-SDK: 43ac87810e4961f5093024d3525bfe022f956da3
+  FTPopOverMenu_Swift: 08f9a712c63811f675fe0b604c792e46246e00d9
+  Google-Mobile-Ads-SDK: 4a6f1b43c8cc0e1e95a3b59d9f52a01671c6f9f3
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   ImageScrollView: 2f2d7139fb5a7d0c0b021eb8b086d8c3dc54c233
   LTMorphingLabel: bc170be74b219b7dae0e5543a44676d16da70ff7
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
   MLScreenshot: 09b476048a115b1f34a2e7347bb8d473b62682bd
   MVSpeechSynthesizer: d4deb5221bff17dfda644298497be3b4fa189040
+  nanopb: 22bc080fa3955e2116b6ff3ee6c2cb3c15ab97cb
   NGORoundedButton: dd1e7a293ccc16e0f5c073ba9be62b0fb8b8d496
-  Protobuf: 2ccbaf193f6c65adc67745453ca0c13234c32796
+  Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
