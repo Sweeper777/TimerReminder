@@ -66,5 +66,15 @@ class GlobalSettingsController: FormViewController {
         }.onChange { row in
             self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "trueTime", newValue: row.value!)
         }
+        
+        form +++ Section(footer: NSLocalizedString("This will show an analog clock instead of a digital one in Clock Mode.", comment: ""))
+            
+            <<< SwitchRow(tagAnalogClock) {
+                row in
+                row.title = NSLocalizedString("Analog Clock", comment: "")
+                row.value = UserDefaults.standard.bool(forKey: "analogClock")
+                }.onChange { row in
+                    self.delegate?.globalSettings?(self, globalSettingsDidChangeWithKey: "analogClock", newValue: row.value!)
+        }
     }
 }

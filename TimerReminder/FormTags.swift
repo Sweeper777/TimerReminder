@@ -22,3 +22,4 @@ let tagAnimation = "animation"
 let tagNightMode = "nightMode"
 
 let tagTrueTime = "trueTime"
+let tagAnalogClock = "analogClock"
