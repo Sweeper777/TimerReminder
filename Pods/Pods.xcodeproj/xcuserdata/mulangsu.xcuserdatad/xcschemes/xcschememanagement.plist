@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>EZClockView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Eureka.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -107,12 +112,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>05EBF91DE9C56F5FFEAB798FB4841C8A</key>
+		<key>0A2268A4F9B6DC484DC41CCE56886FAE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1A893FEBCBC376D1EB155F8C025DD07D</key>
+		<key>174AA17CA127683EBB78BD24F003FA73</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,17 +132,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>41804BE21421302C38888A947BEDEADA</key>
+		<key>3F40737A5983630E32E99CF39F66B115</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>45EE2261CD8D644131FB813E0A1AF0FC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>492105F4358FF8F5C168C5F3FC582FA1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,12 +152,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5C6D9964B502B8F343212330090880C8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6819754D454CCFB5578F7BB3E4DD1A9D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>82919D7A48E719F70DDBC0770B82B372</key>
+		<key>732D3D654B33197B688806D55A38E831</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>853A01674BF2D49D72DD50151ED8F52A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -177,17 +187,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A825040EC3862DC744B0D5D88F0B08D8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>B1FBB3DA549F4E64345B3BB249177450</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B4DF138B020E644F34AC956798F23D89</key>
+		<key>B21983EE4CEB8EFFE256494CB6F485DC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B898518E3ABCAC6C1B019D9D7A7E4B20</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -197,7 +207,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D31B6AD911A3FAB3CC9F9D3304FEB57D</key>
+		<key>D4D9BAF177B054873FC087B359D625F6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

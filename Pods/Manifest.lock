@@ -1,6 +1,7 @@
 PODS:
   - ASToast (1.0.9)
   - Eureka (2.0.1)
+  - EZClockView (1.2)
   - Firebase/AdMob (4.0.4):
     - Firebase/Core
     - Google-Mobile-Ads-SDK (= 7.21.0)
@@ -58,6 +59,7 @@ PODS:
 DEPENDENCIES:
   - ASToast
   - Eureka (~> 2.0.0-beta.1)
+  - EZClockView
   - Firebase/AdMob
   - Firebase/Analytics
   - Firebase/Crash
@@ -78,6 +80,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   ASToast: 7b0a104bba38264e2525924a6ab60dde972d0c83
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
+  EZClockView: e14aa6e15d73da6415e2c02096ea7ea05b71231d
   Firebase: 1492bf04e1b73a7353b4fb2cf5a20bac9692f341
   FirebaseAnalytics: ad41720e3e67fc63fbe3d2948d3e26932a8de311
   FirebaseCore: cfc042628ef9f20debe09c0eb683135fcd404cb4
@@ -102,6 +105,6 @@ SPEC CHECKSUMS:
   SwiftyUtils: f48a22d2fa8eece42a11d8bbb4d01a9758dd0602
   TrueTime: 22bd3a6c9e9ce75e62e2c1a6b39d7cf290f7b78f
 
-PODFILE CHECKSUM: 2f3d085030043b7dc93d425c544bfbf58efe7394
+PODFILE CHECKSUM: 6d26c3c2a8bc9a8a564182ee7c7d2fda85aa5c51
 
 COCOAPODS: 1.1.0.beta.1

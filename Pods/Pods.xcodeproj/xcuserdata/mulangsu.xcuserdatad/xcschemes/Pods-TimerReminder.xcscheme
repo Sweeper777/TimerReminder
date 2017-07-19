@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0830"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "82919D7A48E719F70DDBC0770B82B372"
+               BlueprintIdentifier = "D4D9BAF177B054873FC087B359D625F6"
                BuildableName = "Pods_TimerReminder.framework"
                BlueprintName = "Pods-TimerReminder"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "82919D7A48E719F70DDBC0770B82B372"
+            BlueprintIdentifier = "D4D9BAF177B054873FC087B359D625F6"
             BuildableName = "Pods_TimerReminder.framework"
             BlueprintName = "Pods-TimerReminder"
             ReferencedContainer = "container:Pods.xcodeproj">

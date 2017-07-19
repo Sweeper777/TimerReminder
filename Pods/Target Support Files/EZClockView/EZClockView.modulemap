@@ -1,0 +1,6 @@
+framework module EZClockView {
+  umbrella header "EZClockView-umbrella.h"
+
+  export *
+  module * { export * }
+}

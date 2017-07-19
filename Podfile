@@ -22,5 +22,6 @@ target 'TimerReminder' do
     pod 'SCLAlertView'
     pod 'FTPopOverMenu_Swift'
     pod 'TrueTime'
+    pod 'EZClockView'
 end
 

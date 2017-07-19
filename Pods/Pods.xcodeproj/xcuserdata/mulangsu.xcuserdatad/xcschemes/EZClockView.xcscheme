@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3F40737A5983630E32E99CF39F66B115'
-               BlueprintName = 'SwiftyUtils'
+               BlueprintIdentifier = '853A01674BF2D49D72DD50151ED8F52A'
+               BlueprintName = 'EZClockView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftyUtils.framework'>
+               BuildableName = 'EZClockView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
