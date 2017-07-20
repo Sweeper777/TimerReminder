@@ -77,4 +77,10 @@ class Clock: Timer {
     deinit {
         timer?.invalidate()
     }
+    
+    func timeFrom(_ date: Date) -> (hour: Int, minute: Int) {
+        let hour = Calendar.current.component(.hour, from: date)
+        let minute = Calendar.current.component(.minute, from: date)
+        return (hour, minute)
+    }
 }
