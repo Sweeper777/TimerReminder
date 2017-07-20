@@ -33,6 +33,8 @@ class Clock: Timer {
         }
     }
     
+    var time: (hour: Int, minute: Int)!
+    
     let formatter = DateFormatter()
     
     var timer: Foundation.Timer?
@@ -44,6 +46,7 @@ class Clock: Timer {
         let useTrueTime = UserDefaults.standard.bool(forKey: "trueTime")
         let date = useTrueTime ? TrueTimeClient.sharedInstance.referenceTime?.now() ?? Date() : Date()
         description = formatter.string(from: date)
+        self.time = self.timeFrom(date)
         onTimerChange?(self)
         let secondsUntilMinute = 60 - (Calendar.current as NSCalendar).component(.second, from: date)
         if secondsUntilMinute != 0 {
@@ -51,6 +54,7 @@ class Clock: Timer {
                 [weak self] in
                 let date = useTrueTime ? TrueTimeClient.sharedInstance.referenceTime?.now() ?? Date() : Date()
                 self?.description = (self?.formatter.string(from: date)) ?? ""
+                self?.time = self?.timeFrom(date)
                 if let myself = self {
                     myself.timer = Foundation.Timer.every(60) {
                         [weak self] _ in
@@ -59,6 +63,7 @@ class Clock: Timer {
                         }
                         let date = useTrueTime ? TrueTimeClient.sharedInstance.referenceTime?.now() ?? Date() : Date()
                         self?.description = self?.formatter.string(from: date) ?? ""
+                        self?.time = self?.timeFrom(date)
                     }
                 }
             }
@@ -70,6 +75,7 @@ class Clock: Timer {
                 }
                 let date = useTrueTime ? TrueTimeClient.sharedInstance.referenceTime?.now() ?? Date() : Date()
                 self?.description = self?.formatter.string(from: date) ?? ""
+                self?.time = self?.timeFrom(date)
             }
         }
     }
