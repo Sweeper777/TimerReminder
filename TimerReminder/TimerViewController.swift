@@ -408,8 +408,8 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
             UserDefaults.standard.set(value, forKey: key)
             view.backgroundColor = value ? UIColor.black : UIColor.white
             timerLabel.textColor = value ? UIColor.white : UIColor.black
-        } else if key == "trueTime" {
-            UserDefaults.standard.setValue(newValue, forKey: "trueTime")
+        } else if key == "trueTime" || key == "analogClock" {
+            UserDefaults.standard.setValue(newValue, forKey: key)
             if self.timer is Clock {
                 self.timer = Clock(options: self.timer.options, onTimerChange: timerChangedClosure)
             }
