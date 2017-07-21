@@ -60,6 +60,10 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     fileprivate lazy var timerChangedClosure: (Timer) -> Void = {
         [weak self] timer in
         self!.timerLabel.text = timer.description
+        if timer is Clock {
+            self?.clock?.minutes = (timer as! Clock).time.minute
+            self?.clock?.hours = (timer as! Clock).time.hour
+        }
     }
     
     //    var labelSize: CGSize {
