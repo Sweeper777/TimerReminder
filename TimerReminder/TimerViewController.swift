@@ -8,10 +8,14 @@ import MLScreenshot
 import SlideMenuControllerSwift
 import NGORoundedButton
 import FTPopOverMenu_Swift
+import EZClockView
 
 class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureRecognizerDelegate, GlobalSettingsControllerDelegate, SlideMenuControllerDelegate {
     @IBOutlet var timerLabel: LTMorphingLabel!
     var timer: Timer!
+    var clock: EZClockView?
+    var timer: Timer! {
+        didSet {
     
     var playButton: NGORoundedButton!
     var restartButton: NGORoundedButton!
