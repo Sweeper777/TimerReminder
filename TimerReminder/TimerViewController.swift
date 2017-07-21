@@ -12,10 +12,25 @@ import EZClockView
 
 class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureRecognizerDelegate, GlobalSettingsControllerDelegate, SlideMenuControllerDelegate {
     @IBOutlet var timerLabel: LTMorphingLabel!
-    var timer: Timer!
     var clock: EZClockView?
     var timer: Timer! {
         didSet {
+            if timer is Clock && UserDefaults.standard.bool(forKey: "analogClock") {
+                clock = EZClockView(frame: timerLabel.frame)
+                clock?.secondsThickness = 0
+                clock?.minutesLength = 0.75
+                clock?.hoursLength = 0.5
+                clock?.minutes = (timer as! Clock).time.minute
+                clock?.hours = (timer as! Clock).time.hour
+                timerLabel.isHidden = true
+                view.addSubview(clock!)
+            } else {
+                clock?.removeFromSuperview()
+                clock = nil
+                timerLabel.isHidden = false
+            }
+        }
+    }
     
     var playButton: NGORoundedButton!
     var restartButton: NGORoundedButton!
