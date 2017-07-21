@@ -16,7 +16,9 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     var timer: Timer! {
         didSet {
             if timer is Clock && UserDefaults.standard.bool(forKey: "analogClock") {
-                clock = EZClockView(frame: timerLabel.frame)
+                if clock == nil {
+                    clock = EZClockView(frame: timerLabel.frame)
+                }
                 clock?.secondsThickness = 0
                 clock?.minutesLength = 0.75
                 clock?.hoursLength = 0.5
