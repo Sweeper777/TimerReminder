@@ -22,6 +22,7 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
                 clock?.hoursLength = 0.5
                 clock?.minutes = (timer as! Clock).time.minute
                 clock?.hours = (timer as! Clock).time.hour
+                clock?.isUserInteractionEnabled = false
                 timerLabel.isHidden = true
                 view.addSubview(clock!)
             } else {
