@@ -63,6 +63,9 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         if timer is Clock {
             self?.clock?.minutes = (timer as! Clock).time.minute
             self?.clock?.hours = (timer as! Clock).time.hour
+            print(timer.description)
+            print((timer as! Clock).time)
+            print()
         }
     }
     
