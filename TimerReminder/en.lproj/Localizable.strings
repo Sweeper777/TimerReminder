@@ -81,3 +81,6 @@
 " h" = " h";
 " m" = " m";
 " s" = " s";
+
+"Analog Clock" = "Analog Clock";
+"This will show an analog clock instead of a digital one in Clock Mode." = "This will show an analog clock instead of a digital one in Clock Mode.";
