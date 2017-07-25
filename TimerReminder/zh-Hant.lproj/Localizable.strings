@@ -81,3 +81,6 @@
 " h" = "小時";
 " m" = "分";
 " s" = "秒";
+
+"Analog Clock" = "指針式時鐘";
+"This will show an analog clock instead of a digital one in Clock Mode." = "打開這個選項會使時鐘模式顯示一個指針式的時鐘。";
