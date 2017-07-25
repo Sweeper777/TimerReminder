@@ -45,16 +45,16 @@ class Clock: Timer {
         formatter.dateFormat = "HH:mm"
         let useTrueTime = UserDefaults.standard.bool(forKey: "trueTime")
         let date = useTrueTime ? TrueTimeClient.sharedInstance.referenceTime?.now() ?? Date() : Date()
-        description = formatter.string(from: date)
         self.time = self.timeFrom(date)
+        description = formatter.string(from: date)
         onTimerChange?(self)
         let secondsUntilMinute = 60 - (Calendar.current as NSCalendar).component(.second, from: date)
         if secondsUntilMinute != 0 {
             _ = Foundation.Timer.after(Double(secondsUntilMinute)) {
                 [weak self] in
                 let date = useTrueTime ? TrueTimeClient.sharedInstance.referenceTime?.now() ?? Date() : Date()
-                self?.description = (self?.formatter.string(from: date)) ?? ""
                 self?.time = self?.timeFrom(date)
+                self?.description = (self?.formatter.string(from: date)) ?? ""
                 if let myself = self {
                     myself.timer = Foundation.Timer.every(60) {
                         [weak self] _ in
@@ -62,8 +62,8 @@ class Clock: Timer {
                             self?.timer?.invalidate()
                         }
                         let date = useTrueTime ? TrueTimeClient.sharedInstance.referenceTime?.now() ?? Date() : Date()
-                        self?.description = self?.formatter.string(from: date) ?? ""
                         self?.time = self?.timeFrom(date)
+                        self?.description = self?.formatter.string(from: date) ?? ""
                     }
                 }
             }
@@ -74,8 +74,8 @@ class Clock: Timer {
                     self?.timer?.invalidate()
                 }
                 let date = useTrueTime ? TrueTimeClient.sharedInstance.referenceTime?.now() ?? Date() : Date()
-                self?.description = self?.formatter.string(from: date) ?? ""
                 self?.time = self?.timeFrom(date)
+                self?.description = self?.formatter.string(from: date) ?? ""
             }
         }
     }
