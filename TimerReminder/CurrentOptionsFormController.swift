@@ -173,7 +173,7 @@ class CurrentOptionsFormController: FormViewController {
                 row.title = NSLocalizedString("No. of Reminders", comment: "")
                 row.cell.stepper.maximumValue = 10
                 row.cell.stepper.minimumValue = 1
-                row.cell.valueLabel.textColor = UIApplication.shared.keyWindow!.tintColor
+                row.cell.valueLabel!.textColor = UIApplication.shared.keyWindow!.tintColor
                 
                 row.hidden = Condition.function([tagReminderOnOff, tagReminderStyle]) {
                     let enabled: SwitchRow = $0.rowBy(tag: tagReminderOnOff)!
