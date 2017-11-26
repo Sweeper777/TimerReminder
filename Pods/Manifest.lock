@@ -71,7 +71,7 @@ DEPENDENCIES:
   - MVSpeechSynthesizer
   - NGORoundedButton
   - SCLAlertView
-  - SlideMenuControllerSwift
+  - SlideMenuControllerSwift (~> 3.0.1)
   - SwiftyJSON
   - SwiftyUtils (~> 1.0.0)
   - TrueTime
@@ -114,6 +114,6 @@ SPEC CHECKSUMS:
   SwiftyUtils: f48a22d2fa8eece42a11d8bbb4d01a9758dd0602
   TrueTime: b66f31a33ebfa6f52532fcb04fb485e9e0c2cafb
 
-PODFILE CHECKSUM: 10498b0258e7a977d502d92b2badf7c7ec5dde9b
+PODFILE CHECKSUM: be16dd6656101121e02ccb42a35dfd1c2b82a073
 
 COCOAPODS: 1.3.1

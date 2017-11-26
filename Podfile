@@ -18,7 +18,7 @@ target 'TimerReminder' do
     pod 'Firebase/Crash'
     pod 'MLScreenshot'
     pod 'ImageScrollView'
-    pod 'SlideMenuControllerSwift'
+    pod 'SlideMenuControllerSwift', '~> 3.0.1'
     pod 'SCLAlertView'
     pod 'FTPopOverMenu_Swift'
     pod 'TrueTime'
