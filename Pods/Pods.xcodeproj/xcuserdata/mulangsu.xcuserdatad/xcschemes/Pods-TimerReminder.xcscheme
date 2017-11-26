@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D4D9BAF177B054873FC087B359D625F6"
+               BlueprintIdentifier = "675EE12977F8132A434E50FE125575DC"
                BuildableName = "Pods_TimerReminder.framework"
                BlueprintName = "Pods-TimerReminder"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -45,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D4D9BAF177B054873FC087B359D625F6"
+            BlueprintIdentifier = "675EE12977F8132A434E50FE125575DC"
             BuildableName = "Pods_TimerReminder.framework"
             BlueprintName = "Pods-TimerReminder"
             ReferencedContainer = "container:Pods.xcodeproj">

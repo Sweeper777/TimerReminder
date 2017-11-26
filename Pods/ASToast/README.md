@@ -1,7 +1,9 @@
-![Build Status](https://travis-ci.org/abdullahselek/ASToast.svg?branch=master)
+[![Build Status](https://travis-ci.org/abdullahselek/ASToast.svg?branch=master)](https://travis-ci.org/abdullahselek/ASToast)
 ![CocoaPods Compatible](https://img.shields.io/cocoapods/v/ASToast.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Coverage Status](https://coveralls.io/repos/github/abdullahselek/ASToast/badge.svg?branch=master)](https://coveralls.io/github/abdullahselek/ASToast?branch=master)
+![Platform](https://img.shields.io/cocoapods/p/ASToast.svg?style=flat)
+![License](https://img.shields.io/dub/l/vibe-d.svg)
 
 # ASToast
 A Swift extension for using Android style Toast notifications. You may call ASToast methods directly from your view objects.
@@ -38,7 +40,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'ASToast', '~> 1.0.9'
+    pod 'ASToast', '~> 1.1.0'
 end
 ```
 Then, run the following command:
@@ -59,7 +61,7 @@ brew install carthage
 To integrate ASToast into your Xcode project using Carthage, specify it in your Cartfile:
 
 ```
-github "abdullahselek/ASToast" ~> 1.0.9
+github "abdullahselek/ASToast" ~> 1.1.0
 ```
 
 Run carthage update to build the framework and drag the built ASToast.framework into your Xcode project.
@@ -87,7 +89,7 @@ self.view.makeToast(message: "Toast with custom text, title and duration",
 					backgroundColor: UIColor.blue,
 					titleColor: UIColor.yellow,
 					messageColor: UIColor.yellow,
-					font: nil)
+					font: UIFont.systemFont(ofSize: 16))
 ``` 	
 make toast with an image and custom colors
 ```
@@ -97,7 +99,8 @@ self.view.makeToast(message: "Toast with an image",
 					image: UIImage(named: "apple_logo"),
 					backgroundColor: UIColor.blue,
 					titleColor: UIColor.yellow,
-					messageColor: UIColor.yellow)
+					messageColor: UIColor.yellow,
+					font: UIFont.systemFont(ofSize: 16))
 ```	
 Show a custom view as toast
 ```

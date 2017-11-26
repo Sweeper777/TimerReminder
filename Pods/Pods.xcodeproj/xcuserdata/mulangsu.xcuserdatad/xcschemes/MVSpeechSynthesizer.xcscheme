@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F051D42F18D273ED1E6E222E33588C9D'
+               BlueprintIdentifier = '9CFF30E011D3856CD4305C527B0DC8AF'
                BlueprintName = 'MVSpeechSynthesizer'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'MVSpeechSynthesizer.framework'>

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '6819754D454CCFB5578F7BB3E4DD1A9D'
+               BlueprintIdentifier = 'D312B66A7E9C0AA555A2891FD0EFE21C'
                BlueprintName = 'ASToast'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'ASToast.framework'>

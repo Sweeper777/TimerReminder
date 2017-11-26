@@ -1,14 +1,15 @@
 SlideMenuControllerSwift
 ========================
 
-[![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
+[![Platform](http://img.shields.io/badge/platform-iOS-blue.svg?style=flat
 )](https://developer.apple.com/iphone/index.action)
-[![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat
+[![Language](http://img.shields.io/badge/language-Swift-brightgreen.svg?style=flat
 )](https://developer.apple.com/swift)
 [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
 )](http://mit-license.org)
 [![Issues](https://img.shields.io/github/issues/dekatotoro/SlideMenuControllerSwift.svg?style=flat
 )](https://github.com/dekatotoro/SlideMenuControllerSwift/issues?state=open)
+[![Downloads](https://img.shields.io/cocoapods/dt/SlideMenuControllerSwift.svg)](https://cocoapods.org/pods/SlideMenuControllerSwift)
 
 
 
@@ -16,14 +17,14 @@ iOS Slide View based on iQON, Feedly, Google+, Ameba iPhone app.
 
 ![sample](Screenshots/SlideMenuControllerSwift3.gif)
 
-##Installation
+## Installation
 
-####CocoaPods
+#### CocoaPods
 ```
 pod 'SlideMenuControllerSwift'
 ```
   
-####Carthage
+#### Carthage
 
 if iOS8 or later, Carthage is supported
 
@@ -32,12 +33,12 @@ if iOS8 or later, Carthage is supported
 
 for more info, see [Carthage](https://github.com/carthage/carthage)
 
-####Manually
+#### Manually
 Add the `SlideMenuController.swift` file to your project. 
 
-##Usage
+## Usage
 
-###Setup
+### Setup
 
 Add `import SlideMenuControllerSwift` in your file
 
@@ -57,7 +58,7 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 }
 ```
 
-####Storyboard Support
+#### Storyboard Support
 
 1. Inherit `SlideMenuController` and put UIViewController in a storyboard.
 2. Override `awakeFromNib`, then instantiate any view controllers
@@ -87,7 +88,7 @@ SlideMenuOptions.contentViewScale = .50
     
 ```
 
-###You can access from UIViewController
+### You can access from UIViewController
 
 ```swift
 self.slideMenuController()?

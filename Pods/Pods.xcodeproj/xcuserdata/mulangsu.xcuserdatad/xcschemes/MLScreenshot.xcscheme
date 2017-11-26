@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A3BE1481AC01E986980D7C24CAEA636F'
+               BlueprintIdentifier = 'BDBF608F561E83BAA5441E7ACC2A1554'
                BlueprintName = 'MLScreenshot'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'MLScreenshot.framework'>

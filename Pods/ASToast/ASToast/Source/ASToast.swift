@@ -2,29 +2,28 @@
 //  ASToast.swift
 //  ASToast
 //
-//  Created by Abdullah Selek on 10/06/15.
 //  Copyright (c) 2015 Abdullah Selek. All rights reserved.
 //
 
-// The MIT License (MIT)
+//  The MIT License (MIT)
 
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 import UIKit
 import QuartzCore
@@ -164,19 +163,19 @@ public extension UIView {
                           backgroundColor: UIColor?,
                           messageColor: UIColor?,
                           font: UIFont?) {
-        let toastView = self.toastView(message: message,
+        guard let toastView = self.toastView(message: message,
                                        title: "",
                                        image: nil,
                                        backgroundColor: backgroundColor,
                                        titleColor: nil,
                                        messageColor: messageColor,
-                                       font: font)
-        if toastView != nil {
-            self.showToast(toastView: toastView,
-                           fadeIn: fadeIn,
-                           duration: duration,
-                           position: position)
+                                       font: font) else {
+                                        return
         }
+        self.showToast(toastView: toastView,
+                       fadeIn: fadeIn,
+                       duration: duration,
+                       position: position)
     }
 
     /**
@@ -194,13 +193,15 @@ public extension UIView {
                           titleColor: UIColor?,
                           messageColor: UIColor?,
                           font: UIFont?) {
-        let toastView = self.toastView(message: message,
-                                       title: title,
-                                       image: nil,
-                                       backgroundColor: backgroundColor,
-                                       titleColor: titleColor,
-                                       messageColor: messageColor,
-                                       font: font)
+        guard let toastView = self.toastView(message: message,
+                                             title: title,
+                                             image: nil,
+                                             backgroundColor: backgroundColor,
+                                             titleColor: titleColor,
+                                             messageColor: messageColor,
+                                             font: font) else {
+                                        return
+        }
         self.showToast(toastView: toastView,
                        duration: Constants.ToastDuration,
                        position: .bottom)
@@ -225,13 +226,15 @@ public extension UIView {
                           titleColor: UIColor?,
                           messageColor: UIColor?,
                           font: UIFont?) {
-        let toastView = self.toastView(message: message,
-                                       title: title,
-                                       image: nil,
-                                       backgroundColor: backgroundColor,
-                                       titleColor: titleColor,
-                                       messageColor: messageColor,
-                                       font: font)
+        guard let toastView = self.toastView(message: message,
+                                             title: title,
+                                             image: nil,
+                                             backgroundColor: backgroundColor,
+                                             titleColor: titleColor,
+                                             messageColor: messageColor,
+                                             font: font) else {
+                                                return
+        }
         self.showToast(toastView: toastView,
                        fadeIn: fadeIn,
                        duration: duration,
@@ -259,13 +262,15 @@ public extension UIView {
                           titleColor: UIColor?,
                           messageColor: UIColor?,
                           font: UIFont?) {
-        let toastView = self.toastView(message: message,
-                                       title: title,
-                                       image: nil,
-                                       backgroundColor: backgroundColor,
-                                       titleColor: titleColor,
-                                       messageColor: messageColor,
-                                       font: font)
+        guard let toastView = self.toastView(message: message,
+                                             title: title,
+                                             image: nil,
+                                             backgroundColor: backgroundColor,
+                                             titleColor: titleColor,
+                                             messageColor: messageColor,
+                                             font: font) else {
+                                        return
+        }
         self.showToast(toastView: toastView,
                        fadeIn: fadeIn,
                        duration: duration,
@@ -293,13 +298,15 @@ public extension UIView {
                           titleColor: UIColor?,
                           messageColor: UIColor?,
                           font: UIFont?) {
-        let toastView = self.toastView(message: message,
-                                       title: "",
-                                       image: image,
-                                       backgroundColor: backgroundColor,
-                                       titleColor: titleColor,
-                                       messageColor: messageColor,
-                                       font: font)
+        guard let toastView = self.toastView(message: message,
+                                             title: "",
+                                             image: image,
+                                             backgroundColor: backgroundColor,
+                                             titleColor: titleColor,
+                                             messageColor: messageColor,
+                                             font: font) else {
+                                        return
+        }
         self.showToast(toastView: toastView,
                        fadeIn: fadeIn,
                        duration: duration,
@@ -329,13 +336,15 @@ public extension UIView {
                           titleColor: UIColor?,
                           messageColor: UIColor?,
                           font: UIFont?) {
-        let toastView = self.toastView(message: message,
-                                       title: title,
-                                       image: image,
-                                       backgroundColor: backgroundColor,
-                                       titleColor: titleColor,
-                                       messageColor: messageColor,
-                                       font: font)
+        guard let toastView = self.toastView(message: message,
+                                             title: title,
+                                             image: image,
+                                             backgroundColor: backgroundColor,
+                                             titleColor: titleColor,
+                                             messageColor: messageColor,
+                                             font: font) else {
+                                        return
+        }
         self.showToast(toastView: toastView,
                        fadeIn: fadeIn,
                        duration: duration,
@@ -362,7 +371,7 @@ public extension UIView {
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
      */
-    public func showToast(toastView: UIView!,
+    public func showToast(toastView: UIView,
                           fadeIn: TimeInterval = Constants.ToastFadeDuration,
                           duration: TimeInterval!,
                           position: ToastPosition) {
@@ -378,7 +387,7 @@ public extension UIView {
       - parameter toastView: Toast view
       - parameter CGPoint: The position point that toast will displayed
      */
-    public func showToast(toastView: UIView!,
+    public func showToast(toastView: UIView,
                           point: CGPoint) {
         createAndShowToast(toastView: toastView,
                            fadeIn: Constants.ToastFadeDuration,
@@ -394,7 +403,7 @@ public extension UIView {
       - parameter duration: The time duration toast will displayed on the screen
       - parameter CGPoint: The position point that toast will displayed
      */
-    public func showToast(toastView: UIView!,
+    public func showToast(toastView: UIView,
                           fadeIn: TimeInterval = Constants.ToastFadeDuration,
                           duration: TimeInterval!,
                           point: CGPoint) {
@@ -412,19 +421,16 @@ public extension UIView {
       - parameter duration: The time duration toast will displayed on the screen
       - parameter position: The position that toast will displayed
      */
-    fileprivate func createAndShowToast(toastView: UIView!,
+    fileprivate func createAndShowToast(toastView: UIView,
                                         fadeIn: TimeInterval,
                                         duration: TimeInterval!,
                                         position: ToastPosition,
                                         point: CGPoint) {
-        if toastView == nil {
-            return
-        }
         toastView.center = point.equalTo(CGPoint.zero) ? centerPointForPosition(position: position, toastView: toastView) : point
         toastView.alpha = Constants.ToastViewAlpha
 
         if Constants.ToastHidesOnTap {
-            let tapRecognizer: UITapGestureRecognizer! = UITapGestureRecognizer(target: toastView, action: #selector(UIView.handleToastTapped(_:)))
+            let tapRecognizer = UITapGestureRecognizer(target: toastView, action: #selector(UIView.handleToastTapped(_:)))
             toastView.addGestureRecognizer(tapRecognizer)
             toastView.isUserInteractionEnabled = true
             toastView.isExclusiveTouch = true
@@ -453,6 +459,141 @@ public extension UIView {
         }
     }
 
+    fileprivate func createToastView(backgroundColor: UIColor?) -> UIView {
+        let toastView = UIView()
+        toastView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
+        toastView.layer.cornerRadius = Constants.ToastCornerRadius
+        // check if shadow needed
+        if Constants.ToastDisplayShadow == true {
+            toastView.layer.shadowColor = UIColor.black.cgColor
+            toastView.layer.shadowOpacity = Constants.ToastShadowOpacity
+            toastView.layer.shadowRadius = Constants.ToastShadowRadius
+            toastView.layer.shadowOffset = Constants.ToastShadowOffset
+        }
+        // set toastView background color
+        if let bgColor = backgroundColor {
+            toastView.backgroundColor = bgColor.withAlphaComponent(Constants.ToastOpacity)
+        } else {
+            toastView.backgroundColor = UIColor.black.withAlphaComponent(Constants.ToastOpacity)
+        }
+        return toastView
+    }
+
+    fileprivate func createImageView(image: UIImage?) -> UIImageView? {
+        let imageView: UIImageView
+        // check image
+        if image != nil {
+            imageView = UIImageView(image: image)
+            imageView.contentMode = UIViewContentMode.scaleAspectFit
+            imageView.frame = CGRect(x: Constants.ToastHorizontalPadding, y: Constants.ToastVerticalPadding, width: Constants.ToastImageViewWidth, height: Constants.ToastImageViewHeight)
+            return imageView
+        }
+        return nil
+    }
+
+    fileprivate func createImageViewSpecs(imageView: UIImageView?) -> (CGFloat, CGFloat, CGFloat) {
+        var imageWidth = CGFloat(0.0)
+        var imageLeft = CGFloat(0.0)
+        var imageHeight = CGFloat(0.0)
+        guard let view = imageView else {
+            return (imageWidth, imageHeight, imageLeft)
+        }
+        imageWidth = view.bounds.size.width
+        imageHeight = view.bounds.size.height
+        imageLeft = Constants.ToastHorizontalPadding
+        return (imageWidth, imageHeight, imageLeft)
+    }
+
+    fileprivate func createTitleLabel(title: String,
+                                      titleColor: UIColor?,
+                                      font: UIFont?,
+                                      imageWidth: CGFloat) -> UILabel? {
+        // check title if not empty create title label
+        if title.isEmpty {
+            return nil
+        }
+        let titleLabel: UILabel
+        titleLabel = UILabel()
+        titleLabel.numberOfLines = Constants.ToastMaxTitleLines
+        titleLabel.font = UIFont.boldSystemFont(ofSize: Constants.ToastFontSize)
+        titleLabel.textAlignment = NSTextAlignment.center
+        titleLabel.textColor = titleColor != nil ? titleColor : UIColor.white
+        titleLabel.backgroundColor = UIColor.clear
+        titleLabel.alpha = 1.0
+        titleLabel.text = title
+        if font != nil {
+            titleLabel.font = font
+        }
+
+        // set size the title label according to the lenth of title text
+        let maxSizeTitle = CGSize(width: (self.bounds.size.width * Constants.ToastMaxWidth) - imageWidth, height: self.bounds.size.height * Constants.ToastMaxHeight)
+        let expectedSizeTitle = sizeForString(title as NSString, font: titleLabel.font, constrainedSize: maxSizeTitle, lineBreakMode: titleLabel.lineBreakMode)
+        titleLabel.frame = CGRect(x: 0.0, y: 0.0, width: expectedSizeTitle.width, height: expectedSizeTitle.height)
+        return titleLabel
+    }
+
+    fileprivate func createMessageLabel(message: String,
+                                        messageColor: UIColor?,
+                                        font: UIFont?,
+                                        imageWidth: CGFloat) -> UILabel? {
+        // check message string if not empty create message label
+        if message.isEmpty {
+            return nil
+        }
+        let messageLabel = UILabel()
+        messageLabel.numberOfLines = Constants.ToastMaxMessageLines
+        messageLabel.font = UIFont.systemFont(ofSize: Constants.ToastFontSize)
+        messageLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        messageLabel.textColor = messageColor != nil ? messageColor : UIColor.white
+        messageLabel.backgroundColor = UIColor.clear
+        messageLabel.alpha = 1.0
+        messageLabel.text = message
+        if font != nil {
+            messageLabel.font = font
+        }
+        // set size the message label according to the lenth of message text
+        let maxSizeMessage = CGSize(width: (self.bounds.size.width * Constants.ToastMaxWidth) - imageWidth, height: self.bounds.size.height * Constants.ToastMaxHeight)
+        let expectedSizeMessage = sizeForString(message as NSString, font: messageLabel.font, constrainedSize: maxSizeMessage, lineBreakMode: messageLabel.lineBreakMode)
+        messageLabel.frame = CGRect(x: 0.0, y: 0.0, width: expectedSizeMessage.width, height: expectedSizeMessage.height)
+        return messageLabel
+    }
+
+    fileprivate func createTitleLabelSpecs(titleLabel: UILabel?,
+                                           imageLeft: CGFloat,
+                                           imageWidth: CGFloat) -> (CGFloat, CGFloat, CGFloat, CGFloat) {
+        var titleWidth = CGFloat(0.0)
+        var titleHeight = CGFloat(0.0)
+        var titleTop = CGFloat(0.0)
+        var titleLeft = CGFloat(0.0)
+        guard let titleLbl = titleLabel else {
+            return (titleWidth, titleHeight, titleTop, titleLeft)
+        }
+        titleWidth = titleLbl.bounds.size.width
+        titleHeight = titleLbl.bounds.size.height
+        titleTop = Constants.ToastVerticalPadding
+        titleLeft = imageLeft + imageWidth + Constants.ToastHorizontalPadding
+        return (titleWidth, titleHeight, titleTop, titleLeft)
+    }
+
+    fileprivate func createMessageLabelSpecs(messageLabel: UILabel?,
+                                             imageLeft: CGFloat,
+                                             imageWidth: CGFloat,
+                                             titleTop: CGFloat,
+                                             titleHeight: CGFloat) -> (CGFloat, CGFloat, CGFloat, CGFloat) {
+        var messageWidth = CGFloat(0.0)
+        var messageHeight = CGFloat(0.0)
+        var messageLeft = CGFloat(0.0)
+        var messageTop = CGFloat(0.0)
+        guard let messageLbl = messageLabel else {
+            return (messageWidth, messageHeight, messageLeft, messageTop)
+        }
+        messageWidth = messageLbl.bounds.size.width
+        messageHeight = messageLbl.bounds.size.height
+        messageLeft = imageLeft + imageWidth + Constants.ToastHorizontalPadding
+        messageTop = titleTop + titleHeight + Constants.ToastVerticalPadding
+        return (messageWidth, messageHeight, messageLeft, messageTop)
+    }
+
     /**
       Creates toast view with given message, title and title
       - parameter message: Message Text
@@ -476,142 +617,54 @@ public extension UIView {
         }
 
         // ui elements of toast
-        var messageLabel: UILabel!
-        var titleLabel: UILabel!
-        var imageView: UIImageView!
-
-        let toastView: UIView! = UIView()
-        toastView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
-        toastView.layer.cornerRadius = Constants.ToastCornerRadius
-
-        // check if shadow needed
-        if Constants.ToastDisplayShadow == true {
-            toastView.layer.shadowColor = UIColor.black.cgColor
-            toastView.layer.shadowOpacity = Constants.ToastShadowOpacity
-            toastView.layer.shadowRadius = Constants.ToastShadowRadius
-            toastView.layer.shadowOffset = Constants.ToastShadowOffset
-        }
-
-        // set toastView background color
-        if backgroundColor != nil {
-            toastView.backgroundColor = backgroundColor!.withAlphaComponent(Constants.ToastOpacity)
-        } else {
-            toastView.backgroundColor = UIColor.black.withAlphaComponent(Constants.ToastOpacity)
-        }
-
-        // check image
-        if image != nil {
-            imageView = UIImageView(image: image)
-            imageView.contentMode = UIViewContentMode.scaleAspectFit
-            imageView.frame = CGRect(x: Constants.ToastHorizontalPadding, y: Constants.ToastVerticalPadding, width: Constants.ToastImageViewWidth, height: Constants.ToastImageViewHeight)
-        }
-
-        var imageWidth, imageHeight, imageLeft: CGFloat!
-
-        // the imageView frame values will be used to size & position the other views
-        if imageView != nil {
-            imageWidth = imageView.bounds.size.width
-            imageHeight = imageView.bounds.size.height
-            imageLeft = Constants.ToastHorizontalPadding
-        } else {
-            imageWidth = 0.0
-            imageHeight = 0.0
-            imageLeft = 0.0
-        }
-
-        // check title if not empty create title label
-        if !title.isEmpty {
-            titleLabel = UILabel()
-            titleLabel.numberOfLines = Constants.ToastMaxTitleLines
-            titleLabel.font = UIFont.boldSystemFont(ofSize: Constants.ToastFontSize)
-            titleLabel.textAlignment = NSTextAlignment.center
-            titleLabel.textColor = titleColor != nil ? titleColor : UIColor.white
-            titleLabel.backgroundColor = UIColor.clear
-            titleLabel.alpha = 1.0
-            titleLabel.text = title
-            if font != nil {
-            	titleLabel.font = font
-            }
-
-            // set size the title label according to the lenth of title text
-            let maxSizeTitle = CGSize(width: (self.bounds.size.width * Constants.ToastMaxWidth) - imageWidth, height: self.bounds.size.height * Constants.ToastMaxHeight)
-            let expectedSizeTitle: CGSize! = sizeForString(title as NSString, font: titleLabel.font, constrainedSize: maxSizeTitle, lineBreakMode: titleLabel.lineBreakMode)
-            titleLabel.frame = CGRect(x: 0.0, y: 0.0, width: expectedSizeTitle.width, height: expectedSizeTitle.height)
-        }
-
-        // check message string if not empty create message label
-        if !message.isEmpty {
-            messageLabel = UILabel()
-            messageLabel.numberOfLines = Constants.ToastMaxMessageLines
-            messageLabel.font = UIFont.systemFont(ofSize: Constants.ToastFontSize)
-            messageLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-            messageLabel.textColor = messageColor != nil ? messageColor : UIColor.white
-            messageLabel.backgroundColor = UIColor.clear
-            messageLabel.alpha = 1.0
-            messageLabel.text = message
-            if font != nil {
-            	messageLabel.font = font
-            }
-
-            // set size the message label according to the lenth of message text
-            let maxSizeMessage = CGSize(width: (self.bounds.size.width * Constants.ToastMaxWidth) - imageWidth, height: self.bounds.size.height * Constants.ToastMaxHeight)
-            let expectedSizeMessage: CGSize! = sizeForString(message as NSString, font: messageLabel.font, constrainedSize: maxSizeMessage, lineBreakMode: messageLabel.lineBreakMode)
-            messageLabel.frame = CGRect(x: 0.0, y: 0.0, width: expectedSizeMessage.width, height: expectedSizeMessage.height)
-        }
-
+        let toastView = createToastView(backgroundColor: backgroundColor)
+        let imgView = createImageView(image: image)
+        let (imageWidth, imageHeight, imageLeft) = createImageViewSpecs(imageView: imgView)
+        let titleLbl = createTitleLabel(title: title,
+                                          titleColor: titleColor,
+                                          font: font,
+                                          imageWidth: imageWidth)
+        let messageLbl = createMessageLabel(message: message,
+                                              messageColor: messageColor,
+                                              font: font,
+                                              imageWidth: imageWidth)
         // title label frame values
-        var titleWidth, titleHeight, titleTop, titleLeft: CGFloat!
-
-        if titleLabel != nil {
-            titleWidth = titleLabel.bounds.size.width
-            titleHeight = titleLabel.bounds.size.height
-            titleTop = Constants.ToastVerticalPadding
-            titleLeft = imageLeft + imageWidth + Constants.ToastHorizontalPadding
-        } else {
-            titleWidth = 0.0
-            titleHeight = 0.0
-            titleTop = 0.0
-            titleLeft = 0.0
-        }
+        let (titleWidth, titleHeight, titleTop, titleLeft) = createTitleLabelSpecs(titleLabel: titleLbl,
+                                                                                   imageLeft: imageLeft,
+                                                                                   imageWidth: imageWidth)
 
         // message label frame values
-        var messageWidth, messageHeight, messageLeft, messageTop: CGFloat!
-
-        if messageLabel != nil {
-            messageWidth = messageLabel.bounds.size.width
-            messageHeight = messageLabel.bounds.size.height
-            messageLeft = imageLeft + imageWidth + Constants.ToastHorizontalPadding
-            messageTop = titleTop + titleHeight + Constants.ToastVerticalPadding
-        } else {
-            messageWidth = 0.0
-            messageHeight = 0.0
-            messageLeft = 0.0
-            messageTop = 0.0
-        }
-
+        let (messageWidth, messageHeight, messageLeft, messageTop) = createMessageLabelSpecs(messageLabel: messageLbl,
+                                                                                             imageLeft: imageLeft,
+                                                                                             imageWidth: imageWidth,
+                                                                                             titleTop: titleTop,
+                                                                                             titleHeight: titleHeight)
         let longerWidth = max(titleWidth, messageWidth)
         let longerLeft = max(titleLeft, messageLeft)
 
         // toastView frames
         let toastViewWidth = max(imageWidth + (Constants.ToastHorizontalPadding * 2), (longerLeft + longerWidth + Constants.ToastHorizontalPadding))
         let toastViewHeight = max(messageTop + messageHeight + Constants.ToastVerticalPadding, (imageHeight + (Constants.ToastVerticalPadding * 2)))
+        toastView.frame = CGRect(x: 0.0,
+                                 y: 0.0,
+                                 width: toastViewWidth,
+                                 height: toastViewHeight)
 
-        toastView.frame = CGRect(x: 0.0, y: 0.0, width: toastViewWidth, height: toastViewHeight)
-
-        if titleLabel != nil {
-            titleLabel.frame = CGRect(x: titleLeft, y: titleTop, width: titleWidth, height: titleHeight)
+        if let titleLabel = titleLbl {
+            titleLabel.frame = CGRect(x: titleLeft,
+                                      y: titleTop,
+                                      width: titleWidth,
+                                      height: titleHeight)
             toastView.addSubview(titleLabel)
         }
-
-        if messageLabel != nil {
+        if let messageLabel = messageLbl {
             messageLabel.frame = CGRect(x: messageLeft, y: messageTop, width: messageWidth, height: messageHeight)
             toastView.addSubview(messageLabel)
         }
-
-        if imageView != nil {
-            toastView.addSubview(imageView)
+        guard let imageView = imgView else {
+            return toastView
         }
-
+        toastView.addSubview(imageView)
         return toastView
     }
 
@@ -662,7 +715,7 @@ public extension UIView {
             activityView.layer.shadowOffset = Constants.ToastShadowOffset
         }
 
-        let activityIndicatorView: UIActivityIndicatorView! = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
         activityIndicatorView.center = CGPoint(x: activityView.bounds.size.width / 2, y: activityView.bounds.size.height / 2)
         activityView.addSubview(activityIndicatorView)
         activityIndicatorView.startAnimating()
@@ -717,10 +770,10 @@ public extension UIView {
                                    constrainedSize: CGSize,
                                    lineBreakMode: NSLineBreakMode) -> CGSize {
         if text.responds(to: #selector(NSString.boundingRect(with:options:attributes:context:))) {
-            let paragraphStyle: NSMutableParagraphStyle! = NSMutableParagraphStyle()
+            let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineBreakMode = lineBreakMode
             let attributes: Dictionary = [NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle] as [String : Any]
-            let boundingRect: CGRect! = text.boundingRect(with: constrainedSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)
+            let boundingRect = text.boundingRect(with: constrainedSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)
             return CGSize(width: boundingRect.size.width, height: boundingRect.size.height)
         }
 

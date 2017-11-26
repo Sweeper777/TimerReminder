@@ -21,6 +21,7 @@ import Result
 
 @objc(NTPReferenceTime)
 public final class ReferenceTime: NSObject {
+    public var uptimeInterval: TimeInterval { return underlyingValue.uptimeInterval }
     public var time: Date { return underlyingValue.time }
     public var uptime: timeval { return underlyingValue.uptime }
     public func now() -> Date { return underlyingValue.now() }
@@ -62,6 +63,7 @@ public typealias LogCallback = (String) -> Void
                            maxServers: maxServers,
                            numberOfSamples: numberOfSamples,
                            pollInterval: pollInterval)
+        ntp = NTPClient(config: config)
     }
 
     public func start(hostURLs pools: [URL] = [URL(string: "time.apple.com")!]) {
@@ -94,7 +96,7 @@ public typealias LogCallback = (String) -> Void
     public var numberOfSamples: Int { return config.numberOfSamples}
 
     private let config: NTPConfig
-    private lazy var ntp: NTPClient = NTPClient(config: self.config)
+    private let ntp: NTPClient
 }
 
 extension TrueTimeClient {

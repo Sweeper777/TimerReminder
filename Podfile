@@ -4,12 +4,12 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'TimerReminder' do
-    pod 'SwiftyUtils'
-    pod 'Eureka', '~> 2.0.0-beta.1'
+    pod 'SwiftyUtils', '~> 1.0.0'
+    pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'feature/Xcode9-Swift3_2'
     pod 'SwiftyJSON'
     pod 'ASToast'
-    pod 'LTMorphingLabel'#, :git => 'https://github.com/lexrus/LTMorphingLabel.git', :branch => 'swift3'
-    pod 'FittableFontLabel'
+    pod 'LTMorphingLabel', '0.5.3'
+    pod 'FittableFontLabel', '~> 1.4.0'
     pod 'MVSpeechSynthesizer'
     pod 'MGSwipeTableCell'
     pod 'NGORoundedButton'

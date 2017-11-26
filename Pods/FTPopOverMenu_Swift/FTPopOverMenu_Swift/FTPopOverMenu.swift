@@ -36,49 +36,9 @@ extension FTPopOverMenu {
     }
 }
 
-public class FTConfiguration : NSObject {
-    
-    public var menuRowHeight : CGFloat = FTDefaultMenuRowHeight
-    public var menuWidth : CGFloat = FTDefaultMenuWidth
-    public var textColor : UIColor = UIColor.white
-    public var textFont : UIFont = UIFont.systemFont(ofSize: 14)
-    public var borderColor : UIColor = FTDefaultTintColor
-    public var borderWidth : CGFloat = FTDefaultBorderWidth
-    public var backgoundTintColor : UIColor = FTDefaultTintColor
-    public var cornerRadius : CGFloat = FTDefaultCornerRadius
-    public var textAlignment : NSTextAlignment = NSTextAlignment.left
-    public var ignoreImageOriginalColor : Bool = false
-    public var menuSeparatorColor : UIColor = UIColor.lightGray
-    public var menuSeparatorInset : UIEdgeInsets = UIEdgeInsetsMake(0, FTDefaultCellMargin, 0, FTDefaultCellMargin)
-    public var cellSelectionStyle : UITableViewCellSelectionStyle = .none
-    
-    public static var shared : FTConfiguration {
-        struct StaticConfig {
-            static let instance : FTConfiguration = FTConfiguration()
-        }
-        return StaticConfig.instance
-    }
-    
-}
-
-fileprivate let FTDefaultMargin : CGFloat = 4
-fileprivate let FTDefaultCellMargin : CGFloat = 6
-fileprivate let FTDefaultMenuIconSize : CGFloat = 24
-fileprivate let FTDefaultMenuCornerRadius : CGFloat = 4
-fileprivate let FTDefaultMenuArrowWidth : CGFloat = 8
-fileprivate let FTDefaultMenuArrowHeight : CGFloat = 10
-fileprivate let FTDefaultAnimationDuration : TimeInterval = 0.2
-fileprivate let FTDefaultBorderWidth : CGFloat = 0.5
-fileprivate let FTDefaultCornerRadius : CGFloat = 6
-fileprivate let FTDefaultMenuRowHeight : CGFloat = 40
-fileprivate let FTDefaultMenuWidth : CGFloat = 120
-fileprivate let FTDefaultTintColor : UIColor = UIColor(red: 80/255, green: 80/255, blue: 80/255, alpha: 1)
-
-fileprivate let FTPopOverMenuTableViewCellIndentifier : String = "FTPopOverMenuTableViewCellIndentifier"
-
 fileprivate enum FTPopOverMenuArrowDirection {
-    case Up
-    case Down
+    case up
+    case down
 }
 
 public class FTPopOverMenu : NSObject {
@@ -119,7 +79,7 @@ public class FTPopOverMenu : NSObject {
         didSet {
             if isOnScreen {
                 self.addOrientationChangeNotification()
-            }else{
+            } else {
                 self.removeOrientationChangeNotification()
             }
         }
@@ -175,7 +135,7 @@ public class FTPopOverMenu : NSObject {
     
     fileprivate func getAnchorPointForPopMenu() -> CGPoint {
         var anchorPoint = CGPoint(x: menuArrowPoint.x/popMenuFrame.size.width, y: 0)
-        if arrowDirection == .Down {
+        if arrowDirection == .down {
             anchorPoint = CGPoint(x: menuArrowPoint.x/popMenuFrame.size.width, y: 1)
         }
         return anchorPoint
@@ -185,41 +145,39 @@ public class FTPopOverMenu : NSObject {
     fileprivate var popMenuOriginX : CGFloat = 0
     fileprivate var popMenuFrame : CGRect = CGRect.zero
     fileprivate var menuArrowPoint : CGPoint = CGPoint.zero
-    fileprivate var arrowDirection : FTPopOverMenuArrowDirection = .Up
+    fileprivate var arrowDirection : FTPopOverMenuArrowDirection = .up
     fileprivate var popMenuHeight : CGFloat {
-        return configuration.menuRowHeight * CGFloat(self.menuNameArray.count) + FTDefaultMenuArrowHeight
+        return configuration.menuRowHeight * CGFloat(self.menuNameArray.count) + FT.DefaultMenuArrowHeight
     }
     
     fileprivate func configureSenderRect() {
-        if self.sender != nil {
-            if sender?.superview != nil {
-                senderRect = (sender?.superview?.convert((sender?.frame)!, to: backgroundView))!
-            }else{
-                senderRect = (sender?.frame)!
+        if let sender = self.sender {
+            if let superView = sender.superview {
+                senderRect = superView.convert(sender.frame, to: backgroundView)
             }
-        }else if senderFrame != nil {
-            senderRect = senderFrame!
+        } else if let frame = senderFrame {
+            senderRect = frame
         }
         senderRect.origin.y = min(UIScreen.ft_height(), senderRect.origin.y)
         
         if senderRect.origin.y + senderRect.size.height/2 < UIScreen.ft_height()/2 {
-            arrowDirection = .Up
-        }else{
-            arrowDirection = .Down
+            arrowDirection = .up
+        } else {
+            arrowDirection = .down
         }
     }
     
     fileprivate func configurePopMenuOriginX() {
         var senderXCenter : CGPoint = CGPoint(x: senderRect.origin.x + (senderRect.size.width)/2, y: 0)
-        let menuCenterX : CGFloat = configuration.menuWidth/2 + FTDefaultMargin
+        let menuCenterX : CGFloat = configuration.menuWidth/2 + FT.DefaultMargin
         var menuX : CGFloat = 0
-        if (senderXCenter.x + menuCenterX > UIScreen.ft_width()) {
-            senderXCenter.x = min(senderXCenter.x - (UIScreen.ft_width() - configuration.menuWidth - FTDefaultMargin), configuration.menuWidth - FTDefaultMenuArrowWidth - FTDefaultMargin)
-            menuX = UIScreen.ft_width() - configuration.menuWidth - FTDefaultMargin
-        }else if (senderXCenter.x - menuCenterX < 0){
-            senderXCenter.x = max(FTDefaultMenuCornerRadius + FTDefaultMenuArrowWidth, senderXCenter.x - FTDefaultMargin)
-            menuX = FTDefaultMargin
-        }else{
+        if senderXCenter.x + menuCenterX > UIScreen.ft_width() {
+            senderXCenter.x = min(senderXCenter.x - (UIScreen.ft_width() - configuration.menuWidth - FT.DefaultMargin), configuration.menuWidth - FT.DefaultMenuArrowWidth - FT.DefaultMargin)
+            menuX = UIScreen.ft_width() - configuration.menuWidth - FT.DefaultMargin
+        } else if senderXCenter.x - menuCenterX < 0 {
+            senderXCenter.x = max(FT.DefaultMenuCornerRadius + FT.DefaultMenuArrowWidth, senderXCenter.x - FT.DefaultMargin)
+            menuX = FT.DefaultMargin
+        } else {
             senderXCenter.x = configuration.menuWidth/2
             menuX = senderRect.origin.x + (senderRect.size.width)/2 - configuration.menuWidth/2
         }
@@ -231,32 +189,32 @@ public class FTPopOverMenu : NSObject {
         self.configureMenuArrowPoint()
         self.configurePopMenuOriginX()
         
-        if (arrowDirection == .Up) {
+        if arrowDirection == .up {
             popMenuFrame = CGRect(x: popMenuOriginX, y: (senderRect.origin.y + senderRect.size.height), width: configuration.menuWidth, height: popMenuHeight)
             if (popMenuFrame.origin.y + popMenuFrame.size.height > UIScreen.ft_height()) {
-                popMenuFrame = CGRect(x: popMenuOriginX, y: (senderRect.origin.y + senderRect.size.height), width: configuration.menuWidth, height: UIScreen.ft_height() - popMenuFrame.origin.y - FTDefaultMargin)
+                popMenuFrame = CGRect(x: popMenuOriginX, y: (senderRect.origin.y + senderRect.size.height), width: configuration.menuWidth, height: UIScreen.ft_height() - popMenuFrame.origin.y - FT.DefaultMargin)
             }
-        }else{
+        } else {
             popMenuFrame = CGRect(x: popMenuOriginX, y: (senderRect.origin.y - popMenuHeight), width: configuration.menuWidth, height: popMenuHeight)
-            if (popMenuFrame.origin.y  < 0) {
-                popMenuFrame = CGRect(x: popMenuOriginX, y: FTDefaultMargin, width: configuration.menuWidth, height: senderRect.origin.y - FTDefaultMargin)
+            if popMenuFrame.origin.y  < 0 {
+                popMenuFrame = CGRect(x: popMenuOriginX, y: FT.DefaultMargin, width: configuration.menuWidth, height: senderRect.origin.y - FT.DefaultMargin)
             }
         }
     }
 
      fileprivate func configureMenuArrowPoint() {
         var point : CGPoint = CGPoint(x: senderRect.origin.x + (senderRect.size.width)/2, y: 0)
-        let menuCenterX : CGFloat = configuration.menuWidth/2 + FTDefaultMargin
+        let menuCenterX : CGFloat = configuration.menuWidth/2 + FT.DefaultMargin
         if senderRect.origin.y + senderRect.size.height/2 < UIScreen.ft_height()/2 {
             point.y = 0
-        }else{
+        } else {
             point.y = popMenuHeight
         }
-        if (point.x + menuCenterX > UIScreen.ft_width()) {
-            point.x = min(point.x - (UIScreen.ft_width() - configuration.menuWidth - FTDefaultMargin), configuration.menuWidth - FTDefaultMenuArrowWidth - FTDefaultMargin)
-        }else if (point.x - menuCenterX < 0){
-            point.x = max(FTDefaultMenuCornerRadius + FTDefaultMenuArrowWidth, point.x - FTDefaultMargin)
-        }else{
+        if point.x + menuCenterX > UIScreen.ft_width() {
+            point.x = min(point.x - (UIScreen.ft_width() - configuration.menuWidth - FT.DefaultMargin), configuration.menuWidth - FT.DefaultMenuArrowWidth - FT.DefaultMargin)
+        } else if point.x - menuCenterX < 0 {
+            point.x = max(FT.DefaultMenuCornerRadius + FT.DefaultMenuArrowWidth, point.x - FT.DefaultMargin)
+        } else {
             point.x = configuration.menuWidth/2
         }
         menuArrowPoint = point
@@ -270,7 +228,7 @@ public class FTPopOverMenu : NSObject {
         if self.isOnScreen == false {
             self.isOnScreen = true
             popOverMenu.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-            UIView.animate(withDuration: FTDefaultAnimationDuration, animations: {
+            UIView.animate(withDuration: FT.DefaultAnimationDuration, animations: {
                 self.popOverMenu.alpha = 1
                 self.popOverMenu.transform = CGAffineTransform(scaleX: 1, y: 1)
             })
@@ -283,7 +241,7 @@ public class FTPopOverMenu : NSObject {
     }
     
     fileprivate func doneActionWithSelectedIndex(selectedIndex: NSInteger) {
-        UIView.animate(withDuration: FTDefaultAnimationDuration,
+        UIView.animate(withDuration: FT.DefaultAnimationDuration,
                        animations: {
                         self.popOverMenu.alpha = 0
                         self.popOverMenu.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
@@ -294,8 +252,8 @@ public class FTPopOverMenu : NSObject {
                     if (self.cancel != nil) {
                         self.cancel()
                     }
-                }else{
-                    if (self.done != nil) {
+                } else {
+                    if self.done != nil {
                         self.done(selectedIndex)
                     }
                 }
@@ -304,29 +262,6 @@ public class FTPopOverMenu : NSObject {
         }
     }
 
-}
-extension UIControl {
-    
-    // solution found at: http://stackoverflow.com/a/5666430/6310268
-    
-    fileprivate func setAnchorPoint(anchorPoint: CGPoint) {
-        var newPoint = CGPoint(x: self.bounds.size.width * anchorPoint.x, y: self.bounds.size.height * anchorPoint.y)
-        var oldPoint = CGPoint(x: self.bounds.size.width * self.layer.anchorPoint.x, y: self.bounds.size.height * self.layer.anchorPoint.y)
-        
-        newPoint = newPoint.applying(self.transform)
-        oldPoint = oldPoint.applying(self.transform)
-        
-        var position = self.layer.position
-        position.x -= oldPoint.x
-        position.x += newPoint.x
-        
-        position.y -= oldPoint.y
-        position.y += newPoint.y
-        
-        self.layer.position = position
-        self.layer.anchorPoint = anchorPoint
-    }
-    
 }
 
 extension FTPopOverMenu {
@@ -371,7 +306,7 @@ private class FTPopOverMenuView: UIControl {
     
     fileprivate var menuNameArray : [String]!
     fileprivate var menuImageArray : [String]?
-    fileprivate var arrowDirection : FTPopOverMenuArrowDirection = .Up
+    fileprivate var arrowDirection : FTPopOverMenuArrowDirection = .up
     fileprivate var done : ((NSInteger) -> Void)!
     
     fileprivate lazy var configuration : FTConfiguration = {
@@ -392,8 +327,6 @@ private class FTPopOverMenuView: UIControl {
     fileprivate func showWithAnglePoint(point: CGPoint, frame: CGRect, menuNameArray: [String]!, menuImageArray: [String]!, arrowDirection: FTPopOverMenuArrowDirection, done: @escaping ((NSInteger) -> Void)) {
         
         self.frame = frame
-        
-
 
         self.menuNameArray = menuNameArray
         self.menuImageArray = menuImageArray
@@ -406,9 +339,9 @@ private class FTPopOverMenuView: UIControl {
     }
     
     fileprivate func repositionMenuTableView() {
-        var menuRect : CGRect = CGRect(x: 0, y: FTDefaultMenuArrowHeight, width: self.frame.size.width, height: self.frame.size.height - FTDefaultMenuArrowHeight)
-        if (arrowDirection == .Down) {
-            menuRect = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height - FTDefaultMenuArrowHeight)
+        var menuRect : CGRect = CGRect(x: 0, y: FT.DefaultMenuArrowHeight, width: self.frame.size.width, height: self.frame.size.height - FT.DefaultMenuArrowHeight)
+        if (arrowDirection == .down) {
+            menuRect = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height - FT.DefaultMenuArrowHeight)
         }
         self.menuTableView.frame = menuRect
         self.menuTableView.reloadData()
@@ -445,12 +378,12 @@ private class FTPopOverMenuView: UIControl {
         let path : UIBezierPath = UIBezierPath()
         path.lineJoinStyle = .round
         path.lineCapStyle = .round
-        if (arrowDirection == .Up){
-            path.move(to: CGPoint(x: arrowPoint.x - FTDefaultMenuArrowWidth, y: FTDefaultMenuArrowHeight))
+        if (arrowDirection == .up){
+            path.move(to: CGPoint(x: arrowPoint.x - FT.DefaultMenuArrowWidth, y: FT.DefaultMenuArrowHeight))
             path.addLine(to: CGPoint(x: arrowPoint.x, y: 0))
-            path.addLine(to: CGPoint(x: arrowPoint.x + FTDefaultMenuArrowWidth, y: FTDefaultMenuArrowHeight))
-            path.addLine(to: CGPoint(x: self.bounds.size.width - radius, y: FTDefaultMenuArrowHeight))
-            path.addArc(withCenter: CGPoint(x: self.bounds.size.width - radius, y: FTDefaultMenuArrowHeight + radius),
+            path.addLine(to: CGPoint(x: arrowPoint.x + FT.DefaultMenuArrowWidth, y: FT.DefaultMenuArrowHeight))
+            path.addLine(to: CGPoint(x: self.bounds.size.width - radius, y: FT.DefaultMenuArrowHeight))
+            path.addArc(withCenter: CGPoint(x: self.bounds.size.width - radius, y: FT.DefaultMenuArrowHeight + radius),
                         radius: radius,
                         startAngle: .pi / 2 * 3,
                         endAngle: 0,
@@ -467,8 +400,8 @@ private class FTPopOverMenuView: UIControl {
                         startAngle: .pi / 2,
                         endAngle: .pi,
                         clockwise: true)
-            path.addLine(to: CGPoint(x: 0, y: FTDefaultMenuArrowHeight + radius))
-            path.addArc(withCenter: CGPoint(x: radius, y: FTDefaultMenuArrowHeight + radius),
+            path.addLine(to: CGPoint(x: 0, y: FT.DefaultMenuArrowHeight + radius))
+            path.addArc(withCenter: CGPoint(x: radius, y: FT.DefaultMenuArrowHeight + radius),
                         radius: radius,
                         startAngle: .pi,
                         endAngle: .pi / 2 * 3,
@@ -480,11 +413,11 @@ private class FTPopOverMenuView: UIControl {
             //            path.addLine(to: CGPoint(x: arrowPoint.x + FTDefaultMenuArrowWidth, y: FTDefaultMenuArrowHeight))
             //            path.close()
         }else{
-            path.move(to: CGPoint(x: arrowPoint.x - FTDefaultMenuArrowWidth, y: self.bounds.size.height - FTDefaultMenuArrowHeight))
+            path.move(to: CGPoint(x: arrowPoint.x - FT.DefaultMenuArrowWidth, y: self.bounds.size.height - FT.DefaultMenuArrowHeight))
             path.addLine(to: CGPoint(x: arrowPoint.x, y: self.bounds.size.height))
-            path.addLine(to: CGPoint(x: arrowPoint.x + FTDefaultMenuArrowWidth, y: self.bounds.size.height - FTDefaultMenuArrowHeight))
-            path.addLine(to: CGPoint(x: self.bounds.size.width - radius, y: self.bounds.size.height - FTDefaultMenuArrowHeight))
-            path.addArc(withCenter: CGPoint(x: self.bounds.size.width - radius, y: self.bounds.size.height - FTDefaultMenuArrowHeight - radius),
+            path.addLine(to: CGPoint(x: arrowPoint.x + FT.DefaultMenuArrowWidth, y: self.bounds.size.height - FT.DefaultMenuArrowHeight))
+            path.addLine(to: CGPoint(x: self.bounds.size.width - radius, y: self.bounds.size.height - FT.DefaultMenuArrowHeight))
+            path.addArc(withCenter: CGPoint(x: self.bounds.size.width - radius, y: self.bounds.size.height - FT.DefaultMenuArrowHeight - radius),
                         radius: radius,
                         startAngle: .pi / 2,
                         endAngle: 0,
@@ -501,8 +434,8 @@ private class FTPopOverMenuView: UIControl {
                         startAngle: .pi / 2 * 3,
                         endAngle: .pi,
                         clockwise: false)
-            path.addLine(to: CGPoint(x: 0, y: self.bounds.size.height - FTDefaultMenuArrowHeight - radius))
-            path.addArc(withCenter: CGPoint(x: radius, y: self.bounds.size.height - FTDefaultMenuArrowHeight - radius),
+            path.addLine(to: CGPoint(x: 0, y: self.bounds.size.height - FT.DefaultMenuArrowHeight - radius))
+            path.addArc(withCenter: CGPoint(x: radius, y: self.bounds.size.height - FT.DefaultMenuArrowHeight - radius),
                         radius: radius,
                         startAngle: .pi,
                         endAngle: .pi / 2,
@@ -516,9 +449,7 @@ private class FTPopOverMenuView: UIControl {
         }
         return path
     }
-    
-    
-    
+
 }
 
 extension FTPopOverMenuView : UITableViewDelegate {
@@ -533,7 +464,7 @@ extension FTPopOverMenuView : UITableViewDelegate {
             self.done(indexPath.row)
         }
     }
-    
+
 }
 
 extension FTPopOverMenuView : UITableViewDataSource {
@@ -543,7 +474,7 @@ extension FTPopOverMenuView : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : FTPopOverMenuCell = FTPopOverMenuCell(style: .default, reuseIdentifier: FTPopOverMenuTableViewCellIndentifier)
+        let cell : FTPopOverMenuCell = FTPopOverMenuCell(style: .default, reuseIdentifier: FT.PopOverMenuTableViewCellIndentifier)
         var imageName = ""
         if menuImageArray != nil {
             if (menuImageArray?.count)! >= indexPath.row + 1 {
@@ -560,59 +491,4 @@ extension FTPopOverMenuView : UITableViewDataSource {
         return cell
     }
 
-}
-
-class FTPopOverMenuCell: UITableViewCell {
-    
-    fileprivate lazy var configuration : FTConfiguration = {
-        return FTConfiguration.shared
-    }()
-
-    fileprivate lazy var iconImageView : UIImageView = {
-        let imageView = UIImageView(frame: CGRect.zero)
-        imageView.backgroundColor = UIColor.clear
-        imageView.contentMode = UIViewContentMode.scaleAspectFit
-        self.contentView.addSubview(imageView)
-        return imageView
-    }()
-    
-    fileprivate lazy var nameLabel : UILabel = {
-        let label = UILabel(frame: CGRect.zero)
-        label.backgroundColor = UIColor.clear
-        self.contentView.addSubview(label)
-        return label
-    }()
-    
-    fileprivate func setupCellWith(menuName: String, menuImage: String?) {
-        self.backgroundColor = UIColor.clear
-        if menuImage != nil {
-            if var iconImage : UIImage = UIImage(named: menuImage!) {
-                if  configuration.ignoreImageOriginalColor {
-                    iconImage = iconImage.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
-                }
-                iconImageView.tintColor = configuration.textColor
-                iconImageView.frame =  CGRect(x: FTDefaultCellMargin, y: (configuration.menuRowHeight - FTDefaultMenuIconSize)/2, width: FTDefaultMenuIconSize, height: FTDefaultMenuIconSize)
-                iconImageView.image = iconImage
-                nameLabel.frame = CGRect(x: FTDefaultCellMargin*2 + FTDefaultMenuIconSize, y: (configuration.menuRowHeight - FTDefaultMenuIconSize)/2, width: (configuration.menuWidth - FTDefaultMenuIconSize - FTDefaultCellMargin*3), height: FTDefaultMenuIconSize)
-            }else{
-                nameLabel.frame = CGRect(x: FTDefaultCellMargin, y: 0, width: configuration.menuWidth - FTDefaultCellMargin*2, height: configuration.menuRowHeight)
-            }
-        }
-        nameLabel.font = configuration.textFont
-        nameLabel.textColor = configuration.textColor
-        nameLabel.textAlignment = configuration.textAlignment
-        nameLabel.text = menuName
-    }
-
-}
-
-extension UIScreen {
-    
-    public static func ft_width() -> CGFloat {
-        return self.main.bounds.size.width
-    }
-    public static func ft_height() -> CGFloat {
-        return self.main.bounds.size.height
-    }
-    
 }

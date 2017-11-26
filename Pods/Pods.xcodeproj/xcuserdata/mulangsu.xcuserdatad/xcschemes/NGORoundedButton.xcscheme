@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'CE9FFA3A52A3EC3714E038D40F2E4164'
+               BlueprintIdentifier = '34C9BB167F2BA3A19B82064BD7E7E38D'
                BlueprintName = 'NGORoundedButton'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'NGORoundedButton.framework'>

@@ -12,7 +12,9 @@ open class ImageScrollView: UIScrollView {
     
     static let kZoomInFactorFromMinWhenDoubleTap: CGFloat = 2
     
-    var zoomView: UIImageView? = nil
+    public var landscapeAspectFill = true; // If TRUE, the ImageScrollView will have an 'aspect fill' behavior when in landscape orientation. Otherwise, it will be aspect fit, so that the image isn't zoomed in to fit the width of the display.
+    public private(set) var zoomView: UIImageView? = nil
+
     var imageSize: CGSize = CGSize.zero
     fileprivate var pointToCenterAfterResize: CGPoint = CGPoint.zero
     fileprivate var scaleToRestoreAfterResize: CGFloat = 1.0
@@ -44,21 +46,27 @@ open class ImageScrollView: UIScrollView {
         initialize()
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     fileprivate func initialize() {
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
         bouncesZoom = true
         decelerationRate = UIScrollViewDecelerationRateFast
         delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ImageScrollView.changeOrientationNotification), name: Notification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
-    func adjustFrameToCenter() {
+    public func adjustFrameToCenter() {
         
-        guard zoomView != nil else {
+        guard let unwrappedZoomView = zoomView else {
             return
         }
         
-        var frameToCenter = zoomView!.frame
+        var frameToCenter = unwrappedZoomView.frame
         
         // center horizontally
         if frameToCenter.size.width < bounds.width {
@@ -76,7 +84,7 @@ open class ImageScrollView: UIScrollView {
             frameToCenter.origin.y = 0
         }
         
-        zoomView!.frame = frameToCenter
+        unwrappedZoomView.frame = frameToCenter
     }
     
     fileprivate func prepareToResize() {
@@ -87,7 +95,7 @@ open class ImageScrollView: UIScrollView {
         
         // If we're at the minimum zoom scale, preserve that by returning 0, which will be converted to the minimum
         // allowable scale when the scale is restored.
-        if scaleToRestoreAfterResize <= minimumZoomScale + CGFloat(FLT_EPSILON) {
+        if scaleToRestoreAfterResize <= minimumZoomScale + CGFloat(Float.ulpOfOne) {
             scaleToRestoreAfterResize = 0
         }
     }
@@ -130,7 +138,7 @@ open class ImageScrollView: UIScrollView {
 
     // MARK: - Display image
     
-    open func display(image image: UIImage) {
+    open func display(image: UIImage) {
 
         if let zoomView = zoomView {
             zoomView.removeFromSuperview()
@@ -149,7 +157,7 @@ open class ImageScrollView: UIScrollView {
     
     fileprivate func configureImageForSize(_ size: CGSize) {
         imageSize = size
-        contentSize = size
+        contentSize = imageSize
         setMaxMinZoomScalesForCurrentBounds()
         zoomScale = minimumZoomScale
         contentOffset = CGPoint.zero
@@ -163,7 +171,7 @@ open class ImageScrollView: UIScrollView {
         // fill width if the image and phone are both portrait or both landscape; otherwise take smaller scale
         let imagePortrait = imageSize.height > imageSize.width
         let phonePortrait = bounds.height >= bounds.width
-        var minScale = (imagePortrait == phonePortrait) ? xScale : min(xScale, yScale)
+        var minScale = (imagePortrait == phonePortrait && self.landscapeAspectFill) ? xScale : min(xScale, yScale)
         
         let maxScale = maxScaleFromMinScale*minScale
         
@@ -178,7 +186,7 @@ open class ImageScrollView: UIScrollView {
     
     // MARK: - Gesture
     
-    func doubleTapGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer) {
+    @objc func doubleTapGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer) {
         // zoom out if it bigger than middle scale point. Else, zoom in
         if zoomScale >= maximumZoomScale / 2.0 {
             setZoomScale(minimumZoomScale, animated: true)
@@ -210,6 +218,12 @@ open class ImageScrollView: UIScrollView {
         if let image = zoomView?.image {
             display(image: image)
         }
+    }
+    
+    // MARK: - Actions
+    
+    @objc func changeOrientationNotification() {
+        configureImageForSize(imageSize)
     }
 }
 

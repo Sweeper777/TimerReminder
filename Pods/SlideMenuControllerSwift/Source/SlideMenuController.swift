@@ -29,6 +29,7 @@ public struct SlideMenuOptions {
     public static var shadowOffset: CGSize = CGSize(width: 0,height: 0)
     public static var panFromBezel: Bool = true
     public static var animationDuration: CGFloat = 0.4
+    public static var animationOptions: UIViewAnimationOptions = []
     public static var rightViewWidth: CGFloat = 270.0
     public static var rightBezelWidth: CGFloat? = 16.0
     public static var rightPanFromBezel: Bool = true
@@ -191,7 +192,8 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
 
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.mainViewController?.viewWillAppear(animated)
+        //automatically called 
+        //self.mainViewController?.viewWillAppear(animated)
     }
     
     open override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
@@ -210,6 +212,10 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         setUpViewController(mainContainerView, targetViewController: mainViewController)
         setUpViewController(leftContainerView, targetViewController: leftViewController)
         setUpViewController(rightContainerView, targetViewController: rightViewController)
+    }
+    
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return self.mainViewController?.preferredStatusBarStyle ?? .default
     }
     
     open override func openLeft() {
@@ -521,7 +527,7 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
         
         addShadowToView(leftContainerView)
         
-        UIView.animate(withDuration: duration, delay: 0.0, options: UIViewAnimationOptions(), animations: { [weak self]() -> Void in
+        UIView.animate(withDuration: duration, delay: 0.0, options: SlideMenuOptions.animationOptions, animations: { [weak self]() -> Void in
             if let strongSelf = self {
                 strongSelf.leftContainerView.frame = frame
                 strongSelf.opacityView.layer.opacity = Float(SlideMenuOptions.contentViewOpacity)
@@ -555,7 +561,7 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
     
         addShadowToView(rightContainerView)
     
-        UIView.animate(withDuration: duration, delay: 0.0, options: UIViewAnimationOptions(), animations: { [weak self]() -> Void in
+        UIView.animate(withDuration: duration, delay: 0.0, options: SlideMenuOptions.animationOptions, animations: { [weak self]() -> Void in
             if let strongSelf = self {
                 strongSelf.rightContainerView.frame = frame
                 strongSelf.opacityView.layer.opacity = Float(SlideMenuOptions.contentViewOpacity)
@@ -585,7 +591,7 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
             duration = Double(fmax(0.1, fmin(1.0, duration)))
         }
         
-        UIView.animate(withDuration: duration, delay: 0.0, options: UIViewAnimationOptions(), animations: { [weak self]() -> Void in
+        UIView.animate(withDuration: duration, delay: 0.0, options: SlideMenuOptions.animationOptions, animations: { [weak self]() -> Void in
             if let strongSelf = self {
                 strongSelf.leftContainerView.frame = frame
                 strongSelf.opacityView.layer.opacity = 0.0
@@ -616,7 +622,7 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
             duration = Double(fmax(0.1, fmin(1.0, duration)))
         }
     
-        UIView.animate(withDuration: duration, delay: 0.0, options: UIViewAnimationOptions(), animations: { [weak self]() -> Void in
+        UIView.animate(withDuration: duration, delay: 0.0, options: SlideMenuOptions.animationOptions, animations: { [weak self]() -> Void in
             if let strongSelf = self {
                 strongSelf.rightContainerView.frame = frame
                 strongSelf.opacityView.layer.opacity = 0.0
@@ -912,10 +918,13 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
     
     fileprivate func setUpViewController(_ targetView: UIView, targetViewController: UIViewController?) {
         if let viewController = targetViewController {
-            addChildViewController(viewController)
             viewController.view.frame = targetView.bounds
-            targetView.addSubview(viewController.view)
-            viewController.didMove(toParentViewController: self)
+            
+            if (!childViewControllers.contains(viewController)) {
+                addChildViewController(viewController)
+                targetView.addSubview(viewController.view)
+                viewController.didMove(toParentViewController: self)
+            }
         }
     }
     
