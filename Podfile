@@ -23,5 +23,6 @@ target 'TimerReminder' do
     pod 'FTPopOverMenu_Swift'
     pod 'TrueTime'
     pod 'EZClockView'
+    pod 'MaterialComponents/Buttons'
 end
 
