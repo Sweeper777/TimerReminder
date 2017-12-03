@@ -9,6 +9,7 @@ import SlideMenuControllerSwift
 import NGORoundedButton
 import FTPopOverMenu_Swift
 import EZClockView
+import MaterialComponents
 
 class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureRecognizerDelegate, GlobalSettingsControllerDelegate, SlideMenuControllerDelegate {
     @IBOutlet var timerLabel: LTMorphingLabel!
@@ -72,10 +73,11 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
     //    }
     
     override func viewDidLoad() {
-        playButton = NGORoundedButton(buttonCustomImage: UIImage(named: "play"), andShape: .circle)
+        playButton = MDCFloatingButton(shape: .largeIcon)
         playButton.frame = playButton.frame.with(width: 44).with(height: 44)
         playButton.x = 94
-        playButton.color = .green
+        playButton.backgroundColor = UIColor(hex: "5abb5a")
+        playButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
         playButton.addTarget(self, action: #selector(play), for: .touchUpInside)
         
         restartButton = NGORoundedButton(buttonCustomImage: UIImage(named: "restart"), andShape: .circle)
