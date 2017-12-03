@@ -35,10 +35,10 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         }
     }
     
-    var playButton: NGORoundedButton!
-    var restartButton: NGORoundedButton!
-    var moreButton: NGORoundedButton!
-    var screenshotButton: NGORoundedButton!
+    var playButton: MDCFloatingButton!
+    var restartButton: MDCFloatingButton!
+    var moreButton: MDCFloatingButton!
+    var screenshotButton: MDCFloatingButton!
     
     @IBOutlet var addSettingRecog: UITapGestureRecognizer!
     @IBOutlet var mySettingsRecog: UISwipeGestureRecognizer!
