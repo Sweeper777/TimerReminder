@@ -87,10 +87,11 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         restartButton.setImage(#imageLiteral(resourceName: "restart"), for: .normal)
         restartButton.addTarget(self, action: #selector(restart), for: .touchUpInside)
         
-        moreButton = NGORoundedButton(buttonCustomImage: UIImage(named: "more"), andShape: .circle)
+        moreButton = MDCFloatingButton(shape: .largeIcon)
         moreButton.frame = moreButton.frame.with(width: 44).with(height: 44)
         moreButton.x = 141
-        moreButton.color = .green
+        moreButton.backgroundColor = UIColor(hex: "5abb5a")
+        moreButton.setImage(#imageLiteral(resourceName: "more"), for: .normal)
         moreButton.addTarget(self, action: #selector(more), for: .touchUpInside)
         
         screenshotButton = NGORoundedButton(buttonCustomImage: UIImage(named: "camera"), andShape: .circle)
