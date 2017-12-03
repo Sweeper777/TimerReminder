@@ -94,9 +94,10 @@ class TimerViewController: UIViewController, LTMorphingLabelDelegate, UIGestureR
         moreButton.setImage(#imageLiteral(resourceName: "more"), for: .normal)
         moreButton.addTarget(self, action: #selector(more), for: .touchUpInside)
         
-        screenshotButton = NGORoundedButton(buttonCustomImage: UIImage(named: "camera"), andShape: .circle)
+        screenshotButton = MDCFloatingButton(shape: .largeIcon)
         screenshotButton.frame = screenshotButton.frame.with(width: 44).with(height: 44)
-        screenshotButton.color = .green
+        screenshotButton.backgroundColor = UIColor(hex: "5abb5a")
+        screenshotButton.setImage(#imageLiteral(resourceName: "camera"), for: .normal)
         screenshotButton.addTarget(self, action: #selector(screenshot), for: .touchUpInside)
         
         timerLabel.delegate = self
