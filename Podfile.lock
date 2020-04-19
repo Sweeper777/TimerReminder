@@ -1,3 +1,61 @@
-PODFILE CHECKSUM: c144259046bbc6b3b517ea38d2d653895c7b9de3
+PODS:
+  - Eureka (5.2.0)
+  - LTMorphingLabel (0.7.0)
+  - Realm (4.3.2):
+    - Realm/Headers (= 4.3.2)
+  - Realm/Headers (4.3.2)
+  - RealmSwift (4.3.2):
+    - Realm (= 4.3.2)
+  - RxCocoa (5.0.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.1)
+  - SCLAlertView (0.8.1)
+  - SwiftyUtils (5.0.0)
+
+DEPENDENCIES:
+  - Eureka
+  - LTMorphingLabel
+  - Realm
+  - RealmSwift
+  - RxCocoa
+  - RxSwift
+  - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift.git`)
+  - SwiftyUtils
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Eureka
+    - LTMorphingLabel
+    - Realm
+    - RealmSwift
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SwiftyUtils
+
+EXTERNAL SOURCES:
+  SCLAlertView:
+    :git: https://github.com/vikmeup/SCLAlertView-Swift.git
+
+CHECKOUT OPTIONS:
+  SCLAlertView:
+    :commit: d98c3e647ad77ed537d021e7d6ad07bb71f83186
+    :git: https://github.com/vikmeup/SCLAlertView-Swift.git
+
+SPEC CHECKSUMS:
+  Eureka: 820a761c700f6eaab3b60758f138e0d9b99072b3
+  LTMorphingLabel: 22147fb1ec2b0306537ccc348b36ea8617179b03
+  Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
+  RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
+  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
+  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  SCLAlertView: 776813fb1f62248965f37cb7edf4088ee6394460
+  SwiftyUtils: 0536386622b456460c329f44e38759f16864fe24
+
+PODFILE CHECKSUM: b61b2aaf3e214b5d53b1823b858d5bfacb8638ec
 
 COCOAPODS: 1.7.5

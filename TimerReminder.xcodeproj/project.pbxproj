@@ -197,6 +197,7 @@
 				5A067CB11D4490A500238AF5 /* Sources */,
 				5A067CB21D4490A500238AF5 /* Frameworks */,
 				5A067CB31D4490A500238AF5 /* Resources */,
+				112FE2D269672DF450676FCF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -279,6 +280,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		112FE2D269672DF450676FCF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TimerReminder/Pods-TimerReminder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TimerReminder/Pods-TimerReminder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TimerReminder/Pods-TimerReminder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F99B17FA1860E2C7543437B5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -489,7 +507,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SlideMenuControllerSwift",
 				);
 				INFOPLIST_FILE = TimerReminder/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -523,7 +541,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SlideMenuControllerSwift",
 				);
 				INFOPLIST_FILE = TimerReminder/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
