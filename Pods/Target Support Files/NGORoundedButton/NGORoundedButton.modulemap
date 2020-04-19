@@ -1,6 +1,0 @@
-framework module NGORoundedButton {
-  umbrella header "NGORoundedButton-umbrella.h"
-
-  export *
-  module * { export * }
-}

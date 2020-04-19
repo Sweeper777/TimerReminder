@@ -1,6 +1,0 @@
-framework module MVSpeechSynthesizer {
-  umbrella header "MVSpeechSynthesizer-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -3,18 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2467A8747BF6557031FAEF87 /* Pods_TimerReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CA6FEE5CF6A6DF96E63943 /* Pods_TimerReminder.framework */; };
-		5A00B5431D519A390074B114 /* CountUpTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00B5421D519A390074B114 /* CountUpTimer.swift */; };
-		5A00C4C01D7208BA00AB34C3 /* GlobalSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00C4BF1D7208BA00AB34C3 /* GlobalSettingsController.swift */; };
-		5A00C4C21D72113200AB34C3 /* GlobalSettingsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00C4C11D72113200AB34C3 /* GlobalSettingsControllerDelegate.swift */; };
-		5A0135A21D470B90008A0F1D /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A01359E1D470B90008A0F1D /* Reminder.swift */; };
-		5A0135A31D470B90008A0F1D /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A01359F1D470B90008A0F1D /* Reminder+CoreDataProperties.swift */; };
-		5A0135A41D470B90008A0F1D /* TimerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0135A01D470B90008A0F1D /* TimerOptions.swift */; };
-		5A0135A51D470B90008A0F1D /* TimerOptions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0135A11D470B90008A0F1D /* TimerOptions+CoreDataProperties.swift */; };
 		5A015F0C1D4DA8530032BB59 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A015F0B1D4DA8530032BB59 /* beep.mp3 */; };
 		5A0167621D6143110035021F /* Radar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A0167611D6143110035021F /* Radar.mp3 */; };
 		5A020B6C1D62980300CB6DD5 /* Waves.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A020B631D62980300CB6DD5 /* Waves.mp3 */; };
@@ -28,43 +21,20 @@
 		5A020B741D62980300CB6DD5 /* Hillside.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A020B6B1D62980300CB6DD5 /* Hillside.mp3 */; };
 		5A020B7B1D63472C00CB6DD5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A020B7D1D63472C00CB6DD5 /* Localizable.strings */; };
 		5A0271AF1D75667D002B6D73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A0271AE1D75667D002B6D73 /* GoogleService-Info.plist */; };
-		5A0316561D5DF6B70034F45F /* TimeIntervalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0316551D5DF6B70034F45F /* TimeIntervalRow.swift */; };
-		5A036C191D5FF6B1007AADB5 /* SettingSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A036C181D5FF6B1007AADB5 /* SettingSelectorController.swift */; };
-		5A036C1D1D6019FE007AADB5 /* DataPasserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A036C1C1D6019FE007AADB5 /* DataPasserController.swift */; };
 		5A03B9FF1D6D8494009F08B9 /* SF-UI-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */; };
 		5A03BA001D6D8494009F08B9 /* SF-UI-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A03B9F31D6D7AC0009F08B9 /* SF-UI-Display-Thin.otf */; };
-		5A03F27F1D5AD34600723262 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03F27E1D5AD34600723262 /* Languages.swift */; };
-		5A03F2811D5AEED600723262 /* TimerFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03F2801D5AEED600723262 /* TimerFormController.swift */; };
-		5A03F2831D5C0D9B00723262 /* Wrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03F2821D5C0D9B00723262 /* Wrappers.swift */; };
-		5A03F2851D5C45F100723262 /* FormTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A03F2841D5C45F100723262 /* FormTags.swift */; };
-		5A06728D1D45905D007F7AEB /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A06728C1D45905D007F7AEB /* Timer.swift */; };
-		5A0672931D45ED0F007F7AEB /* CountDownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0672921D45ED0F007F7AEB /* CountDownTimer.swift */; };
 		5A067CB91D4490A500238AF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A067CB81D4490A500238AF5 /* AppDelegate.swift */; };
-		5A067CBB1D4490A500238AF5 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A067CBA1D4490A500238AF5 /* TimerViewController.swift */; };
 		5A067CBE1D4490A500238AF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A067CBC1D4490A500238AF5 /* Main.storyboard */; };
 		5A067CC11D4490A500238AF5 /* TimerReminder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A067CBF1D4490A500238AF5 /* TimerReminder.xcdatamodeld */; };
 		5A067CC31D4490A500238AF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A067CC21D4490A500238AF5 /* Assets.xcassets */; };
 		5A067CC61D4490A500238AF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A067CC41D4490A500238AF5 /* LaunchScreen.storyboard */; };
-		5A16C0391E2E126100D1DE46 /* CurrentOptionsSlideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A16C0381E2E126100D1DE46 /* CurrentOptionsSlideController.swift */; };
-		5A1715FC1E2B670100333971 /* ScreenshotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1715FB1E2B670100333971 /* ScreenshotController.swift */; };
 		5A20D16D1DC5EAEA009862F7 /* SF-UI-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A20D16B1DC5EADE009862F7 /* SF-UI-Display-Ultralight.otf */; };
 		5A20D1701DC5ECD0009862F7 /* SF-UI-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A20D16F1DC5ECD0009862F7 /* SF-UI-Display-Light.otf */; };
-		5A6FD15E1D795DC90003AC44 /* AdUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6FD15D1D795DC90003AC44 /* AdUtility.swift */; };
-		5A9608E71D498728001EE17F /* SetTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9608E61D498728001EE17F /* SetTimerController.swift */; };
-		5AD336F71E2E4D140043DAA8 /* CurrentOptionsFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD336F61E2E4D140043DAA8 /* CurrentOptionsFormController.swift */; };
-		5AFD04791D7843020099527B /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD04781D7843020099527B /* Clock.swift */; };
 		5AFF72AD1D6610B00031429E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AFF72AF1D6610B00031429E /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3BF493DE68A022FAB9B68EB3 /* Pods-TimerReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimerReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimerReminder/Pods-TimerReminder.release.xcconfig"; sourceTree = "<group>"; };
-		5A00B5421D519A390074B114 /* CountUpTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountUpTimer.swift; sourceTree = "<group>"; };
-		5A00C4BF1D7208BA00AB34C3 /* GlobalSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSettingsController.swift; sourceTree = "<group>"; };
-		5A00C4C11D72113200AB34C3 /* GlobalSettingsControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSettingsControllerDelegate.swift; sourceTree = "<group>"; };
-		5A01359E1D470B90008A0F1D /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = SOURCE_ROOT; };
-		5A01359F1D470B90008A0F1D /* Reminder+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		5A0135A01D470B90008A0F1D /* TimerOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerOptions.swift; sourceTree = SOURCE_ROOT; };
-		5A0135A11D470B90008A0F1D /* TimerOptions+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimerOptions+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		5A015F0B1D4DA8530032BB59 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
 		5A0167611D6143110035021F /* Radar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Radar.mp3; sourceTree = "<group>"; };
 		5A020B631D62980300CB6DD5 /* Waves.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Waves.mp3; sourceTree = "<group>"; };
@@ -84,19 +54,9 @@
 		5A020B7E1D63472D00CB6DD5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5A020B7F1D63472F00CB6DD5 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5A0271AE1D75667D002B6D73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		5A0316551D5DF6B70034F45F /* TimeIntervalRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalRow.swift; sourceTree = "<group>"; };
-		5A036C181D5FF6B1007AADB5 /* SettingSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingSelectorController.swift; sourceTree = "<group>"; };
-		5A036C1C1D6019FE007AADB5 /* DataPasserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPasserController.swift; sourceTree = "<group>"; };
 		5A03B9F31D6D7AC0009F08B9 /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Thin.otf"; path = "../SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
-		5A03F27E1D5AD34600723262 /* Languages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
-		5A03F2801D5AEED600723262 /* TimerFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerFormController.swift; sourceTree = "<group>"; };
-		5A03F2821D5C0D9B00723262 /* Wrappers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wrappers.swift; sourceTree = "<group>"; };
-		5A03F2841D5C45F100723262 /* FormTags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTags.swift; sourceTree = "<group>"; };
-		5A06728C1D45905D007F7AEB /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
-		5A0672921D45ED0F007F7AEB /* CountDownTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountDownTimer.swift; sourceTree = "<group>"; };
 		5A067CB51D4490A500238AF5 /* TimerReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A067CB81D4490A500238AF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5A067CBA1D4490A500238AF5 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		5A067CBD1D4490A500238AF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5A067CC01D4490A500238AF5 /* TimerReminder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimerReminder.xcdatamodel; sourceTree = "<group>"; };
 		5A067CC21D4490A500238AF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,8 +66,6 @@
 		5A168E0E1E2CFB1B007F698C /* MLScreenshot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MLScreenshot.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/MLScreenshot/MLScreenshot.framework"; sourceTree = "<group>"; };
 		5A168E0F1E2CFB1B007F698C /* SwiftyUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyUtils.framework; path = "Pods/../build/Debug-iphoneos/SwiftyUtils/SwiftyUtils.framework"; sourceTree = "<group>"; };
 		5A16C0341E2E0E6300D1DE46 /* SlideMenuControllerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SlideMenuControllerSwift.framework; path = "Pods/../build/Debug-iphoneos/SlideMenuControllerSwift/SlideMenuControllerSwift.framework"; sourceTree = "<group>"; };
-		5A16C0381E2E126100D1DE46 /* CurrentOptionsSlideController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentOptionsSlideController.swift; sourceTree = "<group>"; };
-		5A1715FB1E2B670100333971 /* ScreenshotController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotController.swift; sourceTree = "<group>"; };
 		5A19FDD51DB94CF70022F794 /* ASToast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ASToast.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/ASToast/ASToast.framework"; sourceTree = "<group>"; };
 		5A19FDD61DB94CF70022F794 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/Eureka/Eureka.framework"; sourceTree = "<group>"; };
 		5A19FDD71DB94CF70022F794 /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZSwiftExtensions.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/EZSwiftExtensions/EZSwiftExtensions.framework"; sourceTree = "<group>"; };
@@ -122,11 +80,7 @@
 		5A20D16B1DC5EADE009862F7 /* SF-UI-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Ultralight.otf"; sourceTree = SOURCE_ROOT; };
 		5A20D16F1DC5ECD0009862F7 /* SF-UI-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Light.otf"; sourceTree = "<group>"; };
 		5A46676A1E2D032100132B56 /* ImageScrollView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageScrollView.framework; path = "Pods/../build/Debug-iphoneos/ImageScrollView/ImageScrollView.framework"; sourceTree = "<group>"; };
-		5A6FD15D1D795DC90003AC44 /* AdUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdUtility.swift; sourceTree = "<group>"; };
-		5A9608E61D498728001EE17F /* SetTimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimerController.swift; sourceTree = "<group>"; };
 		5AC14D551E1B33D400448123 /* TimerReminder 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TimerReminder 3.xcdatamodel"; sourceTree = "<group>"; };
-		5AD336F61E2E4D140043DAA8 /* CurrentOptionsFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentOptionsFormController.swift; sourceTree = "<group>"; };
-		5AFD04781D7843020099527B /* Clock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		5AFEF2FB1D6833DC00176303 /* TimerReminder 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TimerReminder 2.xcdatamodel"; sourceTree = "<group>"; };
 		5AFF72A81D65BBA80031429E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		5AFF72A91D65BBA80031429E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -188,30 +142,7 @@
 				5A020B691D62980300CB6DD5 /* Presto.mp3 */,
 				5A020B6A1D62980300CB6DD5 /* Beacon.mp3 */,
 				5A020B6B1D62980300CB6DD5 /* Hillside.mp3 */,
-				5A01359E1D470B90008A0F1D /* Reminder.swift */,
-				5A01359F1D470B90008A0F1D /* Reminder+CoreDataProperties.swift */,
-				5A0135A01D470B90008A0F1D /* TimerOptions.swift */,
-				5A0135A11D470B90008A0F1D /* TimerOptions+CoreDataProperties.swift */,
 				5A067CB81D4490A500238AF5 /* AppDelegate.swift */,
-				5A067CBA1D4490A500238AF5 /* TimerViewController.swift */,
-				5A9608E61D498728001EE17F /* SetTimerController.swift */,
-				5A03F2801D5AEED600723262 /* TimerFormController.swift */,
-				5A036C181D5FF6B1007AADB5 /* SettingSelectorController.swift */,
-				5A036C1C1D6019FE007AADB5 /* DataPasserController.swift */,
-				5A00C4BF1D7208BA00AB34C3 /* GlobalSettingsController.swift */,
-				5A1715FB1E2B670100333971 /* ScreenshotController.swift */,
-				5A16C0381E2E126100D1DE46 /* CurrentOptionsSlideController.swift */,
-				5AD336F61E2E4D140043DAA8 /* CurrentOptionsFormController.swift */,
-				5A06728C1D45905D007F7AEB /* Timer.swift */,
-				5A0672921D45ED0F007F7AEB /* CountDownTimer.swift */,
-				5A00B5421D519A390074B114 /* CountUpTimer.swift */,
-				5AFD04781D7843020099527B /* Clock.swift */,
-				5A03F27E1D5AD34600723262 /* Languages.swift */,
-				5A03F2821D5C0D9B00723262 /* Wrappers.swift */,
-				5A03F2841D5C45F100723262 /* FormTags.swift */,
-				5A6FD15D1D795DC90003AC44 /* AdUtility.swift */,
-				5A0316551D5DF6B70034F45F /* TimeIntervalRow.swift */,
-				5A00C4C11D72113200AB34C3 /* GlobalSettingsControllerDelegate.swift */,
 				5A067CBC1D4490A500238AF5 /* Main.storyboard */,
 				5A067CC21D4490A500238AF5 /* Assets.xcassets */,
 				5A067CC41D4490A500238AF5 /* LaunchScreen.storyboard */,
@@ -266,8 +197,6 @@
 				5A067CB11D4490A500238AF5 /* Sources */,
 				5A067CB21D4490A500238AF5 /* Frameworks */,
 				5A067CB31D4490A500238AF5 /* Resources */,
-				DD60F2C170DA2087C3D3D2BC /* [CP] Embed Pods Frameworks */,
-				C68C72BECDEA3323ACFF7473 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,7 +214,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Mulang Su";
 				TargetAttributes = {
 					5A067CB41D4490A500238AF5 = {
@@ -297,10 +226,11 @@
 				};
 			};
 			buildConfigurationList = 5A067CB01D4490A500238AF5 /* Build configuration list for PBXProject "TimerReminder" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				"zh-Hans",
@@ -349,81 +279,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C68C72BECDEA3323ACFF7473 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimerReminder/Pods-TimerReminder-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DD60F2C170DA2087C3D3D2BC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TimerReminder/Pods-TimerReminder-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ASToast/ASToast.framework",
-				"${BUILT_PRODUCTS_DIR}/EZClockView/EZClockView.framework",
-				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
-				"${BUILT_PRODUCTS_DIR}/FTPopOverMenu_Swift/FTPopOverMenu_Swift.framework",
-				"${BUILT_PRODUCTS_DIR}/FittableFontLabel/FittableFontLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/ImageScrollView/ImageScrollView.framework",
-				"${BUILT_PRODUCTS_DIR}/LTMorphingLabel/LTMorphingLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
-				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
-				"${BUILT_PRODUCTS_DIR}/MLScreenshot/MLScreenshot.framework",
-				"${BUILT_PRODUCTS_DIR}/MVSpeechSynthesizer/MVSpeechSynthesizer.framework",
-				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
-				"${BUILT_PRODUCTS_DIR}/NGORoundedButton/NGORoundedButton.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
-				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyUtils/SwiftyUtils.framework",
-				"${BUILT_PRODUCTS_DIR}/TrueTime/TrueTime.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ASToast.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZClockView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FTPopOverMenu_Swift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FittableFontLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageScrollView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTMorphingLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLScreenshot.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MVSpeechSynthesizer.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NGORoundedButton.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUtils.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrueTime.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimerReminder/Pods-TimerReminder-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F99B17FA1860E2C7543437B5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -449,31 +304,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A067CBB1D4490A500238AF5 /* TimerViewController.swift in Sources */,
-				5A0135A51D470B90008A0F1D /* TimerOptions+CoreDataProperties.swift in Sources */,
-				5A00C4C01D7208BA00AB34C3 /* GlobalSettingsController.swift in Sources */,
-				5AFD04791D7843020099527B /* Clock.swift in Sources */,
 				5A067CB91D4490A500238AF5 /* AppDelegate.swift in Sources */,
-				5A03F2851D5C45F100723262 /* FormTags.swift in Sources */,
-				5A03F2831D5C0D9B00723262 /* Wrappers.swift in Sources */,
-				5A1715FC1E2B670100333971 /* ScreenshotController.swift in Sources */,
-				5AD336F71E2E4D140043DAA8 /* CurrentOptionsFormController.swift in Sources */,
-				5A036C191D5FF6B1007AADB5 /* SettingSelectorController.swift in Sources */,
-				5A03F2811D5AEED600723262 /* TimerFormController.swift in Sources */,
-				5A0135A41D470B90008A0F1D /* TimerOptions.swift in Sources */,
-				5A9608E71D498728001EE17F /* SetTimerController.swift in Sources */,
-				5A03F27F1D5AD34600723262 /* Languages.swift in Sources */,
 				5A067CC11D4490A500238AF5 /* TimerReminder.xcdatamodeld in Sources */,
-				5A00B5431D519A390074B114 /* CountUpTimer.swift in Sources */,
-				5A0135A21D470B90008A0F1D /* Reminder.swift in Sources */,
-				5A00C4C21D72113200AB34C3 /* GlobalSettingsControllerDelegate.swift in Sources */,
-				5A0316561D5DF6B70034F45F /* TimeIntervalRow.swift in Sources */,
-				5A0135A31D470B90008A0F1D /* Reminder+CoreDataProperties.swift in Sources */,
-				5A036C1D1D6019FE007AADB5 /* DataPasserController.swift in Sources */,
-				5A6FD15E1D795DC90003AC44 /* AdUtility.swift in Sources */,
-				5A0672931D45ED0F007F7AEB /* CountDownTimer.swift in Sources */,
-				5A06728D1D45905D007F7AEB /* Timer.swift in Sources */,
-				5A16C0391E2E126100D1DE46 /* CurrentOptionsSlideController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,12 +373,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -573,7 +407,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -596,12 +430,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -622,10 +458,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -653,12 +490,15 @@
 				);
 				INFOPLIST_FILE = TimerReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.TimerReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -684,12 +524,15 @@
 				);
 				INFOPLIST_FILE = TimerReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.TimerReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
