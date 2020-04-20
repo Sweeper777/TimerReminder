@@ -19,6 +19,10 @@ enum TimeUpOption {
     case playSound(String)
 }
 
+struct Reminder {
+    let remindTime: Int
+    let message: String?
+}
 
 enum FontStyle: Int, CustomStringConvertible {
     case thin = 0
