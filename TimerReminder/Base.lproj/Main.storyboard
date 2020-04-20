@@ -1,29 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QV0-zM-Lvf">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Timer View Controller-->
         <scene sceneID="FTE-e5-yxw">
             <objects>
-                <viewController id="QV0-zM-Lvf" sceneMemberID="viewController">
+                <viewController id="QV0-zM-Lvf" customClass="TimerViewController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="key-d9-ihY"/>
                         <viewControllerLayoutGuide type="bottom" id="5tK-8A-Bgo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fhU-pF-zsM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwC-gt-lXQ" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
+                                <rect key="frame" x="16" y="56" width="288" height="440"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="88"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GS9-Fm-asp">
+                                <rect key="frame" x="30" y="13" width="47" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playPause" destination="QV0-zM-Lvf" eventType="touchUpInside" id="tQi-Rb-GAR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKM-No-bC4">
+                                <rect key="frame" x="265" y="13" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="reset" destination="QV0-zM-Lvf" eventType="touchUpInside" id="4J9-3Q-gwb"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bwC-gt-lXQ" firstAttribute="top" secondItem="key-d9-ihY" secondAttribute="bottom" constant="56" id="3CT-dM-3GT"/>
+                            <constraint firstItem="bwC-gt-lXQ" firstAttribute="trailing" secondItem="fhU-pF-zsM" secondAttribute="trailingMargin" id="Gcz-z1-y4X"/>
+                            <constraint firstItem="bwC-gt-lXQ" firstAttribute="leading" secondItem="fhU-pF-zsM" secondAttribute="leadingMargin" id="YOi-BA-fs8"/>
+                            <constraint firstItem="5tK-8A-Bgo" firstAttribute="top" secondItem="bwC-gt-lXQ" secondAttribute="bottom" constant="72" id="wfU-nB-tX4"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="playButton" destination="GS9-Fm-asp" id="d6Y-fN-cEt"/>
+                        <outlet property="timerLabel" destination="bwC-gt-lXQ" id="Njc-uA-eAg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLB-vi-0yV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="372" y="389"/>
+            <point key="canvasLocation" x="371.25" y="387.67605633802816"/>
         </scene>
     </scenes>
 </document>
