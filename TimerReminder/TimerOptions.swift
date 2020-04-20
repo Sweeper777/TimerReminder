@@ -50,3 +50,17 @@ enum FontStyle: Int, CustomStringConvertible {
     }
 }
 
+struct TimerOptions {
+    static let `default` = TimerOptions()
+    
+    let name: String = "Default"
+    let language: String = "en"
+    let countDown: CountDownOption = .yes(startsAt: 10)
+    let countSeconds: Bool = false
+    let beepSounds: Bool = false
+    let vibrate: Bool = false
+    let timeUpOption: TimeUpOption = .speakDefaultMessage
+    let reminderOption: ReminderOption = .no
+    let font: FontStyle = .regular
+    let textAnimation: LTMorphingEffect = .scale
+}
