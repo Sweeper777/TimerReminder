@@ -27,4 +27,13 @@ class Timer {
         self.observable = observable
     }
     
+    static func newCountDownInstance(countDownTime: Int, options: TimerOptions = .default) -> Timer {
+        Timer(options: options,
+              mode: .countDown,
+              currentState: countDownTime,
+              resetState: countDownTime,
+              observable: Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
+                .map { _ in return 0 })
+    }
+    
 }
