@@ -37,3 +37,14 @@ class Timer {
     }
     
 }
+
+struct TimerEvent {
+    let displayString: String
+    let state: Int
+    let reminder: Reminder?
+    let beep: Bool
+    let countDown: Bool
+    let countSeconds: Bool
+    let language: String
+    let ended: Bool
+}
