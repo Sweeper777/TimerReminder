@@ -16,3 +16,15 @@ func fontSizeThatFits(size: CGSize, text: NSString, font: UIFont) -> CGFloat {
     return fontSize - 1
 }
 
+extension LTMorphingLabel {
+    func updateFontSizeToFit(size: CGSize, multiplier: CGFloat = 0.9) {
+        let font = (textAttributes?[.font] as? UIFont) ?? self.font
+        let fontSize = fontSizeThatFits(size: size, text: (text ?? "a") as NSString, font: font!.withSize(16)) * multiplier
+        textAttributes = [.font: font!.withSize(fontSize)]
+        self.font = font!.withSize(fontSize)
+    }
+    
+    func updateFontSizeToFit() {
+        updateFontSizeToFit(size: bounds.size)
+    }
+}
