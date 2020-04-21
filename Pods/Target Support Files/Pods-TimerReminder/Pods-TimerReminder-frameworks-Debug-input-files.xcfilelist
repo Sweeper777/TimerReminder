@@ -1,10 +1,14 @@
 ${PODS_ROOT}/Target Support Files/Pods-TimerReminder/Pods-TimerReminder-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework
 ${BUILT_PRODUCTS_DIR}/LTMorphingLabel/LTMorphingLabel.framework
+${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework
+${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework
+${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework
 ${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
 ${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework
 ${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
 ${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
 ${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
 ${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyUtils/SwiftyUtils.framework

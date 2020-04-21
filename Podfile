@@ -12,5 +12,7 @@ target 'TimerReminder' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Eureka'
+  pod 'MaterialComponents/Buttons'
+  pod 'SnapKit'
 end
 
