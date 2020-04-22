@@ -36,6 +36,44 @@ class Timer {
                 .map { _ in return 0 })
     }
     
+    var currentTimerEvent: TimerEvent {
+        let displayString: String
+        let reminder: Reminder?
+        let beep = options.beepSounds
+        let countDown: Bool
+        let countSeconds = options.countSeconds
+        let language = options.language
+        switch mode {
+        case .countDown:
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier: "en")
+            formatter.timeZone = TimeZone(identifier: "UTC")
+            if currentState < 60 * 60 {
+                formatter.dateFormat = "mm:ss"
+            } else {
+                formatter.dateFormat = "HH:mm:ss"
+            }
+            displayString = formatter.string(from: Date(timeIntervalSince1970: Double(currentState)))
+            switch options.reminderOption {
+            case .no:
+                reminder = nil
+            case .regularInterval(let r):
+                reminder = currentState % r.remindTime == 0 ? r : nil
+            case .specificTimes(let rs):
+                reminder = rs.first(where: { $0.remindTime == currentState })
+            }
+            switch options.countDown {
+            case .no:
+                countDown = false
+            case .yes(startsAt: let time):
+                countDown = currentState <= time
+            }
+            return TimerEvent(displayString: displayString, state: currentState, reminder: reminder, beep: beep, countDown: countDown, countSeconds: countSeconds, language: language, ended: ended)
+        default:
+            fatalError()
+        }
+    }
+    
 }
 
 struct TimerEvent {
