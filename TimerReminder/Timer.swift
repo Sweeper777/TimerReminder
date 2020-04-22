@@ -36,6 +36,33 @@ class Timer {
                 .map { _ in return 0 })
     }
     
+    var timerEvents: Observable<TimerEvent> {
+        Observable.create { (observer) in
+            self.observable.subscribe { (event) in
+                if self.paused || self.ended {
+                    return
+                }
+                
+                switch event {
+                case .next:
+                    switch self.mode {
+                    case .countDown:
+                        self.currentState -= 1
+                        if self.currentState == 0 {
+                            self.ended = true
+                        }
+                        observer.onNext(self.currentTimerEvent)
+                    default:
+                        fatalError()
+                    }
+                default:
+                    observer.onCompleted()
+                    self.ended = true
+                }
+            }
+        }
+    }
+    
     var currentTimerEvent: TimerEvent {
         let displayString: String
         let reminder: Reminder?
