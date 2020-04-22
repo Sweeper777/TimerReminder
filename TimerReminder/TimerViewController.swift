@@ -22,6 +22,8 @@ class TimerViewController: UIViewController {
                 }
         }).disposed(by: disposeBag)
         
+        timer.rxPaused.map { $0 ? "Play" : "Pause" }.bind(to: playButton.rx.title())
+            .disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
