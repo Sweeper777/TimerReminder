@@ -101,6 +101,21 @@ class Timer {
         }
     }
     
+    func start() {
+        if !ended {
+            paused = false
+        }
+    }
+    
+    func pause() {
+        paused = true
+    }
+    
+    func reset() {
+        currentState = resetState
+        ended = false
+        pause()
+    }
 }
 
 struct TimerEvent {
