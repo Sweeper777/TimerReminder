@@ -29,6 +29,18 @@ class TimerViewController: UIViewController {
         timerLabel.updateFontSizeToFit()
     }
     
+    @IBAction func playPause() {
+        if timer.paused {
+            timer.start()
+        } else {
+            timer.pause()
+        }
+    }
+    
+    @IBAction func reset() {
+        timer.reset()
+        timerLabel.text = timer.currentTimerEvent.displayString
+    }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
