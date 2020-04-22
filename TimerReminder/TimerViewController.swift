@@ -7,6 +7,22 @@ class TimerViewController: UIViewController {
     @IBOutlet var timerLabel: LTMorphingLabel!
     @IBOutlet var playButton: UIButton!
     
+    var timer: Timer!
+    var disposeBag = DisposeBag()
+    
+    override func viewDidLoad() {
+        timer = Timer.newCountDownInstance(countDownTime: 20)
+        timerLabel.text = timer.currentTimerEvent.displayString
+        
+        timer.timerEvents.subscribe(
+            onNext: { (timerEvent) in
+                self.timerLabel.text = timerEvent.displayString
+                if timerEvent.ended {
+                    print("Completed")
+                }
+        }).disposed(by: disposeBag)
+        
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
