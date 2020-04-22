@@ -9,10 +9,16 @@ enum TimerMode {
 
 class Timer {
     var paused = true
+    {
+        didSet {
+            rxPaused.accept(paused)
+        }
+    }
     var ended = false
     var options: TimerOptions
     let mode: TimerMode
     
+    let rxPaused = BehaviorRelay(value: true)
     
     private var currentState: Int
     private let resetState: Int
