@@ -19,5 +19,15 @@ class SetTimerView: UIView {
     }
     
     private func commonInit() {
+        okButton = UIButton(type: .custom)
+        okButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+        self.addSubview(okButton)
+        okButton.snp.makeConstraints { (make) in
+            make.width.equalTo(22)
+            make.height.equalTo(22)
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        
     }
 }
