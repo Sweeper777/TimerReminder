@@ -29,5 +29,39 @@ class SetTimerView: UIView {
             make.bottom.equalToSuperview()
         }
         
+        hourLabel = UILabel()
+        hourLabel.text = "hours"
+        hourLabel.textAlignment = .center
+        self.addSubview(hourLabel)
+        hourLabel.snp.makeConstraints { (make) in
+            make.bottom.equalTo(okButton.snp.top).offset(-8)
+            make.left.equalToSuperview()
+            make.width.equalToSuperview().dividedBy(3)
+            make.height.equalTo(20)
+        }
+        hourLabel.translatesAutoresizingMaskIntoConstraints = true
+        
+        minuteLabel = UILabel()
+        minuteLabel.text = "minutes"
+        minuteLabel.textAlignment = .center
+        self.addSubview(minuteLabel)
+        minuteLabel.snp.makeConstraints { (make) in
+            make.bottom.equalTo(okButton.snp.top).offset(-8)
+            make.left.equalTo(hourLabel.snp.right)
+            make.width.equalToSuperview().dividedBy(3)
+            make.height.equalTo(20)
+        }
+        
+        secondLabel = UILabel()
+        secondLabel.text = "seconds"
+        secondLabel.textAlignment = .center
+        self.addSubview(secondLabel)
+        secondLabel.snp.makeConstraints { (make) in
+            make.bottom.equalTo(okButton.snp.top).offset(-8)
+            make.left.equalTo(minuteLabel.snp.right)
+            make.width.equalToSuperview().dividedBy(3)
+            make.height.equalTo(20)
+        }
+        
     }
 }
