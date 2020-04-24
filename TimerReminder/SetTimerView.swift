@@ -63,5 +63,16 @@ class SetTimerView: UIView {
             make.height.equalTo(20)
         }
         
+        picker = UIPickerView()
+        picker.dataSource = self
+        picker.delegate = self
+        self.addSubview(picker)
+        picker.snp.makeConstraints { (make) in
+            make.bottom.equalTo(secondLabel.snp.top).offset(-8)
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+            make.top.equalToSuperview()
+        }
+        
     }
 }
