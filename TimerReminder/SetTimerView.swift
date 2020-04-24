@@ -74,6 +74,7 @@ class SetTimerView: UIView {
             make.top.equalToSuperview()
         }
         
+        subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
     }
 }
 
