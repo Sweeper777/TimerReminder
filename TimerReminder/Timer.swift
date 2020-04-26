@@ -120,9 +120,28 @@ class Timer {
     }
     
     func reset() {
-        currentState = resetState
         ended = false
+        currentState = resetState
         pause()
+        switch mode {
+        case .countDown:
+            timerEvents = rxPaused.asObservable()
+                .flatMapLatest {  isRunning in
+                    isRunning ? .empty() : Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
+                }
+                .enumerated().flatMap { (index, int) in Observable.just(index) }
+            .map { [weak self] x in (self?.timerEvent(forState: (self?.resetState ?? x) - x) ?? .default) }
+                .take(self.resetState)
+            timerEvents.subscribe(onNext: { [weak self]
+                timerEvent in
+                self?.currentState -= 1
+                }, onCompleted: {
+                    [weak self] in
+                    self?.ended = true
+            }).disposed(by: disposeBag)
+        default:
+            fatalError()
+        }
     }
 }
 
