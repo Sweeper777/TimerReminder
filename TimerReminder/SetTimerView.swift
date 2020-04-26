@@ -1,5 +1,6 @@
 import UIKit
 import SnapKit
+import SCLAlertView
 
 class SetTimerView: UIView {
     var picker: UIPickerView!
@@ -7,6 +8,8 @@ class SetTimerView: UIView {
     var minuteLabel: UILabel!
     var secondLabel: UILabel!
     var okButton: UIButton!
+    weak var delegate: SetTimerViewDelegate?
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -92,4 +95,8 @@ extension SetTimerView: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         "\(row)"
     }
+}
+
+protocol SetTimerViewDelegate : class {
+    func didSetTimer(setTimerView: SetTimerView, setTime: Int)
 }
