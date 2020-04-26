@@ -26,7 +26,7 @@ class SetTimerView: UIView {
             make.width.equalTo(22)
             make.height.equalTo(22)
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-8)
         }
         
         hourLabel = UILabel()
@@ -75,6 +75,8 @@ class SetTimerView: UIView {
         }
         
         subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        
+        layer.cornerRadius = 10
     }
 }
 
