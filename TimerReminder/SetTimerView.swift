@@ -10,6 +10,12 @@ class SetTimerView: UIView {
     var okButton: UIButton!
     weak var delegate: SetTimerViewDelegate?
     
+    var selectedTime: Int {
+        let hours = picker.selectedRow(inComponent: 0) * 60 * 60
+        let minutes = picker.selectedRow(inComponent: 1) * 60
+        let seconds = picker.selectedRow(inComponent: 2)
+        return hours + minutes + seconds
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,6 +37,7 @@ class SetTimerView: UIView {
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().offset(-8)
         }
+        okButton.addTarget(self, action: #selector(okButtonDidPress), for: .touchUpInside)
         
         hourLabel = UILabel()
         hourLabel.text = "hours"
@@ -80,6 +87,12 @@ class SetTimerView: UIView {
         subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         layer.cornerRadius = 10
+    }
+    
+    @objc func okButtonDidPress() {
+        if selectedTime > 0 {
+            delegate?.didSetTimer(setTimerView: self, setTime: selectedTime)
+        }
     }
 }
 
