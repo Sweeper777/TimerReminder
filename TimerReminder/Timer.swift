@@ -48,8 +48,16 @@ class Timer {
 //            }
 //        }
     
-    var currentTimerEvent: TimerEvent {
-        timerEvent(forState: currentState)
+    func displayString(forState currentState: Int) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en")
+        formatter.timeZone = TimeZone(identifier: "UTC")
+        if currentState < 60 * 60 {
+            formatter.dateFormat = "mm:ss"
+        } else {
+            formatter.dateFormat = "HH:mm:ss"
+        }
+        return formatter.string(from: Date(timeIntervalSince1970: Double(currentState)))
     }
     
     func timerEvent(forState currentState: Int) -> TimerEvent {
