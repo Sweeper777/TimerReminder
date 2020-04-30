@@ -8,36 +8,17 @@ enum TimerMode {
 }
 
 class Timer {
-    var paused = true
-    {
-        didSet {
-            rxPaused.accept(paused)
-        }
-    }
-    var ended = false
     var options: TimerOptions
     let mode: TimerMode
     
-    let rxPaused = BehaviorRelay(value: true)
-    let disposeBag = DisposeBag()
-    var timerEvents: Observable<TimerEvent>!
-    
-    private var currentState: Int
-    private let resetState: Int
-    
-    private init(options: TimerOptions, mode: TimerMode, currentState: Int, resetState: Int) {
+    private init(options: TimerOptions, mode: TimerMode) {
         self.options = options
         self.mode = mode
-        self.currentState = currentState
-        self.resetState = resetState
-        reset()
     }
     
-    static func newCountDownInstance(countDownTime: Int, options: TimerOptions = .default) -> Timer {
+    static func newCountDownInstance(options: TimerOptions = .default) -> Timer {
         Timer(options: options,
-              mode: .countDown,
-              currentState: countDownTime,
-              resetState: countDownTime)
+              mode: .countDown)
     }
     
 //        Observable<TimerEvent>.create { [weak self] (observer) in
@@ -107,16 +88,6 @@ class Timer {
         default:
             fatalError()
         }
-    }
-    
-    func start() {
-        if !ended {
-            paused = false
-        }
-    }
-    
-    func pause() {
-        paused = true
     }
     
     func reset() {
