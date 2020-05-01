@@ -24,28 +24,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GS9-Fm-asp">
-                                <rect key="frame" x="30" y="13" width="47" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Play"/>
-                                <connections>
-                                    <action selector="playPause" destination="QV0-zM-Lvf" eventType="touchUpInside" id="tQi-Rb-GAR"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKM-No-bC4">
-                                <rect key="frame" x="265" y="13" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Reset"/>
-                                <connections>
-                                    <action selector="reset" destination="QV0-zM-Lvf" eventType="touchUpInside" id="4J9-3Q-gwb"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o30-xo-hc7" userLabel="HUD">
                                 <rect key="frame" x="16" y="8" width="288" height="560"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KQm-lO-Amn" customClass="SetTimerView" customModule="TimerReminder" customModuleProvider="target">
                                         <rect key="frame" x="24" y="331" width="240" height="168"/>
-                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="168" id="HS5-ak-guj"/>
                                             <constraint firstAttribute="width" constant="240" id="sSr-ET-jG2"/>
@@ -78,7 +62,6 @@
                     </view>
                     <connections>
                         <outlet property="hud" destination="o30-xo-hc7" id="0ZN-eo-4rv"/>
-                        <outlet property="playButton" destination="GS9-Fm-asp" id="d6Y-fN-cEt"/>
                         <outlet property="setTimerView" destination="KQm-lO-Amn" id="xgR-eg-18u"/>
                         <outlet property="timerLabel" destination="bwC-gt-lXQ" id="Njc-uA-eAg"/>
                     </connections>
