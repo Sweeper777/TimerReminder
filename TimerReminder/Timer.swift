@@ -84,7 +84,7 @@ class Timer {
             case .yes(startsAt: let time):
                 countDown = currentState <= time
             }
-            return TimerEvent(displayString: displayString, state: currentState, reminder: reminder, beep: beep, countDown: countDown, countSeconds: countSeconds, language: language)
+            return TimerEvent(displayString: displayString, state: currentState, reminder: reminder, beep: beep, countDown: countDown, countSeconds: countSeconds, language: language, ended: currentState <= 0)
         default:
             fatalError()
         }
@@ -124,6 +124,7 @@ struct TimerEvent {
     let countDown: Bool
     let countSeconds: Bool
     let language: String
+    let ended: Bool
     
-    static let `default` = TimerEvent(displayString: "", state: 0, reminder: nil, beep: false, countDown: false, countSeconds: false, language: "")
+    static let `default` = TimerEvent(displayString: "", state: 0, reminder: nil, beep: false, countDown: false, countSeconds: false, language: "", ended: false)
 }
