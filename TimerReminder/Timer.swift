@@ -69,15 +69,7 @@ class Timer {
         let language = options.language
         switch mode {
         case .countDown:
-            let formatter = DateFormatter()
-            formatter.locale = Locale(identifier: "en")
-            formatter.timeZone = TimeZone(identifier: "UTC")
-            if currentState < 60 * 60 {
-                formatter.dateFormat = "mm:ss"
-            } else {
-                formatter.dateFormat = "HH:mm:ss"
-            }
-            displayString = formatter.string(from: Date(timeIntervalSince1970: Double(currentState)))
+            displayString = self.displayString(forState: currentState)
             switch options.reminderOption {
             case .no:
                 reminder = nil
