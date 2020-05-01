@@ -90,29 +90,46 @@ class Timer {
         }
     }
     
-    func reset() {
-        ended = false
-        currentState = resetState
-        pause()
-        switch mode {
-        case .countDown:
-            timerEvents = rxPaused.asObservable()
-                .flatMapLatest {  isRunning in
-                    isRunning ? .empty() : Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
+    func timerEvents(initial: Int, pause: Observable<Void>, reset: Observable<Void>, scheduler: SchedulerType) -> Observable<TimerEvent> {
+        enum Action { case pause, reset, tick }
+        let intent = Observable.merge(
+            pause.map { Action.pause },
+            reset.map { Action.reset }
+        )
+
+        let isPaused = intent
+            .scan(true) { isPaused, action in
+                switch action {
+                case .pause:
+                    return !isPaused
+                case .reset:
+                    return true
+                case .tick:
+                    fatalError()
                 }
-                .enumerated().flatMap { (index, int) in Observable.just(index) }
-            .map { [weak self] x in (self?.timerEvent(forState: (self?.resetState ?? x) - x) ?? .default) }
-                .take(self.resetState)
-            timerEvents.subscribe(onNext: { [weak self]
-                timerEvent in
-                self?.currentState -= 1
-                }, onCompleted: {
-                    [weak self] in
-                    self?.ended = true
-            }).disposed(by: disposeBag)
-        default:
-            fatalError()
-        }
+            }
+            .startWith(true)
+
+        let tick = isPaused
+            .flatMapLatest { $0 ? .empty() : Observable<Int>.interval(.seconds(1), scheduler: scheduler) }
+
+        return Observable.merge(tick.map { _ in Action.tick }, reset.map { Action.reset })
+            .scan(initial) { (current, action) -> Int in
+                switch action {
+                case .pause:
+                    fatalError()
+                case .reset:
+                    return initial
+                case .tick:
+                    return current == -1 ? -1 : current - 1
+                }
+
+            }
+            .filter { 0 <= $0 && $0 <= initial }
+            .map {
+                [weak self] x in
+                self?.timerEvent(forState: x) ?? .default
+            }
     }
 }
 
