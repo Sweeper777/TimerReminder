@@ -15,20 +15,24 @@ class TimerViewController: UIViewController {
     var timer: Timer!
     var disposeBag = DisposeBag()
     
+    func setUpView() {
+        playButton = MDCFloatingButton(shape: .mini)
+        playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        playButton.imageView?.tintColor = .white
+        playButton.backgroundColor = UIColor(hex: "5abb5a")
+        hud.addSubview(playButton)
+        playButton.snp.makeConstraints { (make) in
+            make.width.equalTo(44)
+            make.height.equalTo(44)
+            make.right.equalToSuperview().offset(-8)
+            make.top.equalToSuperview().offset(8)
+        }
+    }
+    
     override func viewDidLoad() {
-        timer = Timer.newCountDownInstance(countDownTime: 20)
-        timerLabel.text = timer.currentTimerEvent.displayString
+        setUpView()
         
-        timer.timerEvents.subscribe(
-            onNext: { (timerEvent) in
-                self.timerLabel.text = timerEvent.displayString
-                if timerEvent.ended {
-                    print("Completed")
-                }
-        }).disposed(by: disposeBag)
         
-        timer.rxPaused.map { $0 ? "Play" : "Pause" }.bind(to: playButton.rx.title())
-            .disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
