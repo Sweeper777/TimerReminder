@@ -1,11 +1,16 @@
 import UIKit
 import LTMorphingLabel
 import RxSwift
+import MaterialComponents
+import SwiftyUtils
 
 class TimerViewController: UIViewController {
     
     @IBOutlet var timerLabel: LTMorphingLabel!
-    @IBOutlet var playButton: UIButton!
+    var playButton: MDCFloatingButton!
+    var resetButton: MDCFloatingButton!
+    @IBOutlet var hud: UIView!
+    @IBOutlet var setTimerView: SetTimerView!
     
     var timer: Timer!
     var disposeBag = DisposeBag()
