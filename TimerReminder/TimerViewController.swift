@@ -27,6 +27,18 @@ class TimerViewController: UIViewController {
             make.right.equalToSuperview().offset(-8)
             make.top.equalToSuperview().offset(8)
         }
+        
+        resetButton = MDCFloatingButton(shape: .mini)
+        resetButton.setImage(UIImage(systemName: "goforward"), for: .normal)
+        resetButton.imageView?.tintColor = .white
+        resetButton.backgroundColor = UIColor(hex: "5abb5a")
+        hud.addSubview(resetButton)
+        resetButton.snp.makeConstraints { (make) in
+            make.width.equalTo(44)
+            make.height.equalTo(44)
+            make.right.equalTo(playButton.snp.left).offset(-8)
+            make.top.equalToSuperview().offset(8)
+        }
     }
     
     override func viewDidLoad() {
