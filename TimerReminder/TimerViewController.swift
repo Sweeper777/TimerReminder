@@ -59,6 +59,18 @@ class TimerViewController: UIViewController {
             }
         })
         
+        playButton.rx.tap.subscribe(onNext: {
+            if self.playButtonIsPlay {
+                self.playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+                self.playButtonIsPlay = false
+            } else {
+                self.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+                self.playButtonIsPlay = true
+            }
+            }).disposed(by: disposeBag)
+        resetButton.rx.tap.subscribe(onNext: {
+            self.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            }).disposed(by: disposeBag)
         
     }
     
@@ -67,23 +79,26 @@ class TimerViewController: UIViewController {
         timerLabel.updateFontSizeToFit()
     }
     
-    @IBAction func playPause() {
-        if timer.paused {
-            timer.start()
-        } else {
-            timer.pause()
-        }
-    }
-    
-    @IBAction func reset() {
-        timer.reset()
-        timerLabel.text = timer.currentTimerEvent.displayString
-    }
-    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animateAlongsideTransition(in: nil, animation: nil) { (_) in
             self.timerLabel.updateFontSizeToFit()
         }
+    }
+    
+        } else {
+        }
+    }
+    
+    func updateTimerLabel(text: String) {
+        timerLabel.text = text
+        timerLabel.updateFontSizeToFit()
+    }
+    
+    func handleTimerEvent(timerEvent: TimerEvent) {
+        updateTimerLabel(text: timerEvent.displayString)
+    }
+}
+
     }
 }
