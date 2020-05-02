@@ -12,8 +12,11 @@ class TimerViewController: UIViewController {
     @IBOutlet var hud: UIView!
     @IBOutlet var setTimerView: SetTimerView!
     
-    var timer: Timer!
+    var timer = Timer.newCountDownInstance()
     var disposeBag = DisposeBag()
+    
+    
+    var timerDisposable: Disposable?
     
     func setUpView() {
         playButton = MDCFloatingButton(shape: .mini)
@@ -43,6 +46,18 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         setUpView()
+        updateTimerLabel(text: timer.displayString(forState: 20))
+        timerDisposable = timer.timerEvents(initial: 20,
+                pause: playButton.rx.tap.asObservable(),
+                reset: resetButton.rx.tap.asObservable(),
+                scheduler: MainScheduler.instance)
+        .subscribe(onNext: { [weak self]
+            timerEvent in
+            self?.handleTimerEvent(timerEvent: timerEvent)
+            if timerEvent.ended {
+                print("Ended!")
+            }
+        })
         
         
     }
