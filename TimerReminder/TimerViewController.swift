@@ -15,6 +15,8 @@ class TimerViewController: UIViewController {
     var timer = Timer.newCountDownInstance()
     var disposeBag = DisposeBag()
     
+    var hudHidden = false
+    var playButtonIsPlay = true
     
     var timerDisposable: Disposable?
     
@@ -87,7 +89,17 @@ class TimerViewController: UIViewController {
         }
     }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if hudHidden {
+            hudHidden = false
+            UIView.animate(withDuration: 0.1) {
+                self.hud.alpha = 1
+            }
         } else {
+            hudHidden = true
+            UIView.animate(withDuration: 0.1) {
+                self.hud.alpha = 0
+            }
         }
     }
     
