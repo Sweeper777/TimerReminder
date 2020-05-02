@@ -72,6 +72,7 @@ class TimerViewController: UIViewController {
             self.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
             }).disposed(by: disposeBag)
         
+        setTimerView.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -100,5 +101,20 @@ class TimerViewController: UIViewController {
     }
 }
 
+extension TimerViewController : SetTimerViewDelegate {
+    func didSetTimer(setTimerView: SetTimerView, setTime: Int) {
+        timerDisposable?.dispose()
+        updateTimerLabel(text: timer.displayString(forState: setTime))
+        timerDisposable = timer.timerEvents(initial: setTime,
+                    pause: playButton.rx.tap.asObservable(),
+                    reset: resetButton.rx.tap.asObservable(),
+                    scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self]
+                timerEvent in
+                self?.handleTimerEvent(timerEvent: timerEvent)
+                if timerEvent.ended {
+                    print("Ended!")
+                }
+            })
     }
 }
