@@ -28,3 +28,9 @@ extension LTMorphingLabel {
         updateFontSizeToFit(size: bounds.size)
     }
 }
+
+extension String {
+    var localised: String {
+        NSLocalizedString(self, comment: "")
+    }
+}
