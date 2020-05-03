@@ -108,7 +108,7 @@ class TimerViewController: UIViewController {
         timerLabel.updateFontSizeToFit()
     }
     
-    func handleTimerEvent(timerEvent: TimerEvent) {
+    func handleTimerEvent(timerEvent: Timer.Event) {
         updateTimerLabel(text: timerEvent.displayString)
     }
 }
