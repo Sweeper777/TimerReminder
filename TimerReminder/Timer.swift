@@ -1,52 +1,49 @@
 import RxSwift
 import RxCocoa
 
-enum TimerMode {
-    case countDown
-    case countUp
-    case clock
-}
-
 class Timer {
-    var options: TimerOptions
-    let mode: TimerMode
+    private enum Action { case pause, reset, tick }
+    enum Mode {
+        case countDown
+        case countUp
+        case clock
+    }
     
-    private init(options: TimerOptions, mode: TimerMode) {
+    struct Event {
+        let displayString: String
+        let state: Int
+        let reminder: Reminder?
+        let beep: Bool
+        let countDown: Bool
+        let countSeconds: Bool
+        let language: String
+        let ended: Bool
+        
+        static let `default` = Event(displayString: "",
+                                     state: 0,
+                                     reminder: nil,
+                                     beep: false,
+                                     countDown: false,
+                                     countSeconds: false,
+                                     language: "",
+                                     ended: false)
+    }
+    
+    var options: TimerOptions
+    let mode: Mode
+    
+    private init(options: TimerOptions, mode: Mode) {
         self.options = options
         self.mode = mode
     }
     
     static func newCountDownInstance(options: TimerOptions = .default) -> Timer {
-        Timer(options: options,
-              mode: .countDown)
+        Timer(options: options, mode: .countDown)
     }
     
-//        Observable<TimerEvent>.create { [weak self] (observer) in
-//            guard let `self` = self else { return Disposables.create() }
-//            return self.observable.subscribe { [weak self] (event) in
-//                guard let `self` = self else { return }
-//                if self.paused || self.ended {
-//                    return
-//                }
-//
-//                switch event {
-//                case .next:
-//                    switch self.mode {
-//                    case .countDown:
-//                        self.currentState -= 1
-//                        if self.currentState == 0 {
-//                            self.ended = true
-//                        }
-//                        observer.onNext(self.currentTimerEvent)
-//                    default:
-//                        fatalError()
-//                    }
-//                default:
-//                    observer.onCompleted()
-//                    self.ended = true
-//                }
-//            }
-//        }
+    static func newCountUpInstance(options: TimerOptions = .default) -> Timer {
+        Timer(options: options, mode: .countUp)
+    }
     
     func displayString(forState currentState: Int) -> String {
         let formatter = DateFormatter()
@@ -60,38 +57,56 @@ class Timer {
         return formatter.string(from: Date(timeIntervalSince1970: Double(currentState)))
     }
     
-    func timerEvent(forState currentState: Int) -> TimerEvent {
-        let displayString: String
+    func timerEvent(forState currentState: Int) -> Event {
+        let displayString = self.displayString(forState: currentState)
         let reminder: Reminder?
+        switch options.reminderOption {
+        case .no:
+            reminder = nil
+        case .regularInterval(let r):
+            reminder = currentState % r.remindTime == 0 ? r : nil
+        case .specificTimes(let rs):
+            reminder = rs.first(where: { $0.remindTime == currentState })
+        }
         let beep = options.beepSounds
         let countDown: Bool
-        let countSeconds = options.countSeconds
+        let countSeconds = options.countSeconds && mode == .countUp
         let language = options.language
         switch mode {
         case .countDown:
-            displayString = self.displayString(forState: currentState)
-            switch options.reminderOption {
-            case .no:
-                reminder = nil
-            case .regularInterval(let r):
-                reminder = currentState % r.remindTime == 0 ? r : nil
-            case .specificTimes(let rs):
-                reminder = rs.first(where: { $0.remindTime == currentState })
-            }
             switch options.countDown {
             case .no:
                 countDown = false
             case .yes(startsAt: let time):
                 countDown = currentState <= time
             }
-            return TimerEvent(displayString: displayString, state: currentState, reminder: reminder, beep: beep, countDown: countDown, countSeconds: countSeconds, language: language, ended: currentState <= 0)
+        case .countUp:
+            countDown = false
         default:
+            fatalError()
+        }
+        return Event(displayString: displayString,
+                          state: currentState,
+                          reminder: reminder,
+                          beep: beep,
+                          countDown: countDown,
+                          countSeconds: countSeconds,
+                          language: language,
+                          ended: currentState <= 0 && mode == .countDown)
+    }
+    
+    func events(initial: Int, pause: Observable<Void>, reset: Observable<Void>, scheduler: SchedulerType) -> Observable<Event> {
+        switch mode {
+        case .countDown:
+            return countDownEvents(initial: initial, pause: pause, reset: reset, scheduler: scheduler)
+        case .countUp:
+            return countUpEvents(pause: pause, reset: reset, scheduler: scheduler)
+        case .clock:
             fatalError()
         }
     }
     
-    func timerEvents(initial: Int, pause: Observable<Void>, reset: Observable<Void>, scheduler: SchedulerType) -> Observable<TimerEvent> {
-        enum Action { case pause, reset, tick }
+    private func countDownEvents(initial: Int, pause: Observable<Void>, reset: Observable<Void>, scheduler: SchedulerType) -> Observable<Event> {
         let intent = Observable.merge(
             pause.map { Action.pause },
             reset.map { Action.reset }
@@ -131,17 +146,5 @@ class Timer {
                 self?.timerEvent(forState: x) ?? .default
             }
     }
-}
-
-struct TimerEvent {
-    let displayString: String
-    let state: Int
-    let reminder: Reminder?
-    let beep: Bool
-    let countDown: Bool
-    let countSeconds: Bool
-    let language: String
-    let ended: Bool
     
-    static let `default` = TimerEvent(displayString: "", state: 0, reminder: nil, beep: false, countDown: false, countSeconds: false, language: "", ended: false)
 }
