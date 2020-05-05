@@ -102,7 +102,7 @@ class Timer {
         case .countUp:
             return countUpEvents(pause: pause, reset: reset, scheduler: scheduler)
         case .clock:
-            fatalError()
+            return clockEvents(scheduler: scheduler)
         }
     }
     
@@ -188,4 +188,14 @@ class Timer {
             }
     }
     
+    private func clockEvents(scheduler: SchedulerType) -> Observable<Event> {
+        let currentSecond = Calendar.current.component(.second, from: Date())
+        let secondsUntilNextMinute = 60 - currentSecond
+        let firstEmitter = Observable<Int>.timer(.seconds(secondsUntilNextMinute), scheduler: scheduler)
+        let restEmitter = Observable<Int>.interval(.seconds(60), scheduler: scheduler)
+        return firstEmitter.concat(restEmitter).map {
+            [weak self] _ in
+            return self?.timerEvent(forState: -1) ?? .default
+        }
+    }
 }
