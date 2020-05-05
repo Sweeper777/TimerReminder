@@ -27,10 +27,10 @@ class TimerViewController: UIViewController {
         playButton.backgroundColor = UIColor(hex: "5abb5a")
         hud.addSubview(playButton)
         playButton.snp.makeConstraints { (make) in
-            make.width.equalTo(44)
-            make.height.equalTo(44)
-            make.right.equalToSuperview().offset(-8)
-            make.top.equalToSuperview().offset(8)
+            make.width.equalTo(44).labeled("play button width = 44")
+            make.height.equalTo(44).labeled("play button height = 44")
+            make.right.equalToSuperview().offset(-8).labeled("play button on the rightmost of the screen")
+            make.top.equalToSuperview().offset(8).labeled("play button on the topmost of the screen")
         }
         
         resetButton = MDCFloatingButton(shape: .mini)
@@ -39,10 +39,10 @@ class TimerViewController: UIViewController {
         resetButton.backgroundColor = UIColor(hex: "5abb5a")
         hud.addSubview(resetButton)
         resetButton.snp.makeConstraints { (make) in
-            make.width.equalTo(44)
-            make.height.equalTo(44)
-            make.right.equalTo(playButton.snp.left).offset(-8)
-            make.top.equalToSuperview().offset(8)
+            make.width.equalTo(44).labeled("reset button width = 44")
+            make.height.equalTo(44).labeled("reset button height = 44")
+            make.right.equalTo(playButton.snp.left).offset(-8).labeled("reset button on the left of play button")
+            make.top.equalToSuperview().offset(8).labeled("reset button on the topmost of the screen")
         }
     }
     
