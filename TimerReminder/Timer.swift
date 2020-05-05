@@ -143,6 +143,47 @@ class Timer {
             .filter { 0 <= $0 && $0 <= initial }
             .map {
                 [weak self] x in
+                self?.timerEvent(forState: x, initial: initial) ?? .default
+            }
+    }
+    
+    private func countUpEvents(pause: Observable<Void>, reset: Observable<Void>, scheduler: SchedulerType) -> Observable<Event> {
+        let intent = Observable.merge(
+            pause.map { Action.pause },
+            reset.map { Action.reset }
+        )
+
+        let isPaused = intent
+            .scan(true) { isPaused, action in
+                switch action {
+                case .pause:
+                    return !isPaused
+                case .reset:
+                    return true
+                case .tick:
+                    fatalError()
+                }
+            }
+            .startWith(true)
+
+        let tick = isPaused
+            .flatMapLatest { $0 ? .empty() : Observable<Int>.interval(.seconds(1), scheduler: scheduler) }
+
+        return Observable.merge(tick.map { _ in Action.tick }, reset.map { Action.reset })
+            .scan(0) { (current, action) -> Int in
+                switch action {
+                case .pause:
+                    fatalError()
+                case .reset:
+                    return 0
+                case .tick:
+                    return current + 1
+                }
+
+            }
+            .filter { 0 <= $0 }
+            .map {
+                [weak self] x in
                 self?.timerEvent(forState: x) ?? .default
             }
     }
