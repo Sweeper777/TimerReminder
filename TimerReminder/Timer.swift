@@ -52,13 +52,19 @@ class Timer {
     func displayString(forState currentState: Int) -> String {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en")
-        formatter.timeZone = TimeZone(identifier: "UTC")
-        if currentState < 60 * 60 {
-            formatter.dateFormat = "mm:ss"
+        if mode == .clock {
+            formatter.timeZone = TimeZone.autoupdatingCurrent
+            formatter.dateFormat = "HH:mm"
+            return formatter.string(from: Date())
         } else {
-            formatter.dateFormat = "HH:mm:ss"
+            formatter.timeZone = TimeZone(identifier: "UTC")
+            if currentState < 60 * 60 {
+                formatter.dateFormat = "mm:ss"
+            } else {
+                formatter.dateFormat = "HH:mm:ss"
+            }
+            return formatter.string(from: Date(timeIntervalSince1970: Double(currentState)))
         }
-        return formatter.string(from: Date(timeIntervalSince1970: Double(currentState)))
     }
     
     func timerEvent(forState currentState: Int) -> Event {
