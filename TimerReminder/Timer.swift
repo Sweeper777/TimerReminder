@@ -45,6 +45,10 @@ class Timer {
         Timer(options: options, mode: .countUp)
     }
     
+    static func newClockInstance(options: TimerOptions = .default) -> Timer {
+        Timer(options: options, mode: .clock)
+    }
+    
     func displayString(forState currentState: Int) -> String {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en")
