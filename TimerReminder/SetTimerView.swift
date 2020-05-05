@@ -40,7 +40,7 @@ class SetTimerView: UIView {
         okButton.addTarget(self, action: #selector(okButtonDidPress), for: .touchUpInside)
         
         hourLabel = UILabel()
-        hourLabel.text = "hours"
+        hourLabel.text = "Hours".localised
         hourLabel.textAlignment = .center
         self.addSubview(hourLabel)
         hourLabel.snp.makeConstraints { (make) in
@@ -52,7 +52,7 @@ class SetTimerView: UIView {
         hourLabel.translatesAutoresizingMaskIntoConstraints = true
         
         minuteLabel = UILabel()
-        minuteLabel.text = "minutes"
+        minuteLabel.text = "Minutes".localised
         minuteLabel.textAlignment = .center
         self.addSubview(minuteLabel)
         minuteLabel.snp.makeConstraints { (make) in
@@ -63,7 +63,7 @@ class SetTimerView: UIView {
         }
         
         secondLabel = UILabel()
-        secondLabel.text = "seconds"
+        secondLabel.text = "Seconds".localised
         secondLabel.textAlignment = .center
         self.addSubview(secondLabel)
         secondLabel.snp.makeConstraints { (make) in
