@@ -18,7 +18,7 @@ class TimerViewController: UIViewController {
     var disposeBag = DisposeBag()
     
     var hudHidden = false
-    var playButtonIsPlay = true
+    var playButtonIsPlay = BehaviorRelay(value: true)
     
     var timerDisposable: Disposable?
     
@@ -64,18 +64,18 @@ class TimerViewController: UIViewController {
         setUpView()
         subscribeToTimer(withInitial: 20)
         
+        playButtonIsPlay.distinctUntilChanged().map {
+            $0 ? UIImage(systemName: "play.fill") : UIImage(systemName: "pause.fill")
+            }.bind(to: playButton.rx.image()).disposed(by: disposeBag)
         
         playButton.rx.tap.subscribe(onNext: {
-            if self.playButtonIsPlay {
-                self.playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-                self.playButtonIsPlay = false
-            } else {
-                self.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-                self.playButtonIsPlay = true
-            }
+            self.playButtonIsPlay.accept(!self.playButtonIsPlay.value)
             }).disposed(by: disposeBag)
         resetButton.rx.tap.subscribe(onNext: {
-            self.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            [weak self] in
+            self?.playButtonIsPlay.accept(true)
+            }).disposed(by: disposeBag)
+        
             }).disposed(by: disposeBag)
         
         setTimerView.delegate = self
@@ -138,5 +138,6 @@ extension TimerViewController : SetTimerViewDelegate {
     func didSetTimer(setTimerView: SetTimerView, setTime: Int) {
         timerDisposable?.dispose()
         subscribeToTimer(withInitial: setTime)
+        self.playButtonIsPlay.accept(true)
     }
 }
