@@ -1,6 +1,7 @@
 import UIKit
 import LTMorphingLabel
 import RxSwift
+import RxCocoa
 import MaterialComponents
 import SwiftyUtils
 
@@ -9,6 +10,7 @@ class TimerViewController: UIViewController {
     @IBOutlet var timerLabel: LTMorphingLabel!
     var playButton: MDCFloatingButton!
     var resetButton: MDCFloatingButton!
+    var modeSelector: UISegmentedControl!
     @IBOutlet var hud: UIView!
     @IBOutlet var setTimerView: SetTimerView!
     
@@ -43,6 +45,18 @@ class TimerViewController: UIViewController {
             make.height.equalTo(44).labeled("reset button height = 44")
             make.right.equalTo(playButton.snp.left).offset(-8).labeled("reset button on the left of play button")
             make.top.equalToSuperview().offset(8).labeled("reset button on the topmost of the screen")
+        }
+        
+        modeSelector = UISegmentedControl(items: [
+            UIImage(systemName: "timer")!,
+            UIImage(systemName: "stopwatch")!,
+            UIImage(systemName: "clock")!
+        ])
+        modeSelector.selectedSegmentIndex = 0
+        hud.addSubview(modeSelector)
+        modeSelector.snp.makeConstraints { (make) in
+            make.right.equalTo(resetButton.snp.left).offset(-8).labeled("mode selector on the left of reset button")
+            make.centerY.equalTo(resetButton.snp.centerY).labeled("mode selector on the same line of reset button")
         }
     }
     
