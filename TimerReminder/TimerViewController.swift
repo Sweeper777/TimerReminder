@@ -137,6 +137,23 @@ class TimerViewController: UIViewController {
     }
     
     func modeSelectorDidChange(newMode: Int) {
+        timerDisposable?.dispose()
+        switch newMode {
+        case 0:
+            timer = Timer.newCountDownInstance()
+            setTimerView.isHidden = false
+            subscribeToTimer(withInitial: 20)
+        case 1:
+            timer = Timer.newCountUpInstance()
+            setTimerView.isHidden = true
+            subscribeToTimer(withInitial: 0)
+        case 2:
+            timer = Timer.newClockInstance()
+            setTimerView.isHidden = true
+            subscribeToTimer(withInitial: -1)
+        default:
+            fatalError()
+        }
     }
 }
 
