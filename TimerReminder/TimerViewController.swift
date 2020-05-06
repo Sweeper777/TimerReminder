@@ -62,18 +62,8 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         setUpView()
-        updateTimerLabel(text: timer.displayString(forState: 20))
-        timerDisposable = timer.timerEvents(initial: 20,
-                pause: playButton.rx.tap.asObservable(),
-                reset: resetButton.rx.tap.asObservable(),
-                scheduler: MainScheduler.instance)
-        .subscribe(onNext: { [weak self]
-            timerEvent in
-            self?.handleTimerEvent(timerEvent: timerEvent)
-            if timerEvent.ended {
-                print("Ended!")
-            }
-        })
+        subscribeToTimer(withInitial: 20)
+        
         
         playButton.rx.tap.subscribe(onNext: {
             if self.playButtonIsPlay {
@@ -125,22 +115,28 @@ class TimerViewController: UIViewController {
     func handleTimerEvent(timerEvent: Timer.Event) {
         updateTimerLabel(text: timerEvent.displayString)
     }
+    
+    func subscribeToTimer(withInitial initial: Int) {
+        updateTimerLabel(text: timer.displayString(forState: initial))
+        timerDisposable = timer.events(initial: initial,
+                pause: playButton.rx.tap.asObservable(),
+                reset: resetButton.rx.tap.asObservable(),
+                scheduler: MainScheduler.instance)
+        .subscribe(onNext: { [weak self]
+            timerEvent in
+            self?.handleTimerEvent(timerEvent: timerEvent)
+            print("TimerEvent: \(timerEvent.state)")
+            if timerEvent.ended {
+                print("Ended!")
+            }
+        })
+    }
+    
 }
 
 extension TimerViewController : SetTimerViewDelegate {
     func didSetTimer(setTimerView: SetTimerView, setTime: Int) {
         timerDisposable?.dispose()
-        updateTimerLabel(text: timer.displayString(forState: setTime))
-        timerDisposable = timer.timerEvents(initial: setTime,
-                    pause: playButton.rx.tap.asObservable(),
-                    reset: resetButton.rx.tap.asObservable(),
-                    scheduler: MainScheduler.instance)
-            .subscribe(onNext: { [weak self]
-                timerEvent in
-                self?.handleTimerEvent(timerEvent: timerEvent)
-                if timerEvent.ended {
-                    print("Ended!")
-                }
-            })
+        subscribeToTimer(withInitial: setTime)
     }
 }
