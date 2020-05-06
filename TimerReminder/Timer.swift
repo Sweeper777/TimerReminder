@@ -67,33 +67,40 @@ class Timer {
         }
     }
     
-    func timerEvent(forState currentState: Int) -> Event {
+    func timerEvent(forState currentState: Int, initial: Int = 1) -> Event {
         let displayString = self.displayString(forState: currentState)
         let reminder: Reminder?
-        switch options.reminderOption {
-        case .no:
-            reminder = nil
-        case .regularInterval(let r):
-            reminder = currentState % r.remindTime == 0 ? r : nil
-        case .specificTimes(let rs):
-            reminder = rs.first(where: { $0.remindTime == currentState })
-        }
-        let beep = options.beepSounds
+        let beep: Bool
         let countDown: Bool
-        let countSeconds = options.countSeconds && mode == .countUp
+        let countSeconds: Bool
         let language = options.language
-        switch mode {
-        case .countDown:
-            switch options.countDown {
+        if (1..<initial).contains(currentState) {
+            switch options.reminderOption {
             case .no:
-                countDown = false
-            case .yes(startsAt: let time):
-                countDown = currentState <= time
+                reminder = nil
+            case .regularInterval(let r):
+                reminder = (currentState % r.remindTime == 0) ? r : nil
+            case .specificTimes(let rs):
+                reminder = rs.first(where: { $0.remindTime == currentState })
             }
-        case .countUp:
+            beep = options.beepSounds && mode != .clock
+            countSeconds = options.countSeconds && mode == .countUp
+            switch mode {
+            case .countDown:
+                switch options.countDown {
+                case .no:
+                    countDown = false
+                case .yes(startsAt: let time):
+                    countDown = currentState <= time
+                }
+            default:
+                countDown = false
+            }
+        } else {
+            reminder = nil
+            beep = false
             countDown = false
-        default:
-            fatalError()
+            countSeconds = false
         }
         return Event(displayString: displayString,
                           state: currentState,
