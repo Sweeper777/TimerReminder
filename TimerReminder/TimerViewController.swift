@@ -76,6 +76,10 @@ class TimerViewController: UIViewController {
             self?.playButtonIsPlay.accept(true)
             }).disposed(by: disposeBag)
         
+        modeSelector.rx.selectedSegmentIndex.subscribe(onNext: {
+            [weak self] in
+            self?.modeSelectorDidChange(newMode: $0)
+            self?.playButtonIsPlay.accept(true)
             }).disposed(by: disposeBag)
         
         setTimerView.delegate = self
@@ -132,6 +136,8 @@ class TimerViewController: UIViewController {
         })
     }
     
+    func modeSelectorDidChange(newMode: Int) {
+    }
 }
 
 extension TimerViewController : SetTimerViewDelegate {
