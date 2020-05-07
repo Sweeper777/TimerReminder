@@ -24,6 +24,12 @@ struct Reminder {
     let message: String?
 }
 
+extension Reminder {
+    init(reminderObject: ReminderObject) {
+        self.init(remindTime: reminderObject.remindTime, message: reminderObject.message)
+    }
+}
+
 enum FontStyle: Int, CustomStringConvertible {
     case thin = 0
     case regular = 1
@@ -63,4 +69,37 @@ struct TimerOptions {
     let reminderOption: ReminderOption = .no
     let font: FontStyle = .regular
     let textAnimation: LTMorphingEffect = .scale
+}
+
+extension TimerOptions {
+    init(timerOptionsObject: TimerOptionsObject) {
+        let timeUpOption: TimeUpOption
+        let reminderOption: ReminderOption
+        if timerOptionsObject.timeUpMessage == nil && timerOptionsObject.timeUpSound == nil {
+            timeUpOption = .speakDefaultMessage
+        } else if timerOptionsObject.timeUpMessage != nil {
+            timeUpOption = .speak(timerOptionsObject.timeUpMessage!)
+        } else {
+            timeUpOption = .playSound(timerOptionsObject.timeUpSound!)
+        }
+        if timerOptionsObject.regularReminders {
+            reminderOption = .regularInterval(Reminder(reminderObject: timerOptionsObject.reminders.first!))
+        } else if timerOptionsObject.reminders.isEmpty {
+            reminderOption = .no
+        } else {
+            reminderOption = .specificTimes(timerOptionsObject.reminders.map(Reminder.init))
+        }
+        self.init(
+            name: timerOptionsObject.name,
+            language: timerOptionsObject.language,
+            countDown: timerOptionsObject.countDownTime.value.map(CountDownOption.yes(startsAt:)) ?? CountDownOption.no,
+            countSeconds: timerOptionsObject.countSeconds,
+            beepSounds: timerOptionsObject.beepSounds,
+            vibrate: timerOptionsObject.vibrate,
+            timeUpOption: timeUpOption,
+            reminderOption: reminderOption,
+            font: FontStyle(rawValue: timerOptionsObject.font)!,
+            textAnimation: LTMorphingEffect(rawValue: timerOptionsObject.textAnimation)!
+        )
+    }
 }
