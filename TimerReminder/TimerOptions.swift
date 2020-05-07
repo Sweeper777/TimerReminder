@@ -59,16 +59,34 @@ enum FontStyle: Int, CustomStringConvertible {
 struct TimerOptions {
     static let `default` = TimerOptions()
     
-    let name: String = "Default"
-    let language: String = "en"
-    let countDown: CountDownOption = .yes(startsAt: 10)
-    let countSeconds: Bool = false
-    let beepSounds: Bool = false
-    let vibrate: Bool = false
-    let timeUpOption: TimeUpOption = .speakDefaultMessage
-    let reminderOption: ReminderOption = .no
-    let font: FontStyle = .regular
-    let textAnimation: LTMorphingEffect = .scale
+    let name: String
+    let language: String
+    let countDown: CountDownOption
+    let countSeconds: Bool
+    let beepSounds: Bool
+    let vibrate: Bool
+    let timeUpOption: TimeUpOption
+    let reminderOption: ReminderOption
+    let font: FontStyle
+    let textAnimation: LTMorphingEffect
+    
+    init(name: String = "Default", language: String = "en",
+         countDown: CountDownOption = .yes(startsAt: 10), countSeconds: Bool = false,
+         beepSounds: Bool = false, vibrate: Bool = false,
+         timeUpOption: TimeUpOption = .speakDefaultMessage,
+         reminderOption: ReminderOption = .no,
+         font: FontStyle = .regular, textAnimation: LTMorphingEffect = .scale) {
+        self.name = name
+        self.language = language
+        self.countDown = countDown
+        self.countSeconds = countSeconds
+        self.beepSounds = beepSounds
+        self.vibrate = vibrate
+        self.timeUpOption = timeUpOption
+        self.reminderOption = reminderOption
+        self.font = font
+        self.textAnimation = textAnimation
+    }
 }
 
 extension TimerOptions {
