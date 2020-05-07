@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2467A8747BF6557031FAEF87 /* Pods_TimerReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CA6FEE5CF6A6DF96E63943 /* Pods_TimerReminder.framework */; };
+		5A013757245EC659001A1DEE /* TimerOptionsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A013756245EC659001A1DEE /* TimerOptionsObject.swift */; };
 		5A015F0C1D4DA8530032BB59 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A015F0B1D4DA8530032BB59 /* beep.mp3 */; };
 		5A0167621D6143110035021F /* Radar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A0167611D6143110035021F /* Radar.mp3 */; };
 		5A020B6C1D62980300CB6DD5 /* Waves.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A020B631D62980300CB6DD5 /* Waves.mp3 */; };
@@ -24,7 +25,7 @@
 		5A0334EB244C53AA00A6F71F /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0334EA244C53AA00A6F71F /* Timer.swift */; };
 		5A0334ED244C54FB00A6F71F /* TimerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0334EC244C54FB00A6F71F /* TimerOptions.swift */; };
 		5A0334EF244C6B6900A6F71F /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0334EE244C6B6900A6F71F /* TimerViewController.swift */; };
-		5A0334F1244C6D5F00A6F71F /* FontSizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0334F0244C6D5F00A6F71F /* FontSizeHelper.swift */; };
+		5A0334F1244C6D5F00A6F71F /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0334F0244C6D5F00A6F71F /* Helper.swift */; };
 		5A034989244DA86E00AEB002 /* SetTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A034988244DA86E00AEB002 /* SetTimerView.swift */; };
 		5A03B9FF1D6D8494009F08B9 /* SF-UI-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */; };
 		5A03BA001D6D8494009F08B9 /* SF-UI-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A03B9F31D6D7AC0009F08B9 /* SF-UI-Display-Thin.otf */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		3BF493DE68A022FAB9B68EB3 /* Pods-TimerReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimerReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimerReminder/Pods-TimerReminder.release.xcconfig"; sourceTree = "<group>"; };
+		5A013756245EC659001A1DEE /* TimerOptionsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerOptionsObject.swift; sourceTree = "<group>"; };
 		5A015F0B1D4DA8530032BB59 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
 		5A0167611D6143110035021F /* Radar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Radar.mp3; sourceTree = "<group>"; };
 		5A020B631D62980300CB6DD5 /* Waves.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Waves.mp3; sourceTree = "<group>"; };
@@ -62,7 +64,7 @@
 		5A0334EA244C53AA00A6F71F /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		5A0334EC244C54FB00A6F71F /* TimerOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerOptions.swift; sourceTree = "<group>"; };
 		5A0334EE244C6B6900A6F71F /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
-		5A0334F0244C6D5F00A6F71F /* FontSizeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeHelper.swift; sourceTree = "<group>"; };
+		5A0334F0244C6D5F00A6F71F /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		5A034988244DA86E00AEB002 /* SetTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerView.swift; sourceTree = "<group>"; };
 		5A03B9F31D6D7AC0009F08B9 /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Thin.otf"; path = "../SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
 		5A067CB51D4490A500238AF5 /* TimerReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,9 +155,10 @@
 				5A020B6A1D62980300CB6DD5 /* Beacon.mp3 */,
 				5A020B6B1D62980300CB6DD5 /* Hillside.mp3 */,
 				5A067CB81D4490A500238AF5 /* AppDelegate.swift */,
-				5A0334F0244C6D5F00A6F71F /* FontSizeHelper.swift */,
+				5A0334F0244C6D5F00A6F71F /* Helper.swift */,
 				5A0334EA244C53AA00A6F71F /* Timer.swift */,
 				5A0334EC244C54FB00A6F71F /* TimerOptions.swift */,
+				5A013756245EC659001A1DEE /* TimerOptionsObject.swift */,
 				5A034988244DA86E00AEB002 /* SetTimerView.swift */,
 				5A0334EE244C6B6900A6F71F /* TimerViewController.swift */,
 				5A067CBC1D4490A500238AF5 /* Main.storyboard */,
@@ -343,7 +346,8 @@
 				5A067CB91D4490A500238AF5 /* AppDelegate.swift in Sources */,
 				5A0334ED244C54FB00A6F71F /* TimerOptions.swift in Sources */,
 				5A067CC11D4490A500238AF5 /* TimerReminder.xcdatamodeld in Sources */,
-				5A0334F1244C6D5F00A6F71F /* FontSizeHelper.swift in Sources */,
+				5A0334F1244C6D5F00A6F71F /* Helper.swift in Sources */,
+				5A013757245EC659001A1DEE /* TimerOptionsObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
