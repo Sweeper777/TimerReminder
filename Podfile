@@ -14,5 +14,7 @@ target 'TimerReminder' do
   pod 'Eureka'
   pod 'MaterialComponents/Buttons'
   pod 'SnapKit'
+  pod 'SlideMenuControllerSwift', :git => 'https://github.com/AtomicSLLC/SlideMenuControllerSwift.git', :branch => 'swift5'
+  pod 'TabPageViewController'
 end
 

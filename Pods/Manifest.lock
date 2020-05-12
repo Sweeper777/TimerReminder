@@ -54,8 +54,10 @@ PODS:
     - RxSwift (~> 5)
   - RxSwift (5.0.1)
   - SCLAlertView (0.8.1)
+  - SlideMenuControllerSwift (5.0.0)
   - SnapKit (5.0.1)
   - SwiftyUtils (5.0.0)
+  - TabPageViewController (0.2.7)
 
 DEPENDENCIES:
   - Eureka
@@ -66,8 +68,10 @@ DEPENDENCIES:
   - RxCocoa
   - RxSwift
   - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift.git`)
+  - SlideMenuControllerSwift (from `https://github.com/AtomicSLLC/SlideMenuControllerSwift.git`, branch `swift5`)
   - SnapKit
   - SwiftyUtils
+  - TabPageViewController
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -83,15 +87,22 @@ SPEC REPOS:
     - RxSwift
     - SnapKit
     - SwiftyUtils
+    - TabPageViewController
 
 EXTERNAL SOURCES:
   SCLAlertView:
     :git: https://github.com/vikmeup/SCLAlertView-Swift.git
+  SlideMenuControllerSwift:
+    :branch: swift5
+    :git: https://github.com/AtomicSLLC/SlideMenuControllerSwift.git
 
 CHECKOUT OPTIONS:
   SCLAlertView:
     :commit: d98c3e647ad77ed537d021e7d6ad07bb71f83186
     :git: https://github.com/vikmeup/SCLAlertView-Swift.git
+  SlideMenuControllerSwift:
+    :commit: 21240fd221adc2e50adb366d45bc19185bb62e3c
+    :git: https://github.com/AtomicSLLC/SlideMenuControllerSwift.git
 
 SPEC CHECKSUMS:
   Eureka: 820a761c700f6eaab3b60758f138e0d9b99072b3
@@ -105,9 +116,11 @@ SPEC CHECKSUMS:
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   SCLAlertView: 776813fb1f62248965f37cb7edf4088ee6394460
+  SlideMenuControllerSwift: d740ea24105a658fe6a8c256f2bf5832fee7c047
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyUtils: 0536386622b456460c329f44e38759f16864fe24
+  TabPageViewController: c37a1257a50c2b50712dde61bf499768eee95b67
 
-PODFILE CHECKSUM: d55c366d435e3bc5037d12794c0c0353de19b4f4
+PODFILE CHECKSUM: 568ac4b0c2ef0866d272926a26a8d7c69b890f68
 
 COCOAPODS: 1.7.5
