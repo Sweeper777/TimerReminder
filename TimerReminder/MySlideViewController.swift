@@ -14,4 +14,13 @@ class MySlideViewController: SlideMenuController {
         super.awakeFromNib()
     }
 
+    override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if gestureRecognizer == leftPanGesture || gestureRecognizer == leftTapGesture {
+            return super.gestureRecognizer(isLeftOpen() ? leftTapGesture! : gestureRecognizer, shouldReceive: touch)
+        } else if gestureRecognizer == rightPanGesture || gestureRecognizer == rightTapGesture {
+            return super.gestureRecognizer(isRightOpen() ? rightTapGesture! : gestureRecognizer, shouldReceive: touch)
+        } else {
+            return true 
+        }
+    }
 }
