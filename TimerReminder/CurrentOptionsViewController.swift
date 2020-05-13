@@ -7,5 +7,14 @@ class CurrentOptionsViewController: FormViewController {
     var showNameField = false
     var player: AVAudioPlayer?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let topInset = tableViewTopInset {
+            tableView.contentInset.top = topInset
+        }
+        
+        
+    }
 }
 
