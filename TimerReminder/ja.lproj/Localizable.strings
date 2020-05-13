@@ -7,14 +7,14 @@
 
 "Add Settings" = "設定を追加";
 "Edit Settings" = "設定を編集";
-"This is the language in which the reminder messages and the \"Time is up\" message will be spoken." = "この言語では、リマインダーのメッセージと「時間切れです」と言います";
+"This is the language in which the reminder messages and the \"Time is up\" message will be spoken." = "この言語でリマインダーのメッセージと「時間切れです」のメッセージが再生されます";
 "Name:" = "名：";
 "Language" = "言語";
-"Only applicable in Timer Mode" = "タイマモードのみに適用できます";
+"Only applicable in Timer Mode" = "タイマモードのみに適用します";
 "Countdown" = "カウントダウン";
 "Start Countdown At" = "カウントダウンの開始時間";
 "Beep Sounds" = "ビープ音";
-"time is up" = "時がアップしている時";
+"time is up" = "時間切れの際";
 "Message:" = "メッセージ：";
 "Leave blank for default" = "デフォルト";
 "Sound" = "サウンド";
@@ -22,7 +22,7 @@
 "No. of Reminders" = "リマインダー数";
 "Remind Every" = "リマインダー間隔";
 "Reminder" = "リマインダー";
-"Remind At" = "いつで思い出させますか？";
+"Remind At" = "リマインダー時点";
 "Save and apply" = "保存して、適用する";
 "Apply but don't save" = "保存しなくて、適用する";
 "Save but don't apply" = "保存して、適用しない";
@@ -37,13 +37,13 @@
 "Seconds" = "秒";
 "Second" = "秒";
 
-"Mandarin" = "マンダリン";
+"Mandarin" = "北京語";
 "Cantonese" = "広東語";
 "English" = "英語";
 "Japanese" = "日本語";
 
 "Play a Sound" = "サウンドを再生";
-"Verbalize a Message" = "音声プロンプト";
+"Verbalize a Message" = "メッセージを再生";
 "Regular" = "特定の間隔で";
 "At Specific Times" = "特定の時間で";
 
@@ -61,7 +61,7 @@
 "Night Mode" = "ナイトモード";
 "Switch to Clock Mode" = "クロックモード";
 
-"Only applicable in Stopwatch Mode" = "ストップウォッチモードのみに適用できます";
+"Only applicable in Stopwatch Mode" = "ストップウォッチモードのみに適用します";
 "Counting" = "秒数を数える";
 
 "Changed to Stopwatch Mode" = "ストップウォッチモードに変更しました";
