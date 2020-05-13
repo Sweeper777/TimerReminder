@@ -1,15 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QV0-zM-Lvf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oUH-JA-sub">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Current Options View Controller-->
+        <scene sceneID="VEg-Y5-VaR">
+            <objects>
+                <viewController storyboardIdentifier="options" id="XMk-fp-d3d" customClass="CurrentOptionsViewController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cvv-1n-zjw"/>
+                        <viewControllerLayoutGuide type="bottom" id="f2z-B3-LXF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X2n-Ac-nWm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fds-7s-Hbg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1099" y="388"/>
+        </scene>
+        <!--Timer Options List View Controller-->
+        <scene sceneID="vM9-FR-FYq">
+            <objects>
+                <tableViewController storyboardIdentifier="myOptions" id="cbV-Us-4Ut" customClass="TimerOptionsListViewController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="X6f-xj-i4d">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="QaW-cM-esA">
+                                <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QaW-cM-esA" id="sJS-Hl-DFe">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cbV-Us-4Ut" id="Yn4-rP-stG"/>
+                            <outlet property="delegate" destination="cbV-Us-4Ut" id="IRp-xZ-8Z5"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GZd-6u-XLB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1811" y="388"/>
+        </scene>
+        <!--My Slide View Controller-->
+        <scene sceneID="PnF-1I-ExL">
+            <objects>
+                <viewController id="oUH-JA-sub" customClass="MySlideViewController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CdS-Un-I30"/>
+                        <viewControllerLayoutGuide type="bottom" id="NDr-aF-1V8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="viO-bS-ftT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="auK-26-pMu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-478" y="388"/>
+        </scene>
         <!--Timer View Controller-->
         <scene sceneID="FTE-e5-yxw">
             <objects>
-                <viewController id="QV0-zM-Lvf" customClass="TimerViewController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" id="QV0-zM-Lvf" customClass="TimerViewController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="key-d9-ihY"/>
                         <viewControllerLayoutGuide type="bottom" id="5tK-8A-Bgo"/>
