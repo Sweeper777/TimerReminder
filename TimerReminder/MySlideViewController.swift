@@ -11,6 +11,12 @@ class MySlideViewController: SlideMenuController {
         tabPageViewController.option.currentColor = UIColor(hex: "5abb5a")
         tabPageViewController.option.tabBackgroundColor = .systemBackground
         tabPageViewController.option.pageBackgoundColor = .systemBackground
+        if let currentOptionsVC = self.storyboard?.instantiateViewController(withIdentifier: "options") as? CurrentOptionsViewController,
+            let timerOptionsListVC = self.storyboard?.instantiateViewController(identifier: "myOptions") as? TimerOptionsListViewController {
+            currentOptionsVC.tableViewTopInset = tabPageViewController.option.tabHeight
+            tabPageViewController.tabItems = [(currentOptionsVC, "Current Options".localised), (timerOptionsListVC, "All Timer Options".localised)]
+            self.rightViewController = tabPageViewController
+        }
         super.awakeFromNib()
     }
 
