@@ -95,6 +95,11 @@ class TimerViewController: UIViewController {
             self?.playButtonIsPlay.accept(true)
             }).disposed(by: disposeBag)
         
+        optionsButton.rx.tap.subscribe(onNext: {
+            [weak self] in
+            self?.slideMenuController()?.openRight()
+            }).disposed(by: disposeBag)
+        
         setTimerView.delegate = self
     }
     
