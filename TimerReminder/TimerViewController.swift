@@ -68,8 +68,8 @@ class TimerViewController: UIViewController {
         modeSelector.selectedSegmentIndex = 0
         hud.addSubview(modeSelector)
         modeSelector.snp.makeConstraints { (make) in
-            make.right.equalTo(resetButton.snp.left).offset(-8).labeled("mode selector on the left of reset button")
-            make.centerY.equalTo(resetButton.snp.centerY).labeled("mode selector on the same line of reset button")
+            make.right.equalTo(optionsButton.snp.left).offset(-8).labeled("mode selector on the left of options button")
+            make.centerY.equalTo(optionsButton.snp.centerY).labeled("mode selector on the same line of options button")
         }
     }
     
