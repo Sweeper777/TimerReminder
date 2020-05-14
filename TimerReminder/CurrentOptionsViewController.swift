@@ -18,3 +18,13 @@ class CurrentOptionsViewController: FormViewController {
     }
 }
 
+let tagName = "name"
+let tagLanguage = "language"
+let tagCountDownEnabled = "countDownEnabled"
+let tagStartCountDown = "startCountDown"
+let tagCounting = "counting"
+let tagBeepSounds = "beepSounds"
+let tagTimesUpAction = "tagTimesUpAction"
+let tagTimesUpMessage = "timesUpMessage"
+let tagTimesUpSound = "timesUpSound"
+let tagVibrate = "vibrate"
