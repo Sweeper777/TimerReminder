@@ -71,7 +71,8 @@
 "Screenshot has been saved." = "截圖已儲存";
 
 "Save" = "保存";
-"Current Options" = "當前的設置";
+"Current Options" = "快速設定";
+"All Timer Options" = "所有計時器設定";
 "Tip" = "提示";
 "Here you can save a frequently used timer option. If you just want to edit the currently applied timer option, please go back to the timer and swipe to the left" = "在這裡可以儲存經常用的計時器設置，如果只想要編輯當前的設置，請返回計時器並向左滑動。";
 
