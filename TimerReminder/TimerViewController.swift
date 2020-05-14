@@ -10,6 +10,7 @@ class TimerViewController: UIViewController {
     @IBOutlet var timerLabel: LTMorphingLabel!
     var playButton: MDCFloatingButton!
     var resetButton: MDCFloatingButton!
+    var optionsButton: MDCFloatingButton!
     var modeSelector: UISegmentedControl!
     @IBOutlet var hud: UIView!
     @IBOutlet var setTimerView: SetTimerView!
@@ -45,6 +46,18 @@ class TimerViewController: UIViewController {
             make.height.equalTo(44).labeled("reset button height = 44")
             make.right.equalTo(playButton.snp.left).offset(-8).labeled("reset button on the left of play button")
             make.top.equalToSuperview().offset(8).labeled("reset button on the topmost of the screen")
+        }
+        
+        optionsButton = MDCFloatingButton(shape: .mini)
+        optionsButton.setImage(UIImage(systemName: "slider.horizontal.3"), for: .normal)
+        optionsButton.imageView?.tintColor = .white
+        optionsButton.backgroundColor = UIColor(hex: "5abb5a")
+        hud.addSubview(optionsButton)
+        optionsButton.snp.makeConstraints { (make) in
+            make.width.equalTo(44).labeled("options button width = 44")
+            make.height.equalTo(44).labeled("options button height = 44")
+            make.right.equalTo(resetButton.snp.left).offset(-8).labeled("options button on the left of reset button")
+            make.top.equalToSuperview().offset(8).labeled("options button on the topmost of the screen")
         }
         
         modeSelector = UISegmentedControl(items: [
