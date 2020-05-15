@@ -16,7 +16,7 @@
 "Beep Sounds" = "Beep Sounds";
 "time is up" = "time is up";
 "Message:" = "Message:";
-"Leave blank for default" = "Leave blank for default";
+"Leave blank for default" = "Default";
 "Sound" = "Sound";
 "Reminders" = "Reminders";
 "No. of Reminders" = "No. of Reminders";
@@ -43,7 +43,7 @@
 "Japanese" = "Japanese";
 
 "Play a Sound" = "Play a Sound";
-"Verbalize a Message" = "Verbalize a Message";
+"Verbalize a Message" = "Play a Message";
 "Regular" = "Regular";
 "At Specific Times" = "At Specific Times";
 
