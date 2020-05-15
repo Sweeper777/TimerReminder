@@ -70,7 +70,7 @@ struct TimerOptions {
     let font: FontStyle
     let textAnimation: LTMorphingEffect
     
-    init(name: String = "Default", language: String = "en",
+    init(name: String = "Default", language: String = "en-us",
          countDown: CountDownOption = .yes(startsAt: 10), countSeconds: Bool = false,
          beepSounds: Bool = false, vibrate: Bool = false,
          timeUpOption: TimeUpOption = .speakDefaultMessage,
