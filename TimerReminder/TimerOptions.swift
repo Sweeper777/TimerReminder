@@ -136,3 +136,22 @@ enum CountDownTime: Int, CustomStringConvertible {
     case _60 = 60
 }
 
+enum Languages: String, CustomStringConvertible {
+    case english = "en-us"
+    case mandarin = "zh-cn"
+    case cantonese = "zh-hk"
+    case japanese = "ja"
+    
+    var description: String {
+        switch self {
+        case .mandarin:
+            return NSLocalizedString("Mandarin", comment: "")
+        case .cantonese:
+            return NSLocalizedString("Cantonese", comment: "")
+        case .japanese:
+            return NSLocalizedString("Japanese", comment: "")
+        case .english:
+            return NSLocalizedString("English", comment: "")
+        }
+    }
+}
