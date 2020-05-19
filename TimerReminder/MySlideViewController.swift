@@ -17,6 +17,7 @@ class MySlideViewController: SlideMenuController {
             tabPageViewController.tabItems = [(currentOptionsVC, "Current Options".localised), (timerOptionsListVC, "All Timer Options".localised)]
             self.rightViewController = tabPageViewController
         }
+        tabPageViewController.definesPresentationContext = true
         if traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular {
             SlideMenuOptions.rightViewWidth *= 2
         }
