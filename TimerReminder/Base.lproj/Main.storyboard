@@ -24,6 +24,39 @@
             </objects>
             <point key="canvasLocation" x="1099" y="388"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="0gv-H2-dBe">
+            <objects>
+                <viewController storyboardIdentifier="timeIntervalPicker" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="hTf-kd-opb" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D3J-ag-cF1"/>
+                        <viewControllerLayoutGuide type="bottom" id="3ZN-KP-aZ4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Ws-6w-uYK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHk-NF-WTw" customClass="SetTimerView" customModule="TimerReminder" customModuleProvider="target">
+                                <rect key="frame" x="40" y="200" width="240" height="168"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="KDK-It-HJT"/>
+                                    <constraint firstAttribute="height" constant="168" id="VgP-Mt-p6k"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VHk-NF-WTw" firstAttribute="centerX" secondItem="1Ws-6w-uYK" secondAttribute="centerX" id="TfM-0L-LeW"/>
+                            <constraint firstItem="VHk-NF-WTw" firstAttribute="centerY" secondItem="1Ws-6w-uYK" secondAttribute="centerY" id="bOY-yu-xxz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="32B-sM-ymo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="azC-E7-klG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1099" y="1106"/>
+        </scene>
         <!--Timer Options List View Controller-->
         <scene sceneID="vM9-FR-FYq">
             <objects>
@@ -93,7 +126,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KQm-lO-Amn" customClass="SetTimerView" customModule="TimerReminder" customModuleProvider="target">
                                         <rect key="frame" x="24" y="331" width="240" height="168"/>
-                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="168" id="HS5-ak-guj"/>
                                             <constraint firstAttribute="width" constant="240" id="sSr-ET-jG2"/>
