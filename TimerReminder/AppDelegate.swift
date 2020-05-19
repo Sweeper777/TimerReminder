@@ -7,7 +7,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        window?.tintColor = UIColor(hex: "5abb5a")
 //        lastUsedBuild = Int(Bundle.main.appBuild) ?? 0
         return true
     }
