@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="1099" y="388"/>
         </scene>
-        <!--View Controller-->
+        <!--Time Interval Picker Controller-->
         <scene sceneID="0gv-H2-dBe">
             <objects>
-                <viewController storyboardIdentifier="timeIntervalPicker" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="hTf-kd-opb" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="timeIntervalPicker" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="hTf-kd-opb" customClass="TimeIntervalPickerController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D3J-ag-cF1"/>
                         <viewControllerLayoutGuide type="bottom" id="3ZN-KP-aZ4"/>
