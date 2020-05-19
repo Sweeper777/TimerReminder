@@ -1,6 +1,13 @@
 import UIKit
+import Eureka
 
-class TimeIntervalPickerController: UIViewController {
+class TimeIntervalPickerController: UIViewController, TypedRowControllerType {
+
+    typealias RowValue = Int
+
+    var onDismissCallback: ((UIViewController) -> Void)?
+    var row: RowOf<Int>!
+    
     @IBOutlet var setTimerView: SetTimerView!
     
     override func viewDidLoad() {
@@ -14,6 +21,7 @@ class TimeIntervalPickerController: UIViewController {
 
 extension TimeIntervalPickerController : SetTimerViewDelegate {
     func didSetTimer(setTimerView: SetTimerView, setTime: Int) {
+        row.value = setTime
         dismiss(animated: true, completion: nil)
     }
 }
