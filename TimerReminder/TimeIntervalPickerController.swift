@@ -11,3 +11,9 @@ class TimeIntervalPickerController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 }
+
+extension TimeIntervalPickerController : SetTimerViewDelegate {
+    func didSetTimer(setTimerView: SetTimerView, setTime: Int) {
+        dismiss(animated: true, completion: nil)
+    }
+}
