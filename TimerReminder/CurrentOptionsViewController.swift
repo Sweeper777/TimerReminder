@@ -15,13 +15,10 @@ class CurrentOptionsViewController: FormViewController {
             tableView.contentInset.top = topInset
         }
         
-        form +++ ButtonRow() {
+        form +++ TimeIntervalRow() {
             row in
             row.title = "Hello"
-        }.onCellSelection({ (cell, row) in
-            let vc = UIStoryboard.main!.instantiateViewController(identifier: "timeIntervalPicker")
-            self.present(vc, animated: true, completion: nil)
-        })
+        }
         
         let section1 = Section(footer: "This is the language in which the reminder messages and the \"Time is up\" message will be spoken.".localised)
         
