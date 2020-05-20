@@ -7,6 +7,7 @@ class TimeIntervalPickerController: SelectorViewController<SelectorRow<AlertSele
     
     override func viewDidLoad() {
         setTimerView.delegate = self
+        setTimerView.selectedTime = row.value ?? 0
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -25,6 +26,7 @@ class TimeIntervalPickerController: SelectorViewController<SelectorRow<AlertSele
 extension TimeIntervalPickerController : SetTimerViewDelegate {
     func didSetTimer(setTimerView: SetTimerView, setTime: Int) {
         row.value = setTime
+        row.updateCell()
         dismiss(animated: true, completion: nil)
     }
 }
