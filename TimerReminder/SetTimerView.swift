@@ -11,10 +11,20 @@ class SetTimerView: UIView {
     weak var delegate: SetTimerViewDelegate?
     
     var selectedTime: Int {
-        let hours = picker.selectedRow(inComponent: 0) * 60 * 60
-        let minutes = picker.selectedRow(inComponent: 1) * 60
-        let seconds = picker.selectedRow(inComponent: 2)
-        return hours + minutes + seconds
+        get {
+            let hours = picker.selectedRow(inComponent: 0) * 60 * 60
+            let minutes = picker.selectedRow(inComponent: 1) * 60
+            let seconds = picker.selectedRow(inComponent: 2)
+            return hours + minutes + seconds
+        }
+        set {
+            let hours = newValue / (60 * 60)
+            let minutes = newValue % (60 * 60) / 60
+            let seconds = newValue % 60
+            picker.selectRow(min(hours, 23), inComponent: 0, animated: false)
+            picker.selectRow(minutes, inComponent: 1, animated: false)
+            picker.selectRow(seconds, inComponent: 2, animated: false)
+        }
     }
     
     override init(frame: CGRect) {
