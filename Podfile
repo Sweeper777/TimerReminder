@@ -12,6 +12,7 @@ target 'TimerReminder' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Eureka'
+  pod 'SplitRow'
   pod 'MaterialComponents/Buttons'
   pod 'SnapKit'
   pod 'SlideMenuControllerSwift', :git => 'https://github.com/AtomicSLLC/SlideMenuControllerSwift.git', :branch => 'swift5'

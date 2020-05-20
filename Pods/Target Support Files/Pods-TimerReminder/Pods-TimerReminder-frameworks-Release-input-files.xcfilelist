@@ -12,5 +12,6 @@ ${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
 ${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework
 ${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
+${BUILT_PRODUCTS_DIR}/SplitRow/SplitRow.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyUtils/SwiftyUtils.framework
 ${BUILT_PRODUCTS_DIR}/TabPageViewController/TabPageViewController.framework
