@@ -38,7 +38,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHk-NF-WTw" customClass="SetTimerView" customModule="TimerReminder" customModuleProvider="target">
                                 <rect key="frame" x="40" y="200" width="240" height="168"/>
-                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="KDK-It-HJT"/>
                                     <constraint firstAttribute="height" constant="168" id="VgP-Mt-p6k"/>
@@ -52,6 +52,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="32B-sM-ymo"/>
+                    <connections>
+                        <outlet property="setTimerView" destination="VHk-NF-WTw" id="9xz-Ue-W8X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="azC-E7-klG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -126,7 +129,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KQm-lO-Amn" customClass="SetTimerView" customModule="TimerReminder" customModuleProvider="target">
                                         <rect key="frame" x="24" y="331" width="240" height="168"/>
-                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="168" id="HS5-ak-guj"/>
                                             <constraint firstAttribute="width" constant="240" id="sSr-ET-jG2"/>
