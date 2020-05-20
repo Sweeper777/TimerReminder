@@ -38,6 +38,7 @@
 		5A0C2FB524658621007378B6 /* CurrentOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0C2FB424658621007378B6 /* CurrentOptionsViewController.swift */; };
 		5A0C2FB724659F94007378B6 /* TimerOptionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0C2FB624659F94007378B6 /* TimerOptionsListViewController.swift */; };
 		5A0F7E8A2473D73100F3DE6D /* TimeIntervalPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F7E892473D73100F3DE6D /* TimeIntervalPickerController.swift */; };
+		5A1636C32475151F00B6BD33 /* TimeIntervalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1636C22475151F00B6BD33 /* TimeIntervalRow.swift */; };
 		5A20D16D1DC5EAEA009862F7 /* SF-UI-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A20D16B1DC5EADE009862F7 /* SF-UI-Display-Ultralight.otf */; };
 		5A20D1701DC5ECD0009862F7 /* SF-UI-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A20D16F1DC5ECD0009862F7 /* SF-UI-Display-Light.otf */; };
 		5AFF72AD1D6610B00031429E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AFF72AF1D6610B00031429E /* InfoPlist.strings */; };
@@ -83,6 +84,7 @@
 		5A0C2FB424658621007378B6 /* CurrentOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentOptionsViewController.swift; sourceTree = "<group>"; };
 		5A0C2FB624659F94007378B6 /* TimerOptionsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerOptionsListViewController.swift; sourceTree = "<group>"; };
 		5A0F7E892473D73100F3DE6D /* TimeIntervalPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalPickerController.swift; sourceTree = "<group>"; };
+		5A1636C22475151F00B6BD33 /* TimeIntervalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalRow.swift; sourceTree = "<group>"; };
 		5A168E0E1E2CFB1B007F698C /* MLScreenshot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MLScreenshot.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/MLScreenshot/MLScreenshot.framework"; sourceTree = "<group>"; };
 		5A168E0F1E2CFB1B007F698C /* SwiftyUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyUtils.framework; path = "Pods/../build/Debug-iphoneos/SwiftyUtils/SwiftyUtils.framework"; sourceTree = "<group>"; };
 		5A16C0341E2E0E6300D1DE46 /* SlideMenuControllerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SlideMenuControllerSwift.framework; path = "Pods/../build/Debug-iphoneos/SlideMenuControllerSwift/SlideMenuControllerSwift.framework"; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				5A0334EC244C54FB00A6F71F /* TimerOptions.swift */,
 				5A013756245EC659001A1DEE /* TimerOptionsObject.swift */,
 				5A034988244DA86E00AEB002 /* SetTimerView.swift */,
+				5A1636C22475151F00B6BD33 /* TimeIntervalRow.swift */,
 				5A0334EE244C6B6900A6F71F /* TimerViewController.swift */,
 				5A0C2FB22465836B007378B6 /* MySlideViewController.swift */,
 				5A0C2FB424658621007378B6 /* CurrentOptionsViewController.swift */,
@@ -359,6 +362,7 @@
 				5A0334EB244C53AA00A6F71F /* Timer.swift in Sources */,
 				5A0C2FB32465836B007378B6 /* MySlideViewController.swift in Sources */,
 				5A067CB91D4490A500238AF5 /* AppDelegate.swift in Sources */,
+				5A1636C32475151F00B6BD33 /* TimeIntervalRow.swift in Sources */,
 				5A0334ED244C54FB00A6F71F /* TimerOptions.swift in Sources */,
 				5A067CC11D4490A500238AF5 /* TimerReminder.xcdatamodeld in Sources */,
 				5A0C2FB524658621007378B6 /* CurrentOptionsViewController.swift in Sources */,
