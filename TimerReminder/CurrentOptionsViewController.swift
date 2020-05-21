@@ -16,11 +16,6 @@ class CurrentOptionsViewController: FormViewController {
             tableView.contentInset.top = topInset
         }
         
-        form +++ TimeIntervalRow() {
-            row in
-            row.title = "Hello"
-        }
-        
         let section1 = Section(footer: "This is the language in which the reminder messages and the \"Time is up\" message will be spoken.".localised)
         
         if showNameField {
