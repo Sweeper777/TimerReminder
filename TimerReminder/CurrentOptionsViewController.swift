@@ -209,6 +209,11 @@ class CurrentOptionsViewController: FormViewController {
             })
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.isEditing = true
+    }
 }
 
 let tagName = "name"
