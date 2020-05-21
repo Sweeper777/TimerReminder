@@ -2,6 +2,7 @@ import UIKit
 import Eureka
 import AVFoundation
 import SCLAlertView
+import SplitRow
 
 class CurrentOptionsViewController: FormViewController {
     var tableViewTopInset: CGFloat?
@@ -137,3 +138,8 @@ let tagTimesUpAction = "tagTimesUpAction"
 let tagTimesUpMessage = "timesUpMessage"
 let tagTimesUpSound = "timesUpSound"
 let tagVibrate = "vibrate"
+let tagReminderOnOff = "reminderOnOff"
+let tagReminderStyle = "reminderStyle"
+let tagRegularReminderInterval = "regularReminderInterval"
+let tagRegularReminderMessage = "regularReminderMessage"
+let tagReminders = "reminders"
