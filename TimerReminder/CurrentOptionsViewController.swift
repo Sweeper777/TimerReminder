@@ -125,6 +125,89 @@ class CurrentOptionsViewController: FormViewController {
                 row.title = "Vibrate".localised
                 row.value = TimerOptions.default.vibrate
         }
+        
+        form +++ Section()
+        <<< SwitchRow(tagReminderOnOff) {
+            row in
+            row.title = "Reminders".localised
+            row.value = false
+        }
+        <<< SegmentedRow<String>(tagReminderStyle) {
+            row in
+            row.options = ["Regular".localised, "At Specific Times".localised]
+            row.value = "At Specific Times".localised
+            row.cell.segmentedControl.apportionsSegmentWidthsByContent = true
+            
+            row.hidden = Condition.function([tagReminderOnOff]) {
+                let onOff: SwitchRow = $0.rowBy(tag: tagReminderOnOff)!
+                return !onOff.value!
+            }
+        }
+        
+        form +++ Section {
+            $0.hidden = .function([tagReminderStyle, tagReminderOnOff], { (form) -> Bool in
+                let enabled: SwitchRow = form.rowBy(tag: tagReminderOnOff)!
+                let style: SegmentedRow<String> = form.rowBy(tag: tagReminderStyle)!
+                return !((enabled.value ?? false) && style.value == "Regular".localised)
+            })
+        }
+        <<< TimeIntervalRow(tagRegularReminderInterval) {
+            row in
+            row.title = "Remind Every".localised
+            row.value = 300
+        }
+            
+        <<< TextRow(tagRegularReminderMessage) {
+            row in
+            row.title = "Message:".localised
+            row.placeholder = "Leave blank for default".localised
+        }.cellUpdate { cell, row in
+            cell.textField.textAlignment = .left
+        }
+        
+        form +++ MultivaluedSection(
+            multivaluedOptions: [.Insert, .Delete],
+            footer: "Please enter the remind time and reminder message.".localised) {
+            $0.addButtonProvider = { section in
+                return ButtonRow(){
+                    $0.title = "Add Reminder".localised
+                }
+            }
+            $0.multivaluedRowToInsertAt = { index in
+                return SplitRow<TimeIntervalRow,TextRow>(){
+                    $0.rowLeft = TimeIntervalRow(){
+                        $0.title = ""
+                        $0.value = 60 * (index + 1)
+                    }
+
+                    $0.rowRight = TextRow(){
+                        $0.title = ""
+                        $0.placeholder = "Default"
+                    }
+                    
+                    $0.rowLeftPercentage = 0.45
+                }
+            }
+            $0 <<< SplitRow<TimeIntervalRow,TextRow>(){
+                $0.rowLeft = TimeIntervalRow(){
+                    $0.title = ""
+                    $0.value = 60
+                }
+
+                $0.rowRight = TextRow(){
+                    $0.title = ""
+                    $0.placeholder = "Default"
+                }
+                
+                $0.rowLeftPercentage = 0.45
+            }
+            $0.tag = tagReminders
+            $0.hidden = .function([tagReminderStyle, tagReminderOnOff], { (form) -> Bool in
+                let enabled: SwitchRow = form.rowBy(tag: tagReminderOnOff)!
+                let style: SegmentedRow<String> = form.rowBy(tag: tagReminderStyle)!
+                return !((enabled.value ?? false) && style.value == "At Specific Times".localised)
+            })
+        }
     }
 }
 
