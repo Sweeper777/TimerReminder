@@ -3,25 +3,52 @@ import Eureka
 import AVFoundation
 import SCLAlertView
 import SplitRow
+import MaterialComponents
+import SnapKit
+import KeyboardLayoutGuide
 
-class CurrentOptionsViewController: FormViewController {
+class OptionsEditorViewController: FormViewController {
+    var isCurrentOptions = false
     var tableViewTopInset: CGFloat?
     var showNameField = false
     var player: AVAudioPlayer?
+    var doneButton: MDCFloatingButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let topInset = tableViewTopInset {
             tableView.contentInset.top = topInset
+            tableView.contentInset.bottom = 84
+            
+            doneButton = MDCFloatingButton(shape: .default)
+            doneButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
+            doneButton.imageView?.tintColor = .white
+            doneButton.backgroundColor = UIColor(hex: "5abb5a")
+            view.addSubview(doneButton)
+            doneButton.snp.makeConstraints { (make) in
+                make.width.equalTo(44).labeled("done button width = 44")
+                make.height.equalTo(44).labeled("done button height = 44")
+                make.right.equalToSuperview().offset(-20).labeled("done button on the rightmost of screen")
+            }
+            let constraint = doneButton.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor)
+            constraint.constant = -40
+            constraint.isActive = true
+            
+            doneButton.addTarget(self, action: #selector(doneTapped), for: .touchUpInside)
         }
         
         setUpForm()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.isEditing = true
+    }
+    
+    @objc func doneTapped() {
+        
     }
     
     private func setUpForm() {
