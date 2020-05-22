@@ -16,6 +16,15 @@ class CurrentOptionsViewController: FormViewController {
             tableView.contentInset.top = topInset
         }
         
+        setUpForm()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.isEditing = true
+    }
+    
+    private func setUpForm() {
         let section1 = Section(footer: "This is the language in which the reminder messages and the \"Time is up\" message will be spoken.".localised)
         
         if showNameField {
@@ -73,9 +82,9 @@ class CurrentOptionsViewController: FormViewController {
                 row in
                 row.options = ["Verbalize a Message".localised, "Play a Sound".localised]
                 row.value = "Verbalize a Message".localised
-                }.onChange {
-                    row in
-                    self.player?.stop()
+            }.onChange {
+                row in
+                self.player?.stop()
             }
             <<< TextRow(tagTimesUpMessage) {
                 row in
@@ -86,8 +95,8 @@ class CurrentOptionsViewController: FormViewController {
                 }
                 row.placeholder = "Leave blank for default".localised
                 
-                }.cellUpdate { cell, row in
-                    cell.textField.textAlignment = .left
+            }.cellUpdate { cell, row in
+                cell.textField.textAlignment = .left
             }
             <<< PickerInlineRow<String>(tagTimesUpSound) {
                 row in
@@ -98,21 +107,21 @@ class CurrentOptionsViewController: FormViewController {
                 }
                 row.options = ["Radar", "Waves", "Radiate", "Night Owl", "Circuit", "Sencha", "Cosmic", "Presto", "Beacon", "Hillside"]
                 row.value = "Radar"
-                }.onChange {
-                    row in
-                    if row.isHidden {
-                        return
-                    }
-                    
-                    if let url = Bundle.main.url(forResource: row.value, withExtension: ".mp3") {
-                        self.player?.stop()
-                        self.player = try? AVAudioPlayer(contentsOf: url)
-                        self.player?.prepareToPlay()
-                        self.player?.play()
-                    }
-                }.onCellSelection {
-                    cell, row in
+            }.onChange {
+                row in
+                if row.isHidden {
+                    return
+                }
+                
+                if let url = Bundle.main.url(forResource: row.value, withExtension: ".mp3") {
                     self.player?.stop()
+                    self.player = try? AVAudioPlayer(contentsOf: url)
+                    self.player?.prepareToPlay()
+                    self.player?.play()
+                }
+            }.onCellSelection {
+                cell, row in
+                self.player?.stop()
             }
             
             <<< SwitchRow(tagVibrate) {
@@ -122,21 +131,21 @@ class CurrentOptionsViewController: FormViewController {
         }
         
         form +++ Section()
-        <<< SwitchRow(tagReminderOnOff) {
-            row in
-            row.title = "Reminders".localised
-            row.value = false
-        }
-        <<< SegmentedRow<String>(tagReminderStyle) {
-            row in
-            row.options = ["Regular".localised, "At Specific Times".localised]
-            row.value = "At Specific Times".localised
-            row.cell.segmentedControl.apportionsSegmentWidthsByContent = true
-            
-            row.hidden = Condition.function([tagReminderOnOff]) {
-                let onOff: SwitchRow = $0.rowBy(tag: tagReminderOnOff)!
-                return !onOff.value!
+            <<< SwitchRow(tagReminderOnOff) {
+                row in
+                row.title = "Reminders".localised
+                row.value = false
             }
+            <<< SegmentedRow<String>(tagReminderStyle) {
+                row in
+                row.options = ["Regular".localised, "At Specific Times".localised]
+                row.value = "At Specific Times".localised
+                row.cell.segmentedControl.apportionsSegmentWidthsByContent = true
+                
+                row.hidden = Condition.function([tagReminderOnOff]) {
+                    let onOff: SwitchRow = $0.rowBy(tag: tagReminderOnOff)!
+                    return !onOff.value!
+                }
         }
         
         form +++ Section {
@@ -145,38 +154,54 @@ class CurrentOptionsViewController: FormViewController {
                 let style: SegmentedRow<String> = form.rowBy(tag: tagReminderStyle)!
                 return !((enabled.value ?? false) && style.value == "Regular".localised)
             })
-        }
-        <<< TimeIntervalRow(tagRegularReminderInterval) {
-            row in
-            row.title = "Remind Every".localised
-            row.value = 300
-        }
+            }
+            <<< TimeIntervalRow(tagRegularReminderInterval) {
+                row in
+                row.title = "Remind Every".localised
+                row.value = 300
+            }
             
-        <<< TextRow(tagRegularReminderMessage) {
-            row in
-            row.title = "Message:".localised
-            row.placeholder = "Leave blank for default".localised
-        }.cellUpdate { cell, row in
-            cell.textField.textAlignment = .left
+            <<< TextRow(tagRegularReminderMessage) {
+                row in
+                row.title = "Message:".localised
+                row.placeholder = "Leave blank for default".localised
+            }.cellUpdate { cell, row in
+                cell.textField.textAlignment = .left
         }
         
         form +++ MultivaluedSection(
             multivaluedOptions: [.Insert, .Delete],
             footer: "Please enter the remind time and reminder message.".localised) {
-            $0.addButtonProvider = { section in
-                return ButtonRow(){
-                    $0.title = "Add Reminder".localised
+                $0.addButtonProvider = { section in
+                    return ButtonRow(){
+                        $0.title = "Add Reminder".localised
+                    }
                 }
-            }
-            $0.multivaluedRowToInsertAt = { index in
-                return SplitRow<TimeIntervalRow,TextRow>(){
+                $0.multivaluedRowToInsertAt = { index in
+                    return SplitRow<TimeIntervalRow,TextRow>(){
+                        $0.rowLeft = TimeIntervalRow(){
+                            $0.title = ""
+                            $0.value = 60 * (index + 1)
+                        }.cellUpdate({ (cell, row) in
+                            cell.selectionStyle = .none
+                        })
+                        
+                        $0.rowRight = TextRow(){
+                            $0.title = ""
+                            $0.placeholder = "Default"
+                        }
+                        
+                        $0.rowLeftPercentage = 0.48
+                    }
+                }
+                $0 <<< SplitRow<TimeIntervalRow,TextRow>(){
                     $0.rowLeft = TimeIntervalRow(){
                         $0.title = ""
-                        $0.value = 60 * (index + 1)
+                        $0.value = 60
                     }.cellUpdate({ (cell, row) in
                         cell.selectionStyle = .none
                     })
-
+                    
                     $0.rowRight = TextRow(){
                         $0.title = ""
                         $0.placeholder = "Default"
@@ -184,34 +209,13 @@ class CurrentOptionsViewController: FormViewController {
                     
                     $0.rowLeftPercentage = 0.48
                 }
-            }
-            $0 <<< SplitRow<TimeIntervalRow,TextRow>(){
-                $0.rowLeft = TimeIntervalRow(){
-                    $0.title = ""
-                    $0.value = 60
-                }.cellUpdate({ (cell, row) in
-                    cell.selectionStyle = .none
+                $0.tag = tagReminders
+                $0.hidden = .function([tagReminderStyle, tagReminderOnOff], { (form) -> Bool in
+                    let enabled: SwitchRow = form.rowBy(tag: tagReminderOnOff)!
+                    let style: SegmentedRow<String> = form.rowBy(tag: tagReminderStyle)!
+                    return !((enabled.value ?? false) && style.value == "At Specific Times".localised)
                 })
-
-                $0.rowRight = TextRow(){
-                    $0.title = ""
-                    $0.placeholder = "Default"
-                }
-                
-                $0.rowLeftPercentage = 0.48
-            }
-            $0.tag = tagReminders
-            $0.hidden = .function([tagReminderStyle, tagReminderOnOff], { (form) -> Bool in
-                let enabled: SwitchRow = form.rowBy(tag: tagReminderOnOff)!
-                let style: SegmentedRow<String> = form.rowBy(tag: tagReminderStyle)!
-                return !((enabled.value ?? false) && style.value == "At Specific Times".localised)
-            })
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tableView.isEditing = true
     }
 }
 
