@@ -1,5 +1,6 @@
 PODS:
   - Eureka (5.2.0)
+  - "Keyboard+LayoutGuide (1.6.0)"
   - LTMorphingLabel (0.7.0)
   - MaterialComponents/AnimationTiming (105.0.1)
   - MaterialComponents/Availability (105.0.1)
@@ -63,6 +64,7 @@ PODS:
 
 DEPENDENCIES:
   - Eureka
+  - "Keyboard+LayoutGuide"
   - LTMorphingLabel
   - MaterialComponents/Buttons
   - Realm
@@ -79,6 +81,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Eureka
+    - "Keyboard+LayoutGuide"
     - LTMorphingLabel
     - MaterialComponents
     - MDFInternationalization
@@ -110,6 +113,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Eureka: 820a761c700f6eaab3b60758f138e0d9b99072b3
+  "Keyboard+LayoutGuide": db44b1764e2bb5d9824cc9cea9d9006cd4442045
   LTMorphingLabel: 22147fb1ec2b0306537ccc348b36ea8617179b03
   MaterialComponents: cfc2fbc3a380238821ea1786d237e21b32d8514e
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
@@ -126,6 +130,6 @@ SPEC CHECKSUMS:
   SwiftyUtils: 0536386622b456460c329f44e38759f16864fe24
   TabPageViewController: c37a1257a50c2b50712dde61bf499768eee95b67
 
-PODFILE CHECKSUM: cac1a85110a08e98702a438968615328475eb6f7
+PODFILE CHECKSUM: 88b8a40d8719742757b8dea5fa5104e96ce6d2e5
 
 COCOAPODS: 1.7.5

@@ -15,6 +15,7 @@ target 'TimerReminder' do
   pod 'SplitRow'
   pod 'MaterialComponents/Buttons'
   pod 'SnapKit'
+  pod 'Keyboard+LayoutGuide'
   pod 'SlideMenuControllerSwift', :git => 'https://github.com/AtomicSLLC/SlideMenuControllerSwift.git', :branch => 'swift5'
   pod 'TabPageViewController'
 end
