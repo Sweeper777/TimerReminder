@@ -1,7 +1,7 @@
 import UIKit
 import Eureka
 
-class TimeIntervalPickerController: SelectorViewController<SelectorRow<AlertSelectorCell<Int>>> {
+class TimeIntervalPickerController: SelectorViewController<SelectorRow<TimeIntervalCell>> {
     
     @IBOutlet var setTimerView: SetTimerView!
     
@@ -11,7 +11,7 @@ class TimeIntervalPickerController: SelectorViewController<SelectorRow<AlertSele
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        dismiss(animated: true, completion: nil)
+        onDismissCallback!(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,6 +27,6 @@ extension TimeIntervalPickerController : SetTimerViewDelegate {
     func didSetTimer(setTimerView: SetTimerView, setTime: Int) {
         row.value = setTime
         row.updateCell()
-        dismiss(animated: true, completion: nil)
+        onDismissCallback!(self)
     }
 }
