@@ -173,28 +173,32 @@ class CurrentOptionsViewController: FormViewController {
                     $0.rowLeft = TimeIntervalRow(){
                         $0.title = ""
                         $0.value = 60 * (index + 1)
-                    }
+                    }.cellUpdate({ (cell, row) in
+                        cell.selectionStyle = .none
+                    })
 
                     $0.rowRight = TextRow(){
                         $0.title = ""
                         $0.placeholder = "Default"
                     }
                     
-                    $0.rowLeftPercentage = 0.45
+                    $0.rowLeftPercentage = 0.48
                 }
             }
             $0 <<< SplitRow<TimeIntervalRow,TextRow>(){
                 $0.rowLeft = TimeIntervalRow(){
                     $0.title = ""
                     $0.value = 60
-                }
+                }.cellUpdate({ (cell, row) in
+                    cell.selectionStyle = .none
+                })
 
                 $0.rowRight = TextRow(){
                     $0.title = ""
                     $0.placeholder = "Default"
                 }
                 
-                $0.rowLeftPercentage = 0.45
+                $0.rowLeftPercentage = 0.48
             }
             $0.tag = tagReminders
             $0.hidden = .function([tagReminderStyle, tagReminderOnOff], { (form) -> Bool in
