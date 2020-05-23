@@ -310,7 +310,7 @@ class OptionsEditorViewController: FormViewController {
                         
                         $0.rowRight = TextRow(){
                             $0.title = ""
-                            $0.placeholder = "Default"
+                            $0.placeholder = "Default".localised
                         }
                         
                         $0.rowLeftPercentage = 0.48
@@ -326,7 +326,7 @@ class OptionsEditorViewController: FormViewController {
                     
                     $0.rowRight = TextRow(){
                         $0.title = ""
-                        $0.placeholder = "Default"
+                        $0.placeholder = "Default".localised
                     }
                     
                     $0.rowLeftPercentage = 0.48

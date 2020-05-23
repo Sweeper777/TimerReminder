@@ -85,3 +85,7 @@
 
 "Analog Clock" = "指针式时钟";
 "This will show an analog clock instead of a digital one in Clock Mode." = "打开这个选项会使时钟模式显示一个指针式的时钟。";
+
+"Appearance" = "外观";
+"Please enter the remind time and reminder message." = "请输入提醒时间和提示语";
+"Add Reminder" = "添加提醒";

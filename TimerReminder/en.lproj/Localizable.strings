@@ -84,3 +84,7 @@
 
 "Analog Clock" = "Analog Clock";
 "This will show an analog clock instead of a digital one in Clock Mode." = "This will show an analog clock instead of a digital one in Clock Mode.";
+
+"Appearance" = "Appearance";
+"Please enter the remind time and reminder message." = "Please enter the remind time and reminder message.";
+"Add Reminder" = "Add Reminder";

@@ -85,3 +85,7 @@
 
 "Analog Clock" = "アナログ時計";
 "This will show an analog clock instead of a digital one in Clock Mode." = "このオプションをオンにすると、クロックモードではアナログ時計を表示されます。";
+
+"Appearance" = "外観";
+"Please enter the remind time and reminder message." = "リマインダーの時点とメッセージを入力してください";
+"Add Reminder" = "リマインダーを追加";
