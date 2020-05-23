@@ -85,6 +85,35 @@ class OptionsEditorViewController: FormViewController {
         }
         let vibrate = values[tagVibrate] as? Bool ?? TimerOptions.default.vibrate
         let reminderOption: ReminderOption
+        if let reminderStyle = values[tagReminderStyle] as? String {
+            if reminderStyle == "Regular".localised {
+                let interval = values[tagRegularReminderInterval] as? Int ?? 300
+                let message = values [tagRegularReminderMessage] as? String ?? ""
+                reminderOption = .regularInterval(Reminder(remindTime: interval, message: message))
+            } else if reminderStyle == "At Specific Times".localised {
+                let reminders = (values[tagReminders] as? [Any] ?? []).compactMap { $0 as? SplitRowValue<Int, String> }
+                if reminders.isEmpty {
+                    reminderOption = .no
+                } else {
+                    func transformSplitValue(_ splitValue: SplitRowValue<Int, String>) -> (Int, String?)? {
+                        guard let int = splitValue.left else { return nil }
+                        if splitValue.right.isNilOrEmpty {
+                            return (int, nil)
+                        } else {
+                            return (int, splitValue.right)
+                        }
+                    }
+                    reminderOption = .specificTimes(
+                        reminders.compactMap(transformSplitValue(_:))
+                            .map { Reminder(remindTime: $0, message: $1) }
+                    )
+                }
+            } else {
+                reminderOption = TimerOptions.default.reminderOption
+            }
+        } else {
+            reminderOption = TimerOptions.default.reminderOption
+        }
         
     }
     
