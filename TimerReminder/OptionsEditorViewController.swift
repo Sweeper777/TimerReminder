@@ -49,6 +49,22 @@ class OptionsEditorViewController: FormViewController {
     }
     
     @objc func doneTapped() {
+        let values = form.values()
+        let name = values[tagName] as? String ?? TimerOptions.default.name
+        let language = (values[tagLanguage] as? Languages)?.rawValue ?? TimerOptions.default.language
+        let countDown: CountDownOption
+        if let countDownTime = (values[tagStartCountDown] as? CountDownTime)?.rawValue {
+            countDown = .yes(startsAt: countDownTime)
+        } else {
+            countDown = .no
+        }
+        let countSeconds = values[tagCounting] as? Bool ?? TimerOptions.default.countSeconds
+        let beepSounds = values[tagBeepSounds] as? Bool ?? TimerOptions.default.beepSounds
+        let font = values[tagFontStyle] as? FontStyle ?? TimerOptions.default.font
+        let animation = values[tagAnimation] as? LTMorphingEffect ?? TimerOptions.default.textAnimation
+        let timeUpOption: TimeUpOption
+        let vibrate = values[tagVibrate] as? Bool ?? TimerOptions.default.vibrate
+        let reminderOption: ReminderOption
         
     }
     
