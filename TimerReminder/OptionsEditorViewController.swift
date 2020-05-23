@@ -115,6 +115,21 @@ class OptionsEditorViewController: FormViewController {
             reminderOption = TimerOptions.default.reminderOption
         }
         
+        let options = TimerOptions(
+            name: name,
+            language: language,
+            countDown: countDown,
+            countSeconds: countSeconds,
+            beepSounds: beepSounds,
+            vibrate: vibrate,
+            timeUpOption: timeUpOption,
+            reminderOption: reminderOption,
+            font: font,
+            textAnimation: animation)
+        if isCurrentOptions {
+            (parent?.slideMenuController()?.mainViewController as? TimerViewController)?.currentOptions = options
+            parent?.slideMenuController()?.closeRight()
+        }
     }
     
     private func setUpForm() {

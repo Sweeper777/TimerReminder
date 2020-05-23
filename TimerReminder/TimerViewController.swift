@@ -16,6 +16,11 @@ class TimerViewController: UIViewController {
     @IBOutlet var setTimerView: SetTimerView!
     
     var timer = Timer.newCountDownInstance()
+    var currentOptions: TimerOptions = .default {
+        didSet {
+            timer.options = currentOptions
+        }
+    }
     var disposeBag = DisposeBag()
     
     var hudHidden = false
@@ -75,7 +80,7 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         setUpView()
-        subscribeToTimer(withInitial: 20)
+        subscribeToTimer(withInitial: 60)
         
         playButtonIsPlay.distinctUntilChanged().map {
             $0 ? UIImage(systemName: "play.fill") : UIImage(systemName: "pause.fill")
