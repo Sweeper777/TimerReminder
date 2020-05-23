@@ -6,6 +6,7 @@ import SplitRow
 import MaterialComponents
 import SnapKit
 import KeyboardLayoutGuide
+import LTMorphingLabel
 
 class OptionsEditorViewController: FormViewController {
     var isCurrentOptions = false
@@ -97,6 +98,20 @@ class OptionsEditorViewController: FormViewController {
                 row.title = "Counting".localised
                 row.value = false
         }
+        
+        form +++ Section("Appearance".localised)
+            <<< PickerInlineRow<FontStyle>(tagFontStyle) {
+                row in
+                row.title = "Font Style".localised
+                row.options = [.thin, .regular, .light, .ultralight, .bodoni72, .chalkduster]
+                row.value = TimerOptions.default.font
+            }
+            <<< PickerInlineRow<LTMorphingEffect>(tagAnimation) {
+                row in
+                row.title = "Timer Animation".localised
+                row.value = TimerOptions.default.textAnimation
+                row.options = [.evaporate, .scale, .pixelate, .fall, .burn]
+            }
         
         form +++ SwitchRow(tagBeepSounds) {
             row in
@@ -261,3 +276,5 @@ let tagReminderStyle = "reminderStyle"
 let tagRegularReminderInterval = "regularReminderInterval"
 let tagRegularReminderMessage = "regularReminderMessage"
 let tagReminders = "reminders"
+let tagFontStyle = "fontStyle"
+let tagAnimation = "animation"
