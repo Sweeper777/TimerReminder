@@ -63,6 +63,26 @@ class OptionsEditorViewController: FormViewController {
         let font = values[tagFontStyle] as? FontStyle ?? TimerOptions.default.font
         let animation = values[tagAnimation] as? LTMorphingEffect ?? TimerOptions.default.textAnimation
         let timeUpOption: TimeUpOption
+        if let timesUpAction = values[tagTimesUpAction] as? String {
+            if timesUpAction == "Verbalize a Message".localised {
+                let message = values[tagTimesUpMessage] as? String ?? ""
+                if message.isEmpty {
+                    timeUpOption = .speakDefaultMessage
+                } else {
+                    timeUpOption = .speak(message)
+                }
+            } else if timesUpAction == "Play a Sound".localised {
+                if let sound = values[tagTimesUpSound] as? String {
+                    timeUpOption = .playSound(sound)
+                } else {
+                    timeUpOption = TimerOptions.default.timeUpOption
+                }
+            } else {
+                timeUpOption = TimerOptions.default.timeUpOption
+            }
+        } else {
+            timeUpOption = TimerOptions.default.timeUpOption
+        }
         let vibrate = values[tagVibrate] as? Bool ?? TimerOptions.default.vibrate
         let reminderOption: ReminderOption
         
