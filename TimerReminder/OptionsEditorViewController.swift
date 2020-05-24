@@ -350,13 +350,9 @@ class OptionsEditorViewController: FormViewController {
     
     private func setUpForm() {
         metadataRows()
-        
-        perSecondOptionRows()
-        
-        appearanceRows()
-        
         timeIsUpRows()
-        
+        perSecondOptionRows()
+        appearanceRows()
         reminderRows()
     }
 }
