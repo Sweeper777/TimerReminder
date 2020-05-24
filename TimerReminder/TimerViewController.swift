@@ -165,7 +165,7 @@ class TimerViewController: UIViewController {
         case 0:
             timer = Timer.newCountDownInstance()
             setTimerView.isHidden = false
-            subscribeToTimer(withInitial: 20)
+            subscribeToTimer(withInitial: 60)
         case 1:
             timer = Timer.newCountUpInstance()
             setTimerView.isHidden = true
