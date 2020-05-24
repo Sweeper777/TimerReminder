@@ -132,7 +132,7 @@ class OptionsEditorViewController: FormViewController {
         }
     }
     
-    private func setUpForm() {
+    fileprivate func metadataRows() {
         let section1 = Section(footer: "This is the language in which the reminder messages and the \"Time is up\" message will be spoken.".localised)
         
         if showNameField {
@@ -152,7 +152,9 @@ class OptionsEditorViewController: FormViewController {
         }
         
         form +++ section1
-        
+    }
+    
+    fileprivate func perSecondOptionRows() {
         form +++ Section(footer: "Only applicable in Timer Mode".localised)
             <<< SwitchRow(tagCountDownEnabled) {
                 row in
@@ -179,6 +181,14 @@ class OptionsEditorViewController: FormViewController {
                 row.value = false
         }
         
+        form +++ SwitchRow(tagBeepSounds) {
+            row in
+            row.title = "Beep Sounds".localised
+            row.value = TimerOptions.default.beepSounds
+        }
+    }
+    
+    fileprivate func appearanceRows() {
         form +++ Section("Appearance".localised)
             <<< PickerInlineRow<FontStyle>(tagFontStyle) {
                 row in
@@ -191,14 +201,10 @@ class OptionsEditorViewController: FormViewController {
                 row.title = "Timer Animation".localised
                 row.value = TimerOptions.default.textAnimation
                 row.options = [.evaporate, .scale, .pixelate, .fall, .burn]
-            }
-        
-        form +++ SwitchRow(tagBeepSounds) {
-            row in
-            row.title = "Beep Sounds".localised
-            row.value = TimerOptions.default.beepSounds
         }
-        
+    }
+    
+    fileprivate func timeIsUpRows() {
         form +++ Section(header: "time is up".localised, footer: "Only applicable in Timer Mode".localised)
             <<< SegmentedRow<String>(tagTimesUpAction) {
                 row in
@@ -251,7 +257,9 @@ class OptionsEditorViewController: FormViewController {
                 row.title = "Vibrate".localised
                 row.value = TimerOptions.default.vibrate
         }
-        
+    }
+    
+    fileprivate func reminderRows() {
         form +++ Section()
             <<< SwitchRow(tagReminderOnOff) {
                 row in
@@ -338,6 +346,18 @@ class OptionsEditorViewController: FormViewController {
                     return !((enabled.value ?? false) && style.value == "At Specific Times".localised)
                 })
         }
+    }
+    
+    private func setUpForm() {
+        metadataRows()
+        
+        perSecondOptionRows()
+        
+        appearanceRows()
+        
+        timeIsUpRows()
+        
+        reminderRows()
     }
 }
 
