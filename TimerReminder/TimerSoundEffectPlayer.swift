@@ -20,6 +20,27 @@ class TimerSoundEffectPlayer {
         }
     }
     
+    private var localisedReminderMessage: String {
+        switch language {
+        case "zh-cn", "zh-hk":
+            return "剩餘 %@"
+        case "ja":
+            return "残り %@"
+        default:
+            return "%@ Left"
+        }
+    }
+    
+    private var localisedTimeUpMessage: String {
+        switch language {
+        case "zh-cn", "zh-hk":
+            return "時間到"
+        case "ja":
+            return "時間切れです"
+        default:
+            return "Time is up."
+        }
+    }
     
     init(language: String, timeUpOption: TimeUpOption) {
         self.language = language
