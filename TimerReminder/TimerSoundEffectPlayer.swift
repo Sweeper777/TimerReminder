@@ -47,4 +47,10 @@ class TimerSoundEffectPlayer {
         self.timeUpOption = timeUpOption
     }
     
+    private func speak(_ string: String) {
+        let utterance = AVSpeechUtterance(string: string)
+        utterance.voice = AVSpeechSynthesisVoice(language: language)
+        speechSynthesiser.stopSpeaking(at: .immediate)
+        speechSynthesiser.speak(utterance)
+    }
 }
