@@ -77,4 +77,22 @@ class TimerSoundEffectPlayer {
         }
     }
     
+    func remind(_ reminder: Reminder, timerMode: Timer.Mode, remindTime: Int? = nil) {
+        if let message = reminder.message {
+            speak(message)
+        } else {
+            let formatter = DateComponentsFormatter()
+            formatter.allowedUnits = [.hour, .minute, .second]
+            formatter.zeroFormattingBehavior = .dropAll
+            formatter.unitsStyle = .full
+            formatter.calendar?.locale = Locale(identifier: language)
+            let timeString = formatter.string(from: TimeInterval(remindTime ?? reminder.remindTime))!
+            if timerMode == .countDown {
+                speak(String(format: localisedReminderMessage, timeString))
+            } else {
+                speak(timeString)
+            }
+        }
+    }
+    
 }
