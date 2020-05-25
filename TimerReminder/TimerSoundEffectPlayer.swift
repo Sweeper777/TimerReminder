@@ -66,4 +66,15 @@ class TimerSoundEffectPlayer {
         AudioServicesPlaySystemSoundWithCompletion(kSystemSoundID_Vibrate, nil)
     }
     
+    func performTimeUpAction() {
+        switch timeUpOption {
+        case .speakDefaultMessage:
+            speak(localisedTimeUpMessage)
+        case .speak(let message):
+            speak(message)
+        case .playSound:
+            endSoundPlayer.play()
+        }
+    }
+    
 }
