@@ -54,6 +54,23 @@ enum FontStyle: Int, CustomStringConvertible {
             return "Chalkduster"
         }
     }
+    
+    var fontName: String {
+        switch self {
+        case .thin:
+            return "SFUIDisplay-Thin"
+        case .regular:
+            return "SFUIDisplay-Regular"
+        case .light:
+            return "SFUIDisplay-Light"
+        case .ultralight:
+            return "SFUIDisplay-Ultralight"
+        case .bodoni72:
+            return "Bodoni 72"
+        case .chalkduster:
+            return "Chalkduster"
+        }
+    }
 }
 
 struct TimerOptions {
