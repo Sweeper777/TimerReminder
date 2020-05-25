@@ -53,4 +53,17 @@ class TimerSoundEffectPlayer {
         speechSynthesiser.stopSpeaking(at: .immediate)
         speechSynthesiser.speak(utterance)
     }
+    
+    func countSecond(_ second: Int) {
+        speak("\(second)")
+    }
+    
+    func beep() {
+        beepSoundPlayer.play()
+    }
+    
+    func vibrate() {
+        AudioServicesPlaySystemSoundWithCompletion(kSystemSoundID_Vibrate, nil)
+    }
+    
 }
