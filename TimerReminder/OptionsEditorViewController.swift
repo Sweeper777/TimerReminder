@@ -88,7 +88,7 @@ class OptionsEditorViewController: FormViewController {
         if let reminderStyle = values[tagReminderStyle] as? String {
             if reminderStyle == "Regular".localised {
                 let interval = values[tagRegularReminderInterval] as? Int ?? 300
-                let message = values [tagRegularReminderMessage] as? String ?? ""
+                let message = values [tagRegularReminderMessage] as? String
                 reminderOption = .regularInterval(Reminder(remindTime: interval, message: message))
             } else if reminderStyle == "At Specific Times".localised {
                 let reminders = (values[tagReminders] as? [Any] ?? []).compactMap { $0 as? SplitRowValue<Int, String> }
