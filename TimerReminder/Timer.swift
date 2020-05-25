@@ -79,7 +79,13 @@ class Timer {
             case .no:
                 reminder = nil
             case .regularInterval(let r):
-                reminder = (currentState % r.remindTime == 0) ? r : nil
+                if mode == .countUp {
+                    reminder = (currentState % r.remindTime == 0) ? r : nil
+                } else if mode == .countDown {
+                    reminder = ((initial - currentState) % r.remindTime == 0) ? r : nil
+                } else {
+                    reminder = nil
+                }
             case .specificTimes(let rs):
                 reminder = rs.first(where: { $0.remindTime == currentState })
             }
@@ -201,7 +207,7 @@ class Timer {
             .filter { 0 <= $0 }
             .map {
                 [weak self] x in
-                self?.timerEvent(forState: x) ?? .default
+                self?.timerEvent(forState: x, initial: Int.max) ?? .default
             }
     }
     
