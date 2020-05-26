@@ -179,10 +179,6 @@ class TimerViewController: UIViewController {
         .subscribe(onNext: { [weak self]
             timerEvent in
             self?.handleTimerEvent(timerEvent: timerEvent)
-            print("TimerEvent: \(timerEvent.state)")
-            if timerEvent.ended {
-                print("Ended!")
-            }
         })
     }
     
@@ -190,15 +186,15 @@ class TimerViewController: UIViewController {
         timerDisposable?.dispose()
         switch newMode {
         case 0:
-            timer = Timer.newCountDownInstance()
+            timer = Timer.newCountDownInstance(options: currentOptions)
             setTimerView.isHidden = false
             subscribeToTimer(withInitial: 60)
         case 1:
-            timer = Timer.newCountUpInstance()
+            timer = Timer.newCountUpInstance(options: currentOptions)
             setTimerView.isHidden = true
             subscribeToTimer(withInitial: 0)
         case 2:
-            timer = Timer.newClockInstance()
+            timer = Timer.newClockInstance(options: currentOptions)
             setTimerView.isHidden = true
             subscribeToTimer(withInitial: -1)
         default:
