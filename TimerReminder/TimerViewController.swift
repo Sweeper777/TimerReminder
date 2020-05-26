@@ -99,6 +99,7 @@ class TimerViewController: UIViewController {
         resetButton.rx.tap.subscribe(onNext: {
             [weak self] in
             self?.playButtonIsPlay.accept(true)
+            self?.timerSoundEffectPlayer.stopPlaying()
             }).disposed(by: disposeBag)
         
         modeSelector.rx.selectedSegmentIndex.subscribe(onNext: {
@@ -148,6 +149,25 @@ class TimerViewController: UIViewController {
     
     func handleTimerEvent(timerEvent: Timer.Event) {
         updateTimerLabel(text: timerEvent.displayString)
+        if timerEvent.ended {
+            timerSoundEffectPlayer.performTimeUpAction()
+            timerSoundEffectPlayer.vibrate()
+            return
+        }
+        if timerEvent.countDown {
+            timerSoundEffectPlayer.countSecond(timerEvent.state)
+        } else if let reminder = timerEvent.reminder {
+            if case .regularInterval = currentOptions.reminderOption {
+                timerSoundEffectPlayer.remind(reminder, timerMode: timer.mode, remindTime: timerEvent.state)
+            } else {
+                timerSoundEffectPlayer.remind(reminder, timerMode: timer.mode)
+            }
+        } else if timerEvent.countSeconds {
+            timerSoundEffectPlayer.countSecond(timerEvent.state)
+        }
+        if timerEvent.beep {
+            timerSoundEffectPlayer.beep()
+        }
     }
     
     func subscribeToTimer(withInitial initial: Int) {
