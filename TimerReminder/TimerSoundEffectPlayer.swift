@@ -95,4 +95,9 @@ class TimerSoundEffectPlayer {
         }
     }
     
+    func stopPlaying() {
+        beepSoundPlayer.stop()
+        endSoundPlayer?.stop()
+        speechSynthesiser.stopSpeaking(at: .immediate)
+    }
 }
