@@ -19,6 +19,11 @@ class TimerViewController: UIViewController {
     var currentOptions: TimerOptions = .default {
         didSet {
             timer.options = currentOptions
+            timerLabel.morphingEffect = currentOptions.textAnimation
+            timerLabel.font = UIFont(name: currentOptions.font.fontName, size: 10)
+            timerLabel.updateFontSizeToFit()
+            timerSoundEffectPlayer.language = currentOptions.language
+            timerSoundEffectPlayer.timeUpOption = currentOptions.timeUpOption
         }
     }
     var disposeBag = DisposeBag()
@@ -27,6 +32,8 @@ class TimerViewController: UIViewController {
     var playButtonIsPlay = BehaviorRelay(value: true)
     
     var timerDisposable: Disposable?
+    let timerSoundEffectPlayer = TimerSoundEffectPlayer(language: TimerOptions.default.language, timeUpOption: TimerOptions.default.timeUpOption)
+    
     
     func setUpView() {
         playButton = MDCFloatingButton(shape: .mini)
