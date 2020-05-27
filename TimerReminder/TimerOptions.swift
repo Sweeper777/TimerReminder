@@ -55,20 +55,20 @@ enum FontStyle: Int, CustomStringConvertible {
         }
     }
     
-    var fontName: String {
+    var uiFont: UIFont {
         switch self {
         case .thin:
-            return "SFUIDisplay-Thin"
+            return UIFont.systemFont(ofSize: 10, weight: .thin)
         case .regular:
-            return "SFUIDisplay-Regular"
+            return UIFont.systemFont(ofSize: 10, weight: .regular)
         case .light:
-            return "SFUIDisplay-Light"
+            return UIFont.systemFont(ofSize: 10, weight: .light)
         case .ultralight:
-            return "SFUIDisplay-Ultralight"
+            return UIFont.systemFont(ofSize: 10, weight: .ultraLight)
         case .bodoni72:
-            return "Bodoni 72"
+            return UIFont(name: "Bodoni 72", size: 10)!
         case .chalkduster:
-            return "Chalkduster"
+            return UIFont(name: "Chalkduster", size: 10)!
         }
     }
 }

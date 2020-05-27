@@ -20,7 +20,7 @@ class TimerViewController: UIViewController {
         didSet {
             timer.options = currentOptions
             timerLabel.morphingEffect = currentOptions.textAnimation
-            timerLabel.font = UIFont(name: currentOptions.font.fontName, size: 10)
+            timerLabel.textAttributes![.font] = currentOptions.font.uiFont
             timerLabel.updateFontSizeToFit()
             timerSoundEffectPlayer.language = currentOptions.language
             timerSoundEffectPlayer.timeUpOption = currentOptions.timeUpOption
