@@ -15,7 +15,12 @@ class OptionsEditorViewController: FormViewController {
     var player: AVAudioPlayer?
     var doneButton: MDCFloatingButton!
     
-    var optionsDisplayed = TimerOptions.default
+    var optionsDisplayed = TimerOptions.default {
+        didSet {
+            form.removeAll()
+            setUpForm()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +45,6 @@ class OptionsEditorViewController: FormViewController {
             
             doneButton.addTarget(self, action: #selector(doneTapped), for: .touchUpInside)
         }
-        
-        setUpForm()
         
     }
     
