@@ -15,6 +15,8 @@ class OptionsEditorViewController: FormViewController {
     var player: AVAudioPlayer?
     var doneButton: MDCFloatingButton!
     
+    var optionsDisplayed = TimerOptions.default
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -139,7 +141,7 @@ class OptionsEditorViewController: FormViewController {
             section1 +++ TextRow(tagName) {
                 row in
                 row.title = "Name:".localised
-                row.value = TimerOptions.default.name
+                row.value = optionsDisplayed.name
             }
         }
         
@@ -148,7 +150,7 @@ class OptionsEditorViewController: FormViewController {
             row.title = "Language".localised
             let langs: [Languages] = [.english, .mandarin, .cantonese, .japanese]
             row.options = langs
-            row.value = Languages(rawValue: TimerOptions.default.language)
+            row.value = Languages(rawValue: optionsDisplayed.language)
         }
         
         form +++ section1
@@ -159,7 +161,12 @@ class OptionsEditorViewController: FormViewController {
             <<< SwitchRow(tagCountDownEnabled) {
                 row in
                 row.title = "Countdown".localised
-                row.value = true
+                switch optionsDisplayed.countDown {
+                case .no:
+                    row.value = false
+                case .yes:
+                    row.value = true
+                }
             }
             <<< PickerInlineRow<CountDownTime>(tagStartCountDown) {
                 row in
@@ -167,7 +174,11 @@ class OptionsEditorViewController: FormViewController {
                 row.options = [
                     ._3, ._5, ._10, ._20, ._30, ._60
                 ]
-                row.value = ._10
+                if case .yes(let startsAt) = optionsDisplayed.countDown {
+                    row.value = CountDownTime(rawValue: startsAt)
+                } else {
+                    row.value = ._10
+                }
                 row.hidden = Condition.function([tagCountDownEnabled]) {
                     let enabled: SwitchRow = $0.rowBy(tag: tagCountDownEnabled)!
                     return !enabled.value!
@@ -178,13 +189,13 @@ class OptionsEditorViewController: FormViewController {
             <<< SwitchRow(tagCounting) {
                 row in
                 row.title = "Counting".localised
-                row.value = false
+                row.value = optionsDisplayed.countSeconds
         }
         
         form +++ SwitchRow(tagBeepSounds) {
             row in
             row.title = "Beep Sounds".localised
-            row.value = TimerOptions.default.beepSounds
+            row.value = optionsDisplayed.beepSounds
         }
     }
     
@@ -194,12 +205,12 @@ class OptionsEditorViewController: FormViewController {
                 row in
                 row.title = "Font Style".localised
                 row.options = [.thin, .regular, .light, .ultralight, .bodoni72, .chalkduster]
-                row.value = TimerOptions.default.font
+                row.value = optionsDisplayed.font
             }
             <<< PickerInlineRow<LTMorphingEffect>(tagAnimation) {
                 row in
                 row.title = "Timer Animation".localised
-                row.value = TimerOptions.default.textAnimation
+                row.value = optionsDisplayed.textAnimation
                 row.options = [.evaporate, .scale, .pixelate, .fall, .burn]
         }
     }
@@ -209,7 +220,12 @@ class OptionsEditorViewController: FormViewController {
             <<< SegmentedRow<String>(tagTimesUpAction) {
                 row in
                 row.options = ["Verbalize a Message".localised, "Play a Sound".localised]
-                row.value = "Verbalize a Message".localised
+                switch optionsDisplayed.timeUpOption {
+                case .playSound:
+                    row.value = "Play a Sound".localised
+                case .speak, .speakDefaultMessage:
+                    row.value = "Verbalize a Message".localised
+                }
             }.onChange {
                 row in
                 self.player?.stop()
@@ -222,6 +238,9 @@ class OptionsEditorViewController: FormViewController {
                     return action.value == "Play a Sound".localised
                 }
                 row.placeholder = "Leave blank for default".localised
+                if case .speak(let message) = optionsDisplayed.timeUpOption {
+                    row.value = message
+                }
                 
             }.cellUpdate { cell, row in
                 cell.textField.textAlignment = .left
@@ -234,7 +253,9 @@ class OptionsEditorViewController: FormViewController {
                     return action.value == "Verbalize a Message".localised
                 }
                 row.options = ["Radar", "Waves", "Radiate", "Night Owl", "Circuit", "Sencha", "Cosmic", "Presto", "Beacon", "Hillside"]
-                row.value = "Radar"
+                if case .playSound(let sound) = optionsDisplayed.timeUpOption {
+                    row.value = sound
+                }
             }.onChange {
                 row in
                 if row.isHidden {
@@ -255,7 +276,7 @@ class OptionsEditorViewController: FormViewController {
             <<< SwitchRow(tagVibrate) {
                 row in
                 row.title = "Vibrate".localised
-                row.value = TimerOptions.default.vibrate
+                row.value = optionsDisplayed.vibrate
         }
     }
     
