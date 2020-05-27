@@ -4,6 +4,8 @@ import RxSwift
 import RxCocoa
 import MaterialComponents
 import SwiftyUtils
+import SlideMenuControllerSwift
+import TabPageViewController
 
 class TimerViewController: UIViewController {
     
@@ -208,5 +210,19 @@ extension TimerViewController : SetTimerViewDelegate {
         timerDisposable?.dispose()
         subscribeToTimer(withInitial: setTime)
         self.playButtonIsPlay.accept(true)
+    }
+}
+
+extension TimerViewController : SlideMenuControllerDelegate {
+    func rightDidOpen() {
+        ((slideMenuController()?.rightViewController as? TabPageViewController)?
+            .tabItems.first?.viewController as? OptionsEditorViewController)?
+            .optionsDisplayed = currentOptions
+    }
+    
+    func rightDidClose() {
+        ((slideMenuController()?.rightViewController as? TabPageViewController)?
+            .tabItems.first?.viewController as? OptionsEditorViewController)?
+            .form.removeAll()
     }
 }

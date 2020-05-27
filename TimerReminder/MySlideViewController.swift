@@ -4,8 +4,9 @@ import TabPageViewController
 class MySlideViewController: SlideMenuController {
 
     override func awakeFromNib() {
-        if let controller = self.storyboard?.instantiateViewController(withIdentifier: "main") {
+        if let controller = self.storyboard?.instantiateViewController(withIdentifier: "main") as? TimerViewController {
             self.mainViewController = controller
+            self.delegate = controller
         }
         let tabPageViewController = TabPageViewController.create()
         tabPageViewController.option.currentColor = UIColor(hex: "5abb5a")
