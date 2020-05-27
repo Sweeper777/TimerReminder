@@ -285,12 +285,20 @@ class OptionsEditorViewController: FormViewController {
             <<< SwitchRow(tagReminderOnOff) {
                 row in
                 row.title = "Reminders".localised
-                row.value = false
+                if case .no = optionsDisplayed.reminderOption {
+                    row.value = false
+                } else {
+                    row.value = true
+                }
             }
             <<< SegmentedRow<String>(tagReminderStyle) {
                 row in
                 row.options = ["Regular".localised, "At Specific Times".localised]
-                row.value = "At Specific Times".localised
+                if case .regularInterval = optionsDisplayed.reminderOption {
+                    row.value = "Regular".localised
+                } else {
+                    row.value = "At Specific Times".localised
+                }
                 row.cell.segmentedControl.apportionsSegmentWidthsByContent = true
                 
                 row.hidden = Condition.function([tagReminderOnOff]) {
@@ -309,13 +317,20 @@ class OptionsEditorViewController: FormViewController {
             <<< TimeIntervalRow(tagRegularReminderInterval) {
                 row in
                 row.title = "Remind Every".localised
-                row.value = 300
+                if case .regularInterval(let reminder) = optionsDisplayed.reminderOption {
+                    row.value = reminder.remindTime
+                } else {
+                    row.value = 300
+                }
             }
             
             <<< TextRow(tagRegularReminderMessage) {
                 row in
                 row.title = "Message:".localised
                 row.placeholder = "Leave blank for default".localised
+                if case .regularInterval(let reminder) = optionsDisplayed.reminderOption {
+                    row.value = reminder.message
+                }
             }.cellUpdate { cell, row in
                 cell.textField.textAlignment = .left
         }
@@ -345,21 +360,43 @@ class OptionsEditorViewController: FormViewController {
                         $0.rowLeftPercentage = 0.48
                     }
                 }
-                $0 <<< SplitRow<TimeIntervalRow,TextRow>(){
-                    $0.rowLeft = TimeIntervalRow(){
-                        $0.title = ""
-                        $0.value = 60
-                    }.cellUpdate({ (cell, row) in
-                        cell.selectionStyle = .none
-                    })
-                    
-                    $0.rowRight = TextRow(){
-                        $0.title = ""
-                        $0.placeholder = "Default".localised
+                if case .specificTimes(let reminders) = optionsDisplayed.reminderOption {
+                    for reminder in reminders {
+                        $0 <<< SplitRow<TimeIntervalRow,TextRow>(){
+                            $0.rowLeft = TimeIntervalRow(){
+                                $0.title = ""
+                                $0.value = reminder.remindTime
+                            }.cellUpdate({ (cell, row) in
+                                cell.selectionStyle = .none
+                            })
+                            
+                            $0.rowRight = TextRow(){
+                                $0.title = ""
+                                $0.placeholder = "Default".localised
+                                $0.value = reminder.message
+                            }
+                            
+                            $0.rowLeftPercentage = 0.48
+                        }
                     }
-                    
-                    $0.rowLeftPercentage = 0.48
+                } else {
+                    $0 <<< SplitRow<TimeIntervalRow,TextRow>(){
+                        $0.rowLeft = TimeIntervalRow(){
+                            $0.title = ""
+                            $0.value = 60
+                        }.cellUpdate({ (cell, row) in
+                            cell.selectionStyle = .none
+                        })
+                        
+                        $0.rowRight = TextRow(){
+                            $0.title = ""
+                            $0.placeholder = "Default".localised
+                        }
+                        
+                        $0.rowLeftPercentage = 0.48
+                    }
                 }
+                
                 $0.tag = tagReminders
                 $0.hidden = .function([tagReminderStyle, tagReminderOnOff], { (form) -> Bool in
                     let enabled: SwitchRow = form.rowBy(tag: tagReminderOnOff)!
