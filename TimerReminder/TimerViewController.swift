@@ -210,6 +210,7 @@ extension TimerViewController : SetTimerViewDelegate {
         timerDisposable?.dispose()
         subscribeToTimer(withInitial: setTime)
         self.playButtonIsPlay.accept(true)
+        timerSoundEffectPlayer.stopPlaying()
     }
 }
 
