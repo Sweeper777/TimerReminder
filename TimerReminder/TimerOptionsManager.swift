@@ -16,4 +16,10 @@ class TimerOptionsManager {
         }
     }
     
+    private static var _shared: TimerOptionsManager?
+    
+    static var shared: TimerOptionsManager {
+        _shared = _shared ?? TimerOptionsManager()
+        return _shared!
+    }
 }
