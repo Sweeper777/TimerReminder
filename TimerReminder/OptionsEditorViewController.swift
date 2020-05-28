@@ -170,7 +170,9 @@ class OptionsEditorViewController: FormViewController {
                 case .yes:
                     row.value = true
                 }
-            }
+            }.cellSetup({ (cell, row) in
+                cell.switchControl.onTintColor = UIColor(named: "tint")
+            })
             <<< PickerInlineRow<CountDownTime>(tagStartCountDown) {
                 row in
                 row.title = "Start Countdown At".localised
@@ -193,13 +195,17 @@ class OptionsEditorViewController: FormViewController {
                 row in
                 row.title = "Counting".localised
                 row.value = optionsDisplayed.countSeconds
-        }
+        }.cellSetup({ (cell, row) in
+            cell.switchControl.onTintColor = UIColor(named: "tint")
+        })
         
         form +++ SwitchRow(tagBeepSounds) {
             row in
             row.title = "Beep Sounds".localised
             row.value = optionsDisplayed.beepSounds
-        }
+        }.cellSetup({ (cell, row) in
+            cell.switchControl.onTintColor = UIColor(named: "tint")
+        })
     }
     
     fileprivate func appearanceRows() {
@@ -280,7 +286,9 @@ class OptionsEditorViewController: FormViewController {
                 row in
                 row.title = "Vibrate".localised
                 row.value = optionsDisplayed.vibrate
-        }
+        }.cellSetup({ (cell, row) in
+            cell.switchControl.onTintColor = UIColor(named: "tint")
+        })
     }
     
     fileprivate func reminderRows() {
@@ -293,7 +301,9 @@ class OptionsEditorViewController: FormViewController {
                 } else {
                     row.value = true
                 }
-            }
+            }.cellSetup({ (cell, row) in
+                cell.switchControl.onTintColor = UIColor(named: "tint")
+            })
             <<< SegmentedRow<String>(tagReminderStyle) {
                 row in
                 row.options = ["Regular".localised, "At Specific Times".localised]
