@@ -86,13 +86,15 @@ struct TimerOptions {
     let reminderOption: ReminderOption
     let font: FontStyle
     let textAnimation: LTMorphingEffect
+    var objectRef: TimerOptionsObject?
     
     init(name: String = "Default", language: String = "en-us",
          countDown: CountDownOption = .yes(startsAt: 10), countSeconds: Bool = false,
          beepSounds: Bool = false, vibrate: Bool = false,
          timeUpOption: TimeUpOption = .speakDefaultMessage,
          reminderOption: ReminderOption = .no,
-         font: FontStyle = .regular, textAnimation: LTMorphingEffect = .scale) {
+         font: FontStyle = .regular, textAnimation: LTMorphingEffect = .scale,
+         objectRef: TimerOptionsObject? = nil) {
         self.name = name
         self.language = language
         self.countDown = countDown
@@ -103,6 +105,7 @@ struct TimerOptions {
         self.reminderOption = reminderOption
         self.font = font
         self.textAnimation = textAnimation
+        self.objectRef = objectRef
     }
 }
 
@@ -134,7 +137,8 @@ extension TimerOptions {
             timeUpOption: timeUpOption,
             reminderOption: reminderOption,
             font: FontStyle(rawValue: timerOptionsObject.font)!,
-            textAnimation: LTMorphingEffect(rawValue: timerOptionsObject.textAnimation)!
+            textAnimation: LTMorphingEffect(rawValue: timerOptionsObject.textAnimation)!,
+            objectRef: timerOptionsObject
         )
     }
 }
