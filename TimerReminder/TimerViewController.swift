@@ -41,7 +41,7 @@ class TimerViewController: UIViewController {
         playButton = MDCFloatingButton(shape: .mini)
         playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
         playButton.imageView?.tintColor = .white
-        playButton.backgroundColor = UIColor(hex: "5abb5a")
+        playButton.backgroundColor = UIColor(named: "tint")
         hud.addSubview(playButton)
         playButton.snp.makeConstraints { (make) in
             make.width.equalTo(44).labeled("play button width = 44")
@@ -53,7 +53,7 @@ class TimerViewController: UIViewController {
         resetButton = MDCFloatingButton(shape: .mini)
         resetButton.setImage(UIImage(systemName: "goforward"), for: .normal)
         resetButton.imageView?.tintColor = .white
-        resetButton.backgroundColor = UIColor(hex: "5abb5a")
+        resetButton.backgroundColor = UIColor(named: "tint")
         hud.addSubview(resetButton)
         resetButton.snp.makeConstraints { (make) in
             make.width.equalTo(44).labeled("reset button width = 44")
@@ -65,7 +65,7 @@ class TimerViewController: UIViewController {
         optionsButton = MDCFloatingButton(shape: .mini)
         optionsButton.setImage(UIImage(systemName: "slider.horizontal.3"), for: .normal)
         optionsButton.imageView?.tintColor = .white
-        optionsButton.backgroundColor = UIColor(hex: "5abb5a")
+        optionsButton.backgroundColor = UIColor(named: "tint")
         hud.addSubview(optionsButton)
         optionsButton.snp.makeConstraints { (make) in
             make.width.equalTo(44).labeled("options button width = 44")

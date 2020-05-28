@@ -32,7 +32,7 @@ class OptionsEditorViewController: FormViewController {
             doneButton = MDCFloatingButton(shape: .default)
             doneButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
             doneButton.imageView?.tintColor = .white
-            doneButton.backgroundColor = UIColor(hex: "5abb5a")
+            doneButton.backgroundColor = UIColor(named: "tint")
             view.addSubview(doneButton)
             doneButton.snp.makeConstraints { (make) in
                 make.width.equalTo(44).labeled("done button width = 44")

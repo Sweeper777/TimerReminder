@@ -9,7 +9,7 @@ class MySlideViewController: SlideMenuController {
             self.delegate = controller
         }
         let tabPageViewController = TabPageViewController.create()
-        tabPageViewController.option.currentColor = UIColor(hex: "5abb5a")
+        tabPageViewController.option.currentColor = UIColor(named: "tint")!
         tabPageViewController.option.tabBackgroundColor = .systemBackground
         tabPageViewController.option.pageBackgoundColor = .systemBackground
         if let currentOptionsVC = self.storyboard?.instantiateViewController(withIdentifier: "options") as? OptionsEditorViewController,
