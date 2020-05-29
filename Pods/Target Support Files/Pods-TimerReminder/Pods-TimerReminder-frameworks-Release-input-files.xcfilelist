@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-TimerReminder/Pods-TimerReminder-frameworks.sh
+${BUILT_PRODUCTS_DIR}/EmptyDataSet-Swift/EmptyDataSet_Swift.framework
 ${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework
 ${BUILT_PRODUCTS_DIR}/Keyboard+LayoutGuide/KeyboardLayoutGuide.framework
 ${BUILT_PRODUCTS_DIR}/LTMorphingLabel/LTMorphingLabel.framework

@@ -1,4 +1,5 @@
 PODS:
+  - EmptyDataSet-Swift (5.0.0)
   - Eureka (5.2.0)
   - "Keyboard+LayoutGuide (1.6.0)"
   - LTMorphingLabel (0.7.0)
@@ -63,6 +64,7 @@ PODS:
   - TabPageViewController (0.2.7)
 
 DEPENDENCIES:
+  - EmptyDataSet-Swift
   - Eureka
   - "Keyboard+LayoutGuide"
   - LTMorphingLabel
@@ -80,6 +82,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - EmptyDataSet-Swift
     - Eureka
     - "Keyboard+LayoutGuide"
     - LTMorphingLabel
@@ -112,6 +115,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/AtomicSLLC/SlideMenuControllerSwift.git
 
 SPEC CHECKSUMS:
+  EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   Eureka: 820a761c700f6eaab3b60758f138e0d9b99072b3
   "Keyboard+LayoutGuide": db44b1764e2bb5d9824cc9cea9d9006cd4442045
   LTMorphingLabel: 22147fb1ec2b0306537ccc348b36ea8617179b03
@@ -130,6 +134,6 @@ SPEC CHECKSUMS:
   SwiftyUtils: 0536386622b456460c329f44e38759f16864fe24
   TabPageViewController: c37a1257a50c2b50712dde61bf499768eee95b67
 
-PODFILE CHECKSUM: 88b8a40d8719742757b8dea5fa5104e96ce6d2e5
+PODFILE CHECKSUM: 241019561bdc3c5bc70db29436db25e6a128ade8
 
 COCOAPODS: 1.7.5
