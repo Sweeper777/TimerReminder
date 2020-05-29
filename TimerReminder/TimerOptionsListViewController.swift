@@ -20,10 +20,11 @@ class TimerOptionsListViewController : UITableViewController {
             doneButton.backgroundColor = UIColor(named: "tint")
             view.addSubview(doneButton)
             doneButton.snp.makeConstraints { (make) in
-                make.width.equalTo(44).labeled("done button width = 44")
-                make.height.equalTo(44).labeled("done button height = 44")
-                make.right.equalToSuperview().offset(-20).labeled("done button on the rightmost of screen")
+                make.right.equalTo(view.snp.right).offset(-20).labeled("done button on the rightmost of screen")
             }
+            let doneBottomConstraint = doneButton.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor)
+            doneBottomConstraint.constant = -40
+            doneBottomConstraint.isActive = true
             
             addButton = MDCFloatingButton(shape: .default)
             addButton.setImage(UIImage(systemName: "plus"), for: .normal)
@@ -31,10 +32,11 @@ class TimerOptionsListViewController : UITableViewController {
             addButton.backgroundColor = UIColor(named: "tint")
             view.addSubview(addButton)
             addButton.snp.makeConstraints { (make) in
-                make.width.equalTo(44).labeled("done button width = 44")
-                make.height.equalTo(44).labeled("done button height = 44")
-                make.left.equalToSuperview().offset(20).labeled("done button on the leftmost of view")
+                make.left.equalToSuperview().offset(20).labeled("add button on the leftmost of view")
             }
+            let addBottomConstraint = addButton.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor)
+            addBottomConstraint.constant = -40
+            addBottomConstraint.isActive = true
         }
     }
 }

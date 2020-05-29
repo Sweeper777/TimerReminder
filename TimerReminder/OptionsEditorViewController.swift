@@ -35,8 +35,6 @@ class OptionsEditorViewController: FormViewController {
             doneButton.backgroundColor = UIColor(named: "tint")
             view.addSubview(doneButton)
             doneButton.snp.makeConstraints { (make) in
-                make.width.equalTo(44).labeled("done button width = 44")
-                make.height.equalTo(44).labeled("done button height = 44")
                 make.right.equalToSuperview().offset(-20).labeled("done button on the rightmost of screen")
             }
             let constraint = doneButton.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor)
