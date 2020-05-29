@@ -262,6 +262,8 @@ class OptionsEditorViewController: FormViewController {
                 row.options = ["Radar", "Waves", "Radiate", "Night Owl", "Circuit", "Sencha", "Cosmic", "Presto", "Beacon", "Hillside"]
                 if case .playSound(let sound) = optionsDisplayed.timeUpOption {
                     row.value = sound
+                } else {
+                    row.value = "Radar"
                 }
             }.onChange {
                 row in
