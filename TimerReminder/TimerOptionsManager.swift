@@ -22,4 +22,12 @@ class TimerOptionsManager {
         _shared = _shared ?? TimerOptionsManager()
         return _shared!
     }
+    
+    func addTimerOptions(_ timerOptions: inout TimerOptions) throws {
+        try realm.write {
+            let timerOptionsObject = TimerOptionsObject(timerOptions: timerOptions)
+            realm.add(timerOptionsObject)
+            timerOptions.objectRef = timerOptionsObject
+        }
+    }
 }
