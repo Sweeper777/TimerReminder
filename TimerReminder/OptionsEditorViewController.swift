@@ -28,21 +28,6 @@ class OptionsEditorViewController: FormViewController {
         if let topInset = tableViewTopInset {
             tableView.contentInset.top = topInset
             tableView.contentInset.bottom = 84
-            
-            doneButton = MDCFloatingButton(shape: .default)
-            doneButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
-            doneButton.imageView?.tintColor = .white
-            doneButton.backgroundColor = UIColor(named: "tint")
-            doneButton.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(doneButton)
-            doneButton.snp.makeConstraints { (make) in
-                make.right.equalToSuperview().offset(-20).labeled("done button on the rightmost of screen")
-            }
-            let constraint = doneButton.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor)
-            constraint.constant = -40
-            constraint.isActive = true
-            
-            doneButton.addTarget(self, action: #selector(doneTapped), for: .touchUpInside)
         }
         
     }
