@@ -1,6 +1,7 @@
 import UIKit
 import MaterialComponents
 import SnapKit
+import EmptyDataSet_Swift
 
 class TimerOptionsListViewController : UITableViewController {
     var tableViewTopInset: CGFloat?
@@ -37,6 +38,11 @@ class TimerOptionsListViewController : UITableViewController {
             let addBottomConstraint = addButton.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor)
             addBottomConstraint.constant = -40
             addBottomConstraint.isActive = true
+        }
+        
+        tableView.emptyDataSetView { (view) in
+            view.titleLabelString(NSAttributedString(string: "You don't have any saved timer options!".localised))
+            view.detailLabelString(NSAttributedString(string: "Tap the '+' button to create one!".localised))
         }
     }
 }
