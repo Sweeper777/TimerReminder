@@ -33,6 +33,7 @@ class OptionsEditorViewController: FormViewController {
             doneButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
             doneButton.imageView?.tintColor = .white
             doneButton.backgroundColor = UIColor(named: "tint")
+            doneButton.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(doneButton)
             doneButton.snp.makeConstraints { (make) in
                 make.right.equalToSuperview().offset(-20).labeled("done button on the rightmost of screen")
