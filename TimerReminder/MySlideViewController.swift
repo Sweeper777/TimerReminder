@@ -52,4 +52,11 @@ class MySlideViewController: SlideMenuController {
             return true 
         }
     }
+    
+    @objc func doneTapped() {
+        if isRightOpen() && (rightViewController as? TabPageViewController)?.currentIndex == 0 {
+            closeRight()
+            ((rightViewController as? TabPageViewController)?.tabItems[0].viewController as? OptionsEditorViewController)?.doneTapped()
+        }
+    }
 }
