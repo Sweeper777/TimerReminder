@@ -117,7 +117,6 @@ class OptionsEditorViewController: FormViewController {
             textAnimation: animation)
         if isCurrentOptions {
             (parent?.slideMenuController()?.mainViewController as? TimerViewController)?.currentOptions = options
-            parent?.slideMenuController()?.closeRight()
         }
     }
     
