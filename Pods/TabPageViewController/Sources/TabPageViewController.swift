@@ -17,7 +17,7 @@ open class TabPageViewController: UIPageViewController {
         }
     }
 
-    var currentIndex: Int? {
+    public var currentIndex: Int? {
         guard let viewController = viewControllers?.first else {
             return nil
         }
