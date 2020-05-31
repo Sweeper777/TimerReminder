@@ -30,6 +30,7 @@ class TimerOptionsListViewController : UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "addButton")!
+            cell.textLabel?.text = "New Timer Options".localised
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
