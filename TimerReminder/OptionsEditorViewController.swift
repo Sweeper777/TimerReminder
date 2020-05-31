@@ -11,7 +11,6 @@ import LTMorphingLabel
 class OptionsEditorViewController: FormViewController {
     var isCurrentOptions = false
     var tableViewTopInset: CGFloat?
-    var showNameField = false
     var player: AVAudioPlayer?
     var doneButton: MDCFloatingButton!
     
@@ -29,7 +28,6 @@ class OptionsEditorViewController: FormViewController {
             tableView.contentInset.top = topInset
             tableView.contentInset.bottom = 84
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,8 +121,8 @@ class OptionsEditorViewController: FormViewController {
     fileprivate func metadataRows() {
         let section1 = Section(footer: "This is the language in which the reminder messages and the \"Time is up\" message will be spoken.".localised)
         
-        if showNameField {
-            section1 +++ TextRow(tagName) {
+        if !isCurrentOptions {
+            section1 <<< TextRow(tagName) {
                 row in
                 row.title = "Name:".localised
                 row.value = optionsDisplayed.name
