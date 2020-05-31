@@ -38,4 +38,12 @@ class TimerOptionsListViewController : UITableViewController {
             return cell
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            self.parent?.slideMenuController()?.closeRight()
+            (self.parent?.slideMenuController()?.mainViewController as? TimerViewController)?.newOptions()
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }

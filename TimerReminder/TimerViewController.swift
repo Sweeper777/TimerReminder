@@ -203,6 +203,9 @@ class TimerViewController: UIViewController {
             fatalError()
         }
     }
+    
+    func newOptions() {
+    }
 }
 
 extension TimerViewController : SetTimerViewDelegate {
