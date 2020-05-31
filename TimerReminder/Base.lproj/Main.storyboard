@@ -228,7 +228,7 @@
                         <outlet property="hud" destination="o30-xo-hc7" id="0ZN-eo-4rv"/>
                         <outlet property="setTimerView" destination="KQm-lO-Amn" id="xgR-eg-18u"/>
                         <outlet property="timerLabel" destination="bwC-gt-lXQ" id="Njc-uA-eAg"/>
-                        <segue destination="6qx-hf-zqF" kind="presentation" modalPresentationStyle="formSheet" id="4x1-eo-dJl"/>
+                        <segue destination="6qx-hf-zqF" kind="presentation" identifier="showOptionsEditor" modalPresentationStyle="formSheet" id="4x1-eo-dJl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLB-vi-0yV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
