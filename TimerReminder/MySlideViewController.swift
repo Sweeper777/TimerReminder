@@ -17,7 +17,7 @@ class MySlideViewController: SlideMenuController {
         if let currentOptionsVC = self.storyboard?.instantiateViewController(withIdentifier: "options") as? OptionsEditorViewController,
             let timerOptionsListVC = self.storyboard?.instantiateViewController(identifier: "myOptions") as? TimerOptionsListViewController {
             currentOptionsVC.tableViewTopInset = tabPageViewController.option.tabHeight
-            currentOptionsVC.isCurrentOptions = true
+            currentOptionsVC.mode = .current
             timerOptionsListVC.tableViewTopInset = tabPageViewController.option.tabHeight
             tabPageViewController.tabItems = [(currentOptionsVC, "Current Options".localised), (timerOptionsListVC, "All Timer Options".localised)]
             self.rightViewController = tabPageViewController

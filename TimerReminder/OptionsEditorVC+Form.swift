@@ -8,7 +8,7 @@ extension OptionsEditorViewController {
     fileprivate func metadataRows() {
          let section1 = Section(footer: "This is the language in which the reminder messages and the \"Time is up\" message will be spoken.".localised)
          
-         if !isCurrentOptions {
+        if mode != .current {
              section1 <<< TextRow(tagName) {
                  row in
                  row.title = "Name:".localised

@@ -5,7 +5,14 @@ import SplitRow
 import LTMorphingLabel
 
 class OptionsEditorViewController: FormViewController {
-    var isCurrentOptions = false
+    
+    enum Mode {
+        case current
+        case new
+        case edit
+    }
+    
+    var mode = Mode.new
     var tableViewTopInset: CGFloat?
     var player: AVAudioPlayer?
     
@@ -108,7 +115,7 @@ class OptionsEditorViewController: FormViewController {
             reminderOption: reminderOption,
             font: font,
             textAnimation: animation)
-        if isCurrentOptions {
+        if mode == .current {
             (parent?.slideMenuController()?.mainViewController as? TimerViewController)?.currentOptions = options
         }
     }
