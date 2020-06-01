@@ -1,6 +1,7 @@
 import SlideMenuControllerSwift
 import TabPageViewController
 import MaterialComponents
+import KeyboardLayoutGuide
 
 class MySlideViewController: SlideMenuController {
 
