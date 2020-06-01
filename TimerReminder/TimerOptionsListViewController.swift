@@ -34,7 +34,7 @@ class TimerOptionsListViewController : UITableViewController {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-            cell.textLabel?.text = allTimerOptions[indexPath.row + 1].name
+            cell.textLabel?.text = allTimerOptions[indexPath.row - 1].name
             return cell
         }
     }
