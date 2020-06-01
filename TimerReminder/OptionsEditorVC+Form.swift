@@ -12,7 +12,9 @@ extension OptionsEditorViewController {
              section1 <<< TextRow(tagName) {
                  row in
                  row.title = "Name:".localised
-                 row.value = optionsDisplayed.name
+                if mode == .edit {
+                    row.value = optionsDisplayed.name
+                }
              }
          }
          
