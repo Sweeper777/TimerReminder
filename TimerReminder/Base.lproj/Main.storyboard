@@ -43,10 +43,16 @@
                     <navigationItem key="navigationItem" title="New Options" id="Dum-E4-jhn">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wim-zs-L99">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancelTapped" destination="XMk-fp-d3d" id="urq-5V-bmQ"/>
+                            </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem style="done" systemItem="done" id="KbI-Iz-KJj">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="doneTapped" destination="XMk-fp-d3d" id="Ogh-NP-hNi"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="trash" id="Pgx-2P-gCR">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -72,7 +78,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHk-NF-WTw" customClass="SetTimerView" customModule="TimerReminder" customModuleProvider="target">
                                 <rect key="frame" x="40" y="200" width="240" height="168"/>
-                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="KDK-It-HJT"/>
                                     <constraint firstAttribute="height" constant="168" id="VgP-Mt-p6k"/>
@@ -193,7 +199,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KQm-lO-Amn" customClass="SetTimerView" customModule="TimerReminder" customModuleProvider="target">
                                         <rect key="frame" x="24" y="331" width="240" height="168"/>
-                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="168" id="HS5-ak-guj"/>
                                             <constraint firstAttribute="width" constant="240" id="sSr-ET-jG2"/>

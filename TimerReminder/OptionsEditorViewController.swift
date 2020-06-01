@@ -30,7 +30,7 @@ class OptionsEditorViewController: FormViewController {
         self.tableView.isEditing = true
     }
     
-    @objc func doneTapped() {
+    @IBAction @objc func doneTapped() {
         let values = form.values()
         let name = values[tagName] as? String ?? TimerOptions.default.name
         let language = (values[tagLanguage] as? Languages)?.rawValue ?? TimerOptions.default.language
@@ -113,5 +113,7 @@ class OptionsEditorViewController: FormViewController {
         }
     }
     
- 
+    @IBAction func cancelTapped() {
+        dismiss(animated: true, completion: nil)
+    }
 }
