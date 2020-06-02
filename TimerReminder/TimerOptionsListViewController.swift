@@ -54,4 +54,10 @@ class TimerOptionsListViewController : UITableViewController {
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func reloadData() {
+        allTimerOptions = TimerOptionsManager.shared.allTimerOptions
+        tableView.reloadData()
+    }
+    
 }

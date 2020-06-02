@@ -229,10 +229,13 @@ extension TimerViewController : SetTimerViewDelegate {
 }
 
 extension TimerViewController : SlideMenuControllerDelegate {
-    func rightDidOpen() {
-        ((slideMenuController()?.rightViewController as? TabPageViewController)?
-            .tabItems.first?.viewController as? OptionsEditorViewController)?
+    func rightWillOpen() {
+        let tabItems = (slideMenuController()?.rightViewController as? TabPageViewController)?.tabItems
+        (tabItems?[0].viewController as? OptionsEditorViewController)?
             .optionsDisplayed = currentOptions
+        let optionsListVC = tabItems?[1].viewController as? TimerOptionsListViewController
+        optionsListVC?.selectedOptions = currentOptions
+        optionsListVC?.reloadData()
     }
     
     func rightDidClose() {
