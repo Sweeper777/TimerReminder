@@ -3,6 +3,7 @@ import Eureka
 import AVFoundation
 import SplitRow
 import LTMorphingLabel
+import SCLAlertView
 
 class OptionsEditorViewController: FormViewController {
     
@@ -39,7 +40,17 @@ class OptionsEditorViewController: FormViewController {
     
     @IBAction @objc func doneTapped() {
         let values = form.values()
-        let name = values[tagName] as? String ?? TimerOptions.default.name
+        let name = values[tagName] as? String
+        if mode != .current {
+            if (name?.trimmingCharacters(in: .whitespaces)).isNilOrEmpty {
+                SCLAlertView().showError("Error".localised, subTitle: "Please enter a name for the timer option!".localised, closeButtonTitle: "OK".localised)
+                return
+            } else if name == TimerOptions.default.name ||
+                TimerOptionsManager.shared.queryTimerOption("name == %@", args: name!.trimmingCharacters(in: .whitespaces)).count > 0 {
+                SCLAlertView().showError("Error".localised, subTitle: "Another timer option with this name already exists!".localised, closeButtonTitle: "OK".localised)
+                return
+            }
+        }
         let language = (values[tagLanguage] as? Languages)?.rawValue ?? TimerOptions.default.language
         let countDown: CountDownOption
         if let countDownTime = (values[tagStartCountDown] as? CountDownTime)?.rawValue {
@@ -105,7 +116,7 @@ class OptionsEditorViewController: FormViewController {
         }
         
         let options = TimerOptions(
-            name: name,
+            name: name?.trimmingCharacters(in: .whitespaces) ?? TimerOptions.default.name,
             language: language,
             countDown: countDown,
             countSeconds: countSeconds,
