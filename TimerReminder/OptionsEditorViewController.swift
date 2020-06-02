@@ -115,7 +115,7 @@ class OptionsEditorViewController: FormViewController {
             reminderOption = TimerOptions.default.reminderOption
         }
         
-        let options = TimerOptions(
+        var options = TimerOptions(
             name: name?.trimmingCharacters(in: .whitespaces) ?? TimerOptions.default.name,
             language: language,
             countDown: countDown,
@@ -126,9 +126,20 @@ class OptionsEditorViewController: FormViewController {
             reminderOption: reminderOption,
             font: font,
             textAnimation: animation)
-        if mode == .current {
+        switch mode {
+        case .current:
             (parent?.slideMenuController()?.mainViewController as? TimerViewController)?.currentOptions = options
+        case .new:
+            do {
+                try TimerOptionsManager.shared.addTimerOptions(&options)
+                dismiss(animated: true, completion: nil)
+            } catch {
+                SCLAlertView().showError("Error".localised, subTitle: error.localizedDescription, closeButtonTitle: "OK".localised)
+            }
+        case .edit:
+            break
         }
+        
     }
     
     @IBAction func cancelTapped() {
