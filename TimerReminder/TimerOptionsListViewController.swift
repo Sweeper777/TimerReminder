@@ -50,7 +50,11 @@ class TimerOptionsListViewController : UITableViewController {
             self.parent?.slideMenuController()?.closeRight()
             (self.parent?.slideMenuController()?.mainViewController as? TimerViewController)?.newOptions()
         } else {
+            let indexPathToUpdate1 = allTimerOptions.firstIndex(where: { $0.name == selectedOptions?.name })
+                .map { IndexPath(row: $0 + 1, section: 0) }
+            let indexPathToUpdate2 = indexPath
             selectedOptions = allTimerOptions[indexPath.row - 1]
+            tableView.reloadRows(at: [indexPathToUpdate1, indexPathToUpdate2].compactMap { $0 }, with: .automatic)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
