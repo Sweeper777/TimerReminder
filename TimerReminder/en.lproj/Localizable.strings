@@ -90,3 +90,7 @@
 "Add Reminder" = "Add Reminder";
 
 "New Timer Options" = "New Timer Options";
+"Please enter a name for the timer option!" = "Please enter a name for the timer option!";
+"Another timer option with this name already exists!" = "Another timer option with this name already exists!";
+"Error" = "Error";
+"OK" = "OK";

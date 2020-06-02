@@ -91,3 +91,7 @@
 "Add Reminder" = "添加提醒";
 
 "New Timer Options" = "新计时器设置";
+"Please enter a name for the timer option!" = "设置名不能为空！";
+"Another timer option with this name already exists!" = "该设置名已被使用！";
+"Error" = "错误";
+"OK" = "确定";

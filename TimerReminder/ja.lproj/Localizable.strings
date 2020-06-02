@@ -91,3 +91,7 @@
 "Add Reminder" = "リマインダーを追加";
 
 "New Timer Options" = "タイマー設定を追加";
+"Please enter a name for the timer option!" = "タイマー設定の名前を入力してください。";
+"Another timer option with this name already exists!" = "その設定の名前はすでに使われていますので、別の名前にしてください。";
+"Error" = "エラー";
+"OK" = "OK";
