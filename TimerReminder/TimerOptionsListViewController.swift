@@ -7,6 +7,7 @@ class TimerOptionsListViewController : UITableViewController {
     var tableViewTopInset: CGFloat?
     
     var allTimerOptions: [TimerOptions] = []
+    var selectedOptions: TimerOptions?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,11 @@ class TimerOptionsListViewController : UITableViewController {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
             cell.textLabel?.text = allTimerOptions[indexPath.row - 1].name
+            if selectedOptions?.name == allTimerOptions[indexPath.row - 1].name {
+                cell.imageView?.image = UIImage(systemName: "checkmark")
+            } else {
+                cell.imageView?.image = nil
+            }
             return cell
         }
     }
@@ -43,6 +49,8 @@ class TimerOptionsListViewController : UITableViewController {
         if indexPath.row == 0 {
             self.parent?.slideMenuController()?.closeRight()
             (self.parent?.slideMenuController()?.mainViewController as? TimerViewController)?.newOptions()
+        } else {
+            selectedOptions = allTimerOptions[indexPath.row - 1]
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
