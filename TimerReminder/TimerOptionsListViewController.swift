@@ -64,4 +64,9 @@ class TimerOptionsListViewController : UITableViewController {
         tableView.reloadData()
     }
     
+    func doneTapped() {
+        if let options = selectedOptions {
+            (parent?.slideMenuController()?.mainViewController as? TimerViewController)?.currentOptions = options
+        }
+    }
 }
