@@ -237,10 +237,4 @@ extension TimerViewController : SlideMenuControllerDelegate {
         optionsListVC?.selectedOptions = currentOptions
         optionsListVC?.reloadData()
     }
-    
-    func rightDidClose() {
-        ((slideMenuController()?.rightViewController as? TabPageViewController)?
-            .tabItems.first?.viewController as? OptionsEditorViewController)?
-            .form.removeAll()
-    }
 }
