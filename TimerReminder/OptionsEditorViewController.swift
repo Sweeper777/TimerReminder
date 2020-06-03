@@ -31,6 +31,10 @@ class OptionsEditorViewController: FormViewController {
             tableView.contentInset.top = topInset
             tableView.contentInset.bottom = 84
         }
+        
+        if mode == .new {
+            navigationItem.rightBarButtonItems?.remove(at: 1)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
