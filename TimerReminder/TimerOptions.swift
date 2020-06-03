@@ -19,7 +19,7 @@ enum TimeUpOption {
     case playSound(String)
 }
 
-struct Reminder {
+struct Reminder : Codable {
     let remindTime: Int
     let message: String?
 }
@@ -73,7 +73,7 @@ enum FontStyle: Int, CustomStringConvertible {
     }
 }
 
-struct TimerOptions {
+struct TimerOptions : Codable {
     static let `default` = TimerOptions()
     
     let name: String
@@ -107,6 +107,54 @@ struct TimerOptions {
         self.textAnimation = textAnimation
         self.objectRef = objectRef
     }
+    
+    enum CodingKeys: CodingKey {
+        case name
+        case language
+        case countDownTime
+        case countSeconds
+        case beepSounds
+        case vibrate
+        case font
+        case textAnimation
+        case timeUpMessage
+        case timeUpSound
+        case regularReminders
+        case reminders
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(language, forKey: .language)
+        if case .yes(let countDownTime) = countDown {
+            try container.encode(countDownTime, forKey: .countDownTime)
+        }
+        try container.encode(countSeconds, forKey: .countSeconds)
+        try container.encode(beepSounds, forKey: .beepSounds)
+        try container.encode(vibrate, forKey: .vibrate)
+        try container.encode(font.rawValue, forKey: .font)
+        try container.encode(textAnimation.rawValue, forKey: .textAnimation)
+        switch timeUpOption {
+        case .playSound(let s):
+            try container.encode(s, forKey: .timeUpSound)
+        case .speak(let s):
+            try container.encode(s, forKey: .timeUpMessage)
+        case .speakDefaultMessage:
+            break
+        }
+        switch reminderOption {
+        case .regularInterval(let reminder):
+            try container.encode(true, forKey: .regularReminders)
+            try container.encode([reminder], forKey: .reminders)
+        case .specificTimes(let reminders):
+            try container.encode(false, forKey: .regularReminders)
+            try container.encode(reminders, forKey: .reminders)
+        case .no:
+            try container.encode(false, forKey: .regularReminders)
+        }
+    }
+    
 }
 
 extension TimerOptions {
