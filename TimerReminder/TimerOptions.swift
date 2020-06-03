@@ -155,6 +155,31 @@ struct TimerOptions : Codable {
         }
     }
     
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name = try container.decode(String.self, forKey: .name)
+        language = try container.decode(String.self, forKey: .language)
+        countDown = (try container.decodeIfPresent(Int.self, forKey: .countDownTime)).map { .yes(startsAt: $0) } ?? .no
+        countSeconds = try container.decode(Bool.self, forKey: .countSeconds)
+        beepSounds = try container.decode(Bool.self, forKey: .beepSounds)
+        vibrate = try container.decode(Bool.self, forKey: .vibrate)
+        font = FontStyle(rawValue: try container.decode(Int.self, forKey: .font))!
+        textAnimation = LTMorphingEffect(rawValue: try container.decode(Int.self, forKey: .textAnimation))!
+        if let sound = try container.decodeIfPresent(String.self, forKey: .timeUpSound) {
+            timeUpOption = .playSound(sound)
+        } else if let message = try container.decodeIfPresent(String.self, forKey: .timeUpMessage) {
+            timeUpOption = .speak(message)
+        } else {
+            timeUpOption = .speakDefaultMessage
+        }
+        if try container.decode(Bool.self, forKey: .regularReminders) {
+            reminderOption = .regularInterval((try container.decode([Reminder].self, forKey: .reminders))[0])
+        } else if let reminders = try container.decodeIfPresent([Reminder].self, forKey: .reminders) {
+            reminderOption = .specificTimes(reminders)
+        } else {
+            reminderOption = .no
+        }
+    }
 }
 
 extension TimerOptions {
