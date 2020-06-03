@@ -146,3 +146,5 @@ class OptionsEditorViewController: FormViewController {
         dismiss(animated: true, completion: nil)
     }
 }
+
+extension OptionsEditorViewController : DoneTappedRespondable {}

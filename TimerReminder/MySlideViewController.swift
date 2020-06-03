@@ -55,9 +55,14 @@ class MySlideViewController: SlideMenuController {
     }
     
     @objc func doneTapped() {
-        if isRightOpen() && (rightViewController as? TabPageViewController)?.currentIndex == 0 {
+        if isRightOpen(), let tabVC = rightViewController as? TabPageViewController,
+            let responder = tabVC.currentIndex.map({ tabVC.tabItems[$0].viewController }) as? DoneTappedRespondable {
             closeRight()
-            ((rightViewController as? TabPageViewController)?.tabItems[0].viewController as? OptionsEditorViewController)?.doneTapped()
+            responder.doneTapped()
         }
     }
+}
+
+protocol DoneTappedRespondable {
+    func doneTapped()
 }

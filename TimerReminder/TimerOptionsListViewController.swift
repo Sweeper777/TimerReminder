@@ -70,3 +70,5 @@ class TimerOptionsListViewController : UITableViewController {
         }
     }
 }
+
+extension TimerOptionsListViewController : DoneTappedRespondable {}
