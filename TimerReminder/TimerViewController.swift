@@ -26,6 +26,10 @@ class TimerViewController: UIViewController {
             timerLabel.updateFontSizeToFit()
             timerSoundEffectPlayer.language = currentOptions.language
             timerSoundEffectPlayer.timeUpOption = currentOptions.timeUpOption
+            
+            if let data = try? JSONEncoder().encode(currentOptions) {
+                UserDefaults.standard.set(data, forKey: "lastSavedOptions")
+            }
         }
     }
     var disposeBag = DisposeBag()
@@ -116,6 +120,12 @@ class TimerViewController: UIViewController {
             }).disposed(by: disposeBag)
         
         setTimerView.delegate = self
+        
+        if let lastSavedOptionsData = UserDefaults.standard.data(forKey: "lastSavedOptions"),
+            let lastSavedOptions = try? JSONDecoder().decode(TimerOptions.self, from: lastSavedOptionsData) {
+            currentOptions = lastSavedOptions
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
