@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="1103" y="388"/>
         </scene>
-        <!--New Options-->
+        <!--Options Editor View Controller-->
         <scene sceneID="VEg-Y5-VaR">
             <objects>
                 <viewController storyboardIdentifier="options" id="XMk-fp-d3d" customClass="OptionsEditorViewController" customModule="TimerReminder" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Options" id="Dum-E4-jhn">
+                    <navigationItem key="navigationItem" id="Dum-E4-jhn">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wim-zs-L99">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -78,7 +78,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHk-NF-WTw" customClass="SetTimerView" customModule="TimerReminder" customModuleProvider="target">
                                 <rect key="frame" x="40" y="200" width="240" height="168"/>
-                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="KDK-It-HJT"/>
                                     <constraint firstAttribute="height" constant="168" id="VgP-Mt-p6k"/>
@@ -199,7 +199,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KQm-lO-Amn" customClass="SetTimerView" customModule="TimerReminder" customModuleProvider="target">
                                         <rect key="frame" x="24" y="331" width="240" height="168"/>
-                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="168" id="HS5-ak-guj"/>
                                             <constraint firstAttribute="width" constant="240" id="sSr-ET-jG2"/>
@@ -235,11 +235,12 @@
                         <outlet property="setTimerView" destination="KQm-lO-Amn" id="xgR-eg-18u"/>
                         <outlet property="timerLabel" destination="bwC-gt-lXQ" id="Njc-uA-eAg"/>
                         <segue destination="6qx-hf-zqF" kind="presentation" identifier="newOptions" modalPresentationStyle="formSheet" id="4x1-eo-dJl"/>
+                        <segue destination="6qx-hf-zqF" kind="presentation" identifier="editOptions" modalPresentationStyle="formSheet" id="wwI-5j-pVH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLB-vi-0yV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="371.25" y="387.67605633802816"/>
+            <point key="canvasLocation" x="131" y="388"/>
         </scene>
     </scenes>
     <resources>
@@ -248,4 +249,7 @@
             <color red="0.35294117647058826" green="0.73333333333333328" blue="0.35294117647058826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="wwI-5j-pVH"/>
+    </inferredMetricsTieBreakers>
 </document>
