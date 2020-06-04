@@ -218,13 +218,20 @@ class TimerViewController: UIViewController {
         performSegue(withIdentifier: "newOptions", sender: TimerOptions.default)
     }
     
+    func editOptions(_ timerOptions: TimerOptions) {
+        performSegue(withIdentifier: "editOptions", sender: timerOptions)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "newOptions",
-            let vc = (segue.destination as? UINavigationController)?
+        if let vc = (segue.destination as? UINavigationController)?
                 .topViewController as? OptionsEditorViewController,
             let options = sender as? TimerOptions {
             vc.optionsDisplayed = options
-            vc.mode = .new
+            if segue.identifier == "newOptions" {
+                vc.mode = .new
+            } else if segue.identifier == "editOptions" {
+                vc.mode = .edit
+            }
         }
     }
 }
