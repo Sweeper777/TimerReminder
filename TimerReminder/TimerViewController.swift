@@ -125,12 +125,17 @@ class TimerViewController: UIViewController {
             let lastSavedOptions = try? JSONDecoder().decode(TimerOptions.self, from: lastSavedOptionsData) {
             currentOptions = lastSavedOptions
         }
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         timerLabel.updateFontSizeToFit()
+        UIApplication.shared.isIdleTimerDisabled = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
