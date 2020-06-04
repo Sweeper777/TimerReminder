@@ -35,4 +35,14 @@ class TimerOptionsManager {
         realm.objects(TimerOptionsObject.self).filter(NSPredicate(format: query, argumentArray: args))
             .map(TimerOptions.init(timerOptionsObject:))
     }
+    
+    func deleteTimerOptions(_ timerOptions: TimerOptions) throws {
+        if let obj = timerOptions.objectRef {
+            try realm.write {
+                realm.delete(obj.reminders)
+                realm.delete(obj)
+            }
+        }
+    }
+    
 }
