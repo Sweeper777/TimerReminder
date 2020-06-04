@@ -34,6 +34,9 @@ class OptionsEditorViewController: FormViewController {
         
         if mode == .new {
             navigationItem.rightBarButtonItems?.remove(at: 1)
+            title = "New Timer Options".localised
+        } else if mode == .edit {
+            title = optionsDisplayed.name
         }
     }
     
