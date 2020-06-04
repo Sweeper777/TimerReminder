@@ -31,7 +31,7 @@ class TimerOptionsManager {
         }
     }
     
-    func queryTimerOption(_ query: String, args: Any...) -> [TimerOptions] {
+    func queryTimerOptions(_ query: String, args: Any...) -> [TimerOptions] {
         realm.objects(TimerOptionsObject.self).filter(NSPredicate(format: query, argumentArray: args))
             .map(TimerOptions.init(timerOptionsObject:))
     }
