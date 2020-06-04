@@ -45,4 +45,23 @@ class TimerOptionsManager {
         }
     }
     
+    func updateTimerOptions(from oldTimerOptions: TimerOptions, to newTimerOptions: inout TimerOptions) throws {
+        guard let obj = oldTimerOptions.objectRef else { return }
+        try realm.write {
+            realm.delete(obj.reminders)
+            let newObj = TimerOptionsObject(timerOptions: newTimerOptions)
+            realm.add(newObj.reminders)
+            obj.name = newObj.name
+            obj.language = newObj.language
+            obj.countDownTime.value = newObj.countDownTime.value
+            obj.countSeconds = newObj.countSeconds
+            obj.beepSounds = newObj.beepSounds
+            obj.vibrate = newObj.vibrate
+            obj.font = newObj.font
+            obj.textAnimation = newObj.textAnimation
+            obj.timeUpMessage = newObj.timeUpMessage
+            obj.timeUpSound = newObj.timeUpSound
+            obj.regularReminders = newObj.regularReminders
+        }
+    }
 }
