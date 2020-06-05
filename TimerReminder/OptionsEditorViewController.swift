@@ -52,8 +52,8 @@ class OptionsEditorViewController: FormViewController {
             if (name?.trimmingCharacters(in: .whitespaces)).isNilOrEmpty {
                 SCLAlertView().showError("Error".localised, subTitle: "Please enter a name for the timer option!".localised, closeButtonTitle: "OK".localised)
                 return
-            } else if name == TimerOptions.default.name ||
-                TimerOptionsManager.shared.queryTimerOptions("name == %@", args: name!.trimmingCharacters(in: .whitespaces)).count > 0 {
+            } else if name == TimerOptions.default.name || (name != optionsDisplayed.name &&
+                TimerOptionsManager.shared.queryTimerOptions("name == %@", args: name!.trimmingCharacters(in: .whitespaces)).count > 0) {
                 SCLAlertView().showError("Error".localised, subTitle: "Another timer option with this name already exists!".localised, closeButtonTitle: "OK".localised)
                 return
             }
