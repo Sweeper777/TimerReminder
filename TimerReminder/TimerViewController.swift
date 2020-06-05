@@ -235,12 +235,12 @@ class TimerViewController: UIViewController {
         if let vc = (segue.destination as? UINavigationController)?
                 .topViewController as? OptionsEditorViewController,
             let options = sender as? TimerOptions {
-            vc.optionsDisplayed = options
             if segue.identifier == "newOptions" {
                 vc.mode = .new
             } else if segue.identifier == "editOptions" {
                 vc.mode = .edit
             }
+            vc.optionsDisplayed = options
         }
     }
 }

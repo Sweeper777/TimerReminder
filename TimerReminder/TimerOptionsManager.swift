@@ -62,6 +62,7 @@ class TimerOptionsManager {
             obj.timeUpMessage = newObj.timeUpMessage
             obj.timeUpSound = newObj.timeUpSound
             obj.regularReminders = newObj.regularReminders
+            obj.reminders.append(objectsIn: newObj.reminders)
         }
     }
 }
