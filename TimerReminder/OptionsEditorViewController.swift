@@ -144,7 +144,12 @@ class OptionsEditorViewController: FormViewController {
                 SCLAlertView().showError("Error".localised, subTitle: error.localizedDescription, closeButtonTitle: "OK".localised)
             }
         case .edit:
-            break
+            do {
+                try TimerOptionsManager.shared.updateTimerOptions(from: optionsDisplayed, to: &options)
+                performSegue(withIdentifier: "unwindToTimerOptions", sender: nil)
+            } catch {
+                SCLAlertView().showError("Error".localised, subTitle: error.localizedDescription, closeButtonTitle: "OK".localised)
+            }
         }
         
     }
