@@ -228,6 +228,7 @@ class TimerViewController: UIViewController {
     }
     
     @IBAction func unwindFromTimerOptions(_ segue: UIStoryboardSegue) {
+        currentOptions.synchroniseWithRealmObject()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -155,3 +155,9 @@ extension TimerOptions {
         )
     }
 }
+
+extension TimerOptions {
+    mutating func synchroniseWithRealmObject() {
+        objectRef.map { self = TimerOptions(timerOptionsObject: $0) }
+    }
+}
