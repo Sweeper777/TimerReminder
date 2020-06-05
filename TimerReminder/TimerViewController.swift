@@ -227,6 +227,9 @@ class TimerViewController: UIViewController {
         performSegue(withIdentifier: "editOptions", sender: timerOptions)
     }
     
+    @IBAction func unwindFromTimerOptions(_ segue: UIStoryboardSegue) {
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = (segue.destination as? UINavigationController)?
                 .topViewController as? OptionsEditorViewController,

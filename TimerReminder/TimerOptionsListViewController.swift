@@ -59,6 +59,12 @@ class TimerOptionsListViewController : UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let options = allTimerOptions[indexPath.row - 1]
+        self.parent?.slideMenuController()?.closeRight()
+        (self.parent?.slideMenuController()?.mainViewController as? TimerViewController)?.editOptions(options)
+    }
+    
     func reloadData() {
         allTimerOptions = TimerOptionsManager.shared.allTimerOptions
         tableView.reloadData()

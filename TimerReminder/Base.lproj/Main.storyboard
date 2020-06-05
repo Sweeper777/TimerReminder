@@ -56,9 +56,15 @@
                             </barButtonItem>
                             <barButtonItem systemItem="trash" id="Pgx-2P-gCR">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="deleteTapped" destination="XMk-fp-d3d" id="sDU-id-anR"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <segue destination="cOD-CX-hYo" kind="unwind" identifier="unwindToTimerOptions" unwindAction="unwindFromTimerOptions:" id="Lpj-4c-mJt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fds-7s-Hbg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,7 +84,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHk-NF-WTw" customClass="SetTimerView" customModule="TimerReminder" customModuleProvider="target">
                                 <rect key="frame" x="40" y="200" width="240" height="168"/>
-                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="KDK-It-HJT"/>
                                     <constraint firstAttribute="height" constant="168" id="VgP-Mt-p6k"/>
@@ -174,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="auK-26-pMu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-478" y="388"/>
+            <point key="canvasLocation" x="-619" y="388"/>
         </scene>
         <!--Timer View Controller-->
         <scene sceneID="FTE-e5-yxw">
@@ -199,7 +205,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KQm-lO-Amn" customClass="SetTimerView" customModule="TimerReminder" customModuleProvider="target">
                                         <rect key="frame" x="24" y="331" width="240" height="168"/>
-                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="168" id="HS5-ak-guj"/>
                                             <constraint firstAttribute="width" constant="240" id="sSr-ET-jG2"/>
@@ -239,6 +245,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLB-vi-0yV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="cOD-CX-hYo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="131" y="388"/>
         </scene>
