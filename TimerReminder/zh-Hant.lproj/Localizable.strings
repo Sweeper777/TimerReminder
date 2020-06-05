@@ -95,3 +95,6 @@
 "Another timer option with this name already exists!" = "該設定名已被使用！";
 "Error" = "錯誤";
 "OK" = "確定";
+"Yes" = "是";
+"No" = "否";
+"Are you sure you want to delete this option?" = "你確定要刪除這個設定嗎？";

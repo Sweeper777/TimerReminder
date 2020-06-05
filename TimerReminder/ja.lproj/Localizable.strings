@@ -95,3 +95,6 @@
 "Another timer option with this name already exists!" = "その設定の名前はすでに使われていますので、別の名前にしてください。";
 "Error" = "エラー";
 "OK" = "OK";
+"Yes" = "はい";
+"No" = "いいえ";
+"Are you sure you want to delete this option?" = "削除してもよろしいですか？";
