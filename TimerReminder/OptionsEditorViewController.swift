@@ -157,6 +157,20 @@ class OptionsEditorViewController: FormViewController {
     @IBAction func cancelTapped() {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func deleteTapped() {
+        let alert = SCLAlertView()
+        alert.addButton("Yes".localised) {
+            [weak self] in
+            do {
+                try (self?.optionsDisplayed).map { try TimerOptionsManager.shared.deleteTimerOptions($0) }
+                self?.dismiss(animated: true, completion: nil)
+            } catch {
+                SCLAlertView().showError("Error".localised, subTitle: error.localizedDescription, closeButtonTitle: "OK".localised)
+            }
+        }
+        alert.showWarning("".localised, subTitle: "Are you sure you want to delete this option?".localised, closeButtonTitle: "No".localised)
+    }
 }
 
 extension OptionsEditorViewController : DoneTappedRespondable {}
