@@ -211,11 +211,19 @@
                                             <constraint firstAttribute="width" constant="240" id="sSr-ET-jG2"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFM-Tt-Mkk" customClass="GADBannerView">
+                                        <rect key="frame" x="0.0" y="507" width="288" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="hFM-Tt-Mkk" secondAttribute="trailing" id="8hT-xT-Cy2"/>
+                                    <constraint firstAttribute="bottom" secondItem="hFM-Tt-Mkk" secondAttribute="bottom" constant="3" id="CL4-KV-x4c"/>
                                     <constraint firstItem="KQm-lO-Amn" firstAttribute="bottom" secondItem="o30-xo-hc7" secondAttribute="bottom" constant="-61" id="NfA-fp-hWh"/>
                                     <constraint firstItem="KQm-lO-Amn" firstAttribute="centerX" secondItem="o30-xo-hc7" secondAttribute="centerX" id="wdC-wZ-gXr"/>
+                                    <constraint firstItem="hFM-Tt-Mkk" firstAttribute="leading" secondItem="o30-xo-hc7" secondAttribute="leading" id="wfA-mY-AuN"/>
+                                    <constraint firstItem="hFM-Tt-Mkk" firstAttribute="top" secondItem="KQm-lO-Amn" secondAttribute="bottom" constant="8" id="yJR-eC-JMD"/>
                                 </constraints>
                                 <variation key="heightClass=compact-widthClass=compact">
                                     <mask key="subviews">
@@ -237,6 +245,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="adBanner" destination="hFM-Tt-Mkk" id="g4g-AF-kwb"/>
                         <outlet property="hud" destination="o30-xo-hc7" id="0ZN-eo-4rv"/>
                         <outlet property="setTimerView" destination="KQm-lO-Amn" id="xgR-eg-18u"/>
                         <outlet property="timerLabel" destination="bwC-gt-lXQ" id="Njc-uA-eAg"/>
@@ -247,7 +256,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLB-vi-0yV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="cOD-CX-hYo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="131" y="388"/>
+            <point key="canvasLocation" x="129.375" y="387.67605633802816"/>
         </scene>
     </scenes>
     <resources>
