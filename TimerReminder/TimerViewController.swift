@@ -6,6 +6,7 @@ import MaterialComponents
 import SwiftyUtils
 import SlideMenuControllerSwift
 import TabPageViewController
+import GoogleMobileAds
 
 class TimerViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class TimerViewController: UIViewController {
     var modeSelector: UISegmentedControl!
     @IBOutlet var hud: UIView!
     @IBOutlet var setTimerView: SetTimerView!
+    @IBOutlet var adBanner: GADBannerView!
     
     var timer = Timer.newCountDownInstance()
     var currentOptions: TimerOptions = .default {
@@ -89,6 +91,11 @@ class TimerViewController: UIViewController {
             make.right.equalTo(optionsButton.snp.left).offset(-8).labeled("mode selector on the left of options button")
             make.centerY.equalTo(optionsButton.snp.centerY).labeled("mode selector on the same line of options button")
         }
+        
+        adBanner.rootViewController = self
+        adBanner.adUnitID = adUnitId
+        let request = GADRequest()
+        adBanner.load(request)
     }
     
     override func viewDidLoad() {
