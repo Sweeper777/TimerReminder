@@ -2,3 +2,4 @@
 TimerReminder/GoogleService-Info.plist
 
 TimerReminder/AdUtility.swift
+TimerReminder/SecretStuff.swift
