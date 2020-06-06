@@ -42,8 +42,8 @@
 "English" = "英語";
 "Japanese" = "日本語";
 
-"Play a Sound" = "サウンドを再生";
-"Verbalize a Message" = "メッセージを再生";
+"Play a Sound" = "サウンドの再生";
+"Verbalize a Message" = "メッセージの再生";
 "Regular" = "特定の間隔で";
 "At Specific Times" = "特定の時間で";
 
@@ -88,9 +88,9 @@
 
 "Appearance" = "外観";
 "Please enter the remind time and reminder message." = "リマインダーの時点とメッセージを入力してください";
-"Add Reminder" = "リマインダーを追加";
+"Add Reminder" = "リマインダーの追加";
 
-"New Timer Options" = "タイマー設定を追加";
+"New Timer Options" = "タイマー設定の追加";
 "Please enter a name for the timer option!" = "タイマー設定の名前を入力してください。";
 "Another timer option with this name already exists!" = "その設定の名前はすでに使われていますので、別の名前にしてください。";
 "Error" = "エラー";
