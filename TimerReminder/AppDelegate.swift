@@ -16,6 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [
             kGADSimulatorID as! String
         ]
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        if lastUsedBuild < 25 {
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TimerOptions")
+            do {
+                let managedObjects = try managedObjectContext.fetch(fetchRequest)
+                print(managedObjects.count)
+            } catch {
+                print("No Migration Occurred")
+                print(error)
+            }
+        }
+        
+        lastUsedBuild = Int(Bundle.main.appBuild) ?? 0
         return true
     }
 
