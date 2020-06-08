@@ -44,13 +44,13 @@ enum FontStyle: Int, CustomStringConvertible {
     var uiFont: UIFont {
         switch self {
         case .thin:
-            return UIFont.systemFont(ofSize: 10, weight: .thin)
+            return UIFont.monospacedDigitSystemFont(ofSize: 10, weight: .thin)
         case .regular:
-            return UIFont.systemFont(ofSize: 10, weight: .regular)
+            return UIFont.monospacedDigitSystemFont(ofSize: 10, weight: .regular)
         case .light:
-            return UIFont.systemFont(ofSize: 10, weight: .light)
+            return UIFont.monospacedDigitSystemFont(ofSize: 10, weight: .light)
         case .ultralight:
-            return UIFont.systemFont(ofSize: 10, weight: .ultraLight)
+            return UIFont.monospacedDigitSystemFont(ofSize: 10, weight: .ultraLight)
         case .bodoni72:
             return UIFont(name: "Bodoni 72", size: 10)!
         case .chalkduster:
