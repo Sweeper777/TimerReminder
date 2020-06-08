@@ -14,14 +14,15 @@
 
 #import "MDCButton.h"
 
-#import <MDFTextAccessibility/MDFTextAccessibility.h>
+#import "private/MDCButton+Subclassing.h"
 #import "MaterialInk.h"
-#import "MaterialMath.h"
 #import "MaterialRipple.h"
 #import "MaterialShadowElevations.h"
 #import "MaterialShadowLayer.h"
+#import "MaterialShapeLibrary.h"
 #import "MaterialTypography.h"
-#import "private/MDCButton+Subclassing.h"
+#import "MaterialMath.h"
+#import <MDFTextAccessibility/MDFTextAccessibility.h>
 
 // TODO(ajsecord): Animate title color when animating between enabled/disabled states.
 // Non-trivial: http://corecocoa.wordpress.com/2011/10/04/animatable-text-color-of-uilabel/
@@ -40,12 +41,27 @@ static const CGFloat MDCButtonDisabledAlpha = (CGFloat)0.12;
 // Blue 500 from https://material.io/go/design-color-theming#color-color-palette .
 static const uint32_t MDCButtonDefaultBackgroundColor = 0x191919;
 
+// KVO contexts
+static char *const kKVOContextCornerRadius = "kKVOContextCornerRadius";
+
 // Creates a UIColor from a 24-bit RGB color encoded as an integer.
 static inline UIColor *MDCColorFromRGB(uint32_t rgbValue) {
   return [UIColor colorWithRed:((CGFloat)((rgbValue & 0xFF0000) >> 16)) / 255
                          green:((CGFloat)((rgbValue & 0x00FF00) >> 8)) / 255
                           blue:((CGFloat)((rgbValue & 0x0000FF) >> 0)) / 255
                          alpha:1];
+}
+
+// Expands size by provided edge insets.
+static inline CGSize CGSizeExpandWithInsets(CGSize size, UIEdgeInsets edgeInsets) {
+  return CGSizeMake(size.width + edgeInsets.left + edgeInsets.right,
+                    size.height + edgeInsets.top + edgeInsets.bottom);
+}
+
+// Shrinks size by provided edge insets, and also standardized.
+static inline CGSize CGSizeShrinkWithInsets(CGSize size, UIEdgeInsets edgeInsets) {
+  return CGSizeMake(MAX(0, size.width - (edgeInsets.left + edgeInsets.right)),
+                    MAX(0, size.height - (edgeInsets.top + edgeInsets.bottom)));
 }
 
 static NSAttributedString *uppercaseAttributedString(NSAttributedString *string) {
@@ -225,14 +241,37 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
   if (_uppercaseTitle) {
     [self updateTitleCase];
   }
+
+#ifdef __IPHONE_13_4
+  if (@available(iOS 13.4, *)) {
+    __weak __typeof__(self) weakSelf = self;
+    UIButtonPointerStyleProvider buttonPointerStyleProvider = ^UIPointerStyle *(
+        UIButton *buttonToStyle, UIPointerEffect *proposedEffect, UIPointerShape *proposedShape) {
+      __typeof__(weakSelf) strongSelf = weakSelf;
+      if (!strongSelf) {
+        return [UIPointerStyle styleWithEffect:proposedEffect shape:proposedShape];
+      }
+      CGPathRef boundingCGPath = [strongSelf boundingPath].CGPath;
+      UIBezierPath *boundingBezierPath = [UIBezierPath bezierPathWithCGPath:boundingCGPath];
+      UIPointerShape *shape = [UIPointerShape shapeWithPath:boundingBezierPath];
+      return [UIPointerStyle styleWithEffect:proposedEffect shape:shape];
+    };
+    self.pointerStyleProvider = buttonPointerStyleProvider;
+    // Setting the pointerStyleProvider to a non-nil value flips pointerInteractionEnabled to YES.
+    // To maintain parity with UIButton's default behavior, we want it to default to NO.
+    self.pointerInteractionEnabled = NO;
+  }
+#endif
 }
 
 - (void)dealloc {
   [self removeTarget:self action:NULL forControlEvents:UIControlEventAllEvents];
 
-  [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                  name:UIContentSizeCategoryDidChangeNotification
-                                                object:nil];
+  if (!UIEdgeInsetsEqualToEdgeInsets(self.visibleAreaInsets, UIEdgeInsetsZero)) {
+    [self.layer removeObserver:self
+                    forKeyPath:NSStringFromSelector(@selector(cornerRadius))
+                       context:kKVOContextCornerRadius];
+  }
 }
 
 - (void)setUnderlyingColorHint:(UIColor *)underlyingColorHint {
@@ -241,9 +280,7 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
 }
 
 - (void)setAlpha:(CGFloat)alpha {
-  if (self.enabled) {
-    _enabledAlpha = alpha;
-  }
+  _enabledAlpha = alpha;
   [super setAlpha:alpha];
 }
 
@@ -271,12 +308,13 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
         CGPointMake(CGRectGetMidX(contentRect), CGRectGetMidY(contentRect));
     CGPoint boundsCenterPoint = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
 
-    CGFloat offsetX = contentCenterPoint.x - boundsCenterPoint.x;
-    CGFloat offsetY = contentCenterPoint.y - boundsCenterPoint.y;
+    CGFloat offsetX = contentCenterPoint.x - boundsCenterPoint.x + self.inkViewOffset.width;
+    CGFloat offsetY = contentCenterPoint.y - boundsCenterPoint.y + self.inkViewOffset.height;
     _inkView.frame =
         CGRectMake(offsetX, offsetY, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
   } else {
     CGRect bounds = CGRectStandardize(self.bounds);
+    bounds = CGRectOffset(bounds, self.inkViewOffset.width, self.inkViewOffset.height);
     _inkView.frame = bounds;
     self.rippleView.frame = bounds;
   }
@@ -313,7 +351,9 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
 }
 
 - (CGSize)sizeThatFits:(CGSize)size {
-  CGSize superSize = [super sizeThatFits:size];
+  CGSize givenSizeWithInsets = CGSizeShrinkWithInsets(size, self.visibleAreaInsets);
+  CGSize superSize = [super sizeThatFits:givenSizeWithInsets];
+
   if (self.minimumSize.height > 0) {
     superSize.height = MAX(self.minimumSize.height, superSize.height);
   }
@@ -326,7 +366,9 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
   if (self.maximumSize.width > 0) {
     superSize.width = MIN(self.maximumSize.width, superSize.width);
   }
-  return superSize;
+
+  CGSize adjustedSize = CGSizeExpandWithInsets(superSize, self.visibleAreaInsets);
+  return adjustedSize;
 }
 
 - (CGSize)intrinsicContentSize {
@@ -570,6 +612,11 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
   _inkMaxRippleRadius = inkMaxRippleRadius;
   _inkView.maxRippleRadius = inkMaxRippleRadius;
   self.rippleView.maximumRadius = inkMaxRippleRadius;
+}
+
+- (void)setInkViewOffset:(CGSize)inkViewOffset {
+  _inkViewOffset = inkViewOffset;
+  [self setNeedsLayout];
 }
 
 - (void)setEnableRippleBehavior:(BOOL)enableRippleBehavior {
@@ -866,7 +913,8 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
 
 - (void)updateAlphaAndBackgroundColorAnimated:(BOOL)animated {
   void (^animations)(void) = ^{
-    self.alpha = self.enabled ? self->_enabledAlpha : self.disabledAlpha;
+    // Set super to avoid overwriting _enabledAlpha
+    super.alpha = self.enabled ? self->_enabledAlpha : self.disabledAlpha;
     [self updateBackgroundColor];
   };
 
@@ -993,6 +1041,57 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
 
 - (void)setUnderlyingColor:(UIColor *)underlyingColor {
   [self setUnderlyingColorHint:underlyingColor];
+}
+
+#pragma mark - Visible area
+
+- (void)setVisibleAreaInsets:(UIEdgeInsets)visibleAreaInsets {
+  _visibleAreaInsets = visibleAreaInsets;
+
+  if (UIEdgeInsetsEqualToEdgeInsets(visibleAreaInsets, UIEdgeInsetsZero)) {
+    self.shapeGenerator = nil;
+
+    [self.layer removeObserver:self
+                    forKeyPath:NSStringFromSelector(@selector(cornerRadius))
+                       context:kKVOContextCornerRadius];
+  } else {
+    self.shapeGenerator = [self generateShapeWithCornerRadius:self.layer.cornerRadius];
+
+    [self.layer addObserver:self
+                 forKeyPath:NSStringFromSelector(@selector(cornerRadius))
+                    options:NSKeyValueObservingOptionNew
+                    context:kKVOContextCornerRadius];
+  }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context {
+  if (context == kKVOContextCornerRadius) {
+    if (!UIEdgeInsetsEqualToEdgeInsets(self.visibleAreaInsets, UIEdgeInsetsZero) &&
+        self.shapeGenerator) {
+      self.shapeGenerator = [self generateShapeWithCornerRadius:self.layer.cornerRadius];
+    }
+  } else {
+    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+  }
+}
+
+- (MDCRectangleShapeGenerator *)generateShapeWithCornerRadius:(CGFloat)cornerRadius {
+  MDCRectangleShapeGenerator *shapeGenerator = [[MDCRectangleShapeGenerator alloc] init];
+  MDCCornerTreatment *cornerTreatment =
+      [[MDCRoundedCornerTreatment alloc] initWithRadius:cornerRadius];
+  [shapeGenerator setCorners:cornerTreatment];
+  shapeGenerator.topLeftCornerOffset =
+      CGPointMake(self.visibleAreaInsets.left, self.visibleAreaInsets.top);
+  shapeGenerator.topRightCornerOffset =
+      CGPointMake(-self.visibleAreaInsets.right, self.visibleAreaInsets.top);
+  shapeGenerator.bottomLeftCornerOffset =
+      CGPointMake(self.visibleAreaInsets.left, -self.visibleAreaInsets.bottom);
+  shapeGenerator.bottomRightCornerOffset =
+      CGPointMake(-self.visibleAreaInsets.right, -self.visibleAreaInsets.bottom);
+  return shapeGenerator;
 }
 
 @end

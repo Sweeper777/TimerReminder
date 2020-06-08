@@ -11,8 +11,9 @@ import Cocoa
 
 public enum UnitTesting {
 
+    /// Check if unit tests are running or not.
     public static var isRunning: Bool {
-        return ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
+        ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
     }
 
     #if !os(watchOS)
