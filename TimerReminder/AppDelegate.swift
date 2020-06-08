@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if lastUsedBuild < 25 {
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TimerOptions")
             do {
-                let managedObjects = try managedObjectContext.fetch(fetchRequest)
+                let managedObjects = try managedObjectContext().fetch(fetchRequest)
                 print(managedObjects.count)
             } catch {
                 print("No Migration Occurred")
@@ -68,24 +68,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          return NSManagedObjectModel(contentsOf: modelURL)!
      }()
 
-     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
+    func persistentStoreCoordinator() throws -> NSPersistentStoreCoordinator {
          // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
          // Create the coordinator and store
-         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-         
+         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
+        let url = self.applicationDocumentsDirectory.appendingPathComponent("SingleViewCoreData.sqlite")
+        if FileManager.default.fileExists(atPath: url.path) {
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: [NSMigratePersistentStoresAutomaticallyOption: true,
+                                                                                                                     NSInferMappingModelAutomaticallyOption: true])
+        } else {
+            throw MigrationError.noNeed
+        }
          return coordinator
-     }()
+    }
 
-     lazy var managedObjectContext: NSManagedObjectContext = {
+     func managedObjectContext() throws -> NSManagedObjectContext {
          // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
-         let coordinator = self.persistentStoreCoordinator
-         var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+         let coordinator = try self.persistentStoreCoordinator()
+        let managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
          managedObjectContext.persistentStoreCoordinator = coordinator
          return managedObjectContext
-     }()
+     }
 }
 
 var lastUsedBuild: Int {
     get { return UserDefaults.standard.integer(forKey: "lastUsedBuild") }
     set { UserDefaults.standard.set(newValue, forKey: "lastUsedBuild") }
+}
+
+enum MigrationError: Error {
+    case noNeed
 }
