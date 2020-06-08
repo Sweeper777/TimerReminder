@@ -33,6 +33,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return newObject
             }
             
+            func constructTimerOptionsObjectFromManagedObject(_ managedObject: NSManagedObject) -> TimerOptionsObject? {
+                let newObject = TimerOptionsObject()
+                guard let name = managedObject.value(forKey: "name") as? String else { return nil }
+                guard let beepSounds = (managedObject.value(forKey: "beepSounds") as? NSNumber)?.boolValue else { return nil }
+                // if 0, no countdown
+                guard let countDownTime = (managedObject.value(forKey: "countDownTime") as? NSNumber)?.intValue else { return nil }
+                // if nil or empty, nil
+                let timesUpMessage = managedObject.value(forKey: "timesUpMessage") as? String
+                let regularReminderInterval = (managedObject.value(forKey: "regularReminderInterval") as? NSNumber)?.intValue
+                // if nil or empty, nil
+                let regularReminderMessage = managedObject.value(forKey: "regularReminderMessage") as? String
+                let timesUpSound = managedObject.value(forKey: "timesUpSound") as? String
+                guard let language = managedObject.value(forKey: "language") as? String else { return nil }
+                guard let vibrate = (managedObject.value(forKey: "vibrate") as? NSNumber)?.boolValue else { return nil }
+                guard let reminders = (managedObject.value(forKey: "reminders") as? NSOrderedSet).flatMap({ Array($0) as? [NSManagedObject] }) else { return nil }
+                let reminderObjects = reminders.compactMap(connstructReminderObjectFromManagedObject)
+                guard let countSeconds = (managedObject.value(forKey: "counting") as? NSNumber)?.boolValue else { return nil }
+                
+                newObject.name = name.trimmingCharacters(in: .whitespaces)
+                newObject.beepSounds = beepSounds
+                newObject.countDownTime.value = countDownTime == 0 ? nil : countDownTime
+                newObject.countSeconds = countSeconds
+                newObject.language = language
+                if let interval = regularReminderInterval {
+                    newObject.regularReminders = true
+                    let regularReminder = ReminderObject()
+                    regularReminder.remindTime = interval
+                    if regularReminderMessage.isNotNilNotEmpty {
+                        regularReminder.message = regularReminderMessage
+                    }
+                    newObject.reminders.append(regularReminder)
+                } else {
+                    newObject.regularReminders = false
+                    newObject.reminders.append(objectsIn: reminderObjects)
+                }
+                if timesUpMessage.isNotNilNotEmpty {
+                    newObject.timeUpMessage = timesUpMessage
+                }
+                newObject.timeUpSound = timesUpSound
+                newObject.vibrate = vibrate
+                return newObject
+            }
+            
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TimerOptions")
             do {
                 let managedObjects = try managedObjectContext().fetch(fetchRequest)
