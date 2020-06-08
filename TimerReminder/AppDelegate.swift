@@ -2,6 +2,7 @@ import UIKit
 import Firebase
 import CoreData
 import RealmSwift
+import Eureka
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
+        NavigationAccessoryView.appearance().tintColor = UIColor(named: "tint")
         
         if lastUsedBuild < 25 {
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TimerOptions")
