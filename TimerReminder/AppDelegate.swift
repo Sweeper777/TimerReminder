@@ -22,6 +22,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NavigationAccessoryView.appearance().tintColor = UIColor(named: "tint")
         
         if lastUsedBuild < 25 {
+            func connstructReminderObjectFromManagedObject(_ managedObject: NSManagedObject) -> ReminderObject? {
+                let newObject = ReminderObject()
+                let timesUpMessage = managedObject.value(forKey: "customRemindMessage") as? String
+                if timesUpMessage.isNotNilNotEmpty {
+                    newObject.message = timesUpMessage
+                }
+                guard let remindTime = (managedObject.value(forKey: "remindTimeFrame") as? NSNumber)?.intValue else { return nil }
+                newObject.remindTime = remindTime
+                return newObject
+            }
+            
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TimerOptions")
             do {
                 let managedObjects = try managedObjectContext().fetch(fetchRequest)
