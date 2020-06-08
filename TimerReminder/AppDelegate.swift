@@ -79,7 +79,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TimerOptions")
             do {
                 let managedObjects = try managedObjectContext().fetch(fetchRequest)
-                print(managedObjects.count)
+                var newObjects = [TimerOptionsObject]()
+                for managedObject in managedObjects {
+                    guard let newObject = constructTimerOptionsObjectFromManagedObject(managedObject) else { continue }
+                    var suffix = ""
+                    var number = 0
+                    while newObjects.contains(where: { $0.name == newObject.name + suffix }) {
+                        number += 1
+                        suffix = " \(number)"
+                    }
+                    newObject.name += suffix
+                    newObjects.append(newObject)
+                }
+                let realm = try Realm()
+                try realm.write {
+                    realm.add(newObjects)
+                }
             } catch {
                 print("No Migration Occurred")
                 print(error)
