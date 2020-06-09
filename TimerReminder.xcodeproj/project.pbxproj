@@ -26,8 +26,6 @@
 		5A0334EF244C6B6900A6F71F /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0334EE244C6B6900A6F71F /* TimerViewController.swift */; };
 		5A0334F1244C6D5F00A6F71F /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0334F0244C6D5F00A6F71F /* Helper.swift */; };
 		5A034989244DA86E00AEB002 /* SetTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A034988244DA86E00AEB002 /* SetTimerView.swift */; };
-		5A03B9FF1D6D8494009F08B9 /* SF-UI-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */; };
-		5A03BA001D6D8494009F08B9 /* SF-UI-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A03B9F31D6D7AC0009F08B9 /* SF-UI-Display-Thin.otf */; };
 		5A067CB91D4490A500238AF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A067CB81D4490A500238AF5 /* AppDelegate.swift */; };
 		5A067CBE1D4490A500238AF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A067CBC1D4490A500238AF5 /* Main.storyboard */; };
 		5A067CC11D4490A500238AF5 /* TimerReminder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A067CBF1D4490A500238AF5 /* TimerReminder.xcdatamodeld */; };
@@ -42,8 +40,6 @@
 		5A11C6FA247A7D140082302E /* TimerSoundEffectPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A11C6F9247A7D140082302E /* TimerSoundEffectPlayer.swift */; };
 		5A11E034247FBA9C00D9A2F3 /* TimerOptionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A11E033247FBA9C00D9A2F3 /* TimerOptionsManager.swift */; };
 		5A1636C32475151F00B6BD33 /* TimeIntervalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1636C22475151F00B6BD33 /* TimeIntervalRow.swift */; };
-		5A20D16D1DC5EAEA009862F7 /* SF-UI-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A20D16B1DC5EADE009862F7 /* SF-UI-Display-Ultralight.otf */; };
-		5A20D1701DC5ECD0009862F7 /* SF-UI-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A20D16F1DC5ECD0009862F7 /* SF-UI-Display-Light.otf */; };
 		5A25568D248B8D4800BAEFD2 /* SecretStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25568C248B8D4800BAEFD2 /* SecretStuff.swift */; };
 		5A25568F248B8E7100BAEFD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A25568E248B8E7100BAEFD2 /* GoogleService-Info.plist */; };
 		5AFF72AD1D6610B00031429E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AFF72AF1D6610B00031429E /* InfoPlist.strings */; };
@@ -75,7 +71,6 @@
 		5A0334EE244C6B6900A6F71F /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		5A0334F0244C6D5F00A6F71F /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		5A034988244DA86E00AEB002 /* SetTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerView.swift; sourceTree = "<group>"; };
-		5A03B9F31D6D7AC0009F08B9 /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Thin.otf"; path = "../SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
 		5A067CB51D4490A500238AF5 /* TimerReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A067CB81D4490A500238AF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A067CBD1D4490A500238AF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,7 +78,6 @@
 		5A067CC21D4490A500238AF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A067CC51D4490A500238AF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A067CC71D4490A500238AF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Regular.otf"; path = "../SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
 		5A08CF3C2483B667001E206A /* OptionsEditorVC+Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OptionsEditorVC+Form.swift"; sourceTree = "<group>"; };
 		5A0C2FB22465836B007378B6 /* MySlideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySlideViewController.swift; sourceTree = "<group>"; };
 		5A0C2FB424658621007378B6 /* OptionsEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsEditorViewController.swift; sourceTree = "<group>"; };
@@ -107,8 +101,6 @@
 		5A19FDDD1DB94CF70022F794 /* RWDropdownMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RWDropdownMenu.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/RWDropdownMenu/RWDropdownMenu.framework"; sourceTree = "<group>"; };
 		5A19FDDE1DB94CF70022F794 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		5A1C1BFC1DBF69120009162D /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/DropDown/DropDown.framework"; sourceTree = "<group>"; };
-		5A20D16B1DC5EADE009862F7 /* SF-UI-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Ultralight.otf"; sourceTree = SOURCE_ROOT; };
-		5A20D16F1DC5ECD0009862F7 /* SF-UI-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Light.otf"; sourceTree = "<group>"; };
 		5A25568C248B8D4800BAEFD2 /* SecretStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretStuff.swift; sourceTree = "<group>"; };
 		5A25568E248B8E7100BAEFD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A46676A1E2D032100132B56 /* ImageScrollView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageScrollView.framework; path = "Pods/../build/Debug-iphoneos/ImageScrollView/ImageScrollView.framework"; sourceTree = "<group>"; };
@@ -159,10 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				5A25568E248B8E7100BAEFD2 /* GoogleService-Info.plist */,
-				5A067CD51D44B64E00238AF5 /* SF-UI-Display-Regular.otf */,
-				5A03B9F31D6D7AC0009F08B9 /* SF-UI-Display-Thin.otf */,
-				5A20D16B1DC5EADE009862F7 /* SF-UI-Display-Ultralight.otf */,
-				5A20D16F1DC5ECD0009862F7 /* SF-UI-Display-Light.otf */,
 				5A015F0B1D4DA8530032BB59 /* beep.mp3 */,
 				5A0167611D6143110035021F /* Radar.mp3 */,
 				5A020B631D62980300CB6DD5 /* Waves.mp3 */,
@@ -301,9 +289,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A20D16D1DC5EAEA009862F7 /* SF-UI-Display-Ultralight.otf in Resources */,
-				5A03B9FF1D6D8494009F08B9 /* SF-UI-Display-Regular.otf in Resources */,
-				5A03BA001D6D8494009F08B9 /* SF-UI-Display-Thin.otf in Resources */,
 				5A020B711D62980300CB6DD5 /* Cosmic.mp3 in Resources */,
 				5AFF72AD1D6610B00031429E /* InfoPlist.strings in Resources */,
 				5A067CC61D4490A500238AF5 /* LaunchScreen.storyboard in Resources */,
@@ -315,7 +300,6 @@
 				5A015F0C1D4DA8530032BB59 /* beep.mp3 in Resources */,
 				5A020B6D1D62980300CB6DD5 /* Radiate.mp3 in Resources */,
 				5A020B721D62980300CB6DD5 /* Presto.mp3 in Resources */,
-				5A20D1701DC5ECD0009862F7 /* SF-UI-Display-Light.otf in Resources */,
 				5A020B7B1D63472C00CB6DD5 /* Localizable.strings in Resources */,
 				5A067CBE1D4490A500238AF5 /* Main.storyboard in Resources */,
 				5A020B731D62980300CB6DD5 /* Beacon.mp3 in Resources */,
