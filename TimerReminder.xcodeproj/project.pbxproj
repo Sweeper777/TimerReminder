@@ -264,10 +264,9 @@
 			};
 			buildConfigurationList = 5A067CB01D4490A500238AF5 /* Build configuration list for PBXProject "TimerReminder" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 				"zh-Hans",
