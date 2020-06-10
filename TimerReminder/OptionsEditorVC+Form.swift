@@ -98,12 +98,12 @@ extension OptionsEditorViewController {
          form +++ Section(header: "time is up".localised, footer: "Only applicable in Timer Mode".localised)
              <<< SegmentedRow<String>(tagTimesUpAction) {
                  row in
-                 row.options = ["Verbalize a Message".localised, "Play a Sound".localised]
+                 row.options = ["Play a Message".localised, "Play a Sound".localised]
                  switch optionsDisplayed.timeUpOption {
                  case .playSound:
                      row.value = "Play a Sound".localised
                  case .speak, .speakDefaultMessage:
-                     row.value = "Verbalize a Message".localised
+                     row.value = "Play a Message".localised
                  }
              }.onChange {
                  row in
@@ -129,7 +129,7 @@ extension OptionsEditorViewController {
                  row.title = "Sound".localised
                  row.hidden = Condition.function([tagTimesUpAction]) {
                      let action: SegmentedRow<String> = $0.rowBy(tag: tagTimesUpAction)!
-                     return action.value == "Verbalize a Message".localised
+                     return action.value == "Play a Message".localised
                  }
                  row.options = ["Radar", "Waves", "Radiate", "Night Owl", "Circuit", "Sencha", "Cosmic", "Presto", "Beacon", "Hillside"]
                  if case .playSound(let sound) = optionsDisplayed.timeUpOption {

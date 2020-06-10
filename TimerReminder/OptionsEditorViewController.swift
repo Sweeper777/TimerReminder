@@ -71,7 +71,7 @@ class OptionsEditorViewController: FormViewController {
         let animation = values[tagAnimation] as? LTMorphingEffect ?? TimerOptions.default.textAnimation
         let timeUpOption: TimeUpOption
         if let timesUpAction = values[tagTimesUpAction] as? String {
-            if timesUpAction == "Verbalize a Message".localised {
+            if timesUpAction == "Play a Message".localised {
                 let message = values[tagTimesUpMessage] as? String ?? ""
                 if message.isEmpty {
                     timeUpOption = .speakDefaultMessage

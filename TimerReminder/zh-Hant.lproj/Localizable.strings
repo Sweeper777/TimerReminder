@@ -43,7 +43,7 @@
 "Japanese" = "日文";
 
 "Play a Sound" = "播放聲音";
-"Verbalize a Message" = "語音提示";
+"Play a Message" = "語音提示";
 "Regular" = "在固定的時間間隔之間";
 "At Specific Times" = "在特定時間點";
 

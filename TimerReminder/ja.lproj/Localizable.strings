@@ -43,7 +43,7 @@
 "Japanese" = "日本語";
 
 "Play a Sound" = "サウンドの再生";
-"Verbalize a Message" = "メッセージの再生";
+"Play a Message" = "メッセージの再生";
 "Regular" = "特定の間隔で";
 "At Specific Times" = "特定の時間で";
 
