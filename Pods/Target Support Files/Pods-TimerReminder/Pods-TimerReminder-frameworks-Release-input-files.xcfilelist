@@ -19,4 +19,5 @@ ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/SplitRow/SplitRow.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyUtils/SwiftyUtils.framework
 ${BUILT_PRODUCTS_DIR}/TabPageViewController/TabPageViewController.framework
+${BUILT_PRODUCTS_DIR}/XXArrowTips/XXArrowTips.framework
 ${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework
