@@ -10,9 +10,7 @@
 #endif
 #endif
 
-#import "UIView+ColorOfPoint.h"
-#import "XXArrowTipsView.h"
 
-FOUNDATION_EXPORT double XXArrowTipsVersionNumber;
-FOUNDATION_EXPORT const unsigned char XXArrowTipsVersionString[];
+FOUNDATION_EXPORT double TipSeeVersionNumber;
+FOUNDATION_EXPORT const unsigned char TipSeeVersionString[];
 

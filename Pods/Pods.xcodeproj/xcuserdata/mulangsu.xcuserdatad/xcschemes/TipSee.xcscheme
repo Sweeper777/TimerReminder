@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "41DDE680C53C36F38BE238760F3E06CD"
-               BuildableName = "XXArrowTips.framework"
-               BlueprintName = "XXArrowTips"
+               BlueprintIdentifier = "43C278BB5A94351600556A3CF760DC16"
+               BuildableName = "TipSee.framework"
+               BlueprintName = "TipSee"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

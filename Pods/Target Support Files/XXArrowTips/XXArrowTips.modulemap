@@ -1,6 +1,0 @@
-framework module XXArrowTips {
-  umbrella header "XXArrowTips-umbrella.h"
-
-  export *
-  module * { export * }
-}
