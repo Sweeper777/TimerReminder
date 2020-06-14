@@ -36,7 +36,7 @@
                         <viewControllerLayoutGuide type="bottom" id="f2z-B3-LXF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="X2n-Ac-nWm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
