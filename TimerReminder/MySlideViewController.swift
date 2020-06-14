@@ -2,7 +2,7 @@ import SlideMenuControllerSwift
 import TabPageViewController
 import MaterialComponents
 import KeyboardLayoutGuide
-import XXArrowTips
+import TipSee
 
 class MySlideViewController: SlideMenuController {
 
@@ -61,6 +61,9 @@ class MySlideViewController: SlideMenuController {
             closeRight()
             responder.doneTapped()
         }
+    }
+    
+    func addArrowTip() {
     }
 }
 

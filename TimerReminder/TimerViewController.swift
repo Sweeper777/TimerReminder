@@ -269,5 +269,8 @@ extension TimerViewController : SlideMenuControllerDelegate {
         let optionsListVC = tabItems?[1].viewController as? TimerOptionsListViewController
         optionsListVC?.selectedOptions = currentOptions
         optionsListVC?.reloadData()
+        if !UserDefaults.standard.bool(forKey: "tipShown") {
+            (slideMenuController() as? MySlideViewController)?.addArrowTip()
+        }
     }
 }
