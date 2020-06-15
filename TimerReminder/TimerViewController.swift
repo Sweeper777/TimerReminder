@@ -15,6 +15,7 @@ class TimerViewController: UIViewController {
     var resetButton: MDCFloatingButton!
     var optionsButton: MDCFloatingButton!
     var modeSelector: UISegmentedControl!
+    @IBOutlet var digitalAnalogSelector: UISegmentedControl!
     @IBOutlet var hud: UIView!
     @IBOutlet var setTimerView: SetTimerView!
     @IBOutlet var adBanner: GADBannerView!
@@ -92,6 +93,9 @@ class TimerViewController: UIViewController {
             make.centerY.equalTo(optionsButton.snp.centerY).labeled("mode selector on the same line of options button")
         }
         
+        digitalAnalogSelector.setTitle("Digital".localised, forSegmentAt: 0)
+        digitalAnalogSelector.setTitle("Analog".localised, forSegmentAt: 1)
+        
         adBanner.rootViewController = self
         adBanner.adUnitID = adUnitId
         let request = GADRequest()
@@ -125,6 +129,13 @@ class TimerViewController: UIViewController {
             [weak self] in
             self?.slideMenuController()?.openRight()
             }).disposed(by: disposeBag)
+        
+        
+    }
+    
+    override func viewDidLoad() {
+        setUpView()
+        subscribeToTimer(withInitial: 60)
         
         setTimerView.delegate = self
         
