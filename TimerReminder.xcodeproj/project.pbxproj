@@ -42,6 +42,7 @@
 		5A1636C32475151F00B6BD33 /* TimeIntervalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1636C22475151F00B6BD33 /* TimeIntervalRow.swift */; };
 		5A25568D248B8D4800BAEFD2 /* SecretStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25568C248B8D4800BAEFD2 /* SecretStuff.swift */; };
 		5A25568F248B8E7100BAEFD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A25568E248B8E7100BAEFD2 /* GoogleService-Info.plist */; };
+		5A39D1E224976E89008EE4EB /* AnalogClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A39D1E124976E89008EE4EB /* AnalogClockView.swift */; };
 		5AFF72AD1D6610B00031429E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AFF72AF1D6610B00031429E /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,7 @@
 		5A1C1BFC1DBF69120009162D /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/DropDown/DropDown.framework"; sourceTree = "<group>"; };
 		5A25568C248B8D4800BAEFD2 /* SecretStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretStuff.swift; sourceTree = "<group>"; };
 		5A25568E248B8E7100BAEFD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5A39D1E124976E89008EE4EB /* AnalogClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogClockView.swift; sourceTree = "<group>"; };
 		5A46676A1E2D032100132B56 /* ImageScrollView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageScrollView.framework; path = "Pods/../build/Debug-iphoneos/ImageScrollView/ImageScrollView.framework"; sourceTree = "<group>"; };
 		5AC14D551E1B33D400448123 /* TimerReminder 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TimerReminder 3.xcdatamodel"; sourceTree = "<group>"; };
 		5AFEF2FB1D6833DC00176303 /* TimerReminder 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TimerReminder 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				5A11E033247FBA9C00D9A2F3 /* TimerOptionsManager.swift */,
 				5A25568C248B8D4800BAEFD2 /* SecretStuff.swift */,
 				5A034988244DA86E00AEB002 /* SetTimerView.swift */,
+				5A39D1E124976E89008EE4EB /* AnalogClockView.swift */,
 				5A1636C22475151F00B6BD33 /* TimeIntervalRow.swift */,
 				5A0334EE244C6B6900A6F71F /* TimerViewController.swift */,
 				5A0C2FB22465836B007378B6 /* MySlideViewController.swift */,
@@ -354,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A0D539D2487A59400568C31 /* TimerOptionsEnums.swift in Sources */,
+				5A39D1E224976E89008EE4EB /* AnalogClockView.swift in Sources */,
 				5A11E034247FBA9C00D9A2F3 /* TimerOptionsManager.swift in Sources */,
 				5A0334EF244C6B6900A6F71F /* TimerViewController.swift in Sources */,
 				5A0C2FB724659F94007378B6 /* TimerOptionsListViewController.swift in Sources */,
