@@ -138,7 +138,6 @@ PODS:
     - Eureka (~> 5.1)
   - SwiftyUtils (5.2.0)
   - TabPageViewController (0.2.7)
-  - TipSee (1.4.0)
 
 DEPENDENCIES:
   - EmptyDataSet-Swift
@@ -158,7 +157,6 @@ DEPENDENCIES:
   - SplitRow
   - SwiftyUtils
   - TabPageViewController
-  - TipSee
 
 SPEC REPOS:
   trunk:
@@ -191,7 +189,6 @@ SPEC REPOS:
     - SplitRow
     - SwiftyUtils
     - TabPageViewController
-    - TipSee
 
 EXTERNAL SOURCES:
   SCLAlertView:
@@ -240,8 +237,7 @@ SPEC CHECKSUMS:
   SplitRow: 921e76fbbd7ef50d005131d6665a6e10f26df04b
   SwiftyUtils: 4c99e810e769063dbd5d4e83b486961a5d470aeb
   TabPageViewController: c37a1257a50c2b50712dde61bf499768eee95b67
-  TipSee: 3b3a31aaff5edd47bc6e2c5099a1cfab6ec4a920
 
-PODFILE CHECKSUM: 5b5eda30abea151ef619ac5700ee0d7608c325b4
+PODFILE CHECKSUM: c23bdba9fb4127f575889799b22281eb28c21fa6
 
 COCOAPODS: 1.9.1

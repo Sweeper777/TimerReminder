@@ -2,7 +2,6 @@ import SlideMenuControllerSwift
 import TabPageViewController
 import MaterialComponents
 import KeyboardLayoutGuide
-import TipSee
 
 class MySlideViewController: SlideMenuController {
 
@@ -66,9 +65,7 @@ class MySlideViewController: SlideMenuController {
     }
     
     func addArrowTip() {
-        let tipc = TipSeeManager(on: view.window!, with: TipSee.Options.default())
-        tipc.add(new: doneButton, text: "Remember to tap on the checkmark when you are done with the settings!".localised, with: TipSee.Options.Bubble.default())
-        tipc.next()
+        
     }
 }
 

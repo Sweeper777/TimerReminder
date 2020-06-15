@@ -217,7 +217,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SplitRow/SplitRow.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyUtils/SwiftyUtils.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TabPageViewController/TabPageViewController.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/TipSee/TipSee.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -241,7 +240,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SplitRow/SplitRow.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyUtils/SwiftyUtils.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TabPageViewController/TabPageViewController.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/TipSee/TipSee.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

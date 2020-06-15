@@ -21,6 +21,5 @@ target 'TimerReminder' do
   pod 'EmptyDataSet-Swift'
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
-  pod 'TipSee'
 end
 
