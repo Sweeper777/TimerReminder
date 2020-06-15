@@ -36,7 +36,7 @@
                         <viewControllerLayoutGuide type="bottom" id="f2z-B3-LXF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="X2n-Ac-nWm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
@@ -214,6 +214,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFM-Tt-Mkk" customClass="GADBannerView">
                                         <rect key="frame" x="0.0" y="507" width="288" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Y3O-sr-Z0M"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -223,7 +226,6 @@
                                     <constraint firstItem="KQm-lO-Amn" firstAttribute="bottom" secondItem="o30-xo-hc7" secondAttribute="bottom" constant="-61" id="NfA-fp-hWh"/>
                                     <constraint firstItem="KQm-lO-Amn" firstAttribute="centerX" secondItem="o30-xo-hc7" secondAttribute="centerX" id="wdC-wZ-gXr"/>
                                     <constraint firstItem="hFM-Tt-Mkk" firstAttribute="leading" secondItem="o30-xo-hc7" secondAttribute="leading" id="wfA-mY-AuN"/>
-                                    <constraint firstItem="hFM-Tt-Mkk" firstAttribute="top" secondItem="KQm-lO-Amn" secondAttribute="bottom" constant="8" id="yJR-eC-JMD"/>
                                 </constraints>
                                 <variation key="heightClass=compact">
                                     <mask key="subviews">
