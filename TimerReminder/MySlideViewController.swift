@@ -66,16 +66,9 @@ class MySlideViewController: SlideMenuController {
     }
     
     func addArrowTip() {
-        let tipc = TipSee(on: self.view.window!)
-        tipc.show(for: doneButton,
-                  text: "Remember to tap on the checkmark when you are done with the settings!".localised,
-                with: TipSee.Options.Bubble.default().with{
-                    $0.backgroundColor = UIColor(named: "tint")!
-                    $0.foregroundColor = .white
-                    $0.onBubbleTap = tipc.dismiss
-                    $0.onTargetAreaTap = tipc.dismiss
-                    $0.changeDimColor = nil
-                })
+        let tipc = TipSeeManager(on: view.window!, with: TipSee.Options.default())
+        tipc.add(new: doneButton, text: "Remember to tap on the checkmark when you are done with the settings!".localised, with: TipSee.Options.Bubble.default())
+        tipc.next()
     }
 }
 
