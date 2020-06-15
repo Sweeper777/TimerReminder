@@ -6,6 +6,8 @@ import TipSee
 
 class MySlideViewController: SlideMenuController {
 
+    var doneButton: MDCFloatingButton!
+    
     override func awakeFromNib() {
         if let controller = self.storyboard?.instantiateViewController(withIdentifier: "main") as? TimerViewController {
             self.mainViewController = controller
@@ -28,7 +30,7 @@ class MySlideViewController: SlideMenuController {
             SlideMenuOptions.rightViewWidth *= 2
         }
         
-        let doneButton = MDCFloatingButton(shape: .default)
+        doneButton = MDCFloatingButton(shape: .default)
         doneButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
         doneButton.imageView?.tintColor = .white
         doneButton.backgroundColor = UIColor(named: "tint")
@@ -64,6 +66,16 @@ class MySlideViewController: SlideMenuController {
     }
     
     func addArrowTip() {
+        let tipc = TipSee(on: self.view.window!)
+        tipc.show(for: doneButton,
+                  text: "Remember to tap on the checkmark when you are done with the settings!".localised,
+                with: TipSee.Options.Bubble.default().with{
+                    $0.backgroundColor = UIColor(named: "tint")!
+                    $0.foregroundColor = .white
+                    $0.onBubbleTap = tipc.dismiss
+                    $0.onTargetAreaTap = tipc.dismiss
+                    $0.changeDimColor = nil
+                })
     }
 }
 
