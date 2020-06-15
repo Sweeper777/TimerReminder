@@ -218,11 +218,20 @@
                                             <constraint firstAttribute="height" constant="50" id="Y3O-sr-Z0M"/>
                                         </constraints>
                                     </view>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hbe-Xj-jP0">
+                                        <rect key="frame" x="78.5" y="468" width="131" height="32"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                    </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="hFM-Tt-Mkk" secondAttribute="trailing" id="8hT-xT-Cy2"/>
                                     <constraint firstAttribute="bottom" secondItem="hFM-Tt-Mkk" secondAttribute="bottom" constant="3" id="CL4-KV-x4c"/>
+                                    <constraint firstItem="hbe-Xj-jP0" firstAttribute="centerX" secondItem="o30-xo-hc7" secondAttribute="centerX" id="Hb6-6A-tqj"/>
+                                    <constraint firstAttribute="bottom" secondItem="hbe-Xj-jP0" secondAttribute="bottom" constant="61" id="Jwg-vH-x7b"/>
                                     <constraint firstItem="KQm-lO-Amn" firstAttribute="bottom" secondItem="o30-xo-hc7" secondAttribute="bottom" constant="-61" id="NfA-fp-hWh"/>
                                     <constraint firstItem="KQm-lO-Amn" firstAttribute="centerX" secondItem="o30-xo-hc7" secondAttribute="centerX" id="wdC-wZ-gXr"/>
                                     <constraint firstItem="hFM-Tt-Mkk" firstAttribute="leading" secondItem="o30-xo-hc7" secondAttribute="leading" id="wfA-mY-AuN"/>
@@ -230,6 +239,7 @@
                                 <variation key="heightClass=compact">
                                     <mask key="subviews">
                                         <exclude reference="KQm-lO-Amn"/>
+                                        <exclude reference="hbe-Xj-jP0"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -248,6 +258,7 @@
                     </view>
                     <connections>
                         <outlet property="adBanner" destination="hFM-Tt-Mkk" id="g4g-AF-kwb"/>
+                        <outlet property="digitalAnalogSelector" destination="hbe-Xj-jP0" id="BNP-c3-GQG"/>
                         <outlet property="hud" destination="o30-xo-hc7" id="0ZN-eo-4rv"/>
                         <outlet property="setTimerView" destination="KQm-lO-Amn" id="xgR-eg-18u"/>
                         <outlet property="timerLabel" destination="bwC-gt-lXQ" id="Njc-uA-eAg"/>
