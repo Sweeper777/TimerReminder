@@ -35,11 +35,12 @@ class TimerOptionsListViewController : UITableViewController {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+            cell.imageView?.image = UIImage(systemName: "checkmark")
             cell.textLabel?.text = allTimerOptions[indexPath.row - 1].name
             if selectedOptions?.name == allTimerOptions[indexPath.row - 1].name {
-                cell.imageView?.image = UIImage(systemName: "checkmark")
+                cell.imageView?.isHidden = false
             } else {
-                cell.imageView?.image = nil
+                cell.imageView?.isHidden = true
             }
             return cell
         }
