@@ -98,3 +98,6 @@
 "Yes" = "はい";
 "No" = "いいえ";
 "Are you sure you want to delete this option?" = "削除してもよろしいですか？";
+
+"Digital" = "デジタル";
+"Analog" = "アナログ";

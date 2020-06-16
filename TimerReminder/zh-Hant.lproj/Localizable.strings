@@ -98,3 +98,6 @@
 "Yes" = "是";
 "No" = "否";
 "Are you sure you want to delete this option?" = "你確定要刪除這個設定嗎？";
+
+"Digital" = "電子";
+"Analog" = "指針";
