@@ -100,11 +100,6 @@ class TimerViewController: UIViewController {
         adBanner.adUnitID = adUnitId
         let request = GADRequest()
         adBanner.load(request)
-    }
-    
-    override func viewDidLoad() {
-        setUpView()
-        subscribeToTimer(withInitial: 60)
         
         playButtonIsPlay.distinctUntilChanged().map {
             $0 ? UIImage(systemName: "play.fill") : UIImage(systemName: "pause.fill")
