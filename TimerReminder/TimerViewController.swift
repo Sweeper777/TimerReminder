@@ -218,14 +218,17 @@ class TimerViewController: UIViewController {
         case 0:
             timer = Timer.newCountDownInstance(options: currentOptions)
             setTimerView.isHidden = false
+            digitalAnalogSelector.isHidden = true
             subscribeToTimer(withInitial: 60)
         case 1:
             timer = Timer.newCountUpInstance(options: currentOptions)
             setTimerView.isHidden = true
+            digitalAnalogSelector.isHidden = true
             subscribeToTimer(withInitial: 0)
         case 2:
             timer = Timer.newClockInstance(options: currentOptions)
             setTimerView.isHidden = true
+            digitalAnalogSelector.isHidden = false
             subscribeToTimer(withInitial: -1)
         default:
             fatalError()
