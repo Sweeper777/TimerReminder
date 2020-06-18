@@ -126,7 +126,14 @@ class TimerViewController: UIViewController {
             self?.slideMenuController()?.openRight()
             }).disposed(by: disposeBag)
         
-        
+        Observable.combineLatest(modeSelector.rx.selectedSegmentIndex, digitalAnalogSelector.rx.selectedSegmentIndex)
+            .map { !($0.0 == 2 && $0.1 == 1) }
+            .bind(to: analogClockView.rx.isHidden)
+        .disposed(by: disposeBag)
+        Observable.combineLatest(modeSelector.rx.selectedSegmentIndex, digitalAnalogSelector.rx.selectedSegmentIndex)
+            .map { $0.0 == 2 && $0.1 == 1 }
+            .bind(to: timerLabel.rx.isHidden)
+        .disposed(by: disposeBag)
     }
     
     override func viewDidLoad() {
