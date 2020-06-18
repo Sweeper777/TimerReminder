@@ -10,8 +10,10 @@ class AnalogClockView: UIView {
     var clockFrame: CGRect {
         if width > height {
             return CGRect(x: (width - height) / 2, y: 0, width: height, height: height)
+                .insetBy(dx: clockSize * borderWidthScale / 2, dy: clockSize * borderWidthScale / 2)
         } else {
             return CGRect(x: 0, y: (height - width) / 2, width: width, height: width)
+                .insetBy(dx: clockSize * borderWidthScale / 2, dy: clockSize * borderWidthScale / 2)
         }
     }
     
