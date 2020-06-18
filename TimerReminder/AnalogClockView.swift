@@ -48,6 +48,12 @@ class AnalogClockView: UIView {
         }
     }
     
+    struct HandInfo {
+        let longRadius: CGFloat
+        let shortRadius: CGFloat
+        let widthScale: CGFloat
+    }
+    
     let digitsInset = 0.3.f
     let fontScale = 0.1.f
     let borderWidthScale = 0.014.f
@@ -55,15 +61,9 @@ class AnalogClockView: UIView {
     let thickMarkingInset = 0.16.f
     let thinMarkingWidthScale = 0.01.f
     let thickMarkingWidthScale = 0.014.f
-    let secondHandLongRadius = 0.9.f
-    let secondHandShortRadius = 0.1.f
-    let secondHandWidthScale = 0.01.f
-    let minuteHandLongRadius = 0.85.f
-    let minuteHandShortRadius = 0.095.f
-    let minuteHandWidthScale = 0.02.f
-    let hourHandLongRadius = 0.5.f
-    let hourHandShortRadius = 0.05.f
-    let hourHandWidthScale = 0.03.f
+    let secondHand = HandInfo(longRadius: 0.9, shortRadius: 0.1, widthScale: 0.01)
+    let minuteHand = HandInfo(longRadius: 0.85, shortRadius: 0.095, widthScale: 0.02)
+    let hourHand = HandInfo(longRadius: 0.5, shortRadius: 0.05, widthScale: 0.03)
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -102,9 +102,9 @@ class AnalogClockView: UIView {
         }
         let hourAngle = calculateHourAngle()
         drawHand(angle: hourAngle - .pi / 2,
-                 longRadius: clockSize * hourHandLongRadius / 2,
-                 shortRadius: clockSize * hourHandShortRadius / 2,
-                 lineWidth: clockSize * hourHandWidthScale,
+                 longRadius: clockSize * hourHand.longRadius / 2,
+                 shortRadius: clockSize * hourHand.shortRadius / 2,
+                 lineWidth: clockSize * hourHand.widthScale,
                  color: .label)
         
         func calculateMinuteAngle() -> CGFloat {
@@ -114,16 +114,16 @@ class AnalogClockView: UIView {
         }
         let minuteAngle = calculateMinuteAngle()
         drawHand(angle: minuteAngle - .pi / 2,
-                 longRadius: clockSize * minuteHandLongRadius / 2,
-                 shortRadius: clockSize * minuteHandShortRadius / 2,
-                 lineWidth: clockSize * minuteHandWidthScale,
+                 longRadius: clockSize * minuteHand.longRadius / 2,
+                 shortRadius: clockSize * minuteHand.shortRadius / 2,
+                 lineWidth: clockSize * minuteHand.widthScale,
                  color: .label)
         
         let secondAngle = dc.second!.f / 60 * 2 * .pi
         drawHand(angle: secondAngle - .pi / 2,
-                 longRadius: clockSize * secondHandLongRadius / 2,
-                 shortRadius: clockSize * secondHandShortRadius / 2,
-                 lineWidth: clockSize * secondHandWidthScale,
+                 longRadius: clockSize * secondHand.longRadius / 2,
+                 shortRadius: clockSize * secondHand.shortRadius / 2,
+                 lineWidth: clockSize * secondHand.widthScale,
                  color: .systemRed)
     }
     
