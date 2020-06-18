@@ -11,6 +11,7 @@ import GoogleMobileAds
 class TimerViewController: UIViewController {
     
     @IBOutlet var timerLabel: LTMorphingLabel!
+    @IBOutlet var analogClockView: AnalogClockView!
     var playButton: MDCFloatingButton!
     var resetButton: MDCFloatingButton!
     var optionsButton: MDCFloatingButton!

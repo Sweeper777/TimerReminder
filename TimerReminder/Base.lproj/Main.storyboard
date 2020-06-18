@@ -36,7 +36,7 @@
                         <viewControllerLayoutGuide type="bottom" id="f2z-B3-LXF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="X2n-Ac-nWm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
@@ -194,6 +194,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkR-v9-Sfu" customClass="AnalogClockView" customModule="TimerReminder" customModuleProvider="target">
+                                <rect key="frame" x="16" y="8" width="288" height="552"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwC-gt-lXQ" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
                                 <rect key="frame" x="16" y="8" width="288" height="552"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="88"/>
@@ -247,17 +251,22 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="o30-xo-hc7" firstAttribute="top" secondItem="key-d9-ihY" secondAttribute="bottom" constant="8" id="197-6J-nhO"/>
+                            <constraint firstItem="dkR-v9-Sfu" firstAttribute="top" secondItem="key-d9-ihY" secondAttribute="bottom" constant="8" id="2ba-0N-zbo"/>
                             <constraint firstItem="bwC-gt-lXQ" firstAttribute="top" secondItem="key-d9-ihY" secondAttribute="bottom" constant="8" id="3CT-dM-3GT"/>
+                            <constraint firstItem="dkR-v9-Sfu" firstAttribute="trailing" secondItem="fhU-pF-zsM" secondAttribute="trailingMargin" id="GOb-Zg-B7R"/>
                             <constraint firstItem="bwC-gt-lXQ" firstAttribute="trailing" secondItem="fhU-pF-zsM" secondAttribute="trailingMargin" id="Gcz-z1-y4X"/>
+                            <constraint firstItem="dkR-v9-Sfu" firstAttribute="leading" secondItem="fhU-pF-zsM" secondAttribute="leadingMargin" id="VD4-dK-ZWD"/>
                             <constraint firstItem="5tK-8A-Bgo" firstAttribute="top" secondItem="o30-xo-hc7" secondAttribute="bottom" id="Xx5-Di-DG8"/>
                             <constraint firstItem="bwC-gt-lXQ" firstAttribute="leading" secondItem="fhU-pF-zsM" secondAttribute="leadingMargin" id="YOi-BA-fs8"/>
                             <constraint firstItem="o30-xo-hc7" firstAttribute="leading" secondItem="fhU-pF-zsM" secondAttribute="leadingMargin" id="kAc-lk-22i"/>
+                            <constraint firstItem="5tK-8A-Bgo" firstAttribute="top" secondItem="dkR-v9-Sfu" secondAttribute="bottom" constant="8" id="kCD-n0-YTz"/>
                             <constraint firstItem="o30-xo-hc7" firstAttribute="trailing" secondItem="fhU-pF-zsM" secondAttribute="trailingMargin" id="tab-8y-NxB"/>
                             <constraint firstItem="5tK-8A-Bgo" firstAttribute="top" secondItem="bwC-gt-lXQ" secondAttribute="bottom" constant="8" id="wfU-nB-tX4"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="adBanner" destination="hFM-Tt-Mkk" id="g4g-AF-kwb"/>
+                        <outlet property="analogClockView" destination="dkR-v9-Sfu" id="kK7-IX-UoF"/>
                         <outlet property="digitalAnalogSelector" destination="hbe-Xj-jP0" id="BNP-c3-GQG"/>
                         <outlet property="hud" destination="o30-xo-hc7" id="0ZN-eo-4rv"/>
                         <outlet property="setTimerView" destination="KQm-lO-Amn" id="xgR-eg-18u"/>
