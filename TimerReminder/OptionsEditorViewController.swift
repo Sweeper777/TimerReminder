@@ -46,6 +46,7 @@ class OptionsEditorViewController: FormViewController {
     }
     
     @IBAction @objc func doneTapped() {
+        view.endEditing(true)
         let values = form.values()
         let name = values[tagName] as? String
         if mode != .current {
