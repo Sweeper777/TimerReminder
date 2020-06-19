@@ -1,12 +1,3 @@
-"My Timer Settings" = "タイマー設定";
-"Add New Timer Settings" = "タイマー設定を追加";
-"Set Timer" = "タイマーをセット";
-"Switch to Stopwatch Mode" = "ストップウォッチモード";
-"Switch to Timer Mode" = "タイマーモード";
-"Settings applied" = "設定が適用されました";
-
-"Add Settings" = "設定を追加";
-"Edit Settings" = "設定を編集";
 "This is the language in which the reminder messages and the \"Time is up\" message will be spoken." = "この言語でリマインダーのメッセージと「時間切れです」のメッセージが再生されます";
 "Name:" = "名：";
 "Language" = "言語";
@@ -19,23 +10,16 @@
 "Leave blank for default" = "デフォルト";
 "Sound" = "サウンド";
 "Reminders" = "リマインダー";
-"No. of Reminders" = "リマインダー数";
 "Remind Every" = "リマインダー間隔";
 "Reminder" = "リマインダー";
 "Remind At" = "リマインダー時点";
-"Save and apply" = "保存して、適用する";
-"Apply but don't save" = "保存しなくて、適用する";
-"Save but don't apply" = "保存して、適用しない";
 "Cancel" = "キャンセル";
 
 "Default" = "デフォルト";
 
 "Hours" = "時間";
-"Hour" = "時間";
 "Minutes" = "分";
-"Minute" = "分";
 "Seconds" = "秒";
-"Second" = "秒";
 
 "Mandarin" = "北京語";
 "Cantonese" = "広東語";
@@ -47,44 +31,16 @@
 "Regular" = "特定の間隔で";
 "At Specific Times" = "特定の時間で";
 
-"Edit" = "編集";
-"Delete" = "削除";
-
 "Vibrate" = "振動";
-
-"Gesture Controls" = "ジェスチャーコントロール";
 "Font Style" = "フォントスタイル";
-"Global Settings" = "グローバル設定";
-"gesture instructions" = "タイマーをセット：1本の指で上にスワイプします\nタイマー設定：2本の指で上にスワイプします\nタイマー設定を追加：2本の指でダブルタップします\nモードを変更：2本の指で左または右にスワイプします";
 
 "Timer Animation" = "タイマーアニメーション";
-"Night Mode" = "ナイトモード";
-"Switch to Clock Mode" = "クロックモード";
 
 "Only applicable in Stopwatch Mode" = "ストップウォッチモードのみに適用します";
 "Counting" = "秒数を数える";
 
-"Changed to Stopwatch Mode" = "ストップウォッチモードに変更しました";
-"Changed to Timer Mode" = "タイマーモードに変更しました";
-"Changed to Clock Mode" = "クロックモードに変更しました";
-
-"Screenshot has been saved." = "スクリーンショットを保存されました";
-
-"Save" = "保存";
 "Current Options" = "現在の設定";
 "All Timer Options" = "すべてのタイマー設定";
-"Tip" = "ヒント";
-"Here you can save a frequently used timer option. If you just want to edit the currently applied timer option, please go back to the timer and swipe to the left" = "ここでは、よく使用するタイマー設定が保存できます。現在適用されているタイマー設定を編集する場合は、タイマーに戻って左にスワイプしてください。";
-
-"Use True Time" = "実際の時間の使用";
-"This will use the actual time whenever possible, instead of the device time, in Clock Mode" = "このオプションをオンにすると、可能な限りクロックモードではシステム時間ではなく、実際の時間が表示されます";
-
-" h" = "時間";
-" m" = "分";
-" s" = "秒";
-
-"Analog Clock" = "アナログ時計";
-"This will show an analog clock instead of a digital one in Clock Mode." = "このオプションをオンにすると、クロックモードではアナログ時計を表示されます。";
 
 "Appearance" = "外観";
 "Please enter the remind time and reminder message." = "リマインダーの時点とメッセージを入力してください";
