@@ -7,6 +7,12 @@ class AnalogClockView: UIView {
     var dateComponents: DateComponents!
     var displayLink: CADisplayLink!
     
+    var font = UIFont.monospacedDigitSystemFont(ofSize: 20, weight: .regular) {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
     var clockFrame: CGRect {
         if width > height {
             return CGRect(x: (width - height) / 2, y: 0, width: height, height: height)
@@ -72,7 +78,7 @@ class AnalogClockView: UIView {
         let center = CGPoint(x: clockFrame.midX, y: clockFrame.midY)
         let radius = clockSize * (1 - digitsInset) / 2
         for (label, angle) in zip(labels, stride(from: CGFloat.pi / -3, to: 5 * .pi / 3, by: .pi / 6)) {
-            label.font = UIFont.monospacedDigitSystemFont(ofSize: clockSize * fontScale, weight: .regular)
+            label.font = font.withSize(clockSize * fontScale)
             label.sizeToFit()
             label.center = center.applying(CGAffineTransform(translationX: radius * cos(angle), y: radius * sin(angle)))
         }
