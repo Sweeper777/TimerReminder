@@ -1,12 +1,3 @@
-"My Timer Settings" = "My Timer Settings";
-"Add New Timer Settings" = "Add New Timer Settings";
-"Set Timer" = "Set Timer";
-"Switch to Stopwatch Mode" = "Switch to Stopwatch Mode";
-"Switch to Timer Mode" = "Switch to Timer Mode";
-"Settings applied" = "Settings applied";
-
-"Add Settings" = "Add Settings";
-"Edit Settings" = "Edit Settings";
 "This is the language in which the reminder messages and the \"Time is up\" message will be spoken." = "This is the language in which the reminder messages and the \"Time is up\" message will be spoken.";
 "Name:" = "Name:";
 "Language" = "Language";
@@ -19,23 +10,16 @@
 "Leave blank for default" = "Default";
 "Sound" = "Sound";
 "Reminders" = "Reminders";
-"No. of Reminders" = "No. of Reminders";
 "Remind Every" = "Remind Every";
 "Reminder" = "Reminder";
 "Remind At" = "Remind At";
-"Save and apply" = "Save and apply";
-"Apply but don't save" = "Apply but don't save";
-"Save but don't apply" = "Save but don't apply";
 "Cancel" = "Cancel";
 
 "Default" = "Default";
 
 "Hours" = "Hours";
-"Hour" = "Hour";
 "Minutes" = "Minutes";
-"Minute" = "Minute";
 "Seconds" = "Seconds";
-"Second" = "Second";
 
 "Mandarin" = "Mandarin";
 "Cantonese" = "Cantonese";
@@ -47,43 +31,16 @@
 "Regular" = "Regular";
 "At Specific Times" = "At Specific Times";
 
-"Edit" = "Edit";
-"Delete" = "Delete";
-
 "Vibrate" = "Vibrate";
-
-"Gesture Controls" = "Gesture Controls";
 "Font Style" = "Font Style";
-"Global Settings" = "Global Settings";
-"gesture instructions" = "Set Timer: Swipe up with 1 finger\nMy Settings: Swipe up with 2 fingers\n Add New Settings: Double tap with 2 fingers\nChange Mode: Swipe to the left or right with two fingers";
 
 "Timer Animation" = "Timer Animation";
-"Night Mode" = "Night Mode";
-"Switch to Clock Mode" = "Switch to Clock Mode";
 
 "Only applicable in Stopwatch Mode" = "Only applicable in Stopwatch Mode";
 "Counting" = "Counting";
 
-"Changed to Stopwatch Mode" = "Changed to Stopwatch Mode";
-"Changed to Timer Mode" = "Changed to Timer Mode";
-"Changed to Clock Mode" = "Changed to Clock Mode";
-
-"Screenshot has been saved." = "Screenshot has been saved.";
-
-"Save" = "Save";
 "Current Options" = "Current Options";
-"Tip" = "Tip";
-"Here you can save a frequently used timer option. If you just want to edit the currently applied timer option, please go back to the timer and swipe to the left" = "Here you can save a frequently used timer option. If you just want to edit the currently applied timer option, please go back to the timer and swipe to the left";
-
-"Use True Time" = "Use True Time";
-"This will use the actual time whenever possible, instead of the device time, in Clock Mode" = "This will use the actual time whenever possible, instead of the device time, in Clock Mode";
-
-" h" = " h";
-" m" = " m";
-" s" = " s";
-
-"Analog Clock" = "Analog Clock";
-"This will show an analog clock instead of a digital one in Clock Mode." = "This will show an analog clock instead of a digital one in Clock Mode.";
+"All Timer Options" = "All Timer Options";
 
 "Appearance" = "Appearance";
 "Please enter the remind time and reminder message." = "Please enter the remind time and reminder message.";
