@@ -4,7 +4,7 @@ class AnalogClockView: UIView {
     
     var labels = [UILabel]()
     
-    var dateComponents: DateComponents!
+    var date: Date!
     var displayLink: CADisplayLink!
     
     var font = UIFont.monospacedDigitSystemFont(ofSize: 20, weight: .regular) {
@@ -49,9 +49,9 @@ class AnalogClockView: UIView {
     }
     
     @objc func updateDisplay() {
-        let newDateComponents = Calendar.autoupdatingCurrent.dateComponents([.hour, .minute, .second], from: Date())
-        if dateComponents == nil || newDateComponents != dateComponents {
-            dateComponents = newDateComponents
+        let newDate = Date()
+        if date == nil || Int(date.timeIntervalSince1970) != Int(newDate.timeIntervalSince1970) {
+            date = newDate
             setNeedsDisplay()
         }
     }
@@ -101,7 +101,7 @@ class AnalogClockView: UIView {
             }
         }
         
-        guard let dc = dateComponents else { return }
+        guard let dc = date.map({ Calendar.autoupdatingCurrent.dateComponents([.hour, .minute, .second], from: $0) }) else { return }
         func calculateHourAngle() -> CGFloat {
             let hourPart = dc.hour!.f / 12.f
             let minutePart = dc.minute!.f / (12 * 60).f
