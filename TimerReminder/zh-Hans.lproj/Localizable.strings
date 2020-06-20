@@ -1,12 +1,3 @@
-"My Timer Settings" = "我的计时器设置";
-"Add New Timer Settings" = "增加计时器设置";
-"Set Timer" = "设置计时器";
-"Switch to Stopwatch Mode" = "切换至秒表模式";
-"Switch to Timer Mode" = "切换至计时器模式";
-"Settings applied" = "已应用设置";
-
-"Add Settings" = "增加设置";
-"Edit Settings" = "编辑设置";
 "This is the language in which the reminder messages and the \"Time is up\" message will be spoken." = "提醒信息和“时间到”信息会以这个语言说出";
 "Name:" = "名字：";
 "Language" = "语言";
@@ -19,23 +10,16 @@
 "Leave blank for default" = "留空以使用默认值";
 "Sound" = "声音";
 "Reminders" = "提醒";
-"No. of Reminders" = "提醒数";
 "Remind Every" = "提醒间隔";
 "Reminder" = "提醒";
 "Remind At" = "提醒时间";
-"Save and apply" = "储存并应用";
-"Apply but don't save" = "应用但不储存";
-"Save but don't apply" = "储存但不应用";
 "Cancel" = "取消";
 
 "Default" = "默认";
 
 "Hours" = "小时";
-"Hour" = "小时";
 "Minutes" = "分钟";
-"Minute" = "分钟";
 "Seconds" = "秒";
-"Second" = "秒";
 
 "Mandarin" = "普通话";
 "Cantonese" = "粤语";
@@ -47,44 +31,16 @@
 "Regular" = "在固定的时间间隔之间";
 "At Specific Times" = "在特定时间点";
 
-"Edit" = "编辑";
-"Delete" = "删除";
-
 "Vibrate" = "震动";
-
-"Gesture Controls" = "手势控制";
 "Font Style" = "字体样式";
-"Global Settings" = "全局设置";
-"gesture instructions" = "设定计时器：用一只手指向上滑动\n我的设定：用两只手指向上滑动\n增加设定：用两只手指双击\n改变模式：用两只手指向左或右滑动";
 
 "Timer Animation" = "计时器动画效果";
-"Night Mode" = "夜间模式";
-"Switch to Clock Mode" = "切换至时钟模式";
 
 "Only applicable in Stopwatch Mode" = "只适用于秒表模式";
 "Counting" = "读秒";
 
-"Changed to Stopwatch Mode" = "已切换至秒表模式";
-"Changed to Timer Mode" = "已切换至计时器模式";
-"Changed to Clock Mode" = "已切换至时钟模式";
-
-"Screenshot has been saved." = "截图已保存";
-
-"Save" = "儲存";
 "Current Options" = "快速设置";
 "All Timer Options" = "所有计时器设置";
-"Tip" = "小貼士";
-"Here you can save a frequently used timer option. If you just want to edit the currently applied timer option, please go back to the timer and swipe to the left" = "在這裡可以儲存經常用的計時器設定，如果只想要編輯現在已被套用的設定，請返回計時器並向左滑動。";
-
-"Use True Time" = "使用实际时间";
-"This will use the actual time whenever possible, instead of the device time, in Clock Mode" = "打开这个选项会使时钟模式尽可能地使用实际时间，而并非系统时间。";
-
-" h" = "小时";
-" m" = "分";
-" s" = "秒";
-
-"Analog Clock" = "指针式时钟";
-"This will show an analog clock instead of a digital one in Clock Mode." = "打开这个选项会使时钟模式显示一个指针式的时钟。";
 
 "Appearance" = "外观";
 "Please enter the remind time and reminder message." = "请输入提醒时间和提示语";
