@@ -1,7 +1,6 @@
 import UIKit
 import MaterialComponents
 import SnapKit
-import EmptyDataSet_Swift
 
 class TimerOptionsListViewController : UITableViewController {
     var tableViewTopInset: CGFloat?

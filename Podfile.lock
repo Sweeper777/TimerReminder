@@ -1,5 +1,4 @@
 PODS:
-  - EmptyDataSet-Swift (5.0.0)
   - Eureka (5.2.1)
   - Firebase/AdMob (6.26.0):
     - Firebase/CoreOnly
@@ -140,7 +139,6 @@ PODS:
   - TabPageViewController (0.2.7)
 
 DEPENDENCIES:
-  - EmptyDataSet-Swift
   - Eureka
   - Firebase/AdMob
   - Firebase/Core
@@ -160,7 +158,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - EmptyDataSet-Swift
     - Eureka
     - Firebase
     - FirebaseAnalytics
@@ -206,7 +203,6 @@ CHECKOUT OPTIONS:
     :git: https://github.com/AtomicSLLC/SlideMenuControllerSwift.git
 
 SPEC CHECKSUMS:
-  EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   Eureka: c883105488e05bc65539f583246ecf9657cabbfe
   Firebase: 7cf5f9c67f03cb3b606d1d6535286e1080e57eb6
   FirebaseAnalytics: 96634d356482d4f3af8fe459a0ebf19a99c71b75
@@ -238,6 +234,6 @@ SPEC CHECKSUMS:
   SwiftyUtils: 4c99e810e769063dbd5d4e83b486961a5d470aeb
   TabPageViewController: c37a1257a50c2b50712dde61bf499768eee95b67
 
-PODFILE CHECKSUM: c23bdba9fb4127f575889799b22281eb28c21fa6
+PODFILE CHECKSUM: 6bfda183e8102684782d318afb75fb9506caf25f
 
 COCOAPODS: 1.9.1

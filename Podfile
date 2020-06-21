@@ -18,7 +18,6 @@ target 'TimerReminder' do
   pod 'Keyboard+LayoutGuide'
   pod 'SlideMenuControllerSwift', :git => 'https://github.com/AtomicSLLC/SlideMenuControllerSwift.git', :branch => 'swift5'
   pod 'TabPageViewController'
-  pod 'EmptyDataSet-Swift'
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
 end
