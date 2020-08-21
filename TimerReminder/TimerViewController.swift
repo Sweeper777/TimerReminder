@@ -7,6 +7,7 @@ import SwiftyUtils
 import SlideMenuControllerSwift
 import TabPageViewController
 import GoogleMobileAds
+import AdSupport
 
 class TimerViewController: UIViewController {
     
@@ -98,6 +99,7 @@ class TimerViewController: UIViewController {
         digitalAnalogSelector.setTitle("Digital".localised, forSegmentAt: 0)
         digitalAnalogSelector.setTitle("Analog".localised, forSegmentAt: 1)
         
+        // TODO: Ask for Ad Tracking permission!
         adBanner.rootViewController = self
         adBanner.adUnitID = adUnitId
         let request = GADRequest()
