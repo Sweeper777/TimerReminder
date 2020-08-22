@@ -116,6 +116,8 @@ class TimerViewController: UIViewController {
             self.adBanner.load(request)
         }
         
+        subscribeToTimer(withInitial: 60)
+        
         playButtonIsPlay.distinctUntilChanged().map {
             $0 ? UIImage(systemName: "play.fill") : UIImage(systemName: "pause.fill")
             }.bind(to: playButton.rx.image()).disposed(by: disposeBag)
@@ -152,7 +154,6 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         setUpView()
-        subscribeToTimer(withInitial: 60)
         
         setTimerView.delegate = self
         
