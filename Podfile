@@ -11,7 +11,6 @@ target 'TimerReminder' do
   pod 'LTMorphingLabel'
   pod 'RxSwift'
   pod 'RxCocoa'
-  pod 'Eureka'
   pod 'SplitRow'
   pod 'MaterialComponents/Buttons'
   pod 'SnapKit'
@@ -20,5 +19,6 @@ target 'TimerReminder' do
   pod 'TabPageViewController'
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
+  pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'xcode12'
 end
 

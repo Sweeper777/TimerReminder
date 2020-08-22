@@ -137,7 +137,7 @@ PODS:
   - TabPageViewController (0.2.7)
 
 DEPENDENCIES:
-  - Eureka
+  - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `xcode12`)
   - Firebase/AdMob
   - Firebase/Core
   - "Keyboard+LayoutGuide"
@@ -156,7 +156,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - Eureka
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -185,6 +184,9 @@ SPEC REPOS:
     - TabPageViewController
 
 EXTERNAL SOURCES:
+  Eureka:
+    :branch: xcode12
+    :git: https://github.com/xmartlabs/Eureka.git
   SCLAlertView:
     :git: https://github.com/vikmeup/SCLAlertView-Swift.git
   SlideMenuControllerSwift:
@@ -192,6 +194,9 @@ EXTERNAL SOURCES:
     :git: https://github.com/AtomicSLLC/SlideMenuControllerSwift.git
 
 CHECKOUT OPTIONS:
+  Eureka:
+    :commit: f5651e328e099393e51b63f1abe78153cbacf90f
+    :git: https://github.com/xmartlabs/Eureka.git
   SCLAlertView:
     :commit: f08ec93c299a221210e59462c84c79410050e5b7
     :git: https://github.com/vikmeup/SCLAlertView-Swift.git
@@ -230,6 +235,6 @@ SPEC CHECKSUMS:
   SwiftyUtils: 4c99e810e769063dbd5d4e83b486961a5d470aeb
   TabPageViewController: c37a1257a50c2b50712dde61bf499768eee95b67
 
-PODFILE CHECKSUM: 6bfda183e8102684782d318afb75fb9506caf25f
+PODFILE CHECKSUM: f5eb3a350456e405e0b6973774393b2d5aede294
 
 COCOAPODS: 1.9.1
