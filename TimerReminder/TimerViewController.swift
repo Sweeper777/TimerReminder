@@ -8,6 +8,7 @@ import SlideMenuControllerSwift
 import TabPageViewController
 import GoogleMobileAds
 import AdSupport
+import AppTrackingTransparency
 
 class TimerViewController: UIViewController {
     
@@ -99,11 +100,12 @@ class TimerViewController: UIViewController {
         digitalAnalogSelector.setTitle("Digital".localised, forSegmentAt: 0)
         digitalAnalogSelector.setTitle("Analog".localised, forSegmentAt: 1)
         
-        // TODO: Ask for Ad Tracking permission!
-        adBanner.rootViewController = self
-        adBanner.adUnitID = adUnitId
-        let request = GADRequest()
-        adBanner.load(request)
+        ATTrackingManager.requestTrackingAuthorization { (status) in
+            self.adBanner.rootViewController = self
+            self.adBanner.adUnitID = adUnitId
+            let request = GADRequest()
+            self.adBanner.load(request)
+        }
         
         playButtonIsPlay.distinctUntilChanged().map {
             $0 ? UIImage(systemName: "play.fill") : UIImage(systemName: "pause.fill")
