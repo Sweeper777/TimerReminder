@@ -13,12 +13,12 @@ import AppTrackingTransparency
 class TimerViewController: UIViewController {
     
     @IBOutlet var timerLabel: LTMorphingLabel!
-    @IBOutlet var analogClockView: AnalogClockView!
+//    @IBOutlet var analogClockView: AnalogClockView!
     var playButton: MDCFloatingButton!
     var resetButton: MDCFloatingButton!
     var optionsButton: MDCFloatingButton!
     var modeSelector: UISegmentedControl!
-    @IBOutlet var digitalAnalogSelector: UISegmentedControl!
+//    @IBOutlet var digitalAnalogSelector: UISegmentedControl!
     @IBOutlet var hud: UIView!
     @IBOutlet var setTimerView: SetTimerView!
     @IBOutlet var adBanner: GADBannerView!
@@ -29,7 +29,7 @@ class TimerViewController: UIViewController {
             timer.options = currentOptions
             timerLabel.morphingEffect = currentOptions.textAnimation
             timerLabel.textAttributes![.font] = currentOptions.font.uiFont
-            analogClockView.font = currentOptions.font.uiFont
+//            analogClockView.font = currentOptions.font.uiFont
             timerLabel.updateFontSizeToFit()
             timerSoundEffectPlayer.language = currentOptions.language
             timerSoundEffectPlayer.timeUpOption = currentOptions.timeUpOption
@@ -97,8 +97,8 @@ class TimerViewController: UIViewController {
             make.centerY.equalTo(optionsButton.snp.centerY).labeled("mode selector on the same line of options button")
         }
         
-        digitalAnalogSelector.setTitle("Digital".localised, forSegmentAt: 0)
-        digitalAnalogSelector.setTitle("Analog".localised, forSegmentAt: 1)
+//        digitalAnalogSelector.setTitle("Digital".localised, forSegmentAt: 0)
+//        digitalAnalogSelector.setTitle("Analog".localised, forSegmentAt: 1)
         
         if #available(iOS 14, *) {
             ATTrackingManager.requestTrackingAuthorization { (status) in
@@ -140,14 +140,14 @@ class TimerViewController: UIViewController {
             self?.slideMenuController()?.openRight()
             }).disposed(by: disposeBag)
         
-        Observable.combineLatest(modeSelector.rx.selectedSegmentIndex, digitalAnalogSelector.rx.selectedSegmentIndex)
-            .map { !($0.0 == 2 && $0.1 == 1) }
-            .bind(to: analogClockView.rx.isHidden)
-        .disposed(by: disposeBag)
-        Observable.combineLatest(modeSelector.rx.selectedSegmentIndex, digitalAnalogSelector.rx.selectedSegmentIndex)
-            .map { $0.0 == 2 && $0.1 == 1 }
-            .bind(to: timerLabel.rx.isHidden)
-        .disposed(by: disposeBag)
+//        Observable.combineLatest(modeSelector.rx.selectedSegmentIndex, digitalAnalogSelector.rx.selectedSegmentIndex)
+//            .map { !($0.0 == 2 && $0.1 == 1) }
+//            .bind(to: analogClockView.rx.isHidden)
+//        .disposed(by: disposeBag)
+//        Observable.combineLatest(modeSelector.rx.selectedSegmentIndex, digitalAnalogSelector.rx.selectedSegmentIndex)
+//            .map { $0.0 == 2 && $0.1 == 1 }
+//            .bind(to: timerLabel.rx.isHidden)
+//        .disposed(by: disposeBag)
     }
     
     override func viewDidLoad() {
@@ -240,17 +240,17 @@ class TimerViewController: UIViewController {
         case 0:
             timer = Timer.newCountDownInstance(options: currentOptions)
             setTimerView.isHidden = false
-            digitalAnalogSelector.isHidden = true
+//            digitalAnalogSelector.isHidden = true
             subscribeToTimer(withInitial: 60)
         case 1:
             timer = Timer.newCountUpInstance(options: currentOptions)
             setTimerView.isHidden = true
-            digitalAnalogSelector.isHidden = true
+//            digitalAnalogSelector.isHidden = true
             subscribeToTimer(withInitial: 0)
         case 2:
             timer = Timer.newClockInstance(options: currentOptions)
             setTimerView.isHidden = true
-            digitalAnalogSelector.isHidden = false
+//            digitalAnalogSelector.isHidden = false
             subscribeToTimer(withInitial: -1)
         default:
             fatalError()
