@@ -100,7 +100,16 @@ class TimerViewController: UIViewController {
         digitalAnalogSelector.setTitle("Digital".localised, forSegmentAt: 0)
         digitalAnalogSelector.setTitle("Analog".localised, forSegmentAt: 1)
         
-        ATTrackingManager.requestTrackingAuthorization { (status) in
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization { (status) in
+                self.adBanner.rootViewController = self
+                self.adBanner.adUnitID = adUnitId
+                let request = GADRequest()
+                DispatchQueue.main.async {
+                    self.adBanner.load(request)
+                }
+            }
+        } else {
             self.adBanner.rootViewController = self
             self.adBanner.adUnitID = adUnitId
             let request = GADRequest()
