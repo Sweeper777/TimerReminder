@@ -8,7 +8,9 @@ import SlideMenuControllerSwift
 import TabPageViewController
 import GoogleMobileAds
 import AdSupport
+#if canImport(AppTrackingTransparency)
 import AppTrackingTransparency
+#endif
 
 class TimerViewController: UIViewController {
     
@@ -100,21 +102,21 @@ class TimerViewController: UIViewController {
         digitalAnalogSelector.setTitle("Digital".localised, forSegmentAt: 0)
         digitalAnalogSelector.setTitle("Analog".localised, forSegmentAt: 1)
         
-        if #available(iOS 14, *) {
-            ATTrackingManager.requestTrackingAuthorization { (status) in
-                self.adBanner.rootViewController = self
-                self.adBanner.adUnitID = adUnitId
-                let request = GADRequest()
-                DispatchQueue.main.async {
-                    self.adBanner.load(request)
-                }
-            }
-        } else {
+//        if #available(iOS 14, *) {
+//            ATTrackingManager.requestTrackingAuthorization { (status) in
+//                self.adBanner.rootViewController = self
+//                self.adBanner.adUnitID = adUnitId
+//                let request = GADRequest()
+//                DispatchQueue.main.async {
+//                    self.adBanner.load(request)
+//                }
+//            }
+//        } else {
             self.adBanner.rootViewController = self
             self.adBanner.adUnitID = adUnitId
             let request = GADRequest()
             self.adBanner.load(request)
-        }
+//        }
         
         subscribeToTimer(withInitial: 60)
         
