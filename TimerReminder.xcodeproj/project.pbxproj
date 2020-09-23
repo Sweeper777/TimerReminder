@@ -40,7 +40,6 @@
 		5A11C6FA247A7D140082302E /* TimerSoundEffectPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A11C6F9247A7D140082302E /* TimerSoundEffectPlayer.swift */; };
 		5A11E034247FBA9C00D9A2F3 /* TimerOptionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A11E033247FBA9C00D9A2F3 /* TimerOptionsManager.swift */; };
 		5A1636C32475151F00B6BD33 /* TimeIntervalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1636C22475151F00B6BD33 /* TimeIntervalRow.swift */; };
-		5A25568D248B8D4800BAEFD2 /* SecretStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25568C248B8D4800BAEFD2 /* SecretStuff.swift */; };
 		5A25568F248B8E7100BAEFD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A25568E248B8E7100BAEFD2 /* GoogleService-Info.plist */; };
 		5A39D1E224976E89008EE4EB /* AnalogClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A39D1E124976E89008EE4EB /* AnalogClockView.swift */; };
 		5AFF72AD1D6610B00031429E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AFF72AF1D6610B00031429E /* InfoPlist.strings */; };
@@ -102,7 +101,6 @@
 		5A19FDDD1DB94CF70022F794 /* RWDropdownMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RWDropdownMenu.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/RWDropdownMenu/RWDropdownMenu.framework"; sourceTree = "<group>"; };
 		5A19FDDE1DB94CF70022F794 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		5A1C1BFC1DBF69120009162D /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = "../../Library/Developer/Xcode/DerivedData/TimerReminder-bvmyauthgubzckdlqbnmnadyvuye/Build/Products/Debug-iphonesimulator/DropDown/DropDown.framework"; sourceTree = "<group>"; };
-		5A25568C248B8D4800BAEFD2 /* SecretStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretStuff.swift; sourceTree = "<group>"; };
 		5A25568E248B8E7100BAEFD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A39D1E124976E89008EE4EB /* AnalogClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogClockView.swift; sourceTree = "<group>"; };
 		5A46676A1E2D032100132B56 /* ImageScrollView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageScrollView.framework; path = "Pods/../build/Debug-iphoneos/ImageScrollView/ImageScrollView.framework"; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 				5A0D539C2487A59300568C31 /* TimerOptionsEnums.swift */,
 				5A013756245EC659001A1DEE /* TimerOptionsObject.swift */,
 				5A11E033247FBA9C00D9A2F3 /* TimerOptionsManager.swift */,
-				5A25568C248B8D4800BAEFD2 /* SecretStuff.swift */,
 				5A034988244DA86E00AEB002 /* SetTimerView.swift */,
 				5A39D1E124976E89008EE4EB /* AnalogClockView.swift */,
 				5A1636C22475151F00B6BD33 /* TimeIntervalRow.swift */,
@@ -367,7 +364,6 @@
 				5A0334EB244C53AA00A6F71F /* Timer.swift in Sources */,
 				5A0C2FB32465836B007378B6 /* MySlideViewController.swift in Sources */,
 				5A067CB91D4490A500238AF5 /* AppDelegate.swift in Sources */,
-				5A25568D248B8D4800BAEFD2 /* SecretStuff.swift in Sources */,
 				5A1636C32475151F00B6BD33 /* TimeIntervalRow.swift in Sources */,
 				5A0334ED244C54FB00A6F71F /* TimerOptions.swift in Sources */,
 				5A067CC11D4490A500238AF5 /* TimerReminder.xcdatamodeld in Sources */,
